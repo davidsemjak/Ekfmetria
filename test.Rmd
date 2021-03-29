@@ -1,5 +1,5 @@
 ---
-title: "R Notebook"
+title: "Ekfmetria"
 output:
   pdf_document:
     keep_tex: yes
@@ -7,12 +7,19 @@ output:
     df_print: paged
 ---
 
+
+
 # Toto je testik hehehe
 **toot vraj spravi bold**
 
-Skusme drbnut aj obrazok
+**Skusme** __drbnut__ aj obrazok.  
 
-no pisem tu novy text
+Table Header  
+___________
+Table cell
+
+
+no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem tu novy text 
 
 
 __test__
