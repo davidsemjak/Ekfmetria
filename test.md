@@ -1,18 +1,14 @@
 ---
 title: "Sprievodca Ekonometriou"
-output: 
-  pdf_document:
-    keep_tex: yes
+output:
   html_document:
     df_print: paged
     keep_md: true
+  pdf_document:
+    keep_tex: yes
 ---
 
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  fig.path = "README_figs/README-"
-)
-```
+
 
 # Úvod
 
