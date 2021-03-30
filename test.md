@@ -1,13 +1,3 @@
----
-title: "Sprievodca Ekonometriou"
-output:
-  html_document:
-    df_print: paged
-    keep_md: true
-  pdf_document:
-    keep_tex: yes
----
-
 
 
 # Úvod
