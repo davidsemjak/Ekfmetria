@@ -36,11 +36,61 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Sprievodca Ekonometriou},
+  pdftitle={Praktická časť diplomovej práce},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -62,18 +112,15 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
-\title{Sprievodca Ekonometriou}
+\title{Praktická časť diplomovej práce}
 \author{}
 \date{\vspace{-2.5em}}
 
 \begin{document}
 \maketitle
 
-\hypertarget{uxfavod}{%
-\section{Úvod}\label{uxfavod}}
-
 \hypertarget{sprievodca-ekfmetriou}{%
-\subsection{Sprievodca ekfmetriou}\label{sprievodca-ekfmetriou}}
+\section{Sprievodca ekfmetriou}\label{sprievodca-ekfmetriou}}
 
 Sprievodca ekonometriou má za úlohu priblížiť Vám ekonometriu, a pomôcť
 Vám jej porozumieť. Sprievodcu píšem ako študent, ktorý sa ekonometriu
@@ -118,8 +165,8 @@ Ekonometria.
 
 \newpage
 
-\hypertarget{zuxe1klady-pruxe1ce-v-r}{%
-\section{Základy práce v R}\label{zuxe1klady-pruxe1ce-v-r}}
+\hypertarget{zuxe1klady-programovania-v-r}{%
+\section{Základy programovania v R}\label{zuxe1klady-programovania-v-r}}
 
 \begin{quote}
 Sprievodca je interaktívny, teda začneme stiahnutím a inštaláciou
@@ -129,45 +176,251 @@ sebe programovacie prostredie, avšak dnešným štandardom je používanie
 intregrovaného vývojového prostredia (IDE) v podobe RStudia.
 \end{quote}
 
-Priradiť hodnotu
+\hypertarget{aritmetickuxe9-operuxe1tory}{%
+\subsection{Aritmetické operátory}\label{aritmetickuxe9-operuxe1tory}}
+
+\emph{Poďme teda rovno na vec. Začneme základnými funkciami.} R môžeme
+používať ako kalkulačku, teda za pomoci klasických aritmetických
+operátorov môžeme sčítať, odčítať, násobiť, deliť či umocňovať:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \SpecialCharTok{+} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \SpecialCharTok{{-}} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \SpecialCharTok{*} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 25
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \SpecialCharTok{/} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5}\SpecialCharTok{\^{}}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 25
+\end{verbatim}
+
+R-ko skrýva mnoho ďalších operátorov:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# zobrazí zvyšok z delenia}
+\DecValTok{5} \SpecialCharTok{\%\%} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+My sa budeme zapodievať len tým, s čím sa na cvičeniach stretneme. Našou
+úlohou nie je naučiť sa dokonalo ovládať R, ale naučiť sa používať ho v
+dostatočnej miere, aby sme s ním zvládli to, čo v najbližšej dobe budeme
+potrebovať.
+
+\newpage
+
+\hypertarget{baluxedky}{%
+\subsection{Balíky}\label{baluxedky}}
+
+Okrem základných operátorov budeme využívať aj funkcie:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{abs}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sqrt}\NormalTok{(}\DecValTok{8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.828427
+\end{verbatim}
+
+Tieto funkcie sa nachádzajú v balíkoch, ktoré si môžeme predstaviť ako
+také Addony. R figuruje balíkmi, ktoré sú predinštalované, a zahŕňajú
+najpoužívanejšie a najzákladnejšie funkcie. Vyššie použíté funkcie sa
+nachádzajú v balíku base. To, v akom balíku sa funkcia nachádza zistíte
+po napísaní funkcie
+
+\includegraphics{D:/Desktop/diplomka obrazky/1.png}
+
+to však len zapredpokladu, že už máte balík nainštalovaný. Ak narazíte
+na názov funkcie, ktorú chcete použiť, avšak nemáte nainštalovaný balík
+a chcete zistiť jeho názov, buď si funkciu zadajte do Google, alebo do
+konzoly napíšte:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ?meno funkcie}
+\NormalTok{?base}
+
+\CommentTok{\# ??meno funkcie}
+\NormalTok{??base}
+
+\CommentTok{\# help(menofunkcie)}
+\FunctionTok{help}\NormalTok{(base)}
+\end{Highlighting}
+\end{Shaded}
+
+My budeme často využívať predinštalované balíky \textbf{base} a
+\textbf{stats}, avšak za pochodu si budeme inštalovať aj ďalšie balíky,
+s ktorými sa na cvičeniach stretnete. Nový balík je potrebné prv
+nainštalovať a potom ho načítať do prostredia.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# stiahneme a našintalujeme pomocou R konzoly a funkcie install.packages()}
+\CommentTok{\# ! názov balíka je citlivý na veľkosť písma}
+\CommentTok{\# ! názov musí byť v úvodzovkách}
+
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"fBasics"}\NormalTok{)}
+
+\CommentTok{\# po nainštalovaní máme balík stiahnutý v našom PC, a tento príkaz už viac nepoužívame}
+\CommentTok{\# ak však chceme funkcie z balíka použiť, musíme po zapnutí R{-}ka balík načítať príkazom}
+
+\FunctionTok{library}\NormalTok{(fBasics)}
+
+\CommentTok{\# ! tu už úvodzovky nie sú potrebné}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\emph{Pri inštalovaní názov balíka zabalíme do úvodzoviek. Pri jeho
+načítaní pomocou library() už úvodzovky nepíšeme. Na pohovor si vezmeme
+oblek (úvodzovky), ale po prijatí už chodíme do práce bez obleku.}
+\end{quote}
+
+\hypertarget{objekty-a-vektory}{%
+\subsection{Objekty a vektory}\label{objekty-a-vektory}}
+
+Často chceme vyrátané výsledky znova použiť, a preto by bolo vhodné si
+ich niekde uložiť. Na ukladanie a uskladnenie výsledkov slúžia objekty.
+Každý objekt má meno a obsah. Meno si môžeme zadať akékoľvek, musí však:
+
+\begin{itemize}
+\tightlist
+\item
+  začínať malým alebo veľkým písmenom a nie číslom
+\item
+  obsahovať iba čísla, písmená alebo niektoré špeciálne znaky ako
+  \("."\) či "\_".
+\end{itemize}
+
+\begin{quote}
+\emph{Nezabúdajme, že R je case sensitive (rozlišuje veľké a malé
+písmená).}
+\end{quote}
+
+Povedzme že chceme vytvoriť objekt \textbf{a} a priradiť mu hodnotu
+\(2 + 2\). Na priradenie obsahu je možné použiť \("="\), avšak
+štandardom je používanie \("<-"\).
+
+\begin{quote}
+\emph{Znak \textless- nie je nutné písať dvoma znakmi, používa sa na to
+skratka \textbf{``ľavý Alt'' a ``-''}. Na SK klávesnici nájdeme znak
+naľavo od pravého Shiftu, na EN klávesnici zvyčajne naľavo od Backspacu.
+Osobne programujem s EN klávesnicou, nech som použíteľný v akomkoľvek
+štáte bez potreby inštalovať SK klávesnicu.}
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Priradíme teda objektu "a" výsledok "2 + 2".}
+
+\NormalTok{a }\OtherTok{\textless{}{-}} \DecValTok{2} \SpecialCharTok{+} \DecValTok{2}
+
+\CommentTok{\# Po napísaní názvu objektu do konzoly nám konzola ukáže už len výsledok.}
+
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Nové priradenie hodnoty starému objektu prepíše starú hodnotu.}
+
+\NormalTok{a }\OtherTok{\textless{}{-}} \DecValTok{5} \SpecialCharTok{+} \DecValTok{5}
+
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\#nainštalovat len jeden balik a potom ked prejdeme vektory tak c(viac
+balikov)
 
 \hypertarget{import-uxfadajov}{%
 \subsection{Import údajov}\label{import-uxfadajov}}
 
-Table Header\\
-\_\_\_\_\_\_\_\_\_\_\_ Table cell
+Table Header
 
-no pisem tu novy text no pisem tu novy text no pisem tu novy text no
-pisem tu novy text no pisem tu novy text no pisem tu novy text no pisem
-tu novy text no pisem tu novy text no pisem tu novy text no pisem tu
-novy text no pisem tu novy text no pisem tu novy text no pisem tu novy
-text no pisem tu novy text no pisem tu novy text no pisem tu novy text
-no pisem tu novy text no pisem tu novy text no pisem tu novy text
-
-\textbf{test} \# Toto je testik hehehe \textbf{toot vraj spravi bold}
-
-Skusme drbnut aj obrazok
-
-no pisem tu novy text
-
-\textbf{test} \# Toto je testik hehehe \textbf{toot vraj spravi bold}
-
-Skusme drbnut aj obrazok
-
-no pisem tu novy text
-
-\textbf{test} \# Toto je testik hehehe \textbf{toot vraj spravi bold}
-
-Skusme drbnut aj obrazok
-
-no pisem tu novy text
-
-\textbf{test} \# Toto je testik hehehe \textbf{toot vraj spravi bold}
-
-Skusme drbnut aj obrazok
-
-no pisem tu novy text
-
-\textbf{test}
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+-\textgreater{} & First Header \\
+\midrule
+\endhead
+Content Cell & Content Cell \\
+Content Cell & Content Cell \\
+\bottomrule
+\end{longtable}
 
 \end{document}
