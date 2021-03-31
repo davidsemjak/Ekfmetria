@@ -4,8 +4,7 @@ output:
   pdf_document:
     keep_tex: yes
   html_document:
-    df_print: paged
-  keep_md: true
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
