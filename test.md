@@ -316,7 +316,7 @@ print(vyska)
 ```
 
 ```
-##  [1] 189 190 169 176 174 173 175 180 175 167
+##  [1] 187 177 164 160 172 180 168 161 178 168
 ```
 
 > _Funkcia by fungovala, aj keby sme to napísali ako_ "sample(160:190, 10, TRUE)". _Je však vhodné písať aj argumenty. Hlavne pri funkciách, ktoré nie sú veľmi bežné. Ak po Vás niekto bude čítať kód, číta sa to lepšie._
@@ -577,7 +577,7 @@ print(viac_ako_170)
 ```
 
 ```
-##  [1] FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE
+##  [1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE
 ```
 
 ```r
@@ -600,7 +600,7 @@ print(vyska_v_cm)
 ```
 
 ```
-## [1] 171 171 177 179 175
+## [1] 186 173 189 178 173
 ```
 
 ## Matice
