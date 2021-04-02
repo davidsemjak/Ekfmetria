@@ -170,8 +170,8 @@ pre code {
 </div>
 
 
-<div id="sprievodca-ekfmetriou" class="section level1">
-<h1>Sprievodca ekfmetriou</h1>
+<div id="sprievodca-ekfmetriou" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Sprievodca ekfmetriou</h1>
 <p>Sprievodca ekonometriou má za úlohu priblížiť Vám ekonometriu, a pomôcť Vám jej porozumieť. Sprievodcu píšem ako študent, ktorý sa ekonometriu začal učiť sám, a sám si prešiel zdĺhavým procesom bádania a usmerňovania. Sprievodca je zostrojený ako-tak súbežne s osnovou a zadaniami, ktoré obdržíte na hodine. Nebudeme sa konkrétne držať vypracovania zadaní, ale skôr princípmi, z ktorých zadania ťažia. Mnoho študentov tento predmet nezaujíma, a zadania vypracujú okopírovaním postupov starších spolužiakov, nuž, pochopiť ekonometriu a jej postupy nie je vôbec jednoduché, a dokážem pochopiť, keď si študenti hľadajú skratky. Na druhú stranu, ekonometria predstavuje skvelú vstupnú bránu do sveta analytiky. Človek je zavalený Machine Learningom, Data Sciencom a AI-čkom, nuž až po sfúknutí pozlátka zistí, že je to zmes matematiky, štatistiky a počítačovej vedy (CS – computer science). Ekonometria je teda skvelou výhovorkou, ako oprášiť matematiku, doučiť sa štatistiku, a naučiť sa troška programovania. R-ko sa môže zdať ako jazyk, ktorý žije v tieni Pythonu, avšak, akoby nejedna Dominika vedela povedať, netreba sa nechať voviesť do omylu. R-ko je najvhodnejší programovací jazyk pre štatistikov, Google ho zahrnul do najnovších kurzov Google Analytics. Mojou úlohou je pomôcť Vám prekonať problém, ktorý som na začiatku svojej cesty ekonometriou vôbec nepovažoval za problém, a to množstvo materiálov, ktoré zavalí študenta. Pomôžem Vám postupne zložiť skladačku konceptov a teórií, na ktorých ekonometria stojí. Náročnosť prezentovania konceptov bude prispôsobená. Nemá zmysel vysvetľovať odvodzovanie každého estimátora. Cieľom je poskytnúť všeobecný náhľad ekonometrie, a pomôcť Vám pochopiť, a teda príjemnejšie zvládnuť predmet Ekonometria.</p>
 <p> </p>
 <p><strong>Čo nás čaká:</strong></p>
@@ -184,11 +184,13 @@ pre code {
 </ul>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="základy-programovania-v-r" class="section level1">
-<h1>Základy programovania v R</h1>
+<div id="základy-programovania-v-r" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Základy programovania v R</h1>
 <blockquote>
 <p>Sprievodca je interaktívny, teda začneme stiahnutím a inštaláciou <a href="https://cran.r-project.org/mirrors.html">R</a> a <a href="https://cran.r-project.org/mirrors.html">RStudia</a>. R má samo o sebe programovacie prostredie, avšak dnešným štandardom je používanie intregrovaného vývojového prostredia (IDE) v podobe RStudia.</p>
 </blockquote>
+<div id="aritmetické-operátory" class="section level2" number="2.1">
+<h2 number="2.1"><span class="header-section-number">2.1</span> Aritmetické operátory</h2>
 <p><em>Poďme teda rovno na vec. Začneme základnými funkciami.</em> R môžeme používať ako kalkulačku, teda za pomoci klasických aritmetických operátorov môžeme sčítať, odčítať, násobiť, deliť či umocňovať:</p>
 <pre class="r"><code>5 + 5</code></pre>
 <pre><code>## [1] 10</code></pre>
@@ -201,10 +203,14 @@ pre code {
 <pre class="r"><code>5^2</code></pre>
 <pre><code>## [1] 25</code></pre>
 <p>R-ko skrýva mnoho ďalších operátorov:</p>
-<pre class="r"><code># Zobrazí zvyšok z delenia
+<pre class="r"><code># zobrazí zvyšok z delenia
 5 %% 2</code></pre>
 <pre><code>## [1] 1</code></pre>
-<p>my sa budeme zapodievať len tým, s čím sa na cvičeniach stretneme. Našou úlohou nie je naučiť sa dokonalo ovládať R, ale naučiť sa používať ho v dostatočnej miere, aby sme s ním zvládli to, čo v najbližšej dobe budeme potrebovať.</p>
+<p>My sa budeme zapodievať len tým, s čím sa na cvičeniach stretneme. Našou úlohou nie je naučiť sa dokonalo ovládať R, ale naučiť sa používať ho v dostatočnej miere, aby sme s ním zvládli to, čo v najbližšej dobe budeme potrebovať.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="balíky" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Balíky</h2>
 <p>Okrem základných operátorov budeme využívať aj funkcie:</p>
 <pre class="r"><code>mean(2, 4, 6)</code></pre>
 <pre><code>## [1] 2</code></pre>
@@ -212,29 +218,127 @@ pre code {
 <pre><code>## [1] 5</code></pre>
 <pre class="r"><code>sqrt(8)</code></pre>
 <pre><code>## [1] 2.828427</code></pre>
-<p>Tieto funkcie sa nachádzajú v balíkoch, ktoré si môžeme predstaviť ako také Addony. R figuruje balíkmi, ktoré sú predinštalované, a zahŕňajú najpoužívanejšie a najzákladnejšie funkcie. Nás budú zaujímať hlavne balíky <strong>base</strong> a <strong>stats</strong>. Vyššie použíté funkcie sa nachádzajú v balíku base. To, v akom balíku sa funkcia nachádza zistíte po napísaní funkcie</p>
-<center>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMoAAAAbCAYAAAA9BxAiAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADMElEQVR4Xu2ZTWsTURSG8wNc+A9EN7pr48qCLlRQaCUbF4ofYCuKIiJFwYJawYra4meChewUBNeC4MK1UAWLKCpoUcFCXWSRf3DtO+HEk5M7kzvJxCnNW3iYzjn33pnFeXLuTQpbt21xhJBkKAohAVAUQgKIRCkdO0MI8dAmytDIbkKIokWUDZuGKQohHuAF/ACF7QdOtohSOnSckIFGiwI/imMTFIUQC0UhJIB2UcYpCiEWikL6wtTVaVetVt3MrTvNGP5HXI/7H+C5eJdenp25KEfKT13p9AVvjgwGE2fPu/sPH7nDJ061xPMSBeBd8E54N1++E5mKAkmuLSy5ydeLlGWAQTHenp1zB4+Ot8TzFAXvgnfKVBT7O4pvokUkEUJkebPw1n34+MmtrPxxP37+cu/eL7p6vR7FZcznL1+jGMCYy9Mz3hx48fJVFJ99UInGYm3J6TVJf0kS5eLUFVeuVKKtEK6668gWSTg3eamZw5qP5+ebOYyVnJ07d/de27OzFKXxO8qQK4zsHUslipUkVBYUb61WiwocsqDwEcNV8rrA7b3mybPn7tv3pUgkiCLy4R6538vLUdw3l2QLCtwWMkAMxS7Fivu4DmNlw1gtjgZr6HXsvZC0Rie0KMVd+93GzcV0osRJIkRnFs88IFKggFHIKGiJocBR6LpjAJFI5usc5MBaej2Ms/ekP6A7oEv4JAFWDCsUctIVgO44krNrQyR0ED3PN05A3HayELQo8GN4575wUXqRBHQSBR0irrgRhxiSx1W6BkXJl6SOEicKOki5XGl2G1x9XwhgDkSQ7VWaLRWelUVHgR879oyGidKrJCBJFORxtecSQbZrmCtj2VHWBnbbJGhRpBNI4eKqP+kxNu6THzHM1WN95xJNGqF8dC0Kzh44g3QrCegkim/7JQd2m8PBHfcUJX+SRNHbI91dRBzJXb9xsymDzQHdGTrlZUw+ogCPLKGSkPVLnCh5kq8oQMlCSQhAMerzxloAnSmrHxy7EwWsykJJiCbuW6o8kC2f3uqlxSuKW/1LJQoh6xyvKLajEEIaUBRCAmgRxW69CCEN2FEICeCfKKPuLzF77gE4JZKfAAAAAElFTkSuQmCC" /></p>
-</center>
-<p>to však len zapredpokladu, že už máte balík nainštalovaný. Ak narazíte na názov funkcie, ktorú chcete použiť, avšak nemáte nainštalovaný balík, buď si funkciu zadajte do Google, alebo do konzoly napíšte: ´?meno funkcie, ??meno funkcie, help(“menofunkcie”). Priradiť hodnotu</p>
-<div id="import-údajov" class="section level2">
-<h2>Import údajov</h2>
+<p>Tieto funkcie sa nachádzajú v balíkoch, ktoré si môžeme predstaviť ako také Addony. R figuruje balíkmi, ktoré sú predinštalované, a zahŕňajú najpoužívanejšie a najzákladnejšie funkcie. Vyššie použíté funkcie sa nachádzajú v balíku base. To, v akom balíku sa funkcia nachádza zistíte po napísaní funkcie</p>
+<p> </p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMoAAAAbCAYAAAA9BxAiAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADMElEQVR4Xu2ZTWsTURSG8wNc+A9EN7pr48qCLlRQaCUbF4ofYCuKIiJFwYJawYra4meChewUBNeC4MK1UAWLKCpoUcFCXWSRf3DtO+HEk5M7kzvJxCnNW3iYzjn33pnFeXLuTQpbt21xhJBkKAohAVAUQgKIRCkdO0MI8dAmytDIbkKIokWUDZuGKQohHuAF/ACF7QdOtohSOnSckIFGiwI/imMTFIUQC0UhJIB2UcYpCiEWikL6wtTVaVetVt3MrTvNGP5HXI/7H+C5eJdenp25KEfKT13p9AVvjgwGE2fPu/sPH7nDJ061xPMSBeBd8E54N1++E5mKAkmuLSy5ydeLlGWAQTHenp1zB4+Ot8TzFAXvgnfKVBT7O4pvokUkEUJkebPw1n34+MmtrPxxP37+cu/eL7p6vR7FZcznL1+jGMCYy9Mz3hx48fJVFJ99UInGYm3J6TVJf0kS5eLUFVeuVKKtEK6668gWSTg3eamZw5qP5+ebOYyVnJ07d/de27OzFKXxO8qQK4zsHUslipUkVBYUb61WiwocsqDwEcNV8rrA7b3mybPn7tv3pUgkiCLy4R6538vLUdw3l2QLCtwWMkAMxS7Fivu4DmNlw1gtjgZr6HXsvZC0Rie0KMVd+93GzcV0osRJIkRnFs88IFKggFHIKGiJocBR6LpjAJFI5usc5MBaej2Ms/ekP6A7oEv4JAFWDCsUctIVgO44krNrQyR0ED3PN05A3HayELQo8GN4575wUXqRBHQSBR0irrgRhxiSx1W6BkXJl6SOEicKOki5XGl2G1x9XwhgDkSQ7VWaLRWelUVHgR879oyGidKrJCBJFORxtecSQbZrmCtj2VHWBnbbJGhRpBNI4eKqP+kxNu6THzHM1WN95xJNGqF8dC0Kzh44g3QrCegkim/7JQd2m8PBHfcUJX+SRNHbI91dRBzJXb9xsymDzQHdGTrlZUw+ogCPLKGSkPVLnCh5kq8oQMlCSQhAMerzxloAnSmrHxy7EwWsykJJiCbuW6o8kC2f3uqlxSuKW/1LJQoh6xyvKLajEEIaUBRCAmgRxW69CCEN2FEICeCfKKPuLzF77gE4JZKfAAAAAElFTkSuQmCC" /><br />
+ </p>
+<p>to však len zapredpokladu, že už máte balík nainštalovaný. Ak narazíte na názov funkcie, ktorú chcete použiť, avšak nemáte nainštalovaný balík a chcete zistiť jeho názov, buď si funkciu zadajte do Google, alebo napíšte do konzoly:</p>
+<pre class="r"><code># ?meno funkcie
+?mean
+
+# ??meno funkcie
+??mean
+
+# help(menofunkcie)
+help(mean)</code></pre>
+<p>My budeme často využívať predinštalované balíky <strong>base</strong> a <strong>stats</strong>, avšak za pochodu si budeme inštalovať aj ďalšie balíky, s ktorými sa na cvičeniach stretnete. Nový balík je potrebné prv nainštalovať a potom ho načítať do prostredia.</p>
+<pre class="r"><code># stiahneme a našintalujeme pomocou R konzoly a funkcie install.packages()
+# ! názov balíka je citlivý na veľkosť písma
+# ! názov musí byť v úvodzovkách
+
+install.packages(&quot;fBasics&quot;)
+
+# po nainštalovaní máme balík stiahnutý v našom PC, a tento príkaz už viac nepoužívame
+# ak však chceme funkcie z balíka použiť, musíme po zapnutí R-ka balík načítať príkazom
+
+library(fBasics)
+
+# ! tu už úvodzovky nie sú potrebné</code></pre>
+<blockquote>
+<p><em>Pri inštalovaní názov balíka zabalíme do úvodzoviek. Pri jeho načítaní pomocou library() už úvodzovky nepíšeme. Na pohovor si vezmeme oblek (úvodzovky), ale po prijatí už chodíme do práce bez obleku.</em></p>
+</blockquote>
+</div>
+<div id="objekty-a-vektory" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Objekty a vektory</h2>
+<p>Často chceme vyrátané výsledky znova použiť, a preto by bolo vhodné si ich niekde uložiť. Na ukladanie a uskladnenie výsledkov slúžia objekty. Každý objekt má meno a obsah. Meno si môžeme zadať akékoľvek, musí však:</p>
+<ul>
+<li>začínať malým alebo veľkým písmenom a nie číslom</li>
+<li>obsahovať iba čísla, písmená alebo niektoré špeciálne znaky ako <span class="math inline">\(&quot;.&quot;\)</span> či &quot;_&quot;.</li>
+</ul>
+<blockquote>
+<p><em>Nezabúdajme, že R je case sensitive (rozlišuje veľké a malé písmená).</em></p>
+</blockquote>
+<p>Povedzme že chceme vytvoriť objekt <strong>a</strong> a priradiť mu hodnotu <span class="math inline">\(2 + 2\)</span>. Na priradenie obsahu je možné použiť <span class="math inline">\(&quot;=&quot;\)</span>, avšak štandardom je používanie <span class="math inline">\(&quot;&lt;-&quot;\)</span>.</p>
+<blockquote>
+<p><em>Znak &lt;- nie je nutné písať dvoma znakmi, používa sa na to skratka <strong>“ľavý Alt” a “-”</strong>. Na SK klávesnici nájdeme znak naľavo od pravého Shiftu, na EN klávesnici zvyčajne naľavo od Backspacu. Osobne programujem s EN klávesnicou, nech som použíteľný v akomkoľvek štáte bez potreby inštalovať SK klávesnicu.</em></p>
+</blockquote>
+<pre class="r"><code># Priradíme teda objektu &quot;a&quot; výsledok &quot;2 + 2&quot;.
+
+a &lt;- 2 + 2
+
+# Po napísaní názvu objektu do konzoly nám konzola ukáže už len výsledok.
+
+a</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code># Nové priradenie hodnoty starému objektu prepíše starú hodnotu.
+
+a &lt;- 5 + 5
+
+a</code></pre>
+<pre><code>## [1] 10</code></pre>
+<p>S daným objektom môžeme pracovať, akoby to bola číselná hodnota.</p>
+<pre class="r"><code>a^2</code></pre>
+<pre><code>## [1] 100</code></pre>
+<p>Pre priradenie viacerých hodnôt vytvoríme vektor. Vektor vytvoríme pomocou funkcie c() ako combine.</p>
+<pre class="r"><code># Objektu &quot;a&quot; priradíme súbor číselných hodnôt a vytvoríme z neho vektor. 
+a &lt;- c(5, 1, 4, 2, 3)
+
+a</code></pre>
+<pre><code>## [1] 5 1 4 2 3</code></pre>
+<p>S vektormi dokážeme rôzne pracovať. Sčítavať, násobiť, aplikovať na ne funkcie, všetko, čo nás napadne. Ups, čo nám napadne!</p>
+<pre class="r"><code>b &lt;- c(5, 9, 6, 8, 7)
+a + b</code></pre>
+<pre><code>## [1] 10 10 10 10 10</code></pre>
+<pre class="r"><code>min(a)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>sort(a)</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>sum(a)</code></pre>
+<pre><code>## [1] 15</code></pre>
+<p>Je vhodné poznať pár špeciálnych funkcií na tvorbu vektorov. A to:</p>
+<pre class="r"><code># rep(), seq() a sample()</code></pre>
+<p>Často si totižto potrebujete vytvoriť vektor hodnôt podľa vlastnej potreby. Hm, to som veľmi nič nové nepovedal. Ale… Čo vlastne tieto funkcie robia? A ako to zistíme? Ak pracujete s úplne novou funkciou, a máte už nainštalovaný balík, a taktiež ste ho už načítali do knižnice cez <span class="math inline">\(library()\)</span>, je vhodné použiť <span class="math inline">\(?help\)</span>. Poskytne Vám to stručný popis, čo funkcia robí, všetky jej argumeny a aj pár príkladov. Ak už ste však s funkciou pracovali, ale nepamätáte si argumenty, rozpíšte funkciu, kliknite sa do zátvoriek funkcie <span class="math inline">\(mean(tu.sa.kliknete)\)</span>, a stlačíte <span class="math inline">\(TAB\)</span>. Vyhodí Vám to argumenty funkcie. Skúsime si to na funkcii <span class="math inline">\(sample()\)</span>.</p>
+<p> </p>
+<p><img src="data:image/png;base64,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" /></p>
+<p> </p>
+<p>Vektory nemusia obsahovať len čísla. V R existujú ešte ďalšie dva typy dát. Sú nimi dáta tvorené znakmi a logickými operátormi.</p>
+<pre class="r"><code># Pre vytvorenie vektora tvoreného znakmi, musí byť obsah ohraničený úvodzovkami &quot;&quot;.
+
+vector_characters &lt;- c(&quot;c&quot;, &quot;musíme&quot;, &quot;používať&quot;, &quot;stále&quot;, &quot;ak&quot;, &quot;chceme&quot;, &quot;viac&quot;, &quot;hodnôt&quot;)
+
+vector_characters</code></pre>
+<pre><code>## [1] &quot;c&quot;        &quot;musíme&quot;   &quot;používať&quot; &quot;stále&quot;    &quot;ak&quot;       &quot;chceme&quot;   &quot;viac&quot;    
+## [8] &quot;hodnôt&quot;</code></pre>
+<pre class="r"><code># Logické operátory, inak známe ako Boolovské operátory, predstavujú hodnoty TRUE alebo FALSE.
+
+vektor &lt;-  5
+vektor == 5</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>vektor == 6</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>Vektor tvorený znakmi nájde svoje uplatnenie napríklad pri pomenovávaní hodnôt.</p>
+<pre class="r"><code>nazvy &lt;- c(&quot;prvy&quot;, &quot;druhy&quot;, &quot;treti&quot;)
+cisla &lt;- c(1, 2, 3)</code></pre>
+<p>#nainštalovat len jeden balik a potom ked prejdeme vektory tak c(viac balikov)</p>
+</div>
+<div id="import-údajov" class="section level2" number="2.4">
+<h2 number="2.4"><span class="header-section-number">2.4</span> Import údajov</h2>
 <p>Table Header</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">-&gt;</th>
-<th align="right">First Header</th>
+<th>Fukncia</th>
+<th>Second Header</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content Cell</td>
-<td align="right">Content Cell</td>
+<td>Content Cell</td>
+<td>Content Cell</td>
 </tr>
 <tr class="even">
-<td align="left">Content Cell</td>
-<td align="right">Content Cell</td>
+<td>Content Cell</td>
+<td>Content Cell</td>
 </tr>
 </tbody>
 </table>
