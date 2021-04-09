@@ -400,7 +400,538 @@ print(vyska_v_cm)
 
 ## Matice
 
+__Matíc sa netreba ľakať.__ Osobne som mal (vraj mal) v maticiach isté medzery, a z mojich skúsenosti nie som jediný študent ekonómie s týmto nedostatkom, nedostatkom vedomostí. Možno sa momentálne venujú maticiam na predmete Matematika viac, nuž, aby som prešiel k veci, pre zvládnutie základov ekonometrie nepotrebujete absolútne vedomosti matíc. Ono, matica je len akási množina čísel usporiadaná do riadkov a stĺpcov (rc, spomínate?), plus sa na ňu vzťahujú nejaké vlastnosti. Nejaké dosť podstatné vlastnosti. Ako som ale vravel, netreba sa ľakať. My použijeme matice, okrem iného, na počítanie Beta estimátorov v regresií by hand, teda ručný výpočet nejakých hodnôt. Ak ste už zo štatistiky zabudli, čo je regresia, tiež nevadí. Čo je regresia a prečo používame matice si vysvetlíme neskôr. Teraz sa ich naučíme zostrojiť, a vysvetlíme si pár __pojmov__ a __vlastností__ týkajúcich sa matíc, s ktorými sa na hodinách stretnete.
 
+### Spôsoby vytvárania matice
+
+V aplikovanej ekonometrií sa matice väčšinou vytvárajú z existujúcich datasetov. Vo všeobecnosti však máme tri možné spôsoby vytvárania matíc v R. A to pomocou:
+
+1. funkcie $matrix()$,
+2. funkcie $rbind()$,
+3. funkcie $cbind()$.
+
+
+```{r}
+# Pri funkcií matrix() zadáme vektor, a argumenty v podobe počtu riadkov, stĺpcov,
+# a či má byť vektor usporiadaný po riadkoch alebo nie po riadkoch.
+
+vektor <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Vytvoríme si štvorcovú maticu 3x3
+
+matica1 <- matrix(vektor, nrow = 3, ncol = 3, byrow = TRUE)
+
+matica1
+```
+
+
+```{r}
+# Zmeníme usporiadanie na FALSE, takže bude matica usporiadaná po stĺpcoch.
+
+matica2 <- matrix(vektor, nrow = 3, ncol = 3, byrow = FALSE)
+
+matica2
+```
+
+
+Ďalšie dve funkcie fungujú na princípe zlepenia riadkov alebo stĺpcov dohromady. Sú to intuitívne funkcie. Keďže bind znamená v preklade spájať. Teda row bind, spájanie riadkov, a column bind ako spájanie stĺpcov. 
+
+
+```{r}
+# Potrebujeme si vytvoriť vektory, ktoré budeme chcieť zlepiť.
+# Vektor c(1:3) bude taký istý ako c(1, 2, 3).
+
+vektor1 <- c(1:3)
+vektor2 <- c(4, 5, 6)
+vektor3 <- c(7, 8, 9)
+
+# Zviazanie po riadkoch.
+
+matica_riadky <- rbind(vektor1, vektor2, vektor3)
+
+matica_riadky
+
+```
+
+
+```{r}
+matica_stlpce <- cbind(vektor1, vektor2, vektor3)
+
+matica_stlpce
+```
+
+
+### Indexovanie
+
+Indexovanie matíc je veľmi intuitívne. Do hranatých zátvoriek zadáme ako prvú hodnotu riadok, z ktorého chceme extrahovať hodnotu, a ako druhú súradnicu zadáme stĺpec. Ak chceme vybrať celý riadok, zadáme len prvú hodnotu, a druhú necháme prázdnu. Pri výbere celého stĺpca to funguje presne naopak.
+
+&nbsp;
+
+
+```{r}
+# Budeme pracovať s vyššie vytvorenou maticou "matica_riadky".
+
+matica_riadky[1, 3] # jeden prvok, prvý riadok, tretí stĺpec
+```
+
+
+```{r}
+matica_riadky[1, ] # celý prvý riadok
+```
+
+
+```{r}
+matica_riadky[ , 1] # celý prvý stĺpec
+```
+
+
+### Násobenie, sčítanie a odčítanie matíc
+
+Matice majú pĺno pravidiel. My si prejdeme len tie, na ktoré na cvičeniach narazíme.  
+
+
+* Sčítavať a odčítavať môžeme iba matice, ktoré majú rovnaký počet riadkov a stĺpcov. Ako pri klasickom odčítaní neplatí, že: $A - B = B - A$.
+* Pri násobení matíc musí platiť, že počet stĺpcov matice A musí byť zhodný s počtom riadkov matice B.
+    + Výsledkom je potom matica, ktorá ma počet **r**iadkov ako prvá matica a počet stĺp**c**ov ako druhá matica, **rc** ;).
+    
+::: {.center data-latex=""}
+![](diplomka obrazky\4a.png){width=50%}
+:::
+
+Pri násobení matice skalárom, aka. jedným číslom, použijeme ako operátor klasickú hviezdičku. Každý prvok matice bude prenásobený určeným číslom.
+
+
+```{r}
+matica_riadky * 5
+```
+
+
+&nbsp;
+
+Pri násobení dvoch matíc sa používa trocha netradičný operátor $\%*\%$.
+
+
+```{r}
+matica_riadky %*% matica_stlpce
+```
+
+&nbsp;
+
+Sčítanie matíc.
+
+
+```{r}
+matica_riadky + matica_stlpce
+```
+
+### Transpozícia matice
+
+Transponovaním matice dôjde k vzájomnej výmene riadkov a stĺpcov matice. Takúto maticu označujeme ako $A^T$. Ak bola prvotná matica $(m, n)$, po transpozícií vznikne matica s rozmermi $(n, m)$. V R-ku matice transponujeme pomocou funkcie $t()$ ako $transpose$.
+
+```{r}
+matica_riadky
+
+t(matica_riadky)
+```
+
+
+
+### Hodnosť (rank) matice
+
+V zadaniach od vás bude požadované vyrátať hodnosť matice, čo sa zvykne označovať aj ako rank matice. Hodnosť matice je maximálny počet lineárne nezávislých riadkov, alebo stĺpcov, v matici. Dva vektory  $\overrightarrow{\text{a}}$,  $\overrightarrow{\text{b}}$ nazývame lineárne závislé vektory práve vtedy, ak existuje reálne číslo $k$ také, že platí:
+
+\[\overrightarrow{b} = k\overrightarrow{a}\]
+
+Ak táto rovnosť neplatí, vektory sú lineárne nezávislé. Keď sme spomínali maximálny počet buď riadkov alebo stĺpcov, mysleli sme tým, že ak nepracujeme so štvorcovou maticou, maximálna hodnosť môže byť najviac rovná tomu, čoho je menej. Ak máme maticu 3x4, jej maximálna hodnosť môže byť 3. Lebo riadkov máme menej. Ak by sme mali maticu 4x2, maximálna hodnosť môže byť 2. Hodnosť matice sa v R-ku vyráta pomocou funkcie $qr()$.
+
+
+```{r}
+# Predpokladajme, že pracujeme so štvorcovou maticou.
+# Ak by ste mali overiť, či sú vektory lineárne nezávislé,
+# všetky ich spojíme do matice, a vyrátame rank matice. Ak bude rank
+# rovný počtu vektorov, vektory sú navzájom  lineárne nezávislé.
+
+vektor1 <- c(2, 3, 1, 9)
+vektor2 <- c(1, 0, 3, 4)
+vektor3 <- c(2, 9, 0, 3)
+vektor4 <- c(4, 7, 2, 4)
+
+matica <- rbind(vektor1, vektor2, vektor3, vektor4)
+
+
+# Operátor "$" dokáže extrahovať konkrétnu hodnotu, ktorú chceme extrahovať. Skúste použiť
+# príkaz "qr(matica)", ktorý nám vyráta ešte pár ďalších vecí. Nás však zaujíma iba rank.
+
+qr(matica)$rank # vyrátame hodnosť matice
+```
+
+
+```{r}
+# Vidíme, že rank je rovný počtu riadkov/stĺpcov, teda naše vektory sú lineárne nezávislé.
+```
+
+### Determinant matice
+
+Determinant matice si môžeme predstaviť ako hodnotu, ktorá je priradená matici podľa toho, ako vyzerá. Matice môžu mať determinant nulový alebo nenulový. Mohli by sme to rátať ručne, necháme to však R-ko vyrátať za nás. Nás budú zaujímať aké vlastnosti sa s determinantom spájajú. 
+
+### Inverzná matica
+
+Inverzná matica je matica $A^{-1}$, ktorá nám po vynásobení pôvodnou maticou A, dá jednotkovú maticu. Funguje to aj naopak, teda platí vzťah:
+
+\[A * A^{-1} = A^{-1} * A = E\]  
+
+Inverznú maticu vytvoríme pomocou funkcie $solve()$
+
+### Singulárna / Regulárna matica
+
+Ak je matica regulárna, znamená to, že má inverziu. Ak je singulárna, nemá inverziu, teda $A^{-1}$ neexistuje.
+
+* Matica je singulárna ak:
+  + má determinant rovný nule,
+  + sa hodnost nerovná poctu riadkov (ak má napr. 3x3 matica hodnost 2)
+
+* Matica je regulárna ak:
+  + má nenulový determinant,
+  + sa hodnost rovná poctu riadkov/stlpcov.
+
+
+# Práca s datasetmi a ich analýza
+
+Vrhneme sa na:
+
+* načítanie datasetov do R-ka a objektov,
+* manipuláciu datasetov,
+* vysvetlenie lineárneho regresného modelu,
+* prácu s regresnými modelmi.
+
+## Načítanie dát
+
+Načítať dáta je možné rôznymi spôsobmi. V okne $Environment$ môžete kliknúť na $Import \ dataset$ a vybrať typ súboru, aký chcete importovať. Sofistikovanejšie je však načítavanie údajov pomocou funkcií. Tých je tiež niekoľko, plus, existujú rôzne balíky, ktoré sú vyvinuté na zlepšenie práce s dátami a ich vizáže. Vám však bude stačíť jediná funkcia a to $read.csv2$. Predtým než funkciu použijeme, si však treba nastoliť isté štandardy. Ideálne je, aby ste mali vytvorenú zložku, v ktorej budete mať všetky datasety (excelovské súbory) a pekne oddelené zložky k cvičeniam. Nazývame to "working directory" AKA pracovný adresár. Na zistenie, kde je Váš momentálny pracovný adresár použijeme funkciu $getwd()$ (get working directorty). Potrebujeme to vedieť preto, lebo do funkcie $read.csv2$ potrebujeme zadať argument umiestnenia súboru. A je ľahšie zadať:
+
+```{r eval=FALSE}
+read.csv2("udaje_o_pocte_kaciatok")
+
+# než
+
+read.csv2("C:/Desktop/MilanRozok/ekonometria/test/udaje_o_pocte_kaciatok.csv")
+
+```
+
+Určenie nového adresára je možné urobiť pomocou $setwd()$ (set working directory), kde ako argument zadáme cestu do nového adresára, avšak, jednoduchšie je kliknúť vľavo hore na:
+
+
+::: {.center data-latex=""}
+Session -> Set Working Directory -> Choose directory,
+::: 
+
+a vybrať si adresár manuálne. Všetky datasety potom môžeme načítať funkciou $read.csv2()$ už len pomocou uvedenia názvu v úvodzovách, a nemusíme uvádzať celú cestu umiestnenia súboru.
+
+### read.csv2()
+
+Súbory typu .CSV znamenajú doslovne $Comma-separated \ values$, teda hodnoty oddelené čiarkami. Keď sa bavíme o formáte .CSV predstavte si súbor, kde každá hodnota má svoj riadok, a každá premenná má svoj stĺpec. Ako hodnoty sa chápe oddelenie stlpcov, teda stĺpce sú väčšinou oddelené čiarkami. To je však taký teoretický prístup, v praxi môžu byť tieto hodnoty oddelené aj inými spôsobmi. Hlavné však je pozerať na koncovku súboru, resp. súbor (napr. z Excelu), uložiť ako .CSV súbor. Funkcie $read.csv()$ a $read.csv2()$ robia to isté, jediné v čom sa líšia je ich defaultné nastavenie. $read.csv()$ ráta, že sa na oddelenie desatinných miest používa bodka (čo je také americké), a $read.csv2()$, používa na oddelenie desatinných miest čiarku (čo je také európske). To je dôvod, prečo primárne používame $read.csv2()$. 
+
+### Práca so vstavanými datasetmi
+
+R-ko obsahuje vstavané datasety, ktoré si môžeme všetky vypísať pomocou:
+
+```{r eval=FALSE}
+data()
+```
+
+V tomto sprievodcovi budeme pracovať s dátami, ktoré si môžete načítať zo vstavaného balíka $datasets$. Je to z dôvodu, že je to proste jednoduché. Na hodinách budete pracovať s pravými ekonomickými datasetmi, avšak pre ukážku, ako čo funguje, a ako s čím súvisí nám postačia základné datasety, ktoré sú ľahké na pochopenie. Ak si budete chcieť overiť nejakú funkciu či teóriu, budete si môcť za pochodu načítať dataset, s ktorým ste oboznámený, a otestovať, čo potrebujete. 
+
+```{r}
+# Pre načítanie datasetu do objektu použijeme trocha nezvyčajný prístup, kde:
+# datasets predstavuje názov balíku, a "mtcars" dataset, ktorý chceme sprístupniť.
+# Pomocou "::" sprístupníme konkrétny objekt z balíka.
+
+data <- datasets::mtcars
+
+# Ak by sme datasetu nechceli priradiť vlastný názov, ale ponechať originálny:
+
+data("mtcars")
+
+# Funkcia bude fungovať aj bez úvodzoviek.
+```
+
+# Jednoduchá lineárna regresia
+
+Hlavným nástrojom ekonometrie je regresia. Cieľom regresie je zistiť ako určená/é nezávislé premenné, ovplyvňujú jednu závislú premennú. Ak $Y$ je závislá a $X$ nezávislá, tak regresujeme, robíme regresiu, Y na X. Čo však tá magická skrinka vlastne robí?
+
+```{r}
+# Predpokladajme, že máme načítaný dataset "mtcars".
+# Pomocou funkcie "head()" si načítame prvých 6 riadkov.
+# Alternatíva je "tail()" (ako chvost), pre vypísanie posledných 6 riadkov.
+
+head(data)
+
+# Vidíme, že je to súbor aút, s rôznymi parametrami.
+# My sa budeme snažiť vysvetliť vplyv "hp" (horsepower, konské sily), 
+# na "mph" (miles per galon, čiže koľko kilometrov má auto dojazd).
+```
+
+
+Pozrime sa na tento model:
+
+$$y_i = \beta_0 + \beta{x_i} + \epsilon_i.$$ 
+
+Jedná sa o základný model lineárnej regresie. Ak si bety predstavíme ako obyčajné hodnoty, model v tomto jednoduchom znení by Vám z matematiky mohol byť povedomý. Výsledkom modelu je priamka $y$, kde $\beta_0$ je obyčajná hodnota v ktorej je os Y pretnutá, $\beta_1$  určuje sklon priamky. Keďže priamka nebude prechádzať každou nameranou hodnotou, $\epsilon$ v modeli znázorňuje tento priestor medzi meraniami a priamkou. Označujeme ho ako náhodnú zložku. Môže byť spôsobená mnohými spôsobmi. Okrem iného napríklad: chybným meraním, náhodou, alebo premennými, ktoré sme do modelu nezahrnuli. Jedno auto so 150 koňskými silami môže na plnú nádrž prejsť 500km a druhé len 350. Môže to byť spôsobené váhou, avšak v modeli máme len výkon auta. Táto zložka sa v priemere rovná nule, a z modelu nám odpadne (viac o tom neskôr). Tento model si môžeme v našom príklade prepísať ako:
+
+$$mpg_i = \beta_0 + \beta_1{hp_i} + \epsilon_i.$$
+Priamka, ktorá by vznikla výsledkom tohto modelu sa nazýva populačná regresná priamka. Na vyhodnotenie takéhoto modelu by sme však potrebovali dáta z celej určenej populácie, čo je veľmi často prakticky nemožné. Vo všeobecnosti sú populačné parametre $\beta_0$ a $\beta_1$ neznáme. Avšak dokážeme ich odhadnúť pomocou estimátorov. Preto pracujeme so vzorkami, ktoré dokážeme reálne odpozorovať a zozbierať. Estimátory zo vzorky dokážu poskytnúť dostatočne dôveryhodné odhady koeficientu v populácií. Poďme si to teda ukázať na našej vzorke.  
+
+Skúsme si hodiť do grafu výkon a dojazd, nech sa pozrieme na vzťah medzi týmito premennými.
+
+```{r}
+# Plotneme si dáta, ktoré dáme do regresie, čiže "mpg" a "hp".
+
+plot(x = data$hp, y = data$mpg, ylab = "ylab ako y label", xlab = "tu máme výkon",
+     main = "Vzťah dojazdu a výkonu motora")
+
+```
+
+Vidíme istú negatívnu závislosť. Chceli by sme si to však potvrdiť číslami. Bolo by fajn napasovať medzi tieto pozorovania takú priamku, ktorá bude ku každému pozorovaniu čo najbližšie. Keďže nepoznáme parametre populácie, budeme pracovať s ich estimátormi, odhadcami. Estimátory označíme striežkou ako $\hat\beta_0{}$ a $\hat\beta_1{}$. Model bude vyzerať následovne:
+
+$$\hat{mpg_i} = \hat\beta_0 + \hat \beta_1{hp_i}.$$ 
+Skúsme si takýto model zostrojiť v R-ku, a priamku dopasovať do grafu.
+
+```{r}
+# Chceme zistiť dopad "hp" na "mpg".
+# Použijeme funkciu "lm()", ako linear model.
+# Na konci musíme ako argument uviesť dáta, ktoré použijeme.
+
+model <- lm(mpg ~ hp, data = data)
+
+# Alternatívne môžeme model napísať pomocou extrakcie takto.
+# Preferujem tento postup.
+
+model <- lm(data$mpg ~ data$hp)
+
+# Dostaneme dva koeficienty. Jeden pre intercept Beta0 a druhý pre Beta1 ako "hp".
+
+model
+
+# Intercept sa väčšinou neinterpretuje, slúži len pre určenie počiatočnej hodnoty.
+# Ak by sme koeficient interpretovali, mohli by sme povedať, že auto s nula koňmi
+# prejde 30 míľ na galón. Koeficient B1 by sme interpretovali ako:
+# "každá extra konská sila, zníži dojazd o -0.068 míle". 
+```
+
+```{r}
+# Znova si plotneme dáta.
+
+plot(x = data$hp, y = data$mpg, ylab = "Dojazd", xlab = "Výkon",
+     main = "Vzťah dojazdu a výkonu motora")
+
+# A pomocou funkcie "abline()" napasujeme do grafu priamku modelu.
+# Abline ako priamka z bodu A do bodu B.
+
+abline(model) 
+```
+
+Z grafu pozorujeme, že aj tu priamka neprechádza všetkými pozorovaniami, túto kolmú vzdialenosť medzi priamkou a každým pozorovaním označíme ako $\hat{u}$. V tomto modeli to neoznačuje odhad náhodnej zložky $\epsilon$, ale výpočtovú nepresnosť modelu. Môžeme to brať ako takého súrodenca k náhodnej zložke. Obe chyby predstavujú podobnú vec, vzdialenosť medzi priamkou a pozorovaním. Priamku populácie je však neznáma, teda aj táto vzdialenosť $\epsilon$ je neznáma. Na druhú stranu, zvyšky $\hat{u}$ sú vyrátané z dát, a dokážeme ich presne zmerať. Ako však vyrátame bety? Iste ste už začuli o OLS, teda Ordinary Least Squares alebo Metódy najmenších štvorcov. Bety so striežkou nazývame ako OLS estimátory. Metóda najmenších štvorcov sa to volá preto, lebo vezmeme zvyšky $\hat{u}$ z modelu, umocníme ich na druhú mocninu (urobíme z nich štvorce), a minimalizujeme ich. Osobne si nemyslím, že v tomto štádiu vašej výučby má veľký význam sústrediť sa na odvodenie týchto estimátorov. Osobne mi to moc nedalo, preto sa skôr zameriame na výsledky týchto odvodzovaní, nech nadobudneme trocha intuície. Vysvetlíme si graficky, čo touto metódou chceme docieliť. 
+
+::: {.center data-latex=""}
+![](diplomka obrazky\4.png){width=85%}
+:::
+
+Tieto vzdialeností predstavujú naše "residuals" $\hat{u}_i$, naše zvyšky z modelu, naše nepresnosti. Každý data point má svoj zvyšok. Logicky chceme, aby priamka čo najtesnejšie vystihovala dáta, chceme tým pádom čo najviac zmenšiť zvyšky. Poďme sa k tým zvyškom dopracovať.
+
+Pozorovanie sa rovná bodu na priamke $\hat\beta_0 + \hat\beta{x}_i$ plus zvyšok $\hat{u}_i$:  
+
+$$ y_i = \hat\beta_0 + \hat\beta{x}_i + \hat{u}_i.$$
+
+::: {.center data-latex=""}
+Poprehadzujme si to, nech máme na jednej strane zvyšok $\hat{u}_i$:
+:::
+
+$$ \hat{u}_i = y_i - \hat\beta_0 - \hat\beta{x}_i.$$
+
+Väčšinou narazíme na takýto zápis zvyškov, a to rozdiel medzi pozorovanou hodnotou a odhadnutou hodnotou na priamke:
+
+$$\hat{u}_i = y_i - \hat{y_i}.$$
+
+::: {.center data-latex=""}
+a keďže
+:::
+
+$$ \hat{y}_i =\hat\beta_0 + \hat\beta{x}_i,$$
+
+Tak sme tam, kde sme boli na začiatku, keď sme si dali zvyšok $\hat{u}_i$ na jednu stranu. OLS metódoa urobí to, že minimalizuje súčet našich umocnených zvyškov $\hat{u}_i$:
+
+$$min\sum (y_i - \hat\beta_0 - \hat\beta_1{x}_i)^2.$$
+
+Tým, že minimalizujeme zvyšky dostaneme čo najlepšiu priamku, ktorá bude sedieť čo najtesnejšie s dátami. Táto minimalizácia nám poskytne vzorec na výpočet OLS estimátorov. Estimátorov parametrov populácie. Bavíme sa o odhadcoch priesečníka, $\beta_0$, a sklonu, $\beta_1$. A keď sa bavíme o odhadcoch, píšeme ich ako $\hat\beta_0$ a $\hat\beta_1$. Nech si pamätáte.
+
+Na hodinách sa stretnete so vzorcom pre výpočet biet v maticovej forme. A to:
+
+$$Est(\beta) = \hat\beta = (X^TX)^{-1}X^Ty.$$
+
+> _T-čka znamenajú transpose matice a -1 vyrátanie inverzie._
+
+```{r eval=FALSE}
+# Inverznu maticu vyrátame pomocou "solve()" a transpozíciu pomocou "t()".
+# V R-ku by sme to vyrátali ako:
+
+solve(t(X) %*% X) %*% t(X) %*% y)
+```
+
+
+Tento vzorec by som nazval funkčným, avšak určite nie intuitívnym. Pracujete s ním preto, lebo:
+
+* takáto forma je ľahšie spracovateľná pre výpočtovú techniku,
+* R-ko pri práci s datasetom ho aj tak pretvorí na maticu, predtým než podá výsledky,
+* tento vzorec funguje ako pre jednoduchú lineárnu regresiu (jedno Y a jedno X), tak aj pre viacnásobnú regresiu (jedno Y a viacero X). 
+
+Ono, R-ko to urobí všetko za Vás, samo vyráta všetky koeficienty, nuž nechceli by ste vedieť, čo tá $\hat\beta$ vlastne robí? Pri jednoduchej lineárnej regresií dokážeme OLS beta estimátory zapísať aj takto:
+
+$$\hat\beta_0 = \overline{y} - (\hat\beta_1\overline{x})$$  
+
+
+$$\hat\beta_1 = \frac{\sum_{i=1}^{n} (x_i - \overline{x})(y_i - \overline{y})}{\sum_{i=1}^{n} (x_i - \overline{x})^2}$$
+
+> _Čiara nad písmenom znamená priemer, teda ybar(takto to čítame) je priemer všetkých hodnôt "y" v datasete._
+
+Neopúšťajte ma. Ak Vám tento vzorec nie je povedomý, nič sa nedeje. Pozrieme sa na to. Rozdeľme si to na vrch a spodok. Začneme menovateľom, lebo je kratší, hm. 
+
+Súčet od i = 1 po n znamená, že vykonáme operáciu pre každé $x$ v datasete a výsledky operácií sčítame.
+
+> _Summation znak sa nazýva grécky sigma._
+
+Od každého $x$ odčítame priemernú hodnotu $\overline{x}$ a umocníme to. Získame tým variabilitu okolo priemeru, inak povedané, ako veľmi sú data v datasete rozptýlené. Dostaneme rozptyl. Je dôležité podotknúť, že rozptyl kvôli umocneniu nikdy nebude záporný. Dôležité je to preto, lebo vzťah v čitateli určuje, či je $\beta$ pozitívna alebo negatívna. Takže menovateľ neovplyvní kladnosť či zápornosť čitateľa.
+
+Vzťah  v čitateli vyzerá celkom podobne k tomu v menovateli, hm? A nie je to náhoda. Vzťah v čitateli je obyčajná kovariancia, inak povedané, spoločný rozptyl. Predstavuje závislosť medzi dvoma veličinami. Tento vzťah neumocňujeme, pretože chceme vidieť, či bude závislosť pozitívna, alebo negatívna.
+
+> _Kovariancia či korelácia? Čo je čo? Korelácia je štandardizovaná kovariancia. Obe vysvetľujú to isté, líšia sa len v rozsahu. Kovarianciu predelíme násobkom smerodajných odchýlok x a y, a získame koreláciu. Štandardizujeme to preto, aby sme sa vedeli orientovať, aký veľký je v skutočnosti vzťah medzi premennými. Ak sa bavíme o kovariancii hmotnosti v kilogramoch a dĺžky lietadla v metroch, výsledné hodnoty budú veľmi vysoké. Ak budú kladné, budeme vedieť, že je medzi nimi lineárna závislosť, ale nevieme aká veľká. Ak by sme porovnávali kovarianciu kurzu EUR a USD, výsledné hodnoty budú síce menšie, ale stále o nič viac vhodné na interpretovanie. Ak však tieto hodnoty predelíme násobkom smerodajných odchýlok, teda ich štandardizujeme, výsledné hodnoty budú porovnateľné pre akékoľvek premenné. Keďže ťažké a dlhé lietadlo bude mať úmerne veľké smerodajné odchýlky, kdežto výmenný kurz bude mať smerodajnú odchýlku prislúchajúcu hodnotám kurzu. Hodnoty v korelácií budú spadať medzi hranice -1 a 1. Kde záporná hodnota predstavuje negatívnu lineárnu závislosť, a naopak._
+
+Pri odhade však nechceme hodnoty štandardizovať, ale vecne odhadnúť použiteľné hodnoty koeficientov. $\hat\beta_1$ si jednoducho zapíšeme ako:
+
+$$\hat\beta_1 = \frac{Cov(x, y)}{Var(x)}.$$
+Otestujme si, či to naozaj funguje.
+
+```{r}
+# Pripomeňme si hodnoty nášho modelu.
+
+model
+
+# Na poradí pri kovariancii nezáleží.
+
+kovar <- cov(data$mpg, data$hp)
+
+rozptyl <- var(data$hp)
+
+beta1 <- kovar/rozptyl
+
+print(beta1)
+
+# Oba parametre majú hodnotu -0.068 a rovnajú sa.
+# Skúsme B0.
+
+ybar <- mean(data$mpg)
+xbar <- mean(data$hp)
+
+beta0 <- ybar - (beta1 * xbar)
+
+print(beta0)
+
+# Sedí. :)
+
+```
+
+Oba parametre majú hodnotu -0.068 a rovnajú sa.
+
+Nevravím, že sme objavili Ameriku, ale aspoň viete, že $\hat\beta_0$ je nejaký priemer $y$ a od toho odčítame $\hat\beta_1$ vynásobenú priemerom $x$. A neskrýva sa za tým žiaden ťažký imaginárny vzorec. Taktiež, že $\hat\beta_1$ je spoločný rozptyl závislej a nezávislej premennej, vydelený rozptylom nezávislej premennej. 
+
+Ako však vieme, či estimátorom $\hat\beta_0$ a $\hat\beta_1$ môžeme veriť?
+
+# Trocha štatistiky
+
+Predtým, než si povieme o podmienkach lineárnej regresie Vás oboznámim s pár záležitosťami, s ktorými sa stretnete, a napriek tomu, že sú pomerne jednoduché by Vám zabrali dosť googlenia.
+
+Prejdeme si:
+
+* očakávanú hodnotu,
+* zákon veľkých čísel,
+* náhodný výber,
+* centrálna limitná veta,
+* normálne rozdelenie.
+
+Možno ste si všimli, že pri interpretáciach koeficientov sa často opakuje niečo v zmyysle:"V priemere nám pri zvýšeni bla bla bla narastie o bla bla bla." To __v priemere__ je veľmi podstatné. Väčšinou pracujeme so vzorkami, ktoré boli zozbierané z populácie, ktorá je pre nás neznáma. Ideálne boli vybrané náhodne, teda pozorovania vo vzorke sú náhodnými veličinami, a štatistiky ktoré z nich vyrátame sú potom tiež náhodné veličiny. Prečo je to podstatné sa dozvieme v nasledujúcich konceptoch.
+
+> _Keď sa bavíme o štatistikách, máme na mysli akúkoľvek hodnotu, ktorú je možné vyrátať a opisuje niečo. Priemer je štatistika, rozptyl je štatistika."
+
+## Očakávaná hodnota
+
+Spomínam si, ako som otvoril videa Bena Lamberta, a tam na mňa vyskočilo hneď nejaké tlačené É-čko a rôzne kvačky. Veľké tlačené E znamená expected value, teda očakávaná hodnota. Je to tak, ako to znie. Očakávaná hodnota náhodnej premennej je jednoducho povedané priemer, ktorý by sme vyrátali za dlhú dobu a pri niekoľkonásobnom opakovanom výbere vzorky. Pre diskrétnu náhodnú premennú vyrátame túto hodnotu ako vážený súčet, kde váha je určená pravdepodobnosťou výskytu. Vzorcom:
+
+$$E(y)= y_1p_1 + y_2p_2 + ... + y_kp_k = \sum_{i=1}^{k}y_ip_i$$
+
+A teraz príklad zo života na pochopenie. Prečo myslíte, sa hovorí "Lucky Seven", teda že sedmička je šťastné číslo? Je to preto, lebo keď sčítate všetky kombinácie čísel na dvoch hracích kockách, najviac hodnôt vyjde pre 7, teda aj pravdepodobnosť, že padne toto číslo je väčšia, ako pri ostatných súčtoch. V priemere potom padne najviac ľudom sedmička, ľudia si to všímajú a stavujú na sedmičky, alebo také niečo, nie som moc na gambling. 
+
+::: {.center data-latex=""}
+![](diplomka obrazky\5.png){width=80%}
+::: 
+
+
+
+## Zákon veľkých čísel
+
+S tým úzko súvisí aj zákon veľkých čísel. Zákon vraví, že ak rovnaký experiment opakujeme nezávisle od seba nespočetne veľa krát, priemer výsledkov bude blízko k __očakávanej hodnote__. Výsledok sa bude približovať k očakávanej hodnote, ako sa bude počet pokusov zvyšovať. 
+
+_Príklad:_
+Keď si s niekym budete hádzať mincu, možno padne 10-krát za sebou orol, ale keby sme mincu hodili miliónkrát, výsledky by boli približne 50/50. Inak povedané, šanca že padne hlava (alebo orol) je 50%, ak minca nie je cinknutá. Očakávaná hodnota pri hode mincou je 0.5. Šanca že padne hlava je 1 a možné výsledky sú 2, teda pravedpodobnosť, že padne hlava je 0.5, čiže 50%. 
+
+## Náhodný výber štatistiky
+
+V angličtine random sampling. To ing značí nejakú činnosť. Náhodný výber znie skôr ako jeden výber, avšak pri random sampling ide o niečo iné. Väčšina ekonometrických procedúr pracuje s priemermi vzoriek. Čiže tento náhodný výber, sa bude týkať priemeru. Povedzme, že chceme odhadnúť priemernú výšku v populácií. Väčšinou predpokladáme, že pozorovania sú zozbierané náhodne z veľkej, nepoznanej populácie. Vyrátanie priemeru z takejto vzorky má za následok to, že tento priemer je _náhodnou premennou_. _Táto náhodná premenná má potom rozdelenie pravdepodobnosti, nazývané výberové rozdelenie._ Výberové rozdelenie závisí od rozdelenia populácie, z ktorej sme vzorku zobrali. Predpokladajme, že máme normálne distribuovanú populáciu, a vyberieme z nej veľa veľa vzoriek, vyrátame priemer týchto vzoriek, a urobíme z týchto priemerov histogram. Rozdelenie tohto histogramu bude kopírovať rozdelenie, z ktorého sme tieto vzorky zobrali, teda normálne rozdelenie. Náhodný výber by mal eliminovať odchýlku, keďže každý z populácie má rovnakú šancu byť vybraný. Získame teda rozdelenie bez odchýlky, ktoré kopíruje rozdelenie populácie. Výberové rozdelenie môže byť blízko normálneho rozdelenia, aj keď populácia z ktorej sme brali vzorky nemá normálne rozdelenie. A to vďaka Centrálnej limitnej vete.
+
+## Centrálna limitná veta
+
+Kdežto Zákon veľkých čísel sa zameriaval skôr na odhad danej štatistiky, Centrálna limitná veta súvisí s rozdelením vzorky. Podstatou je, že ak vezmeme dostatočne veľké množstvo priemerov vzoriek, súbor týchto priemerov bude mať normálne rozdelenie, bez ohľadu na rozdelenie populácie. Takáto vzorka by mala mať aspoň 30 pozorovaní. Nie je však potrebné zbierať veľa veľa vzoriek, keďže na vzorku použijeme estimátor, napríklad na odhad priemeru, a samotný výsledok bude náhodná veličina (ako sme už spomenuli pri náhodnom výbere), ktorá sama pochádza z náhodného výberu. Čiže na splnenie predpokladu, že výsledné rozdelenie budeme môcť odhadnúť normálnym rozdelením, závisí už len od veľkosti vzorky. Čím vzdialenejšie od normálneho rozdelenia je rozdelenie populácie, tým väčšia vzorka bude potrebná, aby toto pravidlo platilo.
+
+# Podmienky lineárnej regresie
+
+
+
+My chceme, aby naše estimátory boli BLUE! A tým nemyslíme modré, ale Best Linear Unbiased Estimators! Najlepší Lineárni Nevychýlení Odhadcovia!  
+
+Unbiased znamena že v priemere Beta trafí cieľ, teda priemer. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+Vy sa učíte rátať toto pomocou solve x transpose, bude to fungovať aj na SLR, avšak ukažeme si beta estimatory... bla bla.. vyratame cov a var.. rovno si naš model plotnime nech si ukažeme chyby. OLS sa snaži napasovať priamku tak, aby boli chyby najmenšie. čiže residuals vs fitted
+ 
+
+ 
+ 
+$\sideset{}{}\sum_{n=1}^{n}$
+
+$\sum_{n=1}^{n}$
+ 
+ $\hat{\beta_0}$
+ 
+
+ 
+ $$\hat{y} = a + bx$$
+
+where 
+
+
+
+$$\hat{\beta_0} = \bar{y} - \hat{\beta_1} \bar{x}$$
 #nainštalovat len jeden balik a potom ked prejdeme vektory tak c(viac balikov)
 
 ## Import údajov
