@@ -552,7 +552,7 @@ náhodne vyberie hodnoty zo zadaného vektora.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 167 180 189 173 167 183 178 168 185 169
+##  [1] 163 163 188 185 161 186 187 178 187 172
 \end{verbatim}
 
 \begin{quote}
@@ -885,7 +885,7 @@ vyhovujúcich hodnôt.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
 \end{verbatim}
 
 \begin{Shaded}
@@ -912,7 +912,7 @@ vyhovujúcich hodnôt.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 174 174 180 185 175 175 181 185 178
+## [1] 175 174 172 190 177 190 184 189 184
 \end{verbatim}
 
 \hypertarget{matice}{%
@@ -1166,9 +1166,9 @@ Sčítanie matíc.
 \subsubsection{Transpozícia matice}\label{transpozuxedcia-matice}}
 
 Transponovaním matice dôjde k vzájomnej výmene riadkov a stĺpcov matice.
-Takúto maticu označujeme ako \(A^T\). Ak bola prvotná matica (m, n), po
-transpozícií vznikne matica s rozmermi (n, m). V R-ku matice
-transponujeme pomocou funkcie t() ako transpose.
+Takúto maticu označujeme ako \(A^T\). Ak bola prvotná matica \((m, n)\),
+po transpozícií vznikne matica s rozmermi \((n, m)\). V R-ku matice
+transponujeme pomocou funkcie \(t()\) ako \(transpose\).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1608,7 +1608,7 @@ a keďže
 \[ \hat{y}_i =\hat\beta_0 + \hat\beta{x}_i,\]
 
 Tak sme tam, kde sme boli na začiatku, keď sme si dali zvyšok
-\(\hat{u}_i\) na jednu stranu. OLS metódoa urobí to, že minimalizuje
+\(\hat{u}_i\) na jednu stranu. OLS metóda urobí to, že minimalizuje
 súčet našich umocnených zvyškov \(\hat{u}_i\):
 
 \[min\sum (y_i - \hat\beta_0 - \hat\beta_1{x}_i)^2.\]
@@ -1777,8 +1777,6 @@ funguje.
 \end{Highlighting}
 \end{Shaded}
 
-Oba parametre majú hodnotu -0.068 a rovnajú sa.
-
 Nevravím, že sme objavili Ameriku, ale aspoň viete, že \(\hat\beta_0\)
 je nejaký priemer \(y\) a od toho odčítame \(\hat\beta_1\) vynásobenú
 priemerom \(x\). A neskrýva sa za tým žiaden ťažký imaginárny vzorec.
@@ -1800,31 +1798,82 @@ Prejdeme si:
 \begin{itemize}
 \tightlist
 \item
+  normálne rozdelenie,
+\item
   očakávanú hodnotu,
 \item
   zákon veľkých čísel,
 \item
   náhodný výber,
 \item
-  centrálna limitná veta,
-\item
-  normálne rozdelenie.
+  centrálnu limitnú vetu.
 \end{itemize}
 
 Možno ste si všimli, že pri interpretáciach koeficientov sa často
 opakuje niečo v zmyysle:``V priemere nám pri zvýšeni bla bla bla
 narastie o bla bla bla.'' To \textbf{v priemere} je veľmi podstatné.
 Väčšinou pracujeme so vzorkami, ktoré boli zozbierané z populácie, ktorá
-je pre nás neznáma. Ideálne boli vybrané náhodne, teda pozorovania vo
-vzorke sú náhodnými veličinami, a štatistiky ktoré z nich vyrátame sú
-potom tiež náhodné veličiny. Prečo je to podstatné sa dozvieme v
-nasledujúcich konceptoch.
+je pre nás neznáma. Ideálne boli vybrané náhodným výberom, čo spôsobí,
+že pozorovania vo vzorke sú náhodnými veličinami, a štatistiky ktoré z
+nich vyrátame sú taktiež náhodné veličiny. Prečo je to podstatné sa
+dozvieme v nasledujúcich konceptoch.
 
 \begin{quote}
-\_Keď sa bavíme o štatistikách, máme na mysli akúkoľvek hodnotu, ktorú
-je možné vyrátať a opisuje niečo. Priemer je štatistika, rozptyl je
-štatistika."
+\emph{Keď sa bavíme o štatistikách, máme na mysli akúkoľvek hodnotu,
+ktorú je možné vyrátať a opisuje niečo. Priemer je štatistika, rozptyl
+je štatistika."}
 \end{quote}
+
+\hypertarget{normuxe1lne-rozdelenie}{%
+\subsection{Normálne rozdelenie}\label{normuxe1lne-rozdelenie}}
+
+Je potrebné vedieť, ako toto rozdelenie vyzerá, a aké má vlastnosti,
+keďže mnoho konceptov v štatistike, sa točí okolo tohto rozdelenia,
+kvôli jeho sladkým vlastnostiam. Normálne rozdelenie je rozdelenie
+pravdepodonosti, ktoré je symetrické okolo priemeru, čím znázorňuje, že
+hodnoty okolo priemeru majú vyššiu pravdepodobnosť výskytu. V porovnaní
+s dátami na chvoste rozdelenia. Normálne rozdelenie má dva parametre:
+
+\begin{itemize}
+\tightlist
+\item
+  priemer,
+\item
+  smerodajnú odchýlku.
+\end{itemize}
+
+Pre normálne rozdelenie platí, že 68\% pozorovaní je v rozmedzí 1
+smerodajnej odchýlky (od priemeru na každú stranu jedna), 95\%
+pozorovaní je v romedzí 2 smerdajných odchýlok a 99,7\% pozorovaní v
+rozmedzí 3 smerodajných odchýlok. To sa nám zíde pri testovaní hypotéz.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Zostrojme si pre ilustráciu normálne rozdelenie.}
+\CommentTok{# Môžeme pôžiť dnorm(), pre vyrátanie krásneho normálneho rozdelenia, ktorému}
+\CommentTok{# by sme zadali vlastné hodnoty, my však použijeme rnorm(), pre vygenerovanie}
+\CommentTok{# n hodnôt z normálneho rozdelenia.}
+
+\NormalTok{nrozdelenie <-}\StringTok{  }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1000}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{20}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{5}\NormalTok{)}
+
+\CommentTok{# Použijeme hist() namiesto plot(). Funkcia plot() by defaultne použila scatterplot.}
+\CommentTok{# Argument "breaks" určí, na koľko častí rozlámeme náš histogram.}
+\CommentTok{# Viacej častí nám umožní krajšie vystihnúť normálne rozdelenie.}
+\CommentTok{# Funkciou par() si zobrazíme dva grafy vedľa seba a ukážeme rozdiel.}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)) }
+
+\CommentTok{# Všimnime si, že sú centrované okolo priemeru, ktorý sme zadali ako 20.}
+
+\KeywordTok{hist}\NormalTok{(nrozdelenie, }\DataTypeTok{breaks =} \DecValTok{10}\NormalTok{, }\DataTypeTok{main =} \StringTok{"10 breakov"}\NormalTok{)}
+
+\KeywordTok{hist}\NormalTok{(nrozdelenie, }\DataTypeTok{breaks =} \DecValTok{30}\NormalTok{, }\DataTypeTok{main =} \StringTok{"30 breakov"}\NormalTok{)}
+
+\CommentTok{# Pre navrátenie zobrazenia grafov na jeden, použijeme "par(mfrow=c(1, 1))".}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{test_files/figure-latex/unnamed-chunk-44-1.pdf}
 
 \hypertarget{oux10dakuxe1vanuxe1-hodnota}{%
 \subsection{Očakávaná hodnota}\label{oux10dakuxe1vanuxe1-hodnota}}
@@ -1869,9 +1918,8 @@ približne 50/50. Inak povedané, šanca že padne hlava (alebo orol) je
 0.5. Šanca že padne hlava je 1 a možné výsledky sú 2, teda
 pravedpodobnosť, že padne hlava je 0.5, čiže 50\%.
 
-\hypertarget{nuxe1hodnuxfd-vuxfdber-ux161tatistiky}{%
-\subsection{Náhodný výber
-štatistiky}\label{nuxe1hodnuxfd-vuxfdber-ux161tatistiky}}
+\hypertarget{nuxe1hodnuxfd-vuxfdber}{%
+\subsection{Náhodný výber}\label{nuxe1hodnuxfd-vuxfdber}}
 
 V angličtine random sampling. To ing značí nejakú činnosť. Náhodný výber
 znie skôr ako jeden výber, avšak pri random sampling ide o niečo iné.
@@ -1889,9 +1937,10 @@ týchto priemerov histogram. Rozdelenie tohto histogramu bude kopírovať
 rozdelenie, z ktorého sme tieto vzorky zobrali, teda normálne
 rozdelenie. Náhodný výber by mal eliminovať odchýlku, keďže každý z
 populácie má rovnakú šancu byť vybraný. Získame teda rozdelenie bez
-odchýlky, ktoré kopíruje rozdelenie populácie. Výberové rozdelenie môže
-byť blízko normálneho rozdelenia, aj keď populácia z ktorej sme brali
-vzorky nemá normálne rozdelenie. A to vďaka Centrálnej limitnej vete.
+odchýlky, ktoré kopíruje rozdelenie populácie. Hlavným trikom tohto
+náhodného výberu je, že jeho rozdelenie môže byť blízko normálneho
+rozdelenia, aj keď populácia z ktorej sme brali vzorky nemá normálne
+rozdelenie. A to vďaka Centrálnej limitnej vete.
 
 \hypertarget{centruxe1lna-limitnuxe1-veta}{%
 \subsection{Centrálna limitná veta}\label{centruxe1lna-limitnuxe1-veta}}
@@ -1913,11 +1962,60 @@ populácie, tým väčšia vzorka bude potrebná, aby toto pravidlo platilo.
 \section{Podmienky lineárnej
 regresie}\label{podmienky-lineuxe1rnej-regresie}}
 
+Prečo som Vám toto všetko vravel? Pracujeme s náhodnými veličinami,
+takže pochopiť zmysel náhodného výberu, je dôležité. Všetky estimátory s
+ktorými pracujeme, teda \(\hat\beta{}_i\), sú náhodnými veličinami (lebo
+sú vyrátané z náhodnej vzorky), teda na ich vyrátané koeficienty budú
+platiť vyššie spomínané koncepty. Keď budeme pracovť s predpokladom, že
+majú normálne rozdelenie, môžeme na nich aplikovať t-testy a konfidenčné
+intervaly a ďalšie krásne štatistické techniky. Tento predpoklad môžeme
+použiť vďaka očakávanej hodnote, keďže:
+
+\[E(\overline{x}) = \mu\] Teda očakávaná hodnota nášho estimátora (v
+tomto prípade je priemer vzorky estimátor priemeru populácie) bude rovná
+priemeru. Ono, sú to také štatistické kecy, ktoré majú svoje
+opodstatnenie, avšak potrebujete troška času, aby ste sa s nimi vžili a
+pochopili ich. Týmto vzorcom chceme povedať, že predpokladáme, že
+rozdelenie priemeru v našej vzorke nebude odchýlené od priemeru
+populácie, lebo pri očakávanej hodnote by sme vzali nekonečno veľa
+vzoriek, a platil by Zákon veľkých čísel a Centrálna limitná veta. A
+naša vzorka je náhodne vybraná, tak predpokladáme, že má normálne
+rozdelenie a môžeme s ňou podľa toho pracovať, a aplikovať na ňu
+štatistické techniky.
+
+\hypertarget{blue}{%
+\subsection{BLUE}\label{blue}}
+
 My chceme, aby naše estimátory boli BLUE! A tým nemyslíme modré, ale
 Best Linear Unbiased Estimators! Najlepší Lineárni Nevychýlení
-Odhadcovia!
+Odhadcovia! Unbiased znamená, že v priemere Beta trafí cieľ, teda
+priemer populácie. A naše \(\beta_i\) estimátory spĺňajú tieto
+požadované vlastnosti, ak sú splnené isté podmienky. Určite ste počuli o
+Gauss-Markov podmienkach, po ktorých splnení sú OLS estimátory BLUE.
+Niekto ich uvádza 5, niekto 10. Nebudeme si ich tu všetky preberať, lebo
+nuda. Spomenieme si len pár. Všetky tieto štatistické veci som Vám
+vysvetľoval preto, lebo jednou z podmienok je, že:
 
-Unbiased znamena že v priemere Beta trafí cieľ, teda priemer.
+\begin{quote}
+\emph{Vzorka s ktorou model pracuje musí byť zozbieraná náhodne z
+populácie.}
+\end{quote}
+
+To znamená, že vzorka by mala byť \(i.i.d\). Independently and
+Identically Distributed. Nezávislo a identicky distribovaná. To znamená,
+že výber jedného pozorovania zo vzorky, neovplyvňuje výber ďalšieho
+pozorovania, a že každé pozorovanie má rovnakú šancu byť vybrané. Ak to
+tak bude, naše estimátory budú nevychýlené. \emph{Odchýlka však nie je
+jediná vec, ktorá by nás mala zaujímať.} Potrebujeme taktiež overiť, či
+sú naše odhadnuté koeficienty interpretovateľné a aplikovateľné na
+populáciu. K tomu nám dopomáha štandardná chyba odhadnutých
+\(\hat\beta{}_i\)iet. Táto chyba je však skreslená pri porušení ďalších
+Gauss-Markov podmienok. Tieto podmienky sa týkajú chýb modelu (residuals
+\(\hat u_i\)). Prv sa však oboznámme s tým, ako sú nám štandardné chyby
+nápomocné.
+
+\hypertarget{vuxfdstup-regresie}{%
+\section{Výstup regresie}\label{vuxfdstup-regresie}}
 
 \newpage
 

@@ -316,7 +316,7 @@ print(vyska)
 ```
 
 ```
-##  [1] 167 180 189 173 167 183 178 168 185 169
+##  [1] 163 163 188 185 161 186 187 178 187 172
 ```
 
 > _Funkcia by fungovala, aj keby sme to napísali ako_ "sample(160:190, 10, TRUE)". _Je však vhodné písať aj argumenty. Hlavne pri funkciách, ktoré nie sú veľmi bežné. Ak po Vás niekto bude čítať kód, číta sa to lepšie._
@@ -577,7 +577,7 @@ print(viac_ako_170)
 ```
 
 ```
-##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
 ```
 
 ```r
@@ -600,7 +600,7 @@ print(vyska_v_cm)
 ```
 
 ```
-## [1] 174 174 180 185 175 175 181 185 178
+## [1] 175 174 172 190 177 190 184 189 184
 ```
 
 ## Matice
@@ -803,7 +803,7 @@ matica_riadky + matica_stlpce
 
 ### Transpozícia matice
 
-Transponovaním matice dôjde k vzájomnej výmene riadkov a stĺpcov matice. Takúto maticu označujeme ako $A^T$. Ak bola prvotná matica (m, n), po transpozícií vznikne matica s rozmermi (n, m). V R-ku matice transponujeme pomocou funkcie t() ako transpose.
+Transponovaním matice dôjde k vzájomnej výmene riadkov a stĺpcov matice. Takúto maticu označujeme ako $A^T$. Ak bola prvotná matica $(m, n)$, po transpozícií vznikne matica s rozmermi $(n, m)$. V R-ku matice transponujeme pomocou funkcie $t()$ ako $transpose$.
 
 
 ```r
@@ -1090,7 +1090,7 @@ a keďže
 
 $$ \hat{y}_i =\hat\beta_0 + \hat\beta{x}_i,$$
 
-Tak sme tam, kde sme boli na začiatku, keď sme si dali zvyšok $\hat{u}_i$ na jednu stranu. OLS metódoa urobí to, že minimalizuje súčet našich umocnených zvyškov $\hat{u}_i$:
+Tak sme tam, kde sme boli na začiatku, keď sme si dali zvyšok $\hat{u}_i$ na jednu stranu. OLS metóda urobí to, že minimalizuje súčet našich umocnených zvyškov $\hat{u}_i$:
 
 $$min\sum (y_i - \hat\beta_0 - \hat\beta_1{x}_i)^2.$$
 
@@ -1196,8 +1196,6 @@ print(beta0)
 # Sedí. :)
 ```
 
-Oba parametre majú hodnotu -0.068 a rovnajú sa.
-
 Nevravím, že sme objavili Ameriku, ale aspoň viete, že $\hat\beta_0$ je nejaký priemer $y$ a od toho odčítame $\hat\beta_1$ vynásobenú priemerom $x$. A neskrýva sa za tým žiaden ťažký imaginárny vzorec. Taktiež, že $\hat\beta_1$ je spoločný rozptyl závislej a nezávislej premennej, vydelený rozptylom nezávislej premennej. 
 
 Ako však vieme, či estimátorom $\hat\beta_0$ a $\hat\beta_1$ môžeme veriť?
@@ -1208,15 +1206,53 @@ Predtým, než si povieme o podmienkach lineárnej regresie Vás oboznámim s p�
 
 Prejdeme si:
 
+* normálne rozdelenie,
 * očakávanú hodnotu,
 * zákon veľkých čísel,
 * náhodný výber,
-* centrálna limitná veta,
-* normálne rozdelenie.
+* centrálnu limitnú vetu.
 
-Možno ste si všimli, že pri interpretáciach koeficientov sa často opakuje niečo v zmyysle:"V priemere nám pri zvýšeni bla bla bla narastie o bla bla bla." To __v priemere__ je veľmi podstatné. Väčšinou pracujeme so vzorkami, ktoré boli zozbierané z populácie, ktorá je pre nás neznáma. Ideálne boli vybrané náhodne, teda pozorovania vo vzorke sú náhodnými veličinami, a štatistiky ktoré z nich vyrátame sú potom tiež náhodné veličiny. Prečo je to podstatné sa dozvieme v nasledujúcich konceptoch.
 
-> _Keď sa bavíme o štatistikách, máme na mysli akúkoľvek hodnotu, ktorú je možné vyrátať a opisuje niečo. Priemer je štatistika, rozptyl je štatistika."
+Možno ste si všimli, že pri interpretáciach koeficientov sa často opakuje niečo v zmyysle:"V priemere nám pri zvýšeni bla bla bla narastie o bla bla bla." To __v priemere__ je veľmi podstatné. Väčšinou pracujeme so vzorkami, ktoré boli zozbierané z populácie, ktorá je pre nás neznáma. Ideálne boli vybrané náhodným výberom, čo spôsobí, že pozorovania vo vzorke sú náhodnými veličinami, a štatistiky ktoré z nich vyrátame sú taktiež náhodné veličiny. Prečo je to podstatné sa dozvieme v nasledujúcich konceptoch.
+
+> _Keď sa bavíme o štatistikách, máme na mysli akúkoľvek hodnotu, ktorú je možné vyrátať a opisuje niečo. Priemer je štatistika, rozptyl je štatistika."_
+
+## Normálne rozdelenie
+
+Je potrebné vedieť, ako toto rozdelenie vyzerá, a aké má vlastnosti, keďže mnoho konceptov v štatistike, sa točí okolo tohto rozdelenia, kvôli jeho sladkým vlastnostiam. Normálne rozdelenie je rozdelenie pravdepodonosti, ktoré je symetrické okolo priemeru, čím znázorňuje, že hodnoty okolo priemeru majú vyššiu pravdepodobnosť výskytu. V porovnaní s dátami na chvoste rozdelenia. Normálne rozdelenie má dva parametre:
+
+* priemer,
+* smerodajnú odchýlku.
+
+Pre normálne rozdelenie platí, že 68% pozorovaní je v rozmedzí 1 smerodajnej odchýlky (od priemeru na každú stranu jedna), 95% pozorovaní je v romedzí 2 smerdajných odchýlok a 99,7% pozorovaní v rozmedzí 3 smerodajných odchýlok. To sa nám zíde pri testovaní hypotéz. 
+
+
+```r
+# Zostrojme si pre ilustráciu normálne rozdelenie.
+# Môžeme pôžiť dnorm(), pre vyrátanie krásneho normálneho rozdelenia, ktorému
+# by sme zadali vlastné hodnoty, my však použijeme rnorm(), pre vygenerovanie
+# n hodnôt z normálneho rozdelenia.
+
+nrozdelenie <-  rnorm(n = 1000, mean = 20, sd = 5)
+
+# Použijeme hist() namiesto plot(). Funkcia plot() by defaultne použila scatterplot.
+# Argument "breaks" určí, na koľko častí rozlámeme náš histogram.
+# Viacej častí nám umožní krajšie vystihnúť normálne rozdelenie.
+# Funkciou par() si zobrazíme dva grafy vedľa seba a ukážeme rozdiel.
+
+par(mfrow=c(2, 2)) 
+
+# Všimnime si, že sú centrované okolo priemeru, ktorý sme zadali ako 20.
+
+hist(nrozdelenie, breaks = 10, main = "10 breakov")
+
+hist(nrozdelenie, breaks = 30, main = "30 breakov")
+
+# Pre navrátenie zobrazenia grafov na jeden, použijeme "par(mfrow=c(1, 1))".
+```
+
+![](test_files/figure-latex/unnamed-chunk-44-1.pdf)<!-- --> 
+
 
 ## Očakávaná hodnota
 
@@ -1239,9 +1275,9 @@ S tým úzko súvisí aj zákon veľkých čísel. Zákon vraví, že ak rovnak�
 _Príklad:_
 Keď si s niekym budete hádzať mincu, možno padne 10-krát za sebou orol, ale keby sme mincu hodili miliónkrát, výsledky by boli približne 50/50. Inak povedané, šanca že padne hlava (alebo orol) je 50%, ak minca nie je cinknutá. Očakávaná hodnota pri hode mincou je 0.5. Šanca že padne hlava je 1 a možné výsledky sú 2, teda pravedpodobnosť, že padne hlava je 0.5, čiže 50%. 
 
-## Náhodný výber štatistiky
+## Náhodný výber 
 
-V angličtine random sampling. To ing značí nejakú činnosť. Náhodný výber znie skôr ako jeden výber, avšak pri random sampling ide o niečo iné. Väčšina ekonometrických procedúr pracuje s priemermi vzoriek. Čiže tento náhodný výber, sa bude týkať priemeru. Povedzme, že chceme odhadnúť priemernú výšku v populácií. Väčšinou predpokladáme, že pozorovania sú zozbierané náhodne z veľkej, nepoznanej populácie. Vyrátanie priemeru z takejto vzorky má za následok to, že tento priemer je _náhodnou premennou_. _Táto náhodná premenná má potom rozdelenie pravdepodobnosti, nazývané výberové rozdelenie._ Výberové rozdelenie závisí od rozdelenia populácie, z ktorej sme vzorku zobrali. Predpokladajme, že máme normálne distribuovanú populáciu, a vyberieme z nej veľa veľa vzoriek, vyrátame priemer týchto vzoriek, a urobíme z týchto priemerov histogram. Rozdelenie tohto histogramu bude kopírovať rozdelenie, z ktorého sme tieto vzorky zobrali, teda normálne rozdelenie. Náhodný výber by mal eliminovať odchýlku, keďže každý z populácie má rovnakú šancu byť vybraný. Získame teda rozdelenie bez odchýlky, ktoré kopíruje rozdelenie populácie. Výberové rozdelenie môže byť blízko normálneho rozdelenia, aj keď populácia z ktorej sme brali vzorky nemá normálne rozdelenie. A to vďaka Centrálnej limitnej vete.
+V angličtine random sampling. To ing značí nejakú činnosť. Náhodný výber znie skôr ako jeden výber, avšak pri random sampling ide o niečo iné. Väčšina ekonometrických procedúr pracuje s priemermi vzoriek. Čiže tento náhodný výber, sa bude týkať priemeru. Povedzme, že chceme odhadnúť priemernú výšku v populácií. Väčšinou predpokladáme, že pozorovania sú zozbierané náhodne z veľkej, nepoznanej populácie. Vyrátanie priemeru z takejto vzorky má za následok to, že tento priemer je _náhodnou premennou_. _Táto náhodná premenná má potom rozdelenie pravdepodobnosti, nazývané výberové rozdelenie._ Výberové rozdelenie závisí od rozdelenia populácie, z ktorej sme vzorku zobrali. Predpokladajme, že máme normálne distribuovanú populáciu, a vyberieme z nej veľa veľa vzoriek, vyrátame priemer týchto vzoriek, a urobíme z týchto priemerov histogram. Rozdelenie tohto histogramu bude kopírovať rozdelenie, z ktorého sme tieto vzorky zobrali, teda normálne rozdelenie. Náhodný výber by mal eliminovať odchýlku, keďže každý z populácie má rovnakú šancu byť vybraný. Získame teda rozdelenie bez odchýlky, ktoré kopíruje rozdelenie populácie. Hlavným trikom tohto náhodného výberu je, že jeho rozdelenie môže byť blízko normálneho rozdelenia, aj keď populácia z ktorej sme brali vzorky nemá normálne rozdelenie. A to vďaka Centrálnej limitnej vete.
 
 ## Centrálna limitná veta
 
@@ -1249,11 +1285,23 @@ Kdežto Zákon veľkých čísel sa zameriaval skôr na odhad danej štatistiky,
 
 # Podmienky lineárnej regresie
 
+Prečo som Vám toto všetko vravel? Pracujeme s náhodnými veličinami, takže pochopiť zmysel náhodného výberu, je dôležité. Všetky estimátory s ktorými pracujeme, teda $\hat\beta{}_i$, sú náhodnými veličinami (lebo sú vyrátané z náhodnej vzorky), teda na ich vyrátané koeficienty budú platiť vyššie spomínané koncepty. Keď budeme pracovť s predpokladom, že majú normálne rozdelenie, môžeme na nich aplikovať t-testy a konfidenčné intervaly a ďalšie krásne štatistické techniky. Tento predpoklad môžeme použiť vďaka očakávanej hodnote, keďže:
+
+$$E(\overline{x}) = \mu$$
+Teda očakávaná hodnota nášho estimátora (v tomto prípade je priemer vzorky estimátor priemeru populácie) bude rovná priemeru. Ono, sú to také štatistické kecy, ktoré majú svoje opodstatnenie, avšak potrebujete troška času, aby ste sa s nimi vžili a pochopili ich. Týmto vzorcom chceme povedať, že predpokladáme, že rozdelenie priemeru v našej vzorke nebude odchýlené od priemeru populácie, lebo pri očakávanej hodnote by sme vzali nekonečno veľa vzoriek, a platil by Zákon veľkých čísel a Centrálna limitná veta. A naša vzorka je náhodne vybraná, tak predpokladáme, že má normálne rozdelenie a môžeme s ňou podľa toho pracovať, a aplikovať na ňu štatistické techniky.
+
+## BLUE
+
+My chceme, aby naše estimátory boli BLUE! A tým nemyslíme modré, ale Best Linear Unbiased Estimators! Najlepší Lineárni Nevychýlení Odhadcovia! Unbiased znamená, že v priemere Beta trafí cieľ, teda priemer populácie. A naše $\beta_i$ estimátory spĺňajú tieto požadované vlastnosti, ak sú splnené isté podmienky. Určite ste počuli o Gauss-Markov podmienkach, po ktorých splnení sú OLS estimátory BLUE. Niekto ich uvádza 5, niekto 10. Nebudeme si ich tu všetky preberať, lebo nuda. Spomenieme si len pár. Všetky tieto štatistické veci som Vám vysvetľoval preto, lebo jednou z podmienok je, že:
+
+> _Vzorka s ktorou model pracuje musí byť zozbieraná náhodne z populácie._
+
+To znamená, že vzorka by mala byť $i.i.d$. Independently and Identically Distributed. Nezávislo a identicky distribovaná. To znamená, že výber jedného pozorovania zo vzorky, neovplyvňuje výber ďalšieho pozorovania, a že každé pozorovanie má rovnakú šancu byť vybrané. Ak to tak bude, naše estimátory budú nevychýlené. _Odchýlka však nie je jediná vec, ktorá by nás mala zaujímať._ Potrebujeme taktiež overiť, či sú naše odhadnuté koeficienty interpretovateľné a aplikovateľné na populáciu. K tomu nám dopomáha štandardná chyba odhadnutých $\hat\beta{}_i$iet. Táto chyba je však skreslená pri porušení ďalších Gauss-Markov podmienok. Tieto podmienky sa týkajú chýb modelu (residuals $\hat u_i$). Prv sa však oboznámme s tým, ako sú nám štandardné chyby nápomocné. 
+
+# Výstup regresie
 
 
-My chceme, aby naše estimátory boli BLUE! A tým nemyslíme modré, ale Best Linear Unbiased Estimators! Najlepší Lineárni Nevychýlení Odhadcovia!  
 
-Unbiased znamena že v priemere Beta trafí cieľ, teda priemer. 
 
 
 
