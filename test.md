@@ -316,7 +316,7 @@ print(vyska)
 ```
 
 ```
-##  [1] 163 163 188 185 161 186 187 178 187 172
+##  [1] 174 186 161 170 182 165 177 160 161 165
 ```
 
 > _Funkcia by fungovala, aj keby sme to napísali ako_ "sample(160:190, 10, TRUE)". _Je však vhodné písať aj argumenty. Hlavne pri funkciách, ktoré nie sú veľmi bežné. Ak po Vás niekto bude čítať kód, číta sa to lepšie._
@@ -600,7 +600,7 @@ print(vyska_v_cm)
 ```
 
 ```
-## [1] 175 174 172 190 177 190 184 189 184
+## [1] 186 178 189 173 182 190 177 172 186
 ```
 
 ## Matice
@@ -1240,18 +1240,20 @@ nrozdelenie <-  rnorm(n = 1000, mean = 20, sd = 5)
 # Viacej častí nám umožní krajšie vystihnúť normálne rozdelenie.
 # Funkciou par() si zobrazíme dva grafy vedľa seba a ukážeme rozdiel.
 
-par(mfrow=c(2, 2)) 
+par(mfrow=c(1, 2)) 
 
 # Všimnime si, že sú centrované okolo priemeru, ktorý sme zadali ako 20.
 
 hist(nrozdelenie, breaks = 10, main = "10 breakov")
 
 hist(nrozdelenie, breaks = 30, main = "30 breakov")
-
-# Pre navrátenie zobrazenia grafov na jeden, použijeme "par(mfrow=c(1, 1))".
 ```
 
 ![](test_files/figure-latex/unnamed-chunk-44-1.pdf)<!-- --> 
+
+```r
+# Pre navrátenie zobrazenia grafov na jeden, použijeme "par(mfrow=c(1, 1))".
+```
 
 
 ## Očakávaná hodnota
@@ -1296,11 +1298,42 @@ My chceme, aby naše estimátory boli BLUE! A tým nemyslíme modré, ale Best L
 
 > _Vzorka s ktorou model pracuje musí byť zozbieraná náhodne z populácie._
 
-To znamená, že vzorka by mala byť $i.i.d$. Independently and Identically Distributed. Nezávislo a identicky distribovaná. To znamená, že výber jedného pozorovania zo vzorky, neovplyvňuje výber ďalšieho pozorovania, a že každé pozorovanie má rovnakú šancu byť vybrané. Ak to tak bude, naše estimátory budú nevychýlené. _Odchýlka však nie je jediná vec, ktorá by nás mala zaujímať._ Potrebujeme taktiež overiť, či sú naše odhadnuté koeficienty interpretovateľné a aplikovateľné na populáciu. K tomu nám dopomáha štandardná chyba odhadnutých $\hat\beta{}_i$iet. Táto chyba je však skreslená pri porušení ďalších Gauss-Markov podmienok. Tieto podmienky sa týkajú chýb modelu (residuals $\hat u_i$). Prv sa však oboznámme s tým, ako sú nám štandardné chyby nápomocné. 
+To znamená, že vzorka by mala byť $i.i.d$. Independently and Identically Distributed. Nezávislo a identicky distribovaná. To znamená, že výber jedného pozorovania zo vzorky, neovplyvňuje výber ďalšieho pozorovania, a že každé pozorovanie má rovnakú šancu byť vybrané. Ak to tak bude, naše estimátory budú nevychýlené. _Kvôli konceptom, ktoré sme si predstavili vyššie._
+
+
+```r
+# Ukážme si, čo to biased vlastné znamená. Použijeme na to dnorm().
+# dnorm() nám vyberie konkrétny bod z rozdelenia, preto je potrebné mu zadať
+# vektor.
+
+x <- seq(from = -3, to = 5, by = 0.2)
+
+# type = "l" ako "line", čiara.
+# Povedzme, že populačný priemer mí, je 1.
+# Zaznačíme si ho v grafe pomocou abline(), použijeme arugment "v" ako vertical.
+
+
+plot(x = x, y = dnorm(x, mean = 2, sd = 1), type = "l",
+     main = "biased rozdelenie", ylab = "", xlab = "")
+
+abline(v = 1)
+```
+
+![](test_files/figure-latex/unnamed-chunk-45-1.pdf)<!-- --> 
+
+Vrchol rozdelenia nie je centrovaný nad pravým priemerom, rozdelenie je teda biased, odchýlené. 
+
+__Odchýlka však nie je jediná vec, ktorá by nás mala zaujímať.__ Potrebujeme taktiež overiť, či sú naše odhadnuté koeficienty interpretovateľné a aplikovateľné na populáciu. K tomu nám dopomáha štandardná chyba odhadnutých $\hat\beta{}_i$iet. Táto chyba je však skreslená pri porušení ďalších Gauss-Markov podmienok. Tieto podmienky sa týkajú chýb modelu (residuals $\hat u_i$). Prv sa však oboznámme s tým, ako sú nám štandardné chyby nápomocné. 
 
 # Výstup regresie
 
+## SE vs SD
 
+## t-test
+
+## p-value
+
+## conf.int
 
 
 

@@ -552,7 +552,7 @@ náhodne vyberie hodnoty zo zadaného vektora.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 163 163 188 185 161 186 187 178 187 172
+##  [1] 174 186 161 170 182 165 177 160 161 165
 \end{verbatim}
 
 \begin{quote}
@@ -912,7 +912,7 @@ vyhovujúcich hodnôt.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 175 174 172 190 177 190 184 189 184
+## [1] 186 178 189 173 182 190 177 172 186
 \end{verbatim}
 
 \hypertarget{matice}{%
@@ -1861,19 +1861,23 @@ rozmedzí 3 smerodajných odchýlok. To sa nám zíde pri testovaní hypotéz.
 \CommentTok{# Viacej častí nám umožní krajšie vystihnúť normálne rozdelenie.}
 \CommentTok{# Funkciou par() si zobrazíme dva grafy vedľa seba a ukážeme rozdiel.}
 
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)) }
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)) }
 
 \CommentTok{# Všimnime si, že sú centrované okolo priemeru, ktorý sme zadali ako 20.}
 
 \KeywordTok{hist}\NormalTok{(nrozdelenie, }\DataTypeTok{breaks =} \DecValTok{10}\NormalTok{, }\DataTypeTok{main =} \StringTok{"10 breakov"}\NormalTok{)}
 
 \KeywordTok{hist}\NormalTok{(nrozdelenie, }\DataTypeTok{breaks =} \DecValTok{30}\NormalTok{, }\DataTypeTok{main =} \StringTok{"30 breakov"}\NormalTok{)}
-
-\CommentTok{# Pre navrátenie zobrazenia grafov na jeden, použijeme "par(mfrow=c(1, 1))".}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{test_files/figure-latex/unnamed-chunk-44-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Pre navrátenie zobrazenia grafov na jeden, použijeme "par(mfrow=c(1, 1))".}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{oux10dakuxe1vanuxe1-hodnota}{%
 \subsection{Očakávaná hodnota}\label{oux10dakuxe1vanuxe1-hodnota}}
@@ -2005,17 +2009,56 @@ To znamená, že vzorka by mala byť \(i.i.d\). Independently and
 Identically Distributed. Nezávislo a identicky distribovaná. To znamená,
 že výber jedného pozorovania zo vzorky, neovplyvňuje výber ďalšieho
 pozorovania, a že každé pozorovanie má rovnakú šancu byť vybrané. Ak to
-tak bude, naše estimátory budú nevychýlené. \emph{Odchýlka však nie je
-jediná vec, ktorá by nás mala zaujímať.} Potrebujeme taktiež overiť, či
-sú naše odhadnuté koeficienty interpretovateľné a aplikovateľné na
-populáciu. K tomu nám dopomáha štandardná chyba odhadnutých
-\(\hat\beta{}_i\)iet. Táto chyba je však skreslená pri porušení ďalších
-Gauss-Markov podmienok. Tieto podmienky sa týkajú chýb modelu (residuals
-\(\hat u_i\)). Prv sa však oboznámme s tým, ako sú nám štandardné chyby
-nápomocné.
+tak bude, naše estimátory budú nevychýlené. \emph{Kvôli konceptom, ktoré
+sme si predstavili vyššie.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ukážme si, čo to biased vlastné znamená. Použijeme na to dnorm().}
+\CommentTok{# dnorm() nám vyberie konkrétny bod z rozdelenia, preto je potrebné mu zadať}
+\CommentTok{# vektor.}
+
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{-3}\NormalTok{, }\DataTypeTok{to =} \DecValTok{5}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.2}\NormalTok{)}
+
+\CommentTok{# type = "l" ako "line", čiara.}
+\CommentTok{# Povedzme, že populačný priemer mí, je 1.}
+\CommentTok{# Zaznačíme si ho v grafe pomocou abline(), použijeme arugment "v" ako vertical.}
+
+
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =} \KeywordTok{dnorm}\NormalTok{(x, }\DataTypeTok{mean =} \DecValTok{2}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{), }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{,}
+     \DataTypeTok{main =} \StringTok{"biased rozdelenie"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{""}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{)}
+
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{test_files/figure-latex/unnamed-chunk-45-1.pdf}
+
+Vrchol rozdelenia nie je centrovaný nad pravým priemerom, rozdelenie je
+teda biased, odchýlené.
+
+\textbf{Odchýlka však nie je jediná vec, ktorá by nás mala zaujímať.}
+Potrebujeme taktiež overiť, či sú naše odhadnuté koeficienty
+interpretovateľné a aplikovateľné na populáciu. K tomu nám dopomáha
+štandardná chyba odhadnutých \(\hat\beta{}_i\)iet. Táto chyba je však
+skreslená pri porušení ďalších Gauss-Markov podmienok. Tieto podmienky
+sa týkajú chýb modelu (residuals \(\hat u_i\)). Prv sa však oboznámme s
+tým, ako sú nám štandardné chyby nápomocné.
 
 \hypertarget{vuxfdstup-regresie}{%
 \section{Výstup regresie}\label{vuxfdstup-regresie}}
+
+\hypertarget{se-vs-sd}{%
+\subsection{SE vs SD}\label{se-vs-sd}}
+
+\hypertarget{t-test}{%
+\subsection{t-test}\label{t-test}}
+
+\hypertarget{p-value}{%
+\subsection{p-value}\label{p-value}}
+
+\hypertarget{conf.int}{%
+\subsection{conf.int}\label{conf.int}}
 
 \newpage
 
