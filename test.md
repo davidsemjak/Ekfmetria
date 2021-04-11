@@ -316,7 +316,7 @@ print(vyska)
 ```
 
 ```
-##  [1] 184 182 187 186 186 175 188 184 182 179
+##  [1] 189 182 167 181 161 168 184 169 190 171
 ```
 
 > _Funkcia by fungovala, aj keby sme to napísali ako_ "sample(160:190, 10, TRUE)". _Je však vhodné písať aj argumenty. Hlavne pri funkciách, ktoré nie sú veľmi bežné. Ak po Vás niekto bude čítať kód, číta sa to lepšie._
@@ -577,7 +577,7 @@ print(viac_ako_170)
 ```
 
 ```
-##  [1] FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE
+##  [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
 ```
 
 ```r
@@ -588,7 +588,7 @@ sum(viac_ako_170)
 ```
 
 ```
-## [1] 6
+## [1] 7
 ```
 
 ```r
@@ -600,7 +600,7 @@ print(vyska_v_cm)
 ```
 
 ```
-## [1] 175 186 174 174 186 189
+## [1] 172 185 182 185 187 177 187
 ```
 
 ## Matice
@@ -1289,16 +1289,20 @@ Kdežto Zákon veľkých čísel sa zameriaval skôr na odhad danej štatistiky,
 
 # Podmienky lineárnej regresie
 
-Prečo som Vám toto všetko vravel? Pracujeme s náhodnými veličinami, takže pochopiť zmysel náhodného výberu, je dôležité. Všetky estimátory s ktorými pracujeme, teda $\hat\beta{}_i$, sú náhodnými veličinami (lebo sú vyrátané z náhodnej vzorky), teda na ich vyrátané koeficienty budú platiť vyššie spomínané koncepty. Keď budeme pracovť s predpokladom, že majú normálne rozdelenie, môžeme na nich aplikovať t-testy a konfidenčné intervaly a ďalšie krásne štatistické techniky. Tento predpoklad môžeme použiť vďaka očakávanej hodnote, keďže:
+Prečo som Vám toto všetko vravel? Pracujeme s náhodnými veličinami, takže pochopiť zmysel náhodného výberu, je dôležité. Všetky estimátory s ktorými pracujeme, teda $\hat\beta{}_i$, sú náhodnými veličinami (lebo sú vyrátané z náhodnej vzorky), teda na ich vyrátané koeficienty budú platiť vyššie spomínané koncepty. Keď budeme pracovať s predpokladom, že majú normálne rozdelenie, môžeme na nich aplikovať t-testy a konfidenčné intervaly a ďalšie krásne štatistické techniky. Tento predpoklad môžeme použiť vďaka očakávanej hodnote, keďže:
 
 $$E(\overline{x}) = \mu$$
-Teda očakávaná hodnota nášho estimátora (v tomto prípade je priemer vzorky estimátor priemeru populácie) bude rovná priemeru. Ono, sú to také štatistické kecy, ktoré majú svoje opodstatnenie, avšak potrebujete troška času, aby ste sa s nimi vžili a pochopili ich. Týmto vzorcom chceme povedať, že predpokladáme, že rozdelenie priemeru v našej vzorke nebude odchýlené od priemeru populácie, lebo pri očakávanej hodnote by sme vzali nekonečno veľa vzoriek, a platil by Zákon veľkých čísel a Centrálna limitná veta. A naša vzorka je náhodne vybraná, tak predpokladáme, že má normálne rozdelenie a môžeme s ňou podľa toho pracovať, a aplikovať na ňu štatistické techniky.
+Teda očakávaná hodnota nášho estimátora (v tomto prípade je priemer vzorky estimátor priemeru populácie) bude rovná priemeru populácie mí. Ono, sú to také štatistické kecy, ktoré majú svoje opodstatnenie, avšak potrebujete troška času, aby ste sa s nimi vžili a pochopili ich. Týmto vzorcom chceme povedať, že predpokladáme, že rozdelenie priemeru v našej vzorke nebude odchýlené od priemeru populácie, lebo pri očakávanej hodnote by sme vzali nekonečno veľa vzoriek, a platil by Zákon veľkých čísel a Centrálna limitná veta. A naša vzorka je náhodne vybraná, tak predpokladáme, že má normálne rozdelenie a môžeme s ňou podľa toho pracovať, a aplikovať na ňu štatistické techniky.
 
 ## BLUE
 
 My chceme, aby naše estimátory boli BLUE! A tým nemyslíme modré, ale Best Linear Unbiased Estimators! Najlepší Lineárni Nevychýlení Odhadcovia! Unbiased znamená, že v priemere Beta trafí cieľ, teda priemer populácie. A naše $\beta_i$ estimátory spĺňajú tieto požadované vlastnosti, ak sú splnené isté podmienky. Určite ste počuli o Gauss-Markov podmienkach, po ktorých splnení sú OLS estimátory BLUE. Niekto ich uvádza 5, niekto 10. Nebudeme si ich tu všetky preberať, lebo nuda. Spomenieme si len pár. Všetky tieto štatistické veci som Vám vysvetľoval preto, lebo jednou z podmienok je, že:
 
+::: {.center data-latex=""}
+
 > _Vzorka s ktorou model pracuje musí byť zozbieraná náhodne z populácie._
+
+:::
 
 To znamená, že vzorka by mala byť $i.i.d$. Independently and Identically Distributed. Nezávislo a identicky distribovaná. To znamená, že výber jedného pozorovania zo vzorky, neovplyvňuje výber ďalšieho pozorovania, a že každé pozorovanie má rovnakú šancu byť vybrané. Ak to tak bude, naše estimátory budú nevychýlené. _Kvôli konceptom, ktoré sme si predstavili vyššie._
 
@@ -1375,7 +1379,7 @@ summary(model)$coefficients
 
 ## t-test
 
-Na to, aby sme určili, či sú koeficienty významné, používame t-test. To, čo vidíme v koeficientoch v stĺpci $t$ je označované ako $t-štatistika$, lebo je to vyrátaná hodnota, ktorá je interpretovateľná. Aaale prečo vlastne t-štatistika? Pozrime sa na t-rozdelenie.
+Na to, aby sme určili, či sú koeficienty významné, používame t-test. To, čo vidíme v koeficientoch v stĺpci $t$ je označované ako $t-štatistika$, lebo je to štatistickou technikou vyrátaná hodnota, ktorá je interpretovateľná. Aaale prečo vlastne t-štatistika? Pozrime sa na t-rozdelenie.
 
 ::: {.center data-latex=""}
 ![](diplomka obrazky\7.png)
@@ -1424,6 +1428,7 @@ Na hodine to budete rátať pomocou variačno-kovariačnej matice.
 My si ukážeme všeobecný vzorec:
 
 $$s_{\bar{X}} = \frac{s}{\sqrt{n}}$$
+
 > _Vydelíme smerodajnú odchýlku vzorky, odmocninou počtu pozorovaní vo vzorke._
 
 Alternatívny zápis:
@@ -1459,9 +1464,61 @@ nase_t
 ## [1] 18.42125
 ```
 
-## p-value
+## Kritická hodnota
 
-## conf.int
+Kritická hodnota pre t-štatistiku je približne 2, že?  Čo to ale značí? Keď koeficient predelíme štandardnou chybou, rátame, koľko štandardných chýb sa vmestí do tejto hodnoty, čiže koľko štandardných chýb je vzdialená od tejto hodnoty. T-rozdelenie je rozdelenie pravedpobodnosti, a čím je bližšie k stredu, tým je väčšia pravdepodobnosť výskytu. Ak si spomínate, čo sme si vraveli pri normálnom rozdelení, že 68% sa nachádza v rozmedzí jednej smerodajnej odchýlky, a 95% v rozmedzí dvoch smerodajných odchýlok. 95% a 2 štandardné chyby, hm, hm? Aká je väčšinou naša hladina významnosti? 5%! Čo je 100 - 95. A znova opakujem, bavíme sa o rozdelení pravdepodobnosti. Ak je teda t-štatistika väčšia ako 2, nachádzame sa ďalej ako 2 smerodajné odchýlky od centra rozdelenia, a __pravedpodobnosť__ výskytu tejto hodnoty, je menšia ako 5%. Šanca, že sme tento koeficient odhadli len čistou náhodou (menej ako 5% sa berie ako náhoda, "by chance"), je menej ako 5%. A teda považujeme tento koeficient za štatisticky významný. 
+
+::: {.center data-latex=""}
+![](diplomka obrazky\8.png)
+:::
+
+## p-hodnota
+
+Pomocou t-štatistiky môžeme vyrátať p-hodnotu. Naša nulová hypotéza bola:
+
+$$H_0: \hat\beta{}_i = 0$$
+
+Nulovú hypotézu zamietame, ak je t-štatistika väčšia ako 2, čiže sa nachádza v chvostoch rozdelenia, inými slovami, je malá pravdepodobnosť, že sme túto hodnotu vyrátali náhodne. A p-hodnota nevraví nič iné, ako to, aká je pravdepodobnosť, že by sme dostali našu $\hat\beta{}_i$etu, za predpokladu, že nulová hypotéza platí. p-hodnota, ukazuje pravedpodobnosť výskytu nulovej hypotézy. Ak je táto hodnota malá, zamietame, že $\hat\beta{}_i$ je štatisticky nevýznamná a rovná nule.
+
+
+```r
+# V našom prípade boli p-hodnoty 6.642736e-18, čo je veľmi malé číslo,
+# 18 núl pred šestkou. Dávajte pozor, keby tam bolo e+18, tak je to obrovské
+# číslo. :D Väčšinou sú malé p-hodnoty označené tromi hviezdičkami.
+
+summary(model)$coefficients
+```
+
+```
+##                Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept) 30.09886054  1.6339210 18.421246 6.642736e-18
+## data$hp     -0.06822828  0.0101193 -6.742389 1.787835e-07
+```
+
+
+## Konfidenčný interval
+
+Keď už sme zabŕdli do tej štatistiky, povedzme si rýchlo, čo je konfidenčný interval. Najprv si ukážeme zápis konfidenčného intervalu pre jednu premennú (nevravíme pre jednu preto, lebo pracujeme s jednoduchou lineárnou regresiou, ale preto, že sa konfidenčný interval vytvára pre každú premennú zvlášť):
+
+$$[\hat\beta{}_i - 1.96 × SE(\hat\beta{}_i)\;\;,\;\;\hat\beta{}_i + 1.96 × SE(\hat\beta{}_i)].$$
+Od odhadnutého koeficientu prv odčítame dve štandardné chyby pre určenie spodnej hranice, a potom pričítame dve štandardné chyby pre určenie hornej hranice.
+
+
+```r
+# V R-ku konfidnčný interval odhadneme pomocou confint().
+# Ukážeme si neskôr aj robustnú alternatívu. Zatiaľ pracujeme len s basic
+# balíkmi v R.
+
+confint(model)
+```
+
+```
+##                   2.5 %     97.5 %
+## (Intercept) 26.76194879 33.4357723
+## data$hp     -0.08889465 -0.0475619
+```
+
+Interpretácia konfidenčného intervalu je nasledovná:"Ak by sme vzali nekonečno vzoriek z populácie, v 95% prípadov, by sa skutočný priemer populácie nachádzal v rozmedzí 26.8 až 33.44." 
 
 # Vlastnosti reziduí
 

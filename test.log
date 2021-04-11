@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.4.9)  11 APR 2021 16:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.4.9)  11 APR 2021 18:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -610,7 +610,7 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 184.
 [2]
-<diplomka obrazky/1.png, id=212, 152.06813pt x 20.32594pt>
+<diplomka obrazky/1.png, id=216, 152.06813pt x 20.32594pt>
 File: diplomka obrazky/1.png Graphic file (type png)
 <use diplomka obrazky/1.png>
 Package pdftex.def Info: diplomka obrazky/1.png  used on input line 298.
@@ -629,13 +629,13 @@ LaTeX Warning: Command \' invalid in math mode on input line 498.
 
 LaTeX Warning: Command \' invalid in math mode on input line 499.
 
-<diplomka obrazky/2.png, id=229, 397.485pt x 73.02281pt>
+<diplomka obrazky/2.png, id=233, 397.485pt x 73.02281pt>
 File: diplomka obrazky/2.png Graphic file (type png)
 <use diplomka obrazky/2.png>
 Package pdftex.def Info: diplomka obrazky/2.png  used on input line 512.
 (pdftex.def)             Requested size: 399.30962pt x 73.35799pt.
 [5]
-<diplomka obrazky/3.png, id=236, 462.22687pt x 140.77594pt>
+<diplomka obrazky/3.png, id=240, 462.22687pt x 140.77594pt>
 File: diplomka obrazky/3.png Graphic file (type png)
 <use diplomka obrazky/3.png>
 Package pdftex.def Info: diplomka obrazky/3.png  used on input line 527.
@@ -650,13 +650,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 714--715
  []
 
 [8] [9] [10] [11] [12]
-<diplomka obrazky/4a.png, id=280, 1927.2pt x 1088.065pt>
+<diplomka obrazky/4a.png, id=284, 1927.2pt x 1088.065pt>
 File: diplomka obrazky/4a.png Graphic file (type png)
 <use diplomka obrazky/4a.png>
 Package pdftex.def Info: diplomka obrazky/4a.png  used on input line 1110.
 (pdftex.def)             Requested size: 234.87105pt x 132.60428pt.
 [13 <./diplomka obrazky/4a.png>] [14] [15] [16] [17]
-<test_files/figure-latex/unnamed-chunk-39-1.pdf, id=318, 469.755pt x 325.215pt>
+<test_files/figure-latex/unnamed-chunk-39-1.pdf, id=322, 469.755pt x 325.215pt>
 
 File: test_files/figure-latex/unnamed-chunk-39-1.pdf Graphic file (type pdf)
 <use test_files/figure-latex/unnamed-chunk-39-1.pdf>
@@ -664,7 +664,7 @@ Package pdftex.def Info: test_files/figure-latex/unnamed-chunk-39-1.pdf  used o
 n input line 1489.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [18 <./test_files/figure-latex/unnamed-chunk-39-1.pdf>]
-<test_files/figure-latex/unnamed-chunk-41-1.pdf, id=329, 469.755pt x 325.215pt>
+<test_files/figure-latex/unnamed-chunk-41-1.pdf, id=333, 469.755pt x 325.215pt>
 
 File: test_files/figure-latex/unnamed-chunk-41-1.pdf Graphic file (type pdf)
 <use test_files/figure-latex/unnamed-chunk-41-1.pdf>
@@ -672,14 +672,14 @@ Package pdftex.def Info: test_files/figure-latex/unnamed-chunk-41-1.pdf  used o
 n input line 1556.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [19]
-<diplomka obrazky/4.png, id=335, 509.40312pt x 352.31625pt>
+<diplomka obrazky/4.png, id=339, 509.40312pt x 352.31625pt>
 File: diplomka obrazky/4.png Graphic file (type png)
 <use diplomka obrazky/4.png>
 Package pdftex.def Info: diplomka obrazky/4.png  used on input line 1578.
 (pdftex.def)             Requested size: 399.31491pt x 276.17642pt.
 [20 <./test_files/figure-latex/unnamed-chunk-41-1.pdf>] [21 <./diplomka obrazky
 /4.png>] [22] [23] [24]
-<test_files/figure-latex/unnamed-chunk-44-1.pdf, id=366, 469.755pt x 325.215pt>
+<test_files/figure-latex/unnamed-chunk-44-1.pdf, id=370, 469.755pt x 325.215pt>
 
 File: test_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pdf)
 <use test_files/figure-latex/unnamed-chunk-44-1.pdf>
@@ -687,48 +687,67 @@ Package pdftex.def Info: test_files/figure-latex/unnamed-chunk-44-1.pdf  used o
 n input line 1877.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [25 <./test_files/figure-latex/unnamed-chunk-44-1.pdf>]
-<diplomka obrazky/5.png, id=379, 143.5764pt x 60.7068pt>
+<diplomka obrazky/5.png, id=383, 143.5764pt x 60.7068pt>
 File: diplomka obrazky/5.png Graphic file (type png)
 <use diplomka obrazky/5.png>
 Package pdftex.def Info: diplomka obrazky/5.png  used on input line 1908.
 (pdftex.def)             Requested size: 375.83989pt x 158.91212pt.
 [26 <./diplomka obrazky/5.png>] [27]
-<test_files/figure-latex/unnamed-chunk-45-1.pdf, id=394, 469.755pt x 325.215pt>
+<test_files/figure-latex/unnamed-chunk-45-1.pdf, id=398, 469.755pt x 325.215pt>
 
 File: test_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
 <use test_files/figure-latex/unnamed-chunk-45-1.pdf>
 Package pdftex.def Info: test_files/figure-latex/unnamed-chunk-45-1.pdf  used o
-n input line 2038.
+n input line 2042.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [28 <./test_files/figure-latex/unnamed-chunk-45-1.pdf>]
 
-LaTeX Warning: Command \v invalid in math mode on input line 2106.
+LaTeX Warning: Command \v invalid in math mode on input line 2110.
 
-<diplomka obrazky/7.png, id=406, 638.385pt x 372.64218pt>
+<diplomka obrazky/7.png, id=410, 638.385pt x 372.64218pt>
 File: diplomka obrazky/7.png Graphic file (type png)
 <use diplomka obrazky/7.png>
-Package pdftex.def Info: diplomka obrazky/7.png  used on input line 2112.
+Package pdftex.def Info: diplomka obrazky/7.png  used on input line 2116.
 (pdftex.def)             Requested size: 469.75769pt x 274.20998pt.
 [29]
 
-LaTeX Warning: Command \v invalid in math mode on input line 2149.
+LaTeX Warning: Command \v invalid in math mode on input line 2153.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 2149.
+LaTeX Warning: Command \' invalid in math mode on input line 2153.
 
 [30 <./diplomka obrazky/7.png>]
 
-LaTeX Warning: Command \v invalid in math mode on input line 2203.
+LaTeX Warning: Command \v invalid in math mode on input line 2211.
 
-[31] [32] [33] (./test.aux)
+[31]
+<diplomka obrazky/8.png, id=428, 1927.2pt x 963.6pt>
+File: diplomka obrazky/8.png Graphic file (type png)
+<use diplomka obrazky/8.png>
+Package pdftex.def Info: diplomka obrazky/8.png  used on input line 2267.
+(pdftex.def)             Requested size: 469.7421pt x 234.87103pt.
+[32 <./diplomka obrazky/8.png>]
+
+LaTeX Warning: Command \texttimes invalid in math mode on input line 2312.
+
+
+LaTeX Warning: Command \texttimes invalid in math mode on input line 2312.
+
+
+LaTeX Warning: Command \texttimes invalid in math mode on input line 2312.
+
+
+LaTeX Warning: Command \texttimes invalid in math mode on input line 2312.
+
+[33] [34] [35] (./test.aux)
 Package rerunfilecheck Info: File `test.out' has not changed.
-(rerunfilecheck)             Checksum: BD7DB45EE14FA0F5F6E7C61354707924;6593.
+(rerunfilecheck)             Checksum: 2EA524872337CF9035AEA59717F877AF;6816.
  ) 
 Here is how much of TeX's memory you used:
- 11216 strings out of 480954
- 165100 string characters out of 5905841
- 470158 words of memory out of 5000000
- 28096 multiletter control sequences out of 15000+600000
+ 11229 strings out of 480954
+ 165372 string characters out of 5905841
+ 470222 words of memory out of 5000000
+ 28104 multiletter control sequences out of 15000+600000
  464543 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  71i,14n,74p,366b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -755,10 +774,10 @@ rs/david/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:
 b><c:/Users/david/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt
 10.pfb><c:/Users/david/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
 /lmtti10.pfb>
-Output written on test.pdf (33 pages, 544529 bytes).
+Output written on test.pdf (35 pages, 601898 bytes).
 PDF statistics:
- 527 PDF objects out of 1000 (max. 8388607)
- 451 compressed objects within 5 object streams
- 131 named destinations out of 1000 (max. 500000)
- 424 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 543 PDF objects out of 1000 (max. 8388607)
+ 463 compressed objects within 5 object streams
+ 135 named destinations out of 1000 (max. 500000)
+ 437 words of extra memory for PDF output out of 10000 (max. 10000000)
 
