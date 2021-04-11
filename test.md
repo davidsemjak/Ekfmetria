@@ -316,7 +316,7 @@ print(vyska)
 ```
 
 ```
-##  [1] 174 186 161 170 182 165 177 160 161 165
+##  [1] 184 182 187 186 186 175 188 184 182 179
 ```
 
 > _Funkcia by fungovala, aj keby sme to napísali ako_ "sample(160:190, 10, TRUE)". _Je však vhodné písať aj argumenty. Hlavne pri funkciách, ktoré nie sú veľmi bežné. Ak po Vás niekto bude čítať kód, číta sa to lepšie._
@@ -577,7 +577,7 @@ print(viac_ako_170)
 ```
 
 ```
-##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
+##  [1] FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE
 ```
 
 ```r
@@ -588,7 +588,7 @@ sum(viac_ako_170)
 ```
 
 ```
-## [1] 9
+## [1] 6
 ```
 
 ```r
@@ -600,7 +600,7 @@ print(vyska_v_cm)
 ```
 
 ```
-## [1] 186 178 189 173 182 190 177 172 186
+## [1] 175 186 174 174 186 189
 ```
 
 ## Matice
@@ -1010,6 +1010,8 @@ plot(x = data$hp, y = data$mpg, ylab = "ylab ako y label", xlab = "tu máme výk
 Vidíme istú negatívnu závislosť. Chceli by sme si to však potvrdiť číslami. Bolo by fajn napasovať medzi tieto pozorovania takú priamku, ktorá bude ku každému pozorovaniu čo najbližšie. Keďže nepoznáme parametre populácie, budeme pracovať s ich estimátormi, odhadcami. Estimátory označíme striežkou ako $\hat\beta_0{}$ a $\hat\beta_1{}$. Model bude vyzerať následovne:
 
 $$\hat{mpg_i} = \hat\beta_0 + \hat \beta_1{hp_i}.$$ 
+> __Náhodná zložka (error term) vypadne, lebo jej očakávaná hodnota sa rovná nule.__ 
+
 Skúsme si takýto model zostrojiť v R-ku, a priamku dopasovať do grafu.
 
 
@@ -1327,17 +1329,147 @@ __Odchýlka však nie je jediná vec, ktorá by nás mala zaujímať.__ Potrebuj
 
 # Výstup regresie
 
-## SE vs SD
+Pozrime sa na výstup našej regresie a analyzujme si ho troška.
+
+
+```r
+# Na výpis všetkých vlastností modelu použijeme summary().
+
+summary(model)
+```
+
+```
+## 
+## Call:
+## lm(formula = data$mpg ~ data$hp)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7121 -2.1122 -0.8854  1.5819  8.2360 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 30.09886    1.63392  18.421  < 2e-16 ***
+## data$hp     -0.06823    0.01012  -6.742 1.79e-07 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 3.863 on 30 degrees of freedom
+## Multiple R-squared:  0.6024,	Adjusted R-squared:  0.5892 
+## F-statistic: 45.46 on 1 and 30 DF,  p-value: 1.788e-07
+```
+
+```r
+# Vidíme tam nejaké vlastnosti reziduí, odhadnuté koeficienty, a v tretej
+# časti taktiež podstatné veci ako R^2, či F-test.
+# Teraz nás však zaujíma časť s koeficientmi.
+
+summary(model)$coefficients
+```
+
+```
+##                Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept) 30.09886054  1.6339210 18.421246 6.642736e-18
+## data$hp     -0.06822828  0.0101193 -6.742389 1.787835e-07
+```
 
 ## t-test
+
+Na to, aby sme určili, či sú koeficienty významné, používame t-test. To, čo vidíme v koeficientoch v stĺpci $t$ je označované ako $t-štatistika$, lebo je to vyrátaná hodnota, ktorá je interpretovateľná. Aaale prečo vlastne t-štatistika? Pozrime sa na t-rozdelenie.
+
+::: {.center data-latex=""}
+![](diplomka obrazky\7.png)
+::: 
+
+Pripomína Vám to niečo? Toto t-rozdelenie je typom normálneho rozdelenia, ktoré sa používa pri menších vzorkách. Používa sa, keď predpokladáme, že majú dáta približne normálne rozdelenie (majú približne bell shape, tvar zvona), avšak nepoznáme rozptyl populácie. Odhad rozptylu t-rozdelenia záleží od veľkosti vzorky, respektíve na stupni voľnosti. Z grafu vidíte, že ako df rastú (degree-of-freedom, stupeň voľnosti), chvosty rozdelenia sa stenšujú a rozdelenie sa zužuje. Stupne voľnosti vyrátame ako počet pozorovaní mínus počet premenných a intercept. Toto rozdelenie ukazuje hustotu pravedpodobnosti, s akou sa dané hodnoty v rozdelení môžu objaviť.
+
+Čarovnou vlastnosťou tohto rozdelenia je, že ako rastie stupeň voľnosti, rozdelenie sa približuje štandardnému normálnemu rozdeleniu. Štandardné normálne rozdelenie sa vyznačuje tým, že má priemer 0 a smerodajnú odchýlku 1.
+
+Poďme teraz k tým juicy veciam, prečo Vám to vlastne ukazujem.
+
+## t-štatistika
+
+Na overenie, či sme koeficient neodhadli len náhodou, ale je naozaj významný, vyrátame t-štatistiku, ktorej formula vyzerá takto:
+
+$$t = \frac{\hat\beta{}_i}{se(\hat\beta{}_i)}$$
+V t-štatistike odčítate v čitateli vašu požadovanú hypotézu. My testujeme významnosť $\hat\beta{}_i$, teda či sa naša $\hat\beta{}_i$ rovná nule a tým pádom nie je významná. Mohli by sme to zapísať ako:
+
+$$t = \frac{\hat\beta{}_i - \hat\beta{}_i,_0}{se(\hat\beta{}_i)}$$
+Odčítame nulu, čiže sa nič nemení, a prvý zápis je úplne v poriadku.
+
+Hej hej hej, čo je ale to se??? _SE stands for standard error._ Takže $štandardná chyba$. Hmmmm, to neznie ako smerodajná odchýlka. A máte pravdu! Lebo to nie je smerodajná odchýlka! Alebo, no, ono to vlastne JE smerodajná odchýlky! 
+
+## SD vs SE
+
+Smerodajná odchýlka (standard deviaton) a štandardná chyba (standard error).
+
+Spomínate si na vzorec na rozptyl? Ak nie, tu ho máme:
+
+$$s^{2} = \frac{\sum_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}.$$
+  
+Všimnime si, že používame $s^{2}$, namiesto $\sigma^{2}$ (sigma squared, squared = na druhú), lebo sa jedná o estimátor, kde odhadujeme danú štatistiku (v tomto prípade rozptyl) zo vzorky. $\sigma^{2}$ sa používa na označenie rozptylu populácie. To máme to isté ako $\mu$ (mí), pre priemer populácie a $\overline{x}$ pre priemer vzorky.
+
+Smerodajná odchýlka je odmocnina vzorca uvedeného vyššie, základy štatistiky, že?
+
+$$s = \sqrt{\frac{\sum_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}}.$$
+
+Výberová smerodajná odchýlka (čiže smerodajná odchýlka vyrátaná zo vzorky, nenechajte sa zmiesť, je to to isté ako vyššie, len sme pridali výberová, nech sme korektní) nám určuje osciláciu hodnôt okolo priemeru, ako veľmi sú okolo toho priemeru rozptýlené.
+
+Štanardná chyba opisuje to isté, avšak miesto vzorky, pracuje so vzorkou plnou priemerov. Spomeňme si na výberové rozdelenie pri náhodnom výbere. Vezmeme vzorku, vyrátame z nej priemer a priemer dáme do šuflíka. Vezmeme ďalšiu vzorku, vyrátame jej priemer, a aj tento priemer hodíme do šuflíka. Toto zopakujeme veľakrát, a máme plný šuflík priemerov. Z tejto šuplíkovej vzorky priemerov vyrátame priemer. Aaa potom vyrátame, ako zvyšné hodnoty (priemery), oscilujú okolo priemeru vzorky. Vyrátali sme teda smero...ehm.. štandardnú chybu!
+Keď sa bavíme o štandardnej chybe (SE), vieme, že sa bavíme o tom, ako natesno je súbor priemerov, okolo priemeru. Čiže je to smerodajná odchýlka pre priemery. 
+
+> _V štatistike sa to beri ako odhad smerodajnej odchýlky priemeru vzorky, okolo skutočného priemeru populácie._
+
+Na hodine to budete rátať pomocou variačno-kovariačnej matice. 
+My si ukážeme všeobecný vzorec:
+
+$$s_{\bar{X}} = \frac{s}{\sqrt{n}}$$
+> _Vydelíme smerodajnú odchýlku vzorky, odmocninou počtu pozorovaní vo vzorke._
+
+Alternatívny zápis:
+
+$$SE = \frac{s}{\sqrt{n}}$$
+Takže vráťme sa k našej $t-štatistike$:
+
+$$t = \frac{\hat\beta{}_i}{se(\hat\beta{}_i)}$$
+
+Na jej vyrátanie použijeme odhadnutý $\hat\beta{}_i$ koeficient, a predelíme ho odhadnutou štandardnou chybou (ktorú pre nás vyráta R-ko do koeficientov). Pozrime sa ešte raz na koeficienty:
+
+
+```r
+summary(model)$coefficients
+```
+
+```
+##                Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept) 30.09886054  1.6339210 18.421246 6.642736e-18
+## data$hp     -0.06822828  0.0101193 -6.742389 1.787835e-07
+```
+
+```r
+# Vydeľme koeficient "estimate", číslom "Std. Error" (SE),
+# a pozrime sa, či nám výjde t-štatistika.
+
+nase_t <- summary(model)$coefficients[1, 1] / summary(model)$coefficients[1, 2]
+
+nase_t
+```
+
+```
+## [1] 18.42125
+```
 
 ## p-value
 
 ## conf.int
 
+# Vlastnosti reziduí
 
+## HC
 
+## AC
 
+## MC
 
 
 
