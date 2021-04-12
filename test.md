@@ -15,15 +15,16 @@ output:
 
 # Sprievodca ekfmetriou
 
-Sprievodca ekonometriou má za úlohu priblížiť Vám ekonometriu, a pomôcť Vám jej porozumieť. Sprievodcu píšem ako študent, ktorý sa ekonometriu začal učiť sám, a sám si prešiel zdĺhavým procesom bádania a usmerňovania. Sprievodca je zostrojený ako-tak súbežne s osnovou a zadaniami, ktoré obdržíte na hodine. Nebudeme sa konkrétne držať vypracovania zadaní, ale skôr princípmi, z ktorých zadania ťažia. Mnoho študentov tento predmet nezaujíma, a zadania vypracujú okopírovaním postupov starších spolužiakov, nuž, pochopiť ekonometriu a jej postupy nie je vôbec jednoduché, a dokážem pochopiť, keď si študenti hľadajú skratky. Na druhú stranu, ekonometria predstavuje skvelú vstupnú bránu do sveta analytiky. Človek je zavalený Machine Learningom, Data Sciencom a AI-čkom, nuž až po sfúknutí pozlátka zistí, že je to zmes matematiky, štatistiky a počítačovej vedy (CS – computer science). Ekonometria je teda skvelou výhovorkou, ako oprášiť matematiku, doučiť sa štatistiku, a naučiť sa troška programovania. R-ko sa môže zdať ako jazyk, ktorý žije v tieni Pythonu, avšak, akoby nejedna Dominika vedela povedať, netreba sa nechať voviesť do omylu. R-ko je najvhodnejší programovací jazyk pre štatistikov, Google ho zahrnul do najnovších kurzov Google Analytics. Mojou úlohou je pomôcť Vám prekonať problém, ktorý som na začiatku svojej cesty ekonometriou vôbec nepovažoval za problém, a to množstvo materiálov, ktoré zavalí študenta. Pomôžem Vám postupne zložiť skladačku konceptov a teórií, na ktorých ekonometria stojí. Náročnosť prezentovania konceptov bude prispôsobená. Nemá zmysel vysvetľovať odvodzovanie každého estimátora. Cieľom je poskytnúť všeobecný náhľad ekonometrie, a pomôcť Vám pochopiť, a teda príjemnejšie zvládnuť predmet Ekonometria.    
+Sprievodca ekonometriou má za úlohu priblížiť Vám ekonometriu, a pomôcť Vám jej porozumieť. Sprievodcu píšem ako študent, ktorý sa ekonometriu začal učiť sám, a sám si prešiel zdĺhavým procesom bádania a usmerňovania. Sprievodca je zostrojený ako-tak súbežne s osnovou a zadaniami, ktoré obdržíte na hodine. Nebudeme sa konkrétne držať vypracovania zadaní, ale skôr princípmi, z ktorých zadania ťažia. Mnoho študentov tento predmet nezaujíma, a zadania vypracujú okopírovaním postupov starších spolužiakov, nuž, pochopiť ekonometriu a jej postupy nie je vôbec jednoduché, a dokážem pochopiť, keď si študenti hľadajú skratky. Na druhú stranu, ekonometria predstavuje skvelú vstupnú bránu do sveta analytiky. Človek je zavalený Machine Learningom, Data Sciencom a AI-čkom, nuž až po sfúknutí pozlátka zistí, že je to zmes matematiky, štatistiky a počítačovej vedy. Ekonometria je teda skvelou výhovorkou, ako oprášiť matematiku, doučiť sa štatistiku, a naučiť sa troška programovania. R-ko sa môže zdať ako jazyk, ktorý žije v tieni Pythonu, avšak, akoby nejedna Dominika vedela dosvedčiť, netreba sa nechať voviesť do omylu. R-ko je najvhodnejší programovací jazyk pre štatistikov, Google ho zahrnul do najnovších kurzov Google Analytics. Mojou úlohou je pomôcť Vám prekonať problém, ktorý som na začiatku svojej cesty ekonometriou vôbec nepovažoval za problém, a to množstvo materiálov, ktoré zavalí študenta. Pomôžem Vám postupne zložiť skladačku konceptov a teórií, na ktorých ekonometria stojí. Náročnosť prezentovania konceptov bude prispôsobená, nehnevajte sa, keď neskôr objavíte niečo, čo som spomenúť mohol, ale nespomenul. Nemá zmysel vysvetľovať odvodzovanie každého estimátora. Cieľom je poskytnúť všeobecný náhľad ekonometrie, a pomôcť Vám pochopiť, a príjemnejšie zvládnuť predmet Ekonometria.    
 
 &nbsp;  
  
 __Čo nás čaká:__  
 
-* Základy programovania v R  
-* Intuitívny prehľad štatistických konceptov  
-* Ekonometrické techniky 
+1. Základy programovania v R 
+2. Ekonometrické techniky
+3. Intuitívny prehľad štatistických konceptov 
+
 
 \newpage
 
@@ -316,7 +317,7 @@ print(vyska)
 ```
 
 ```
-##  [1] 189 182 167 181 161 168 184 169 190 171
+##  [1] 174 184 161 166 164 174 172 188 170 173
 ```
 
 > _Funkcia by fungovala, aj keby sme to napísali ako_ "sample(160:190, 10, TRUE)". _Je však vhodné písať aj argumenty. Hlavne pri funkciách, ktoré nie sú veľmi bežné. Ak po Vás niekto bude čítať kód, číta sa to lepšie._
@@ -577,7 +578,7 @@ print(viac_ako_170)
 ```
 
 ```
-##  [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+##  [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE
 ```
 
 ```r
@@ -588,7 +589,7 @@ sum(viac_ako_170)
 ```
 
 ```
-## [1] 7
+## [1] 6
 ```
 
 ```r
@@ -600,7 +601,7 @@ print(vyska_v_cm)
 ```
 
 ```
-## [1] 172 185 182 185 187 177 187
+## [1] 185 173 178 184 185 175
 ```
 
 ## Matice
@@ -1522,11 +1523,121 @@ Interpretácia konfidenčného intervalu je nasledovná:"Ak by sme vzali nekone�
 
 # Vlastnosti reziduí
 
-## HC
+Aby sme koeficienty modelu mohli použiť na štatistickú inferenciu, je potrebné skontrolovať vlastnosti reziduí. Tieto vlastnosti sú ďalšími z podmienok OLS metódy. Na cvičeniach sa budete venovať ich rátaniu a ukážkach na modeloch. Ja Vám poviem, čo takéto nesplnenie vlastnosti spôsobí, a pokúsim sa Vám to vryť do pamäti pomocou vizualizácie. Stručne zhrniem aj využité testy a riešenia. Treba si __zvýrazniť__, že tieto podmienky sa vzťahujú len na reziduá, a nie na nezávislé premenné.
 
-## AC
+## Normalita
 
-## MC
+Chceme, aby boli naše reziduá normálne rozdelené, čo to znamená? Nechceme vidieť žiaden vzor správania reziduí. Reziduá majú byť nezávisle od nezávislých premenných a s priemerom 0. Naše reziduá si plotneme spolu s fitted, teda odhadnutými hodnotami na priamke. V prvom grafe sme si pridali priamku, keďže reziduá by mali byť porozhadzované názávisle po oboch stranách. Druhý graf je takzvaný QQ-plot. Reziduá sú rozdelené normálne, ak kopírujú diagonálnu priamku, ktorú sme si nakreslili. Tá priamka je totižto vytvorená z normálneho rozdelenia. Ak by sme si otestovali tieto reziduá z nášho modelu, nezamietli by sme nulovú hypotézu, reziduá teda sú rozdelené normálne-ish.
+
+
+```r
+# My sme si tieto grafy vytvorili manuálne, dopracovali by ste sa k ním
+# však aj cez funkciu plot(váš_model). Museli by ste sa k nemu však preklikať.
+
+par(mfrow=c(1, 2))
+
+plot(model$fitted.values, model$residuals, main = "reziduá vs fitted")
+abline(0, 0)
+
+qqnorm(model$residuals)
+qqline(model$residuals)
+```
+
+![](test_files/figure-latex/unnamed-chunk-50-1.pdf)<!-- --> 
+
+Všetky podmienky, ktoré spomenieme nebudú ovplyvnovať odchýlku koeficientu, avšak budú ovplyvňovať štandardnú chybu, teda aj t-štatistiku a p-hodnotu. To nám znemožní správne odhadnúť štatistickú signifikatnosť koeficientu.
+
+Podmienka normality reziduí je jednou z tých menej závažnejších, a často sa stane, že nie je splnená. Problémom to prestáva byť pri veľkých vzorkách, kde začne úradovať Central limit theorem.
+
+## Homoskedasticita
+
+Ďalšou podmienkou je konštantný rozptyl reziduí - homoskedasticita. Ak rozptyl nie je konštantný, ale zväčšuje sa, bavíme sa o prítomnosti heteroskedasticity. Ukážeme si to na najklasickejšom príklade, a to vzťah príjmu a výdavkov na jedlo. Ľudia potrebujú jesť približne rovnako, keď máte málo peňazí, nemáte veľmi na výber a všetci ľudia s nízkym príjmom kupujú podobné množstvo a typ jedla, vynakladajú pomerne rovnakú časť ich príjmov. Ako však príjem rastie, ľudia nezjedia signifikantne viac, avšak môžu utrácať za omnoho drahšie potraviny, a niekto je podobne ako ľudia s nižším príjmom. Je tam teda veľký rozptyl, lebo ľudia s vyšším príjmom majú na výber. Pri nižšom príjme tento rozptyl nie je, lebo keď zarobia 1000eur, nemôžu minút na potraviny 10 000eur.
+
+
+```r
+# Vytvorme si premenné, kde X budú mzdy.
+X <- 1:500
+Y <- rnorm(n = 500, mean = X, sd = 0.6 * X)
+mzdy_jedlo <- lm(Y ~ X)
+
+plot(x = X, y = Y, xlab = "príjem", ylab = "výdaje na jedlo",
+     main = "vzťah príjmu a výdavkov na jedlo")
+
+abline(mzdy_jedlo, col = "red")
+```
+
+![](test_files/figure-latex/unnamed-chunk-51-1.pdf)<!-- --> 
+
+Prítomnosť heteroskedasticity __zmenší__ štandardnú chybu, dostaneme menšie hodnoty, než by sme mali. To môže viesť k označeniu koeficientu za štatisticky signifikantný, aj keď to nebude pravda. 
+
+Heteroskedasticitu môžeme detekovať pomocou:
+
+* vizualizácie,
+* Breusch-Pagan testu,
+* Goldfeld-Quandt testu.
+
+A vyriešiť napríklad pomocou:
+
+* robustných metód na odhad štandardných chýb,
+* vážených najmenších štvorcov (WLS),
+* logaritmickej transformácie modelu.
+
+## Autokorelácia
+
+Autokorelácia, alebo sériová korelácia znamená, keď vieme predpovedať pohyb zvyšku pomocou iného zvyšku. Takže reziduá od seba nie sú nezávislé. Takýto problém sa častejšie vyskytuje v časových radoch. Môže to byť spôsobené Odchýlkou vynechanej premennej alebo nesprávnou špecifikáciou modelu. Aj tento neduh je možné analyzovať buď vizuálne alebo testami. Samozrejme testy sú omnoho spoľahlivejie. My si ale ukážeme ako taká autokorelácia vyzerá.
+
+::: {.center data-latex=""}
+![](diplomka obrazky\9.png)
+:::
+
+
+```r
+# Šikovnou funkciou na skontrolovanie autokorelácie je acf().
+# Cool trik je, ak chcete nový riadok v názvoch, použite "\n".
+
+acf(model$residuals, main = "do funkcie vložíme \n klasicky reziduá")
+```
+
+![](test_files/figure-latex/unnamed-chunk-52-1.pdf)<!-- --> 
+
+```r
+# Samozrejme v prvom stĺpci bude korelácia jedna, lebo korelujeme samého seba.
+# Ak sú korelácia nepresahuje za čiary, reziduá nie sú silne korelované a 
+# autokorelácia, resp. sériová korelácia, nie je prítomná.
+```
+
+Problémy nám to spôsobí podobné ako heteroskedasticita, okrem iného však môže ovplyvniť aj hodnotu $R^2$. Autokoreláciu môžeme detekovať pomocou:
+
+* Durbin-Watson testu,
+* Breusch-Godfrey testu.
+
+A vyriešiť pomocou:
+
+* robustných metód na odhad štandardných chýb,
+* doplnenia vynechanej premennej,
+* opravenia funkčnej formy modelu,
+* využitia prvých diferencií,
+* použitia dummy premenných.
+
+## Multikolinearita
+
+Multikolinearita sa vyskytuje len vo viacnásobnej regresií, keďže sa jedná o koreláciu medzi dvoma nezávislými premennými. Korelácia medzi závislou a nezávislou premennou je žiaduca. Poznáme dokonalú a nedokonalú multikolinearitu. Pri dokonalej dokážeme jednu nezávislú premennú vyjadriť lineárnou kombináciou inej premennej. V takomto prípade nám väčšinou ani počítač nebude chcieť model vyrátať. Nás väčšinou trápi nedokonalá, kde sú premenné vysoko korelované. Prečo je to problém? AK sú premenné korelované, nedokážeme dobre odhadnúť koeficient, keďže pri každej pridanej alebo odobranej premennej, má koeficient tendenciu sa meniť a to vo väčšej miere. Inak povedané, je problém dostatočne odizolovať koeficient. Koeficienty sú tak citlivé na zmenu premenných. Ďalším problémom je, že štandardné chyby nám riadne narastú, čím môžu označiť štatisticky signifikantné premenné za nesignifikantné. $R^2$ a F-test však nezvyknú byť ovplyvnené. 
+
+Multikolinearitu je možné detekovať pomocou:
+
+* korelačnej matice,
+* VIF test,
+* analýzy determinantu matice,
+* parciálnych korelačných koeficientov.
+
+A vyriešiť pomocou:
+
+* odstránenia jednej z korelovaných premenných,
+* skombinovanie premenných,
+* neurobiť nič.
+
+Niekedy je možné premennú ponechať v modeli, ak našim cieľom nie je použiť ju na interpretovanie, ale len ako kontrolnú premennú, alebo keď korelácia nie je neúnosne vysoká (0.9 a viac).
+
 
 
 
