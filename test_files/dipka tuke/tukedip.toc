@@ -1,0 +1,12 @@
+\select@language {slovak}
+\contentsline {section}{\hbox to\@tempdima {\hfil }\IeC {\'U}vod}{1}{section*.7}
+\contentsline {section}{\numberline {1}Formul\IeC {\'a}cia \IeC {\'u}lohy}{2}{section.1}
+\contentsline {section}{\numberline {2}Anal\IeC {\'y}za}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Podkapitola}{4}{subsection.2.1}
+\contentsline {section}{\numberline {3}Jadro pr\IeC {\'a}ce}{5}{section.3}
+\contentsline {section}{\numberline {4}Z\'aver (zhodnotenie rie\v {s}enia)}{7}{section.4}
+\contentsline {section}{\hbox to\@tempdima {\hfil }Zoznam pou\IeC {\v z}itej literat\IeC {\'u}ry}{8}{section*.8}
+\contentsline {section}{\hbox to\@tempdima {\hfil }Zoznam pr\'iloh}{9}{section*.9}
+\contentsline {section}{\hbox to\@tempdima {\hfil }Pr\IeC {\'\i }loha A}{10}{section*.10}
+\contentsline {section}{\hbox to\@tempdima {\hfil }Pr\IeC {\'\i }loha B}{11}{section*.12}
+\contentsline {section}{\hbox to\@tempdima {\hfil }Pr\IeC {\'\i }loha C}{14}{section*.14}
