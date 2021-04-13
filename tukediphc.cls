@@ -149,7 +149,7 @@ given}}
 
   \bigskip
 
-  \large \textbf{\@dippraca \@bakpraca}
+  \large \textbf{\@dippraca}
   \end{center}
 
 \vfill
