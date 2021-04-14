@@ -176,8 +176,40 @@ Ak sú $Y1, ..., Y_n$ vybrané z rovnakého rozdelenia a sú nezávisle rozdelen
 \subsection{Výberové rozdelenie priemernej hodnoty vzorky}
 
 Priemerná hodnota vzorky, $\overline{Y}$, $n$ pozorovaní $Y1, ..., Y_n$ je:
+\begin{equation}
+\overline{Y} = \frac{1}{n}(Y_1 + Y_2 + ... + Y_n)=\frac{1}{n}\sum_{i=1}^{n}Y_i.
+\end{equation}
 
-$$\overline{Y} = \frac{1}{n}(Y_1 + Y_2 + ... + Y_n)=\frac{1}{n}\sum_{i=1}^{n}Y_i$$
+Podstatným konceptom je, že proces výberu náhodnej vzorky, urobí z priemernej hodnoty vzorky, $\overline{Y}$, náhodnú premennú. Pretože bola vzorka vybraná náhodne, hodnota každého $Y_i$, je náhodná. Pretože $Y1, ..., Y_n$ sú náhodné, ich priemer je takisto náhodný. Ak by sme vybrali inú vzorku, hodnoty pozorovaní, aj ich priemer, by sa líšili. Hodnota $\overline{Y}$ sa líši od vzorky k vzorke. Nezabúdajme, že stále máme na mysli náhodne vybrané vzorky. Napríklad, predpokladajme, že náš študent náhodne vybral päť dní, počas ktorých meral čas cesty do školy. Následne vyrátal priemer týchto piatich dní, a dostal istú hodnotu. Ak by vybral iných päť dní, počas ktorých by meral čas cesty do školy, a znova vyrátal priemernú hodnotu trvania cesty do školy, tento priemer by sa líšil od prvého vyrátaného priemeru. Keďže je $\overline{Y}$ náhodná, má vlastné rozdelenie pravdepodobnosti. Rozdelenie $\overline{Y}$ nazývame výberové rozdelenie $\overline{Y}$, pretože je to rozdelenie pravdepodobnosti, súvisiace s možnými hodnotami $\overline{Y}$, ktoré mohli byť vypočítané pre odlišné vhodné vzorky $Y1, ..., Y_n$. Rozdelenie výberu priemernej hodnoty, a váženej priemernej hodnoty, hrá v štatistike a ekonometrii dôležitú úlohu. Preto sa oboznámime s výpočtom priemeru a rozptylu výberového rozdelenia, s ohľadom na hlavné podmienky rozdelenia populácie $Y$. 
+
+\subsection{Priemer a rozptyl $\overline{Y}$ }
+
+Predpokladajme, že pozorovania $Y1, ..., Y_n$ sú nezávisle a identicky distribuované. $\mu_Y$ a $\sigma^2_Y$ označujú priemer a rozptyl $Y_i$. Keďže sú pozorovania $n.i.d.$, priemer je rovnaký pre všetky $i = 1, ..., n$, a to isté sa dá povedať o rozptyle. Overíme to vzťahom:  
+
+\begin{equation}
+E(X+Y)=E(X)+E(Y)=\mu_x+\mu_Y    
+\end{equation}
+
+Ak $n = 2$, priemer súčtu $Y_1 + Y_2$ bude podľa rovnice $3.1$: $E(Y_1+Y_2) = \mu_Y + \mu_Y = 2\mu_Y$. Teda priemer priemernej hodnoty vzorky je $E[\frac{1}{2}(Y_1 + Y_2)]= \frac{1}{2}2\mu_Y=\mu_Y$. Ak to zovšeobecníme, tak:
+
+\begin{equation}
+E(\overline{Y}) = \frac{1}{n}\sum_{i=1}^{n}E(Y_i) = \mu_Y.
+\end{equation}
+
+Rozptyl $\overline{Y}$ zistíme pomocou vzťahu $var(X + Y) = var(X) + var(Y) = \sigma^2_X + \sigma^2_Y$ (ak X a Y sú nezávislé). Pre $n = 2$ sa rozptyl rovná $var(Y1 + Y2) = 2\sigma^2_Y$, teda $var(\overline{Y}) =  \frac{1}{2} \sigma^2_Y$. Teda:
+
+\begin{equation}
+
+ var(\overline{Y}) = var \frac{1}{n} \sum_{i=1}^{n}Y_i = var(\frac{Y_1 + Y_2 +, ..., Y_n}{n})\footnote{Pri násobení konštantou, rozptyl násobíme danou konštantou umocnenou na druhú mocninu.}  = 
+ 
+
+\end{equation}
+
+
+
+
+
+
 
 
 \include{jadroprace}
