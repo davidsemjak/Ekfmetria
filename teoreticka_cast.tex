@@ -123,12 +123,6 @@ pdfsubject={Bakalárska práca}
 Ďakujem vedúcemu diplomovej práce prof. Ing. Vladimír Gazda, PhD. za jeho cenné poznatky, rady a pripomienky, ktorými mi bol nápomocný pri tvorbe tejto práce.
 \kpodakovania
 
-\predhovor
-Predhovor je povinnou náležitosťou záverečnej práce, pozri
-\citep{gonda}. V~predhovore autor uvedie základné charakteristiky
-svojej záverečnej práce a~okolnosti jej vzniku. Vysvetlí dôvody, ktoré
-ho viedli k~voľbe témy, cieľ a~účel práce a~stručne informuje
-o~hlavných metódach, ktoré pri spracovaní záverečnej práce použil.
 \kpredhovoru
 
 \thispagestyle{empty}
@@ -156,47 +150,35 @@ o~hlavných metódach, ktoré pri spracovaní záverečnej práce použil.
 \thispagestyle{empty}
 %\addcontentsline{toc}{section}{\numberline{}Zoznam symbolov a
 %skratiek}
-\printglossary
+
 \newpage
 
-%\addcontentsline{toc}{section}{\numberline{}Slovník termínov}
-\slovnikterminov
 
-\begin{description}
-	\item[Dizertácia] je rozsiahla vedecká rozprava, v~ktorej sa na
-základe vedeckého výskumu a~s~použitím (využitím) bohatého dokladového
-materiálu  ako i~vedeckých metód rieši zložitý odborný problém.
-	\item[Font] je súbor, obsahujúci predpisy na zobrazenie textu
-v~danom písme, napr. na tlačiarni. To čo vidíme je písmo; font je súbor
-a~nevidíme ho.
-	\item[Kritika] je odborne vyhrotený, prísny pohľad na hodnotenú
-vec. Medzi recenziou a kritikou je taký pomer ako medzi diskusiou a
-polemikou. Pri kritike treba prísnosť chápať v~tom zmysle, že sa
-v~nej okrem iného navrhuje, ako hodnotené dielo skvalitniť.
-	\item[Meter (m)] je vzdialenosť, ktorú svetlo vo vákuu prejde
-za čas. interval~$\nicefrac{1}{299\,792\,458}$ sekundy.
-	\item[Písmom] rozumieme vlastný vzhľad znakov.
-	\item[Problém] termín používaný vo všeobecnom zmysle vo vzťahu
-k~akejkoľvek duševnej aktivite, ktorá má nejaký rozoznateľný cieľ.
-Samotný cieľ nemusí byť v~dohľadne. Problémy možno charakterizovať
-tromi rozmermi -- oblasťou, obtiažnosťou a veľkosťou.
-	\item[Proces] je postupnosť či rad časovo usporiadaných
-udalostí tak, že každá predchádzajúca udalosť sa zúčastňuje na
-determinácii nasledujúcej udalosti.
-\end{description}
-
-\kslovnikterminov
-%
 \include{Úvod}
 \section{Úvod}
 
 bla b la bla bla
 
-\include{formulacia}
+\section{formulacia}
 %
 \include{analyza}
 
-%
+\section{Náhodný výber a výberové rozdelenie}
+
+Mnoho štatistických a ekonometrických postupov pracuje s priemermi, alebo váženými priemermi vzorky. Vysvetlenie rozdelenia priemeru, je dôležitý krok vpred, smerom k porozumeniu fungovania ekonometrických postupov. Predstavíme si základné koncepty náhodného výberu, a rozdelení priemerov. Začneme náhodným výberom. Proces náhodného výberu znamená, že náhodne vyberieme vzorku z väčšej populácie. Keďže sme vzorku vybrali náhodne, priemer vzorky môžeme považovať za náhodnú premennú. Pretože je priemer vzorky náhodnou premennou, má rozdelenie pravdepodobnosti, nazývané ako výberové rozdelenie. Ďalej si povieme o niektorých vlastnostiach výberového rozdelenia priemeru vzorky. 
+
+\subsection{Náhodný výber}
+
+Náhodných výberov existuje viacero. My začneme s jednoduchým náhodným výberom. Predstavme si študenta, ktorý by sa chcel stať štatistikom, tak sa rozhodne zaznamenávať, ako dlho mu trvá cesta do školy v rôzne dni. Náhodne vyberie dni, v ktoré bude čas merať. Keďže boli dni vybrané náhodne, ak budeme vedieť čas cesty v jeden deň, nepovie nám to nič o tom, ako dlho bude trvať cesta v iný deň. To, že dni meraní boli vybrané náhodne znamená, že namerané časy sú nezávisle rozdelené náhodné premenné. Opísaná situácia je príkladom najjednoduchšej formy výberu, používanej v štatistike. Pri jednoduchom náhodnom výbere sa zvolí $n$ objektov, ktoré sú náhodne vybrané z populácie. Každý člen populácie, má rovnakú šancu byť zvolený. Pozorovania $n$, si vo vzorke označíme ako $Y1, ..., Y_n$ kde $Y_1$ znázorňuje prvé pozorovanie, $Y_2$ druhé pozorovanie, a tak ďalej. V uvedenom príklade, je $Y_1$ prvý, z náhodne vybraných dní, kedy si študent zaznamenal čas, a $Y_i$ predstavuje čas v $í-tom$ náhodne vybranom dni. 
+Keďže členovia populácie, ktorí boli vybraní do vzorky, boli vybraní náhodne, hodnoty pozorovaní $Y1, ..., Y_n$ sú samy náhodné. Ak by boli vybraní iní členovia z populácie, ich hodnoty $Y_i$ sa budú líšiť. Chceme tým povedať, že proces náhodného výberu znamená, že s $Y1, ..., Y_n$ môžeme zaobchádzať ako s náhodnými premennými. Pred výberom vzorky, môžu na seba hodnoty $Y1, ..., Y_n$ prevziať mnoho rozličných hodnôt. Avšak, pri výbere z populácie, sú zaznamenané konkrétne hodnoty. Pretože $Y1, ..., Y_n$ sú náhodne vybrané z rovnakej populácie, marginálne rozdelenie $Y_i$, je rovnaké pre každé $i = 1, ..., n$, teda $Y1, ..., Y_n$ sú považované za identicky distribuované. V súlade s jednoduchým náhodným výberom, poznanie hodnoty premennej $Y_1$, nám neposkytne žiadnu informáciou o $Y_2$, teda združené rozdelenie $Y_2$ daný $Y_1$, je rovnaké ako marginálne rozdelenie $Y_2$. Inými slovami, pri jednoduchom náhodnom výbere, je $Y_1$ distribuované nezávisle od $Y2, ..., Y_n$. 
+Ak sú $Y1, ..., Y_n$ vybrané z rovnakého rozdelenia a sú nezávisle rozdelené, hovoríme, že sú nezávisle a identicky distribuované\footnote{independently and identically distributed}. [1]
+
+\subsection{Výberové rozdelenie priemernej hodnoty vzorky}
+
+Priemerná hodnota vzorky, $\overline{Y}$, $n$ pozorovaní $Y1, ..., Y_n$ je:
+
+$$\overline{Y} = \frac{1}{n}(Y_1 + Y_2 + ... + Y_n)=\frac{1}{n}\sum_{i=1}^{n}Y_i$$
+
 
 \include{jadroprace}
 %
