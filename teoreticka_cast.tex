@@ -32,6 +32,7 @@
 \usepackage{upgreek} % napr. $\upmu\mathrm{m}$ pre mikrometer ...
 \usepackage[final]{showkeys}%color%notref%notcite%final
 \usepackage[slovak,noprefix]{nomencl}
+\usepackage{parskip}
 \makeglossary % prikaz na vytvorenie suboru .glo
 
 
@@ -58,6 +59,8 @@ bookmarksopen=true,pdfmenubar=true,pdfview=Fit,linktocpage=true,
 pageanchor=true,bookmarkstype=toc,pdfpagemode=UseOutlines,
 pdfstartpage=1]{hyperref}
 \usepackage{graphicx}
+\usepackage{amsmath}
+
 \hypersetup{%
 pdfcreator={pdfcsLaTeX},
 pdfkeywords={ekonometria, diplomová práca},
@@ -185,25 +188,58 @@ Podstatným konceptom je, že proces výberu náhodnej vzorky, urobí z priemern
 \subsection{Priemer a rozptyl $\overline{Y}$ }
 
 Predpokladajme, že pozorovania $Y1, ..., Y_n$ sú nezávisle a identicky distribuované. $\mu_Y$ a $\sigma^2_Y$ označujú priemer a rozptyl $Y_i$. Keďže sú pozorovania $n.i.d.$, priemer je rovnaký pre všetky $i = 1, ..., n$, a to isté sa dá povedať o rozptyle. Overíme to vzťahom:  
-
 \begin{equation}
 E(X+Y)=E(X)+E(Y)=\mu_x+\mu_Y    
-\end{equation}
+\end{equation} 
 
 Ak $n = 2$, priemer súčtu $Y_1 + Y_2$ bude podľa rovnice $3.1$: $E(Y_1+Y_2) = \mu_Y + \mu_Y = 2\mu_Y$. Teda priemer priemernej hodnoty vzorky je $E[\frac{1}{2}(Y_1 + Y_2)]= \frac{1}{2}2\mu_Y=\mu_Y$. Ak to zovšeobecníme, tak:
-
 \begin{equation}
 E(\overline{Y}) = \frac{1}{n}\sum_{i=1}^{n}E(Y_i) = \mu_Y.
 \end{equation}
 
-Rozptyl $\overline{Y}$ zistíme pomocou vzťahu $var(X + Y) = var(X) + var(Y) = \sigma^2_X + \sigma^2_Y$ (ak X a Y sú nezávislé). Pre $n = 2$ sa rozptyl rovná $var(Y1 + Y2) = 2\sigma^2_Y$, teda $var(\overline{Y}) =  \frac{1}{2} \sigma^2_Y$. Teda:
+
+Rozptyl $\overline{Y}$ zistíme pomocou vzťahu $var(X + Y) = var(X) + var(Y) = \sigma^2_X + \sigma^2_Y$ (ak X a Y sú nezávislé). Pre $n = 2$ sa rozptyl rovná $var(Y1 + Y2) = 2\sigma^2_Y$, teda $var(\overline{Y}) =  \frac{1}{2} \sigma^2_Y$. Teda: 
+\begin{multline}
+
+    var(\overline{Y})  = var \frac{1}{n} \sum_{i=1}^{n}Y_i = var (\frac{Y_1 + Y_2 +, ..., Y_n}{n})=\footnote{Pri násobení konštantou, rozptyl násobíme danou konštantou umocnenou na druhú mocninu.} (\frac{1}{n})^2 var(\frac{Y_1 + Y_2 +, ..., Y_n}{n}) =\footnote{Potrebujeme rozptyl súčtu, čo je súčet rozptylov, ak sú pozorovania $Y1 + Y2 +, ..., Y_n$ nezávislé.} \frac{1}{n^2} [var(Y_1) + var(Y_2) +, ..., +  var(Y_n)] = \frac{1}{n^2} [\sigma^2_1 + \sigma^2_2, ..., \sigma^2_n] = \frac{1}{n^2} \ n\cdot\sigma^2 = \frac{\sigma^2}{n}.
+    
+\end{multline}
+
+Čo môžeme ďalej prepísať ako:
 
 \begin{equation}
-
- var(\overline{Y}) = var \frac{1}{n} \sum_{i=1}^{n}Y_i = var(\frac{Y_1 + Y_2 +, ..., Y_n}{n})\footnote{Pri násobení konštantou, rozptyl násobíme danou konštantou umocnenou na druhú mocninu.}  = 
- 
-
+\begin{split}
+    var(\overline{Y}) & =(\frac{\sigma^2}{n}) \\
+    \sigma^2_{\overline{Y}} & =\frac{\sigma^2}{n} \\
+    \sigma_{\overline{Y}} & = \frac {\sigma}{\sqrt{n}} .
+\end{split}    
 \end{equation}
+
+Smerodajná odchýlka $\overline{Y}$ je druhou odmocninou rozptylu. 
+Ak sú $Y1 + Y2 +, ..., Y_n$ nezávisle a identicky distribuované, priemer, rozptyl, a smerodajnú odchýlkú $\overline{Y}$ vyjadríme vzťahmi:
+
+\begin{equation}
+E(\overline{Y}) = \mu_Y, 
+\end{equation}
+\begin{equation}
+Var(\overline{Y}) = \sigma^2_{\overline{Y}} = \frac{\sigma^2_{{Y}}}{n},  
+\end{equation}
+\begin{equation}
+Std.dev(\overline{Y}) = \sigma_{\overline{Y}} = \frac{\sigma_{Y}}{\sqrt{n}},
+\end{equation}    
+kde:
+\begin{itemize}
+\item$\sigma^2_{\overline{Y}}$ predstavuje rozptyl výberového rozdelenia výberového priemeru $\overline{Y}$, 
+\item $\sigma^2_Y$ predstavuje rozptyl každého jedného $Y_i$, teda rozptyl rozdelenia populácie, z ktorého sú pozorované $Y_i$ vybrané,  
+\item$\sigma_{\overline{Y}}$ predstavuje smerodajnú odchýlku výberového rozdelenia $\overline{Y}$.
+\end{itemize}
+ 
+Tieto rovnice platia pri akomkoľvek rozdelení $Y$, tým pádom rozdelenie $Y$ nepotrebuje mať konkrétnu formu rozdelenia, napríklad normálne rozdelenie, aby uvedené rovnice platili.  
+
+\subsection{Výberové rozdelenie $\overline{Y}$, keď $Y$ je normálne distribuované}
+
+Predpokladajme $Y1 + Y2 +, ..., Y_n$, ktoré sú $i.i.d.$, a vybrané z $N(\mu_{Y}, \sigma^2_{Y})$ rozdelenia. Súčet všetkých $n$ náhodný premenných, ktoré sú vybrané z normálneho rozdelenia, bude normálne distribuovaný. A keďže priemer $\overline{Y}$ je $\mu_{Y}$ a rozptyl $\overline{Y}$ je $\frac{\sigma^2_Y}{n}$, za predpokladu, že $Y1 + Y2 +, ..., Y_n$ sú $i.i.d.$ vybrané z $N(\mu_{Y}, \sigma^2_{Y})$ rozdelenia, $\overline{Y}$ je rozdelené ako $N(\mu_{Y}, \frac{\sigma^2}{n})$.  
+
 
 
 
