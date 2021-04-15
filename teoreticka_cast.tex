@@ -272,9 +272,33 @@ Povedzme, že chceme porovnať priemernú výšku zárobku mužov a žien, ktor�
 
 \subsection{Metóda najmenších štvorcov}
 
+Model lineárnej regresie v kombinácií s metódou najmenších štvorcov spoločne tvoria jeden zo základných kameňov ekonometrie. Anglický názov predstavuje Ordinary least squares, skrátene OLS. V ďalších častiach textu budeme referovať na Metódu najmenších štvorcov pod skráteným označením OLS.
+
+OLS vyberá koeficienty regresie tak, aby odhadnutá regresná priamka bola čo najbližšie k zozbieraným dátam. To, ako blízko je priamka k dátam, je merané súčtom štvorcov chýb, ktoré sa vyskytli pri odhadovaní $Y$ daný $X$. Teda súčet umocnenej hodnoty, ktorá sa nachádza medzi bodom na odhadnutej priamke, a reálnou nameranou hodnotou zo vzorky.  
+
+Nech $b_0$ a $b_1$ označujú odhady $\beta_0$ a $\beta_1$. Regresná priamka založená na týchto odhadcoch je $b0 + b1X$, teda odhad $Y_i$ odhadnutý za pomoci tejto priamky je $b_0 + b_1X_i$. Chyba, ktorá sa vyskytla pri odhadovaní $í-teho$ pozorovania sa rovná $Y_i - (b_0 + b_1X_i) = Y_i - b_0 - b_1X_i$. Súčet týchto umocnených chýb naprieč všetkými $n$ pozorovaniami je:
+\begin{equation}
+   \sum_{i=1}^{n}(Y_i - \hat\beta_0 - \hat\beta_1{x}_i)^2 
+\end{equation}
+
+Odhad priesečníka a sklonu priamky minimalizáciou súčtu štvorcov chýb, označujeme ako Metódu najmenších štvorcov. Metóda OLS používa na značenie odhadcov $\beta_0$ a $\beta_1$ značenie $\hat\beta_0$ a $\hat\beta_1$. Takto budeme vedieť odlíšiť, či sa jedná o odhadcu, alebo parameter populácie. Teda $\hat\beta_0$ je OLS odhadca $\beta_0$ a $\hat\beta_1$ je OLS odhadca $\beta_1$. Regresná priamka OLS, taktiež nazývaná regresná priamka vzorky\footnote{SRL – Sample regression line.}, je priamka zostrojená za použitia OLS odhacov: 
+\begin{equation}
+   \hat\beta_0 + \hat\beta_{1}X_i.  
+\end{equation}
+
+Odhadnutá hodnota $Y_i$ dané $X_i$, odhadnutá za použitia OLS regresnej priamky, je: 
+\begin{equation}
+  \hat{Y}_{i} = \hat\beta_0 + \hat\beta_{1}X_i.  
+\end{equation}
+ 
+Zvyšok\footnote{Zostatok, rezíduum.} pre $í-té$ pozorovanie predstavuje rozdiel medzi $Y_i$ a jeho odhadnutou hodnotou: 
+\begin{equation}
+    \hat{u}_i = Y_i - \hat{Y_i}.
+\end{equation}
+
+OLS odhadcovia $\hat\beta_0$ a $\hat\beta_1$ sú vypočítaní zo vzorky, a predstavujú ekvivalent koeficientov $\beta_0$ a $\beta_1$ získaných z populácie. Takisto OLS regresná priamka, $\hat\beta_0 + \hat\beta_{1}X_i$, je vzorkovým ekvivalentom populačnej regresnej priamky, $\beta_0 + \beta_{1}X_i$. Zároveň, OLS zostatky, $\hat{u}_i$, sú vzorkovým ekvivalentom populačných náhodných zložiek, $\epsilon_i$. Mohli by sme sa pokúsiť vyrátať OLS odhadcov $\hat\beta_0$ a $\hat\beta_1$ dosadzovaním rôznych hodnôt $b_0$ a $b_1$ opakovane, až kým by sme nenašli tie, ktoré minimalizujú súčet zostatkov v uvedenom modeli. Takáto metóda by však bola veľmi vyčerpávajúca. Predstavíme si vzorce, ktoré sú vyrátané za použitia diferenciálnych a integrálnych počtov. Tieto vzorce sú používané prakticky v každom štatistickom softvéri. Vzorce si nebudeme odvodzovať. Zameriame sa na pochopenie, čo dané vzorce v skutočnosti predstavujú. 
 
 
-<return>
 
 \include{jadroprace}
 %
