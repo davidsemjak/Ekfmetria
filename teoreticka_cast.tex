@@ -261,7 +261,7 @@ Výraz $\epsilon_i$ v rovnici predstavuje náhodnú zložku. Ani tento výraz sa
     \centering
     \includegraphics[scale=1.5]{diplomka obrazky/10.png}
     \caption{Znázornenie reziduí.}
-    \caption*{Zdroj: Source of the image.}
+    \source{Zdroj: Source of the image.}
 \end{figure}
 
 \subsection{Odhad koeficientov modelu lineárnej regresie}
@@ -297,6 +297,69 @@ Zvyšok\footnote{Zostatok, rezíduum.} pre $í-té$ pozorovanie predstavuje rozd
 \end{equation}
 
 OLS odhadcovia $\hat\beta_0$ a $\hat\beta_1$ sú vypočítaní zo vzorky, a predstavujú ekvivalent koeficientov $\beta_0$ a $\beta_1$ získaných z populácie. Takisto OLS regresná priamka, $\hat\beta_0 + \hat\beta_{1}X_i$, je vzorkovým ekvivalentom populačnej regresnej priamky, $\beta_0 + \beta_{1}X_i$. Zároveň, OLS zostatky, $\hat{u}_i$, sú vzorkovým ekvivalentom populačných náhodných zložiek, $\epsilon_i$. Mohli by sme sa pokúsiť vyrátať OLS odhadcov $\hat\beta_0$ a $\hat\beta_1$ dosadzovaním rôznych hodnôt $b_0$ a $b_1$ opakovane, až kým by sme nenašli tie, ktoré minimalizujú súčet zostatkov v uvedenom modeli. Takáto metóda by však bola veľmi vyčerpávajúca. Predstavíme si vzorce, ktoré sú vyrátané za použitia diferenciálnych a integrálnych počtov. Tieto vzorce sú používané prakticky v každom štatistickom softvéri. Vzorce si nebudeme odvodzovať. Zameriame sa na pochopenie, čo dané vzorce v skutočnosti predstavujú. 
+
+\subsection{Meranie vhodnosti a presnosti predpovede modelu}
+
+Po zostrojení lineárnej regresie sa naskytne otázka:“Ako dobre naša zostrojená regresná priamka vystihuje dáta?“ Je potrebné zamyslieť sa: 
+\begin{enumerate}
+\item Akú veľkú zásluhu na zmene závislej premennej má regresor?  
+\item Sú pozorovania rozmiestnené tesne okolo regresnej priamky, alebo rozptýlené ďaleko od regresnej priamky?
+\end{enumerate}
+Na zodpovedanie otázok, ako dobre sedí OLS regresná priamka dátam, nám poslúži $R^2$ a štandardná chyba regresie. $R^2$ sa pohybuje v rozsahu medzi 0 a 1, a meria, aká veľká časť zmeny $Y_i$, je vysvetlená zmenou $X_i$. $R^2 = 1$ znamená, že 100\% zmeny $Y_i$ dokážeme vysvetliť pohybom $X_i$. Ak by $Y$ bola cena zmrzliny a $X$ by predstavovalo polevu alebo posýpku, ktorú si na zmrzlinu môžeme pridať, a $R^2$ by malo hodnotu 1, znamenalo by to, že pridanie polevy, ovplyvňuje 100\% zmeny v cene zmrzliny. Teda, jediný faktor ovplyvňujúci cenu zmrzliny, je poleva. Priesečník $\beta_0$ by bol 1€ (základná cena zmrzliny) a $\beta_1$ 0,3€. Pridanie jedného druhu polevy, by navýšilo cenu zmrzliny o 30centov. Každá ďalšia poleva by lineárne zvyšovala cenu o ďalších 30centov. 
+
+Štandardná chyba regresie meria, ako poväčšine vzdialené je $Y_i$ od jej odhadnutej hodnoty, teda bodu na regresnej priamke, ktorý polohou v grafe prislúcha nameranej hodnote.  
+
+\subsection{Koeficient determinácie - $R^2$}
+
+$R^2$ regresie predstavuje časť rozptylu vzorky $Y$, vysvetleného, alebo odhadnutého, prostredníctvom $X$. Pomocou vzorcov na odhadnutú hodnotu $\hat{Y}_{i}$ a zostatkov $\hat{u}_{i}$, môžeme zapísať závislú premennú $Y_i$ ako súčet odhadnutej hodnoty, $\hat{Y}_{i}$, a zostatku $\hat{u}_{i}$ ako: 
+\begin{equation}
+   {Y}_{i} = \hat{Y}_{i} + \hat{u}_{i}.
+\end{equation}
+V takomto zápise predstavuje $R^2$ podiel výberového rozptylu $\hat{Y}_{i}$ ku výberovému rozptylu $Y_i$.  
+Matematicky môžeme $R^2$ zapísať ako podiel vysvetleného súčtu štvorcov\footnote{SSE - Sum of Squares Explained} a celkového súčtu štvorcov\footnote{SST - Sum of squares Total}. Vysvetlený súčet štvorcov je súčet druhých mocnín odchýlok odhadovanej hodnoty, $\hat{Y}_{i}$, od jej priemeru $\overline{Y}$. Celkový súčet štvorcov je súčet druhých mocnín odchýlok $Y_i$ od jej priemeru $\overline{Y}$: 
+\begin{equation}
+    SSE = \sum_{i=1}^{n}(\hat{Y}_{i} - \overline{Y})^2
+\end{equation}
+
+\begin{equation}
+    SST = \sum_{i=1}^{n}({Y}_{i} - \overline{Y})^2
+\end{equation}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale = 0.5]{diplomka obrazky/11.png}
+    \caption{Znázornenie častí $R^2$.}
+    \source{Zdroj: Source of the image.}
+\end{figure}
+$R^2$ predstavuje pomer vysvetleného súčtu štvorcov a celkového súčtu štvorcov:
+\begin{equation}
+    R^2 = \frac{SSE}{SST}
+\end{equation}
+$R^2$ môžeme zapísať aj ako časť rozptylu $Y_i$, ktorá nie je vysvetlená $X_i$. A to súčtom štvorcov zvyškov z OLS: 
+\begin{equation}
+    SSR = \sum_{i=1}^{n}\hat{u}_{i}^2
+\end{equation}
+Z grafu vidíme, že $SST = SSR + SSE$. $R^2$ môžeme vyjadriť aj ako $1$ mínus podiel súčtu štvorcov zostatkov a celkového súčtu štvorcov: 
+\begin{equation}
+    R^2 = 1 - \frac{SSR}{SST}
+\end{equation}
+Aj keď $R^2$ vyzerá na prvý pohľad nejednoznačne na pochopenie, a rôzne umocnené súčty sa môžu mýliť, jedná sa jednoducho o korelačný koeficient $r$, umocnený na druhú mocninu. Pri regresii $Y$ na jeden regresor $X$, korelujeme premenné $X$ a $Y$. Ak $\hat\beta_1 = 0$, potom $X_i$ nevysvetľuje žiadnu zmenu $Y_i$, a odhadnutá hodnota $Y_i$ je $\hat{Y}_{i} = \hat\beta_0  = {\overline{Y}}$. V takomto prípade je vysvetlený súčet štvorcov rovný nule, a súčet štvorcov zvyškov sa rovná celkovému súčtu štvorcov, teda $R^2$ je 0. Na rozdiel, ak $X_i$ vysvetľuje všetku zmenu $Y_i$, potom $Y_i = \hat{Y}_{i}$ pre všetky $i$, a všetky zostatky sú rovné nule ($\hat{u}_{i} = 0$), teda $SSE = SST$, teda $R^2$ je v takomto prípade rovné 1. Vo všeobecnosti $R^2$ nenaberá tieto extrémne hodnoty, avšak spadá niekde medzi. $R^2$, ktoré je blízko $1$ naznačuje, že zvolený regresor je dobrý v odhadovaní $Y_i$, naopak $R^2$ blízko 0 naznačuje, že regresor nie je veľmi vhodný v odhadovaní $Y_i$. 
+
+\subsection{Štandardná chyba regresie}
+
+Štandardná chyba regresie\footnote{The Standard Error of the Regression} je odhadca smerodajnej odchýlky náhodnej zložky regresie $u_i$. $u_i$ a $Y_i$ sú vedené v rovnakých jednotkách, keďže $SER$ predstavuje mieru rozptylu pozorovaní okolo regresnej priamky. Napríklad, ak je závislá premenná vedená v eurách, potom $SER$ predstavuje rozsah vychýlenia od regresnej priamky, teda mieru bežnej chyby regresie, a to taktiež v eurách. Avšak náhodná zložka regresie $\epsilon_1, ..., \epsilon_n$ je nepozorovateľná, takže štandardná chyba regresie je vyrátaná za použitia ekvivalentu používaného pri práci s výberom, teda OLS zostatkami $\hat{u}_{1}, ..., \hat{u}_{n}$. Vzorec pre výpočet $SER$ je:
+\begin{equation}
+    SER = s_{\hat{u}} = \sqrt{s_{\hat{u}}^2}, \ kde \ s_{\hat{u}}^2 = \frac{1}{n-2}\sum_{i=1}^{n}\hat{u}_{i}^2 = \frac{SSR}{n-2},
+\end{equation}
+kde vzorec pre $s_{\hat{u}}^2$ pracuje s predpokladom, že výberový priemer $OLS$ zostatkov je $0$. Vzorec pre výpočet $SER$ je podobný vzorcu na výpočet výberovej smerodajnej odchýlky $Y$, s tým rozdielom, že $Y_i - \overline{Y}$ je nahradené $\hat{u}_{i}$, a menovateľ sa zmení z $n - 1$ na $n - 2$. Dôvod prečo použijeme $n - 2$ je rovnaký, ako pri použití $n - 1$. Touto úpravou menovateľa predídeme možnej odchýlke výslednej hodnoty. Odčítame $2$, pretože sme regresiou odhadovali dva koeficienty. Jedná sa o korekciu stupňov voľnosti, keďže sme odhadovali dva koeficienty, $\beta_0$  a $\beta_1$, naše dáta prišli o dva stupne voľnosti.  
+
+Rozptyl vzorky $s^2_{Y}$ je:
+\begin{equation}
+    s^2_{Y} = \frac{1}{n - 1}\sum_{i=1}^{n}(Y_i - \overline{Y})^2.
+\end{equation}
+
+\section{Testovanie hypotéz a konfidenčné intervaly}
+
 
 
 
