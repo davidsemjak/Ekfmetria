@@ -33,6 +33,7 @@
 \usepackage[final]{showkeys}%color%notref%notcite%final
 \usepackage[slovak,noprefix]{nomencl}
 \usepackage{parskip}
+\usepackage[skip=-6pt]{caption}
 \makeglossary % prikaz na vytvorenie suboru .glo
 
 
@@ -255,9 +256,13 @@ Takisto ako priemerná hodnota $Y$ je neznámou populačného rozdelenia $Y$, pr
 
 Výraz $\epsilon_i$ v rovnici predstavuje náhodnú zložku. Ani tento výraz sa nevyhol rôznym označeniam, napríklad $u_i$. V rovnici sa však stále nachádza na konci. Pre lepšie zapamätanie si uveďme $u$ ako unobserved, teda nepozorovateľná premenná, ktorú nedokážeme zo vzorky priamo odmerať. Tento výraz predstavuje rozdiel medzi $Y_i$ a jeho odhadovanou hodnotou, odhadnutou za pomoci populačnej regresnej priamky.  \\
 
-\begin{center}
+
+\begin{figure}
+    \centering
     \includegraphics[scale=1.5]{diplomka obrazky/10.png}
-\end{center}
+    \caption{Znázornenie reziduí.}
+    \caption*{Zdroj: Source of the image.}
+\end{figure}
 
 \subsection{Odhad koeficientov modelu lineárnej regresie}
 
@@ -269,6 +274,7 @@ Povedzme, že chceme porovnať priemernú výšku zárobku mužov a žien, ktor�
 
 
 
+<return>
 
 \include{jadroprace}
 %
