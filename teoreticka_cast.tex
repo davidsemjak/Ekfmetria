@@ -34,6 +34,7 @@
 \usepackage[slovak,noprefix]{nomencl}
 \usepackage{parskip}
 \usepackage[skip=-6pt]{caption}
+\usepackage{mathtools}
 \makeglossary % prikaz na vytvorenie suboru .glo
 
 
@@ -402,9 +403,24 @@ kde:
     t = \frac{\hat\beta_{1} - \beta_{1,0}}{SE(\hat\beta_{1})}
 \end{equation}
 
+\item
 
+Tretím krokom je vyrátanie $p-hodnoty$, pravdepodobnosti zaznamenania hodnoty $\hat{\beta_{1}}$, ktorá je aspoň tak odlišná od $\beta_{1,0}$, ako nami v skutočnosti vyrátaný odhad $\hat{\beta^{odhadnutá}_{1}}$, za predpokladu, že nulová hypotéza je správna. Zjednodušene povedané, sa jedná o hodnotu pravdepodobnosti, s akou nulová hypotéza $H_0$ môže nastať, respektíve, aká je pravdepodobnosť, že hodnota nulovej hypotézy nastane. Uvedené matematicky:
+\begin{equation}
+\begin{split}
+    p-hodnota & = Pr\footnote{Pravdepodobnosť.}_{H_0}\left[|\hat\beta_{1}-\beta_{1}| > \lvert\hat\beta^{odhadnutá}_{1} - \beta_{1,0}\rvert\right] \\
+   & = Pr_{H_0}\left[|\frac{\hat\beta_{1}-\beta_{1,0}}{SE(\hat\beta_{1})}| > |\frac{\hat\beta^{odhadnutá}_{1} - \beta_{1,0}}{SE(\hat\beta_{1})}| \right] \\
+   & = Pr_{H_0}(|t| > |t^{odhadnutá}|),
+\end{split}    
+\end{equation}
 
-
+kde $Pr_{H_0}$ označuje pravdepodobnosť, vyrátanú v súlade s nulovou hypotézou. Druhá rovnosť pokračuje predelením prvej štandardnou chybou, $SE(\hat\beta_{1})$, nakoniec, $t^{odhadnutá}$ je ozajstne vyrátaná hodnota $t-štatistiky$. Keďže $\hat\beta_{1}$ je zhruba normálne rozdelené pri veľkých vzorkách, podľa nulovej hypotézy je $t-štatistika$ približne rozdelená ako štandardná normálna náhodná premenná, tak pri veľkých vzorkách platí:
+\begin{equation}
+    p-hodnota = Pr(|Z|>|{t^{odhadnutá}}|) = 2\Phi(-|t^{odhadnutá}|)
+\end{equation}
+   
+   
+   
 \end{enumerate}
 
 
