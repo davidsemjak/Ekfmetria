@@ -414,19 +414,60 @@ Tretím krokom je vyrátanie $p-hodnoty$, pravdepodobnosti zaznamenania hodnoty 
 \end{split}    
 \end{equation}
 
-kde $Pr_{H_0}$ označuje pravdepodobnosť, vyrátanú v súlade s nulovou hypotézou. Druhá rovnosť pokračuje predelením prvej štandardnou chybou, $SE(\hat\beta_{1})$, nakoniec, $t^{odhadnutá}$ je ozajstne vyrátaná hodnota $t-štatistiky$. Keďže $\hat\beta_{1}$ je zhruba normálne rozdelené pri veľkých vzorkách, podľa nulovej hypotézy je $t-štatistika$ približne rozdelená ako štandardná normálna náhodná premenná, tak pri veľkých vzorkách platí:
-\begin{equation}
-    p-hodnota = Pr(|Z|>|{t^{odhadnutá}}|) = 2\Phi(-|t^{odhadnutá}|)
-\end{equation}
-   
-   
-   
 \end{enumerate}
 
+kde $Pr_{H_0}$ označuje pravdepodobnosť, vyrátanú v súlade s nulovou hypotézou. Druhá rovnosť pokračuje predelením prvej štandardnou chybou, $SE(\hat\beta_{1})$, nakoniec, $t^{odhadnutá}$ je ozajstne vyrátaná hodnota $t-štatistiky$. Keďže $\hat\beta_{1}$ je zhruba normálne rozdelené pri veľkých vzorkách, podľa nulovej hypotézy je $t-štatistika$ približne rozdelená ako štandardná normálna náhodná premenná, tak pri veľkých vzorkách platí:
+\begin{equation}
+    p-hodnota = Pr(|Z|>|{t^{odhadnutá}}|) = 2\Phi(-|t^{odhadnutá}|).
+\end{equation}
 
+$P-hodnota$ menšia ako $5\%$ nám poskytuje dôkaz proti nulovej hypotéze, v zmysle, že v súlade s nulovou hypotézou je pravdepodobnosť, že dostaneme hodnotu $\hat\beta_{1}$, ktorá je prinajmenšom tak vzdialená od nulovej hypotézy, ako hodnota v skutočnosti pozorovaná, menšia ako $5\%$. Ak je tomu tak, nulová hypotéza je zamietnutá na $5\%$ hladine významnosti.  
 
+Ďalšia možnosť je otestovať hypotézu na $5\%$ hladine významnosti jednoducho, porovnaním absolútnej hodnoty $t-$ ku hodnote $1.96$, čo predstavuje kritickú hodnotu pre obojstranný test, a zamietnutie nulovej hypotézy na $5\%$ hladine významnosti, ak $|t^{odhadnutá}| > 1.96$.
 
+\begin{figure} 
+    \centering 
+    \includegraphics[scale = 0.5]{diplomka obrazky/12.png} 
+    \caption{Znázornenie častí $R^2$.} 
+    \source{Zdroj: }
+\end{figure} 
 
+\subsection{Jednostranné hypotézy o sklone $\beta_{1}$}
+
+Predstavili sme si obojstranné testovanie hypotéz, kde $\beta_{1} = \beta_{1, 0}$ proti hypotéze $\beta_{1} \neq \beta_{1, 0}$. Nazýva sa to obojstranným testom hypotéz preto, pretože alternatívna hypotéza $\beta_{1}$ môže byť buď väčšia, alebo menšia ako $\beta_{1, 0}$. Niekedy sa však hodí viac použiť jednostranný test. V prípade veľkosti tried na výkon študentov si myslíme, že menšie triedy poskytnú študentom kvalitnejšie študijné prostredie, a teda lepšie výkony. V súlade s takouto hypotézou je $\beta_{1}$ negatívna. Ak si to chceme overiť, otestujeme nulovú hypotézu $\beta_{1} = 0$ (žiaden efekt) versus jednostranná alternatíva $\beta_{1} < 0$.  
+
+Pre jednostranný test zapíšeme nulovú a alternatívnu hypotézu ako:  
+\begin{equation}
+    H_{0}:\beta_{1} = \beta_{1, 0} \ vs. \ \beta_{1} < \beta_{1, 0}, 
+\end{equation}
+   
+kde $\beta_{1, 0}$ je hodnota $\beta_{1}$ podľa nulovej hypotézy (v našom prípade je to $0$, teda veľkosť triedy nemá efekt na výkon študentov), a alternatívna hypotéza $H_1$,  že $\beta_{1}$ je menej ako $\beta_{1, 0}$. Ak by sme chceli alternatívnu hypotézu obrátiť, teda, že $\beta_{1}$ je väčšie ako $\beta_{1, 0}$, nerovnicu jednoducho obrátime.  
+
+Pretože je nulová hypotéza totožná pre jednostranný aj obojstranný test hypotéz, stavba $t-štatistiky$ je rovnaká. Jediným rozdielom medzi jedno a dvojstranným testom hypotéz, je interpretácia $t-štatistiky$. Pri jednostrannom teste je nulová hypotéza zamietnutá proti jednostrannej alternatíve pre veľké negatívne hodnoty, avšak nie pre veľké pozitívne hodnoty $t-štatistiky$. Namiesto zamietnutia pri $|t^{odhadnutá}| > 1.96$, je hypotéza zamietnutá na 5\% hladine významnosti ak $|t^{odhadnutá}| < -1.64$. $t-hodnota$ sa mení preto, pretože neodkusneme 2.5\% z každej strany, ale 5\% z jednej. Tým pádom sa zväčší chvostík rozdelenia, a zmenší sa jadro z 1.96 smerodajných odchýlok na 1.64.  
+
+$p-hodnota$ pre jednostranný test hypotéz je získaná z kumulatívneho štandardného normálneho rozdelenia ako:
+\begin{equation}
+    p-hodnota = Pr(Z<t^{odhadnutá})=\Phi(t^{odhadnutá}).\footnote{Jednostranný, ľavostranný test.}
+\end{equation}
+
+Ak je alternatívnou hypotézou, že $\beta_{1}$ je väčšie ako $\beta_{1, 0}$, nerovnosť v nerovnici sa obráti, takže $p-hodnota$ je pravdepodobnosť pravého chvosta, $Pr(Z>t^{odhadnutá})$. Teda pravdepodobnosť, s akou sa hodnoty v priemere objavia v pravom chvoste rozdelenia.  
+
+\subsection{Testovanie hypotéz o priesečníku $\beta_{0}$}
+
+Nulová hypotéza týkajúca sa priesečníka, a jej obojstrannú alternatívnu hypotézu zapíšeme ako:
+\begin{equation}
+    H_{0}:\beta_{0} = \beta_{0, 0} \ vs. \ \beta_{0} < \beta_{0, 0}.
+\end{equation}
+
+Postup ostáva, ako pri testovaní sklonu. Platí to aj pri jednostrannom teste.
+
+Testovanie hypotéz je užitočné v prípade, keď zmýšľame o konkrétnej nulovej hypotéze. Byť schopný zamietnuť, alebo nezamietnuť našu hypotézu na základe štatistickej inferencie, predstavuje silný štatistický nástroj, pri vysporiadaní sa s pochybnosťami, a pri zisťovaním informácií o populácií zo vzorky. Často sa však stáva, že žiadna konkrétna hypotéza o regresnom koeficiente nie je dominantná. V takomto prípade by sme uvítali rozmedzie hodnôt koeficientu, ktoré sú konzistentné s dátami. S týmto nám pomôžu konfidenčné intervaly (intervaly spoľahlivosti). 
+
+\section{Intervaly spoľahlivosti pre regresné koeficienty}
+
+Keďže akýkoľvek štatistický odhad sklonu $\beta_{1}$, sa nevyhnutne spája s neistotou spôsobenou výberom, nemôžeme presne určiť skutočnú hodnotu $\beta_{1}$ za použitia vzorky dát. Môžeme však používať $OLS$ odhadcov, a ich štandardné chyby, na skonštruovanie intervalov spoľahlivosti pre sklon $\beta_{1}$, alebo pre priesečník $\beta_{0}$. 
+
+\subsection{Interval spoľahlivosti pre $\beta_{1}$}
 
 
 
