@@ -360,6 +360,58 @@ Rozptyl vzorky $s^2_{Y}$ je:
 
 \section{Testovanie hypotéz a konfidenčné intervaly}
 
+Tému si vysvetlíme na pokračovaní prípadu o počte žiakov v triede a dosiahnutom počte bodov v teste. Riaditeľ školy si nemyslí, že zmenšovanie počtov žiakov v triedach povedie k lepším výsledkom, a najímanie nových učiteľov považuje za vyhodené peniaze. Ak by sme tento výrok chceli zapísať v jazyku regresnej analýzy, uviedli by sme riaditeľove tvrdenie následovne:"Skutočný kauzálny efekt zmeny počtu žiakov v triede na dosiahnuté skóre je nulový." Teda $\beta_{veľkosť \ triedy} = 0$. 
+
+Potrebujeme riaditeľovi vyvrátiť, že sklon priamky je nulový, čím mu dokážeme, že veľkosť triedy má vplyv na dosahované skóre žiakov. Na vyvrátenie alebo potvrdenie tejto hypotézy použijeme t – test.  
+
+Vo všeobecnosti formulujeme t-štatistiku ako:
+\begin{equation}
+    t = \frac{estimátor\footnote{Estimátor = odhadca.} - predpoklad \ hypotézy}{štandardná \ chyba \ estimátora}
+\end{equation}
+
+\subsection{Obojstranný test sklonu B1}
+
+Testovanie hypotézy o priemernej hodnote populácie za pomoci t-štatistiky:
+\begin{equation}
+    t = \frac{\overline{Y} - \mu_{0}}{\frac{s_{Y}}{\sqrt{n}}}
+\end{equation}
+
+Všeobecný prístup testovania hypotéz o koeficiente $\beta_1$  je rovnaký, ako pri testovaní hypotéz o priemernej hodnote populácie. Kľúčová vlastnosť testovania priemernej hodnoty populácie, na ktorú pri procedúrach spoliehame je, že pri veľkých vzorkách je výberové rozdelenie $\overline{Y}$ približne normálne.  Keďže $\beta_1$ má taktiež normálne výberové rozdelenie pri veľkých vzorkách, hypotézy o skutočnej hodnote sklonu $\beta_1$ môžeme testovať za pomoci totožnej všeobecnej metódy.  
+
+Ako prvé potrebujeme vymedziť hypotézy, ktoré chceme testovať, teda určenie nulovej a alternatívnej hypotézy. V našom prípade je nulovou hypotézou tvrdenie riaditeľa: $\beta_{veľkosť \ triedy} = 0$. Inak povedané, pri nulovej hypotéze skutočný koeficient populácie $\beta_1$  vezme na seba určitú hodnotu, $\beta_{1,0}$\footnote{Nula znamená, že $\beta_1$ naberá hodnotu 0.}. Pri obojstrannom teste, $\beta_1$ nie je rovné $\beta_{1,0}$. Takže nulovú hypotézu a obojstrannú alternatívnu hypotézu zapíšeme ako:
+\begin{equation}
+    H_{0}:\beta_1 = \beta_{1,0} \ vs. \ H_{1}:\beta_{1} \neq \beta_{1,0}
+\end{equation}
+
+Pre otestovanie nulovej hypotézy $H_{0}$ postupujeme takisto, ako pri testovaní populačného priemeru. Postup si zhrnieme do troch krokov. 
+
+\begin{enumerate}
+\item Prvým krokom je vyrátanie štandardnej chyby $\hat\beta_1$, teda $SE_{\hat\beta_1}$. Štandardná chyba $\hat\beta_1$ je odhadca $\sigma_{\hat\beta_1}$, čiže smerodajnej odchýlky výberového rozdelenia $\hat\beta_1$. 
+Konkrétne:
+\begin{equation}
+   SE(\hat\beta_{1}) = {\sqrt{\sigma^2_{\hat\beta_{1}}}},  
+\end{equation}
+
+kde:
+\begin{equation}
+  \hat\sigma^2_{\hat\beta_{1}} = \frac{1}{n}\times{\frac{\frac{1}{n - 2}\sum_{i=1}^{n}(X_{i}-\overline{X})^2\hat{u}_{i}^2} {\lbrack{\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\overline{X})^2}\rbrack^2}} . 
+\end{equation}
+
+\item Druhým krokom je vyrátanie t-štatistiky:
+\begin{equation}
+    t = \frac{\hat\beta_{1} - \beta_{1,0}}{SE(\hat\beta_{1})}
+\end{equation}
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
 
 
 
