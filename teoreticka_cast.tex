@@ -469,6 +469,72 @@ Keďže akýkoľvek štatistický odhad sklonu $\beta_{1}$, sa nevyhnutne spája
 
 \subsection{Interval spoľahlivosti pre $\beta_{1}$}
 
+95\% konfidenčný interval pre $\beta_{1}$ má dve rovnocenné definície. Prvá tvrdí, že konfidenčný interval je súbor hodnôt, ktoré nemôžu byť zamietnuté pri použití obojstranného testu hypotéz s 5\% hladinou významnosti. Druhá tvrdí, že konfidenčný interval je interval, ktorý má 95\% pravdepodobnosť, že bude obsahovať skutočnú hodnotu $\beta_{1}$. Inak povedané, ak by sme zozbierali nekonečné množstvo vzoriek a z každej zostavili konfidenčný interval, 95\% z nich by obsahovalo skutočnú hodnotu $\beta_{1}$. Pretože tento interval obsahuje skutočnú hodnotu v 95\% všetkých vzoriek, vravíme, že máme 95\% úroveň spoľahlivosti.
+
+Dôvod prečo sú tieto dve definície rovnocenné je nasledovný. Test hypotéz s hladinou významnosti 5\% zamietne, podľa definície, skutočnú hodnotu $\beta_{1}$ iba v 5\% prípadoch všetkých možných vzoriek. Teda v 95\% všetkých možných vzoriek skutočná hodnota nebude zamietnutá. Nakoľko 95\% interval spoľahlivosti je súborom všetkých hodnôt $\beta_{1}$, ktoré nie sú zamietnuté na 5\% hladine spoľahlivosti, skutočná hodnota $\beta_{1}$ bude obsiahnutá v intervale spoľahlivosti v 95\% všetkých možných vzoriek.
+
+V princípe, 95\% interval spoľahlivosti môže byť vyrátaný testovaním všetkých možných hodnôt B1 (teda testovaním nulovej hypotézy $\beta_{1} = \beta_{1, 0}$ pre všetky hodnoty $\beta_{1, 0}$) na 5\% hladine spoľahlivosti za použitia t-štatistiky. 95\% konfidenčný interval je v takomto prípade súbor všetkých hodnôt $\beta_{1}$, ktoré nie sú zamietnuté. Zostrojenie t-štatistiky pre všetky hodnoty $\beta_{1}$ by však zabralo nekonečne veľa času. 
+Jednoduchší spôsob zostrojenia intervalu spoľahlivosti sa naskytne, keď si uvedomíme, že t-štatistika odmietne vyslovenú hodnotu hypotézu $\beta_{1, 0}$ v prípade, keď je $\beta_{1, 0}$ mimo intervalu $\hat\beta_{1} \pm 1.96SE(\hat\beta_{1})$. To znamená, že 95\% konfidenčný interval pre $\hat\beta_{1}$ je interval: 
+\begin{equation}
+    [\hat\beta_{1} - 1.96SE(\hat\beta_{1}) \ , \ \hat\beta_{1} + 1.96SE(\hat\beta_{1})].
+\end{equation}
+
+\subsection{Interval spoľahlivosti pre $\beta_0$}
+
+95\% konfidenčný interval pre $\beta_0$ zostrojíme rovnako ako pri $\beta_1$. Namiesto $\hat\beta_1$  použijeme $\hat\beta_0$  a namiesto $SE(\hat\beta_{1})$ zas $SE(\hat\beta_{0})$.
+
+$OLS$ regresia výšky dosiahnutého hodnotenia na veľkosť tried poskytla hodnoty odhadcov $\hat\beta_{1} = -2.28$ a $SE(\hat\beta_{1}) = 0.52$. Obojstranný 95\% interval spoľahlivosti pre $\hat\beta_{1}$ je $\{-2.28 \pm 1.96 \times 0.52\}$, alebo $\{-3.30 \leq \beta_{1} \leq -1.26\}$. Hodnota $\beta_{1} = 0$ nie je obsiahnutá v intervale spoľahlivosti, takže nulová hypotéza $\beta_{1} = 0$ môže byť zamietnutá na hladine spoľahlivosti 5\%. 
+
+\subsection{Interval spoľahlivosti pre predpovedaný efekt zmeny $X$}
+
+Konfidenčný interval pre $\beta_1$ môže byť použitý na zostrojenie 95\% intervalu spoľahlivosti pre predpovedaný efektu všeobecnej zmeny v $X$. Uvažujme so zmenou $X$ v určitej miere $\Delta x$. Očakávaná zmena v $Y$ spojená so zmenou v $X$ je $\beta_{1} \Delta x$. Sklon populácie $\beta_1$ nie je známy, avšak keďže môžeme skonštruovať konfidenčný interval pre $\beta_1$, môžeme taktiež zostrojiť konfidenčný interval pre očakávaný efekt $\beta_{1} \Delta x$. Nakoľko jeden koniec 95 intervalu spoľahlivosti pre $\beta_1$ je $\hat\beta_{1} - 1.96SE(\hat\beta_{1})$, a predpovedaný následok zmeny $\Delta x$ za použitia odhadu pre $\beta_1$ je $[\hat\beta_{1} - 1.96SE(\hat\beta_{1})] \times \Delta x$. Druhý koniec intervalu spoľahlivosti je $\hat\beta_{1} + 1.96SE(\hat\beta_{1})$, a predpovedaný efekt zmeny za použitia odhadu je $[\hat\beta_{1} + 1.96SE(\hat\beta_{1})] \times \Delta x$. Teda 95\% interval spoľahlivosti pre dôsledok zmeny $X$ v miere $\Delta x$ môžeme vyjadriť ako 95\% konfidenčný interval pre $\beta_{1} \Delta x$:
+\begin{equation}
+   [\hat\beta_{1} - 1.96SE(\hat\beta_{1})\Delta x \ , \ \hat\beta_{1} + 1.96SE(\hat\beta_{1})\Delta x]. 
+\end{equation}
+Uveďme si príklad. Ak by sme chceli zmeniť pomer študentov k učiteľom (vyjadrenie veľkosti tried) o 2 jednotky, tak keďže $95\%$ interval spoľahlivosti pre $\beta_1$ je $[-3.30, -1.26]$, dôsledok zníženia pomeru o 2 jednotky by mohol mať dopad až $-3.30 \times (-2) = 6.6$ bodu, alebo len $-1.26 \times (-2) = 2.52$. Takže zníženie pomeru študentov k učiteľom o hodnotu 2 by malo odhadovaný efekt navýšenia bodovej úspešnosti študentov v testoch medzi 2.52 a 6.6 bodov, s 95\% úrovňou spoľahlivosti. Ak je pomer študentov k učiteľom $10:1$, tak na jedného učiteľa pripadá $10$ žiakov. Zníženie z 10 na 8 študentov na jedného učiteľa by malo predpovedaný efekt vyrátaný vyššie. 
+
+\section{Heteroskedasticita a Homoskedasticita}
+
+Náhodná zložka ${u}_{i}$  je homoskedastická, ak rozptyl podmieneného rozdelenia ${u}_{i}$ daný\footnote{(${u}_{i}$ | $X_{i}$)} $X_{i}$, je konštantný pre $i = 1, ..., n$, a obzvlášť nezávisí na $X_{i}$. Ak táto podmienka nie je splnená, hovoríme, že náhodná zložka je heteroskedastická. Najlepšie to vysvetlíme ilustráciou náhodných zložiek a porovnaním ich rozptylov vizuálne. Distribúcia náhodnej zložky ${u}_{i}$ je ilustrovaná pre viaceré hodnoty $x$. Keďže sa toto rozdelenie týka konkrétne vyznačených hodnôt $x$, jedná sa o podmienené rozdelenie ${u}_{i}$ daný $X_{i} = x$, ktoré má podľa prvej podmienky najmenších štvorcov priemer rovný nule pre všetky $x$. Na prvom grafe majú všetky tieto podmienené rozdelenia rovnaký rozptyl, inak povedané, rozptyl všetkých týchto rozdelení je rovnaký pre rôzne hodnoty $x$. Podmienená zmena ${u}_{i}$ daný $X_{i} = x$, nezávisí od $x$, teda neznáme zložky sú homoskedastické. 
+
+Na druhej strane, druhý graf zobrazuje prípad, kedy sa podmienené rozdelenie ${u}_{i}$ rozpína s narastajúcim $x$. Pri malých hodnotách $x$ je rozdelenie úzke, avšak pri väčších hodnotách $x$ je rozdelenie širšie. V druhom grafe rozptyl ${u}_{i}$ daný $X_{i} = x$ narastá s $x$, teda neznáma zložka je heteroskedastická. 
+\begin{figure}[!ht] 
+    \centering 
+    \includegraphics[scale = 1.25]{diplomka obrazky/13.png} 
+    \caption{a) Homoskedasticita. b) Heteroskedasticita.} 
+    \source{Zdroj: Source of the image.} 
+\end{figure} 
+
+Pretože metóda najmenších štvorcov nemá medzi svojimi predpokladmi žiadne vymedzené obmedzenia týkajúce sa podmieneného rozptylu, predpoklad platí aj v prípade homoskedasticity aj heteroskedasticity. Z toho dôvodu $OLS$ odhadcovia ostanú nestranní, konzistentní a asymptoticky normálni, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Existujú vzorce na výpočet odchýlky, ktoré vopred rátajú, že neznáma zložka je homoskedastická. Z historických dôvodov sú často vzorce tohto typu prednastavené v štatistickom softvéri. Ak je náhodná zložka heteroskedastická, tieto vzorce nie je vhodné použiť. Napríklad, vyrátaná t-štatistika nebude mať štandardné normálne rozdelenie, ani pri veľkých vzorkách. Na druhú stranu, keďže homoskedasticita je mimoriadny prípad heteroskedasticity, odhadcovia $\hat\sigma^2_{\hat\beta_{1}}$ a $\hat\sigma^2_{\hat\beta_{0}}$ rozptylu $\hat\beta_{1}$ a $\hat\beta_{0}$ ponúknu platný štatistický úsudok, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Tým pádom sú testy hypotéz a intervaly spoľahlivosti založené na týchto štandardných chybách platné, či už sú náhodné zložky heteroskedastické, alebo nie. Takéto štandardné chyby sa nazývajú heteroskedasticky-robustné. Ak sú štandardné chyby za použitia vzorcov aj pre homoskedasticitu aj heteroskedastickú robustnosť rovnaké, nič sa nestane, ak použijeme heteroskedasticky-robustné štandardné chyby. Ak sa líšia, mali by sme použiť výsledok z heteroskedasticky-robustného výpočtu. Najjednoduchší spôsob je takéto heteroskedasticky-robustné vzorce pre výpočet štandardnej chyby používať stále. 
+
+\section{Lineárna regresia s viacnásobným regresorom}
+
+Aj napriek tomu, že školy s menším podielom študentov k učiteľom majú tendenciu mať lepšie výsledky v testoch, skutočnosť je pravdepodobne taká, že okrem počtu žiakov v triedach vplýva na výšku dosiahnutých bodov aj niečo iné. Cieľom viacnásobnej lineárnej regresie, je práve vyhnutie sa odchýlke, ktorá môže byť spôsobená vynechaním vplyvných faktorov, ich  nezakomponovaním do lineárnej regresie. Vynechané premenné, ako napríklad vlastnosti študentov, môžu spôsobiť, že $OLS$ odhadca odhadne skreslené hodnoty koeficientov, teda $OLS$ odhadca bude neobjektívny, skreslený. Hlavnou myšlienkou viacnásobnej lineárnej regresie je, že ak máme dáta o týchto vynechaných premenných, môžeme ich zahrnúť do lineárnej regresie ako ďalší regresor, a takto odhadnúť kauzálny efekt jedného regresora (pomer študentov k učiteľom) , zatiaľ čo ostatné premenné zachováme konštantné (vlastnosti študentov). 
+
+Alternatívne, ak nás viac zaujíma predikcia než kauzálna inferencia, model viacnásobnej regresie nám umožňuje použiť viacero premenných ako regresory, t.j. viacero prediktorov, na vylepšenie predikcií vytvorených jedným regresorom jednoduchou lineárnou regresiou.
+
+\subsection{Odchýlka spôsobená vynechanou premennou}
+
+Ak je regresor (pomer študentov k učiteľom) korelovaný s nezávislou premennou (vlastnosti študentov), ktorú sme do modelu nezahrnuli, avšak ovplyvňuje závislú premennú modelu, bude $OLS$ odhadca trpieť odchýlkou vynechanej premennej. 
+Odchýlka vynechanej premennej nastane, ak sú splnené dve podmienky:
+\begin{enumerate}
+\item opomenutá premenná je korelovaná s regresorom (nezávislou premennou), ktorý je zahrnutý v modeli,
+\item opomenutá premenná má súvis a vplyv na závislú premenú.
+\end{enumerate}
+Platnosť podmienok si osvetlíme na nasledujúcich príkladoch:
+\begin{enumerate}
+\item Za vynechanú premennú považujeme vlastnosť študentov, konkrétne ich jazykové znalosti, merané tým, či školy do ktorých chodia, vyučujú v ich materinskom jazyku, alebo nie. Jazykové znalosti, a pomer študentov k učiteľom sú korelované (školy pre prisťahované deti zvyknú mať väčší počet detí na jedného učiteľa). Tým je prvá podmienka odchýlky vynechanej premennej splnená. Je pochopiteľné, že študenti, ktorí v jazyku používanom na škole nie sú na úrovni domácich, budú mať ťažšie podmienky pri písaní testov, a teda očakávame aj horšie výsledky. Čím spĺňame aj druhú podmienku. Takto by sme teda vynechaním tejto premennej v modeli zapríčinili, že by $OLS$ odhadca nesprávne premietol dáta do koeficientov odhadcov.
+\item Ďalšou vynechanou premennou je čas dňa, kedy študenti tento štandardizovaný test, na ktorom je postavený náš súbor dát, písali. Ak sa čas písania testu líši medzi rôznymi mestskými časťami kvôli dôvodu, ktorý nie je spojený s počtom žiakov v triede, potom prvá podmienka nie je splnená. Avšak čas písania testu môže ovplyvňovať výšku dosiahnutého hodnotenia v teste (bdelosť študentov nie je počas celého dňa rovnaká), tým pádom, premenná spĺňa druhú podmienku. Nuž, keďže v tomto prípade čas písania testu nie je korelovaný s počtom žiakov na učiteľa, táto premenná (pomer študentov k učiteľom) nemôže chybne zachytiť efekt vynechanej premennej (fáza dňa, kedy bol test absolvovaný), na zmenu závislej premennej (dosiahnuté skóre). Čo znamená, že nezahrnutie premennej o fáze dňa, kedy bol test písaný, nebude mať za následok odchýlku vynechanej premennej. 
+\item Ďalšia vynechaná premenná predstavuje počet parkovacích miest pre učiteľov na študenta. Táto premenná spĺňa prvú podmienku, ale druhú nie. Školy s viacerými učiteľmi na žiaka, majú pravdepodobne viac parkovacích miest pre učiteľov, čo zaručuje splnenie prvej podmienky. Avšak, vyučovanie prebieha vo vnútorných priestoroch školy, a nie na parkovisku. Čiže parkovacie miesta nemajú žiaden priamy efekt na vyučovanie, čo odporuje splneniu druhej podmienky. Pretože parkovacie miesta na žiaka nemajú vplyv na výšku skóre, vynechanie tejto premennej z modelu nepovedie k odchýlke vynechanej premennej.
+\end{enumerate}
+
+Prítomnosť odchýlky opomenutej premennej znamená, že predpoklad najmenších štvorcov pre kauzálnu inferenciu E(ui I Xi) = 0, nie je splnený. Aby sme pochopili prečo, pripomeňme si, že náhodná zložka ui v modeli jednoduchej lineárnej regresie reprezentuje všetky faktory, iné ako Xi, ktoré majú vplyv na Yi. Ak nejaký z týchto iných faktorov je korelovaný z Xi, znamená to, že náhodná zložka (ktorá obsahuje tento faktor) je korelovaná s Xi. Inak povedané, ak má opomenutá premenná vplyv na Yi, tento vplyv je zahrnutý v náhodnej zložke, a ak je táto opomenutá premenná korelovana s Xi, potom je náhodná zložka korelovaná s Xi. Pretože ui a Xi sú korelované, podmienený priemer (očakávaná hodnota) ui daný Xi je nenulový. Táto korelácia porušuje prvú podmienku metódy najmenších štvorcov, čoho dôsledkom je odchýlka OLS odhadcu. Táto odchýlka nezmizne ani pri veľkých vzorkách, čo robí OLS odhadcu nekonzistentným. 
+
+
+
+
+
+
 
 
 
