@@ -549,6 +549,18 @@ Náhodné kontrolované experimenty\footnote{RCT - Randomized contorlled trials.
 
 Model viacnásobnej lineárnej regresie rozširuje model jednoduchej lineárnej regresie o dodatočné regresory. Pri použití modelu pre kauzálnu inferenciu nám model s viacerými regresormi umožňuje odhadnúť efekt na $Y_{i}$ pri úprave jednej premennej ($X_{1i}$), pričom ostatné premenné ($X_{2i}$, $X_{3i}$, atď) ostanú konštantné. Pri príklade o výške dosiahnutých bodov študentov a počtu učiteľov na žiaka nám umožní model viacnásobnej lineárnej regresie izolovať efekt počtu učiteľov na žiaka ($X_{1i}$) na výšku skóre ($Y_{i}$), pričom premenná $X_{2i}$, ktorá znázorňuje pomer žiakov, ktorí neštudujú v materinskom jazyku, ostane napriek zmene (v $X_{1i}$) konštantná. Pri použití modelu pre predikciu, použitie viacerých regresorov môže vylepšiť predikcie. 
 
+\subsubsection{Regresná priamka populácie}
+
+Uvažujme s dvoma nezávislými premennými $X_{1i}$ a $X_{2i}$. V modeli viacnásobnej lineárnej regresie je priemerný vzťah medzi týmito dvoma nezávislými premennými a závislou premennou $Y$ vyjadrený lineárnou funkciou:
+\begin{equation}
+    E(Y_{i} | X_{1i} = x_{1},X_{2i}=x_{2}) = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2},
+\end{equation}
+kde $E(Y_{i} \ daný \ X_{1i} = x_{1},X_{2i}=x_{2})$ je podmienená očakávaná hodnota $Yi$ daný, že $X_{1i} = x_{1},X_{2i}=x_{2}$. 
+Takáto lineárna funkcia sa v modeli viacnásobnej lineárnej regresie nazýva populačná regresná priamka, alebo populačná regresná funkcia. Je to vzťah, ktorý priemerne platí v populácií pre $Y$ a všetky regresory $X_k$. Koeficient $\beta_{0}$ je priesečník, koeficient $\beta_{1}$ je koeficient sklonu $X_{1i}$ a koeficient $\beta_{2}$ je koeficient sklonu $X_{2i}$. Interpretácia koeficientu $\beta_{1}$ v modeli viacnásobnej lineárnej regresie populácie sa líši od jednoduchej lineárnej regresie, kde $X_{1i}$ bol jediným regresorom. V uvedenom modeli je $\beta_{1}$ odhadnutá zmena $Y$ medzi dvoma pozorovaniami, pri zmene $X_1$ o jednu jednotku, pričom $X_2$ ostáva konštantné. Táto interpretácia $\beta_{1}$ vyplýva z porovnávania odhadov dvoch pozorovaní s rovnakou hodnotou $X_2$, avšak dvoma hodnotami $X_1$, ktoré sa líšia o $\Delta X_{1}$. Tým pádom prvé pozorovanie pracuje s hodnotami $X$ ($X1$ a $X2$), a druhé pozorovanie s hodnotami $X$ ($X_{1} + \Delta X_{1}, X_{2}$). Odhadovaná hodnota $Y$ pre prvé pozorovanie je daná rovnicou:
+
+
+
+
 
 
 
