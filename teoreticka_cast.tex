@@ -528,9 +528,26 @@ Platnosť podmienok si osvetlíme na nasledujúcich príkladoch:
 \item Ďalšia vynechaná premenná predstavuje počet parkovacích miest pre učiteľov na študenta. Táto premenná spĺňa prvú podmienku, ale druhú nie. Školy s viacerými učiteľmi na žiaka, majú pravdepodobne viac parkovacích miest pre učiteľov, čo zaručuje splnenie prvej podmienky. Avšak, vyučovanie prebieha vo vnútorných priestoroch školy, a nie na parkovisku. Čiže parkovacie miesta nemajú žiaden priamy efekt na vyučovanie, čo odporuje splneniu druhej podmienky. Pretože parkovacie miesta na žiaka nemajú vplyv na výšku skóre, vynechanie tejto premennej z modelu nepovedie k odchýlke vynechanej premennej.
 \end{enumerate}
 
-Prítomnosť odchýlky opomenutej premennej znamená, že predpoklad najmenších štvorcov pre kauzálnu inferenciu E(ui I Xi) = 0, nie je splnený. Aby sme pochopili prečo, pripomeňme si, že náhodná zložka ui v modeli jednoduchej lineárnej regresie reprezentuje všetky faktory, iné ako Xi, ktoré majú vplyv na Yi. Ak nejaký z týchto iných faktorov je korelovaný z Xi, znamená to, že náhodná zložka (ktorá obsahuje tento faktor) je korelovaná s Xi. Inak povedané, ak má opomenutá premenná vplyv na Yi, tento vplyv je zahrnutý v náhodnej zložke, a ak je táto opomenutá premenná korelovana s Xi, potom je náhodná zložka korelovaná s Xi. Pretože ui a Xi sú korelované, podmienený priemer (očakávaná hodnota) ui daný Xi je nenulový. Táto korelácia porušuje prvú podmienku metódy najmenších štvorcov, čoho dôsledkom je odchýlka OLS odhadcu. Táto odchýlka nezmizne ani pri veľkých vzorkách, čo robí OLS odhadcu nekonzistentným. 
+Prítomnosť odchýlky opomenutej premennej znamená, že predpoklad najmenších štvorcov pre kauzálnu inferenciu $E(u_{i} | X_{i}) = 0$, nie je splnený. Aby sme pochopili prečo, pripomeňme si, že náhodná zložka $u_i$ v modeli jednoduchej lineárnej regresie reprezentuje všetky faktory, iné ako $X_{i}$, ktoré majú vplyv na $Y_{i}$. Ak nejaký z týchto iných faktorov je korelovaný s $X_{i}$, znamená to, že náhodná zložka (ktorá obsahuje tento faktor) je korelovaná s $X_{i}$. Inak povedané, ak má opomenutá premenná vplyv na $Y_{i}$, tento vplyv je zahrnutý v náhodnej zložke, a ak je táto opomenutá premenná korelovaná s $X_{i}$, potom je náhodná zložka korelovaná s $X_{i}$. Pretože $u_{i}$ a $X_{i}$ sú korelované, podmienený priemer (očakávaná hodnota) $u_{i}$ daný $X_{i}$ je nenulový. Táto korelácia porušuje prvú podmienku metódy najmenších štvorcov, čoho dôsledkom je odchýlka $OLS$ odhadcu. Táto odchýlka nezmizne ani pri veľkých vzorkách, čo robí $OLS$ odhadcu nekonzistentným. 
 
+\subsubsection{Vzorec pre odchýlku vynechanej premennej}
 
+Označme koreláciu medzi $X_{i}$ a $u_{i}$ ako $corr(X_{i}, u_{i}) = \rho_{Xu}$. Predpokladajme, že druhá a tretia podmienka najmenších štvorcov platí, avšak prvá nie, pretože $\rho_{Xu}$ je nenulové. $OLS$ odhadca má limitu:
+\begin{equation}
+    \hat\beta_{1}\xrightarrow[\text{}]{\text{\; p \; }}\beta_{1}+\rho_{Xu}\frac{\sigma_{u}}{\sigma_{X}}.
+\end{equation}
+
+Ak veľkosť vzorky rastie, $\hat\beta_{1}$ je bližšie k $\beta_{1} + \rho_{Xu}(\sigma_{u} / \sigma_{X})$ s narastajúcou pravdepodobnosťou. 
+\begin{enumerate}
+\item  Odchýlka opomenutej premennej je problém, či už je vzorka malá alebo veľká, pretože $\hat\beta_{1}$  nekonverguje s pravdepodobnosťou k skutočnej hodnote $\beta_{1}$. $\hat\beta_{1}$ má odchýlku, a je nekonzistentný, čo znamená, že $\hat\beta_{1}$ je nekonzistentným odhadcom $\beta_{1}$, za prítomnosti odchýlky opomenutej premennej. Časť vzorca $\rho_{Xu}(\sigma_{u} / \sigma_{X})$ predstavuje odchýlku v $\hat\beta_{1}$, ktorá pretrvá aj pri veľkých vzorkách.  
+\item Veľkosť odchýlky závisí od absolútnej výšky korelácie regresora, a náhodnej zložky. 
+\item Smer odchýlky závisí na $pozitivite / negativite$ korelácie medzi $X$ a $u$.
+\end{enumerate}
+Náhodné kontrolované experimenty\footnote{RCT - Randomized contorlled trials.} napomáhajú odstraňovaniu veľkého množstva týchto odchýlok.
+
+\subsection{Model viacnásobnej lineárnej regresie}
+
+Model viacnásobnej lineárnej regresie rozširuje model jednoduchej lineárnej regresie o dodatočné regresory. Pri použití modelu pre kauzálnu inferenciu nám model s viacerými regresormi umožňuje odhadnúť efekt na $Y_{i}$ pri úprave jednej premennej ($X_{1i}$), pričom ostatné premenné ($X_{2i}$, $X_{3i}$, atď) ostanú konštantné. Pri príklade o výške dosiahnutých bodov študentov a počtu učiteľov na žiaka nám umožní model viacnásobnej lineárnej regresie izolovať efekt počtu učiteľov na žiaka ($X_{1i}$) na výšku skóre ($Y_{i}$), pričom premenná $X_{2i}$, ktorá znázorňuje pomer žiakov, ktorí neštudujú v materinskom jazyku, ostane napriek zmene (v $X_{1i}$) konštantná. Pri použití modelu pre predikciu, použitie viacerých regresorov môže vylepšiť predikcie. 
 
 
 
