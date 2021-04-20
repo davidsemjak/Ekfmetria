@@ -557,6 +557,46 @@ Uvažujme s dvoma nezávislými premennými $X_{1i}$ a $X_{2i}$. V modeli viacn�
 \end{equation}
 kde $E(Y_{i} \ daný \ X_{1i} = x_{1},X_{2i}=x_{2})$ je podmienená očakávaná hodnota $Yi$ daný, že $X_{1i} = x_{1},X_{2i}=x_{2}$. 
 Takáto lineárna funkcia sa v modeli viacnásobnej lineárnej regresie nazýva populačná regresná priamka, alebo populačná regresná funkcia. Je to vzťah, ktorý priemerne platí v populácií pre $Y$ a všetky regresory $X_k$. Koeficient $\beta_{0}$ je priesečník, koeficient $\beta_{1}$ je koeficient sklonu $X_{1i}$ a koeficient $\beta_{2}$ je koeficient sklonu $X_{2i}$. Interpretácia koeficientu $\beta_{1}$ v modeli viacnásobnej lineárnej regresie populácie sa líši od jednoduchej lineárnej regresie, kde $X_{1i}$ bol jediným regresorom. V uvedenom modeli je $\beta_{1}$ odhadnutá zmena $Y$ medzi dvoma pozorovaniami, pri zmene $X_1$ o jednu jednotku, pričom $X_2$ ostáva konštantné. Táto interpretácia $\beta_{1}$ vyplýva z porovnávania odhadov dvoch pozorovaní s rovnakou hodnotou $X_2$, avšak dvoma hodnotami $X_1$, ktoré sa líšia o $\Delta X_{1}$. Tým pádom prvé pozorovanie pracuje s hodnotami $X$ ($X1$ a $X2$), a druhé pozorovanie s hodnotami $X$ ($X_{1} + \Delta X_{1}, X_{2}$). Odhadovaná hodnota $Y$ pre prvé pozorovanie je daná rovnicou:
+\begin{equation}
+    Y = \beta_{0} + \beta_{1} X_{1} + \beta_{2} X_{2}.
+\end{equation}
+
+Odhadovaná hodnota $Y$ pre druhé pozorovanie je $Y + \Delta Y$, pre ktorú:
+\begin{equation}
+    Y + \Delta Y = \beta_{0} + \beta_{1} (X_{1} + \Delta X_{1}) + \beta_{2} X_{2}.
+\end{equation}
+Rovnicu pre $\Delta Y$ pokiaľ ide o $\Delta X_{1}$ dostaneme odčítaním rovnice $Y = \beta_{0} + \beta_{1} X_{1} + \beta_{2} X_{2}$ od $Y + \Delta Y = \beta_{0} + \beta_{1} (X_{1} + \Delta X_{1}) + \beta_{2} X_{2}$, výsledkom čoho je $\Delta Y = \beta_{1}\Delta X_{1}$, čo môžeme prepísať ako:
+\begin{equation}
+    \beta_{1} = \frac{\Delta Y}{\Delta X_{1}},
+\end{equation}
+pričom udržiavame $X_2$ konštantné.
+
+Koeficient $\beta_{1}$ je teda rozdiel v odhadnutej hodnote $Y$ (rozdiel podmienených očakávaní $Y$) medzi dvomi pozorovaniami pri jednotkovej zmene v $X_1$, pričom držíme $X_2$ konštantné. $\beta_{1}$ predstavuje čiastkový efekt $X$ na $Y$, držiac $\beta_{1}$ nemenné. Interpretácia $\beta_{0}$ je rovnaká ako pre jednoduchú lineárnu regresiu.  
+Všeobecný model pre viacnásobnú regresiu je:
+\begin{equation}
+    Y_{i} = \beta_{0} + \beta_{1} X_{1i} + \beta_{1} X_{2i} + ... + \beta_{k} X_{ki} + \epsilon_{i}, \ i = 1, ..., n,
+\end{equation}
+kde:
+\begin{itemize}
+\item  $Y_i$ je $í-te$ pozorovanie závislej premennej $X_{1i}, X_{2i}, ..., X_{ki}$ sú $í-te$ pozorovania každého z $k$ regresorov, a $\epsilon_i$ je náhodná zložka.
+\item Názvoslovie $OLS$ pre viacnásobný model lineárnej regresie je rovnaké ako pre model jednoduchej lineárnej regresie. 
+\end{itemize}
+
+Definícia homoskedasticity a heteroskedasticity v modeli viacnásobnej regresie je obšírnejšia v porovnaní s definíciou pre model jednoduchej regresie. Náhodná zložka $\epsilon_{i}$ v modeli viacnásobnej regresie je homoskedastická, ak rozptyl podmieneného rozdelenia $\epsilon_{i}$ daný $X_{1i}, ..., X_{ki}, var(u_{i}|X_{1i}, ..., X_{ki})$, je konštantný pre $i = 1, ..., n$, čím nie je závislý na hodnotách $X_{1i}, ..., X_{ki}$. Ak táto podmienka nie je splnená, náhodná zložka je heteroskedastická.
+
+\subsection{Meranie vhodnosti modelu vo viacnásobnej regresii}
+
+\subsubsection{Štandardná chyba regresie}
+
+Vo viacnásobnej regresii je štandardná chyba regresie vyrátaná ako:
+\begin{equation}
+    SER = s_{\hat{u}} = \sqrt{s_{\hat{u}}^2},  \ kde \  s_{\hat{u}}^2 =\frac{1}{n-k-1}\sum_{i=1}^{n}\hat{u_{i}}^2 = \frac{SSR}{n-k-1}.
+\end{equation}
+
+Jediným rozdielom medzi definíciou štandardnej chyby regresie vo viacnásobnej a jednoduchej regresií je iný menovateľ. V definícií pre viacnásobnú regresiu je to $n - k - 1$, namiesto $n - 2$. Menovateľ $n - 2$ pri regrersii s jedným regresorom upravuje odhadcu kvôli nadol smerujúcej odchýlke, ktorá vzniká pri odhade dvoch koeficientov, priesečníku a sklonu. Vo vzorci pre viacnásobnú regresiu menovateľ $n - k - 1$ upravuje pre nadol smerujúcu odchýlku, ktorá vzniká pri odhade $k + 1$ koeficientov. Takisto ako pri už skôr uvedenom vzorci pre jednoduchú regresiu, použitie $n - k - 1$ namiesto $n$ sa nazýva úprava stupňov voľnosti. Pri jednom regresore sa $k = 1$, teda vzorec pre odhad štandardnej chyby regresie pre jednoduchú a viacnásobnú regresiu bude zhodný. Pri veľkom $n$ je efekt úpravy stupňov voľnosti zanedbateľný.   
+
+\subsubsection{Koeficient determinácie - $R^2$}
+
 
 
 
@@ -580,12 +620,9 @@ Takáto lineárna funkcia sa v modeli viacnásobnej lineárnej regresie nazýva 
 \include{prilohab}
 %
 \include{prilohac}
-%
-% zivotopis autora
+
 \newpage
 \phantomsection
 \protect\label{page:posledna}
 
-
 \end{document}
-%%
