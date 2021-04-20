@@ -597,13 +597,28 @@ Jediným rozdielom medzi definíciou štandardnej chyby regresie vo viacnásobne
 
 \subsubsection{Koeficient determinácie - $R^2$}
 
+Pri viacnásobnej regresii vzrastie $R^2$ pri každom pridaní nového regresora, s výnimkou regresora, ktorého odhadnutý koeficient je presne 0. Pri použití $OLS$ metódy na odhad modelu s dvoma regresormi, $OLS$ nájde hodnotu koeficientov, ktorá je najmenšou pri súčte štvorcov zvyškov regresie\footnote{SSR.}. Ak $OLS$ vyhodnotí hodnotu koeficientu odhadcu ako 0, potom ostane súčet štvorcov zvyškov v modeli nezmenený bez ohľadu na to, či pridaná premenná v modeli bude, alebo nebude zahrnutá. Ak však $OLS$ vyhodnotí hodnotu koeficientu odhadcu inú ako presne 0, znamená to, že táto hodnota koeficientu znížila súčet štvorcov zvyškov v regresii v pomere k modelu, ktorý túto premennú nezahŕňa. V praxi je veľmi nezvyčajné pre odhadovaný koeficient, aby mal hodnotu 0, takže vo všeobecnosti každá pridaná premenná znižuje súčet štvorcov zvyškov regresie. To však znamená, že $R^2$ vo všeobecnosti vzrastie (a nikdy neklesne) pri každom pridaní nového regresora. 
 
+\subsubsection{Upravený koeficient determinácie - $R^2$}
 
+Pretože $R^2$ vzrastie pri každom pridaní novej premennej, nárast koeficientu $R^2$ neznamená, že pridaná premenná v skutočnosti vylepšila vhodnosť modelu. $R^2$ nám potom poskytne premrštený odhad toho, ako dobre pasuje regresia dátam. 
+Upravený koeficient determinácie $R^2$, alebo $\overline{R^2}$, je upravená verzia $R^2$, ktorá nemusí v každom prípade vzrásť, po pridaní novej premennej do modelu. $\overline{R^2}$ vyjadríme ako:
+\begin{equation}
+    \overline{R^2} = 1 - \frac{n - 1}{n - k - 1} \frac{SSR}{TSS} = 1 - \frac{s_{\hat{u}}^2}{s_{Y^2}}.
+\end{equation}
 
+Rozdiel medzi rovnicou 8.8\footnote{Upravený koeficient determinácie.} a 8.9\footnote{Koeficient determinácie.} je, že pomer súčtu štvorcov zvyškov k celkovému súčtu štvorcov je vynásobený činiteľmi $(n - 1)$ v čitateli, a $(n - k - 1)$ v menovateli.
+\begin{equation}
+     R^2 = 1 - \frac{SSR}{SST}.
+\end{equation}
+Druhý výraz v rovnici 8.8 vyjadruje, že upravený koeficient determinácie je 1 mínus pomer výberového rozptylu zvyškov $OLS$ (s úpravou stupňov voľnosti) k výberovému rozptylu $Y$. 
 
-
-
-
+Pre upravený koeficient determinácie platia tri zaujímavosti:
+\begin{enumerate}
+    \item $(n - 1) / (n - k - 1)$ je stále väčšie ako 1, takže $\overline{R^2}$ je stále menšie ako $R^2$.
+    \item Pridanie regresora má dva opačné efekty na $\overline{R^2}$. Na jednej strane sa zníži $SSR$, čo zvýši $\overline{R^2}$, na druhej strane však narastie $(n - 1) / (n - k - 1)$, čo $\overline{R^2}$ zníži. Či v konečnom dôsledku $\overline{R^2}$ narastie, alebo poklesne, závisí od toho, ktorý z týchto dvoch javov bude silnejší.
+    \item $\overline{R^2}$ môže byť záporný. Jav nastane, ak všetky regresory spoločne znížia súčet štvorcov zvyškov v tak malom množstve, že nedokážu vykompenzovať efekt $(n - 1) / (n - k - 1)$.    
+\end{enumerate}
 
 
 
