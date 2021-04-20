@@ -359,7 +359,7 @@ Rozptyl vzorky $s^2_{Y}$ je:
     s^2_{Y} = \frac{1}{n - 1}\sum_{i=1}^{n}(Y_i - \overline{Y})^2.
 \end{equation}
 
-\section{Testovanie hypotéz a konfidenčné intervaly}
+\section{Testovanie hypotéz jednoduchej lineárnej regresie}
 
 Tému si vysvetlíme na pokračovaní prípadu o počte žiakov v triede a dosiahnutom počte bodov v teste. Riaditeľ školy si nemyslí, že zmenšovanie počtov žiakov v triedach povedie k lepším výsledkom, a najímanie nových učiteľov považuje za vyhodené peniaze. Ak by sme tento výrok chceli zapísať v jazyku regresnej analýzy, uviedli by sme riaditeľove tvrdenie následovne:"Skutočný kauzálny efekt zmeny počtu žiakov v triede na dosiahnuté skóre je nulový." Teda $\beta_{veľkosť \ triedy} = 0$. 
 
@@ -507,7 +507,7 @@ Na druhej strane, druhý graf zobrazuje prípad, kedy sa podmienené rozdelenie 
 
 Pretože metóda najmenších štvorcov nemá medzi svojimi predpokladmi žiadne vymedzené obmedzenia týkajúce sa podmieneného rozptylu, predpoklad platí aj v prípade homoskedasticity aj heteroskedasticity. Z toho dôvodu $OLS$ odhadcovia ostanú nestranní, konzistentní a asymptoticky normálni, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Existujú vzorce na výpočet odchýlky, ktoré vopred rátajú, že neznáma zložka je homoskedastická. Z historických dôvodov sú často vzorce tohto typu prednastavené v štatistickom softvéri. Ak je náhodná zložka heteroskedastická, tieto vzorce nie je vhodné použiť. Napríklad, vyrátaná t-štatistika nebude mať štandardné normálne rozdelenie, ani pri veľkých vzorkách. Na druhú stranu, keďže homoskedasticita je mimoriadny prípad heteroskedasticity, odhadcovia $\hat\sigma^2_{\hat\beta_{1}}$ a $\hat\sigma^2_{\hat\beta_{0}}$ rozptylu $\hat\beta_{1}$ a $\hat\beta_{0}$ ponúknu platný štatistický úsudok, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Tým pádom sú testy hypotéz a intervaly spoľahlivosti založené na týchto štandardných chybách platné, či už sú náhodné zložky heteroskedastické, alebo nie. Takéto štandardné chyby sa nazývajú heteroskedasticky-robustné. Ak sú štandardné chyby za použitia vzorcov aj pre homoskedasticitu aj heteroskedastickú robustnosť rovnaké, nič sa nestane, ak použijeme heteroskedasticky-robustné štandardné chyby. Ak sa líšia, mali by sme použiť výsledok z heteroskedasticky-robustného výpočtu. Najjednoduchší spôsob je takéto heteroskedasticky-robustné vzorce pre výpočet štandardnej chyby používať stále. 
 
-\section{Lineárna regresia s viacnásobným regresorom}
+\section{Viacnásobná lineárna regresia}
 
 Aj napriek tomu, že školy s menším podielom študentov k učiteľom majú tendenciu mať lepšie výsledky v testoch, skutočnosť je pravdepodobne taká, že okrem počtu žiakov v triedach vplýva na výšku dosiahnutých bodov aj niečo iné. Cieľom viacnásobnej lineárnej regresie, je práve vyhnutie sa odchýlke, ktorá môže byť spôsobená vynechaním vplyvných faktorov, ich  nezakomponovaním do lineárnej regresie. Vynechané premenné, ako napríklad vlastnosti študentov, môžu spôsobiť, že $OLS$ odhadca odhadne skreslené hodnoty koeficientov, teda $OLS$ odhadca bude neobjektívny, skreslený. Hlavnou myšlienkou viacnásobnej lineárnej regresie je, že ak máme dáta o týchto vynechaných premenných, môžeme ich zahrnúť do lineárnej regresie ako ďalší regresor, a takto odhadnúť kauzálny efekt jedného regresora (pomer študentov k učiteľom) , zatiaľ čo ostatné premenné zachováme konštantné (vlastnosti študentov). 
 
@@ -619,6 +619,52 @@ Pre upravený koeficient determinácie platia tri zaujímavosti:
     \item Pridanie regresora má dva opačné efekty na $\overline{R^2}$. Na jednej strane sa zníži $SSR$, čo zvýši $\overline{R^2}$, na druhej strane však narastie $(n - 1) / (n - k - 1)$, čo $\overline{R^2}$ zníži. Či v konečnom dôsledku $\overline{R^2}$ narastie, alebo poklesne, závisí od toho, ktorý z týchto dvoch javov bude silnejší.
     \item $\overline{R^2}$ môže byť záporný. Jav nastane, ak všetky regresory spoločne znížia súčet štvorcov zvyškov v tak malom množstve, že nedokážu vykompenzovať efekt $(n - 1) / (n - k - 1)$.    
 \end{enumerate}
+
+\section{Multikolinearita}
+
+Jednou z podmienok pre správne fungovanie $OLS$ je neprítomnosť dokonalej multikolinearity v modeli. Multikolinearita môže byť dokonalá alebo nedokonalá. Regresory sú vystavené dokonalej multikolinearite, respektíve sú dokonalo multikolineárne, ak jeden z regresorov existuje ako dokonalá lineárna funkcia iného regresora. 
+
+Je dôležité rozumieť, prečo dokonalá multikolinearita predstavuje problém pre výpočet $OLS$. Našťastie to môžeme veľmi jednoducho vysvetliť príkladom. Povedzme, že chceme odhadnúť koeficient odhadcu $STR$\footnote{Student-teacher-ratio (pomer žiakov k učiteľom).} v regresii, kde regresujeme výkonnosť v testoch na $STR_i$ a $PctELi$\footnote{Percentage of english learners (percento žiakov, kt. sa učia v cudzom jazyku).}, avšak namiesto $PctELi$ napíšeme druhýkrát $STR_i$, takže regresujeme výkonnosť v testoch na $STR_i$ a $STR_i$. Toto je perfektný príklad dokonalej multikolinearity, keďže jeden regresor ($STR$) je dokonalou lineárnou funkciou iného regresora (v našom prípade to je opakovaný výskyt $STR$). Zvyčajne je prístup k odhaleniu multikolinearity ošetrený štatistickým softvérom. Buď sám odstráni výskyt jednej z multikolineárnych premenných, alebo odmietne vyrátať $OLS$, a vyhodí nám chybu. Matematickým odôvodnením tohto zlyhania je, že pri multikolinearite regresorov nútime $OLS$ metódu deliť nulou. 
+
+Ak sa nad multikolineritou zamyslíme čisto intuitívne, dokonalá multikolinearita predstavuje problém, lebo od regresie požadujeme odpoveď na nelogické otázky. Vo viacnásobnej regresii predstavuje koeficient regresora efekt zmeny tohto regresora, pričom ostatné regresory držíme nemenné. Napríklad $0.34 \times STR$ predstavuje pozitívnu zmenu regresanta, efekt, o koeficient $0.34$, pri zmene $STR$ o jednu jednotku. Pri našej hypotetickej regresií výšky dosiahnutého skóre na $STR$ a $STR$, koeficient prvého $STR$ predstavuje efekt na výšku dosiahnutého skóre pri zmene prvého $STR$, pričom držíme druhé $STR$ nemenné. Toto nedáva zmysel, keďže sa jedná o rovnaké súbory dát, a rovnaké regresory, teda $OLS$ nemôže odhadnúť tento nezmyselný čiastkový efekt na výšku skóre. 
+
+Riešením dokonalej multikolinearity v našej hypotetickej regresií by bolo jednoduché opravenie pravopisnej chyby, a nahradenie nesprávneho regresora tým správnym, zaumieneným. Pri výskyte dokonalej multikolinearity sa často jedná o logickú chybu pri výbere regresora, alebo nepovšimnutie si istých súvislostí, ktoré boli skryté v dátach. Všeobecným riešením dokonalej multikolinearity je modifikácia regresorov, a korektná špecifikácia modelu. 
+
+\subsection{Nedokonalá multikolinearita}
+
+Napriek podobným názvom je nedokonalá multikolinearita koncepčne dosť odlišná od dokonalej multikolinearity. Nedokonalá multikolinearita znamená, že dva alebo viac regresorov je vysoko korelovaných v zmysle, že existuje lineárna funkcia regresora, ktorá je vysoko korelovaná s iným regresorom. Nedokonalá multikolinearita nepredstavuje teoreticky žiaden problém pre $OL$S odhadcov, práve naopak, jedným z použití $OLS$ metódy je aj vytriedenie nezávislých vplyvov rozličných regresorov, keď sú regresory korelované. 
+
+Ak sú regresory nedokonalo korelované, koeficient aspoň na jednom z jednotlivých regresorov bude odhadnutý nepresne. Ako príklad si uveďme regresiu výšky dosiahnutého skóre v testoch na $STR$ a $PctEL$. Povedzme, že by sme pridali tretí regresor, a to percento rezidentov v mestskej časti, ktorí sú imigranti, teda majú iný materinský jazyk ako krajina, do ktorej sa prisťahovali. Keďže sa prisťahovali a chcú sa naučiť jazyk krajiny, táto tretia premenná bude vysoko korelovaná s premenou $PctEL$. Kvôli vysokej korelácií týchto dvoch regresorov by bolo obtiažne odhadnúť koeficient pre $PctEL$, za držania podielu imigrantov nemenným. Inými slovami, súbor dát s ktorým pracujeme by nám poskytol veľmi málo informácií ohľadom toho, čo sa stane s výškou skóre, ak by bolo $PctEL$ nízke, avšak podiel prisťahovalcov vysoký, a naopak. Keďže percento žiakov, ktorí sa učia jazyk by bolo nízke, avšak percento imigrantov vysoké, očakávali by sme, že percento žiakov, ktorí sa učia jazyk by malo byť vyššie, teda predpokladali by sme skreslenie dát alebo veľký rozptyl. V našom prípade by výsledkom bol jednoducho vyšší rozptyl koeficientu odhadcu $PctEL$, v porovnaní ak by $PctEL$ a percento prisťahovalcov neboli korelované. 
+
+Efekt nedokonalej multikolinearity na rozptyl $OLS$ odhadcov si môžeme ukázať matematicky preskúmaním rovnice rozptylu $\hat\beta_{1}$ pre viacnásobnú regresiu s dvoma regresormi ($X_1$ a $X_2$), a pre špeciálny prípad homoskedastickej náhodnej zložky.
+\begin{equation}
+    \sigma_{\hat\beta_{1}}^2 = \frac{1}{n}\left(\frac{1}{1-\rho_{X_{1}, X_{2}}^2}\right)\frac{\sigma_{u}^2}{\sigma_{X_{1}}^2}.
+\end{equation}
+
+Rozptyl $\hat\beta_{1}$ je nepriamo úmerný k $1-\rho_{X_{1}, X_{2}}^2$, kde $\rho_{X_{1}, X_{2}}^2$ predstavuje koreláciu medzi $X_1$ a $X_2$. Čím väčšia je korelácia medzi týmito dvoma regresormi, tým bližšie je výraz k nule, čo v konečnom dôsledku zväčšuje rozptyl $\hat\beta_{1}$. Vo všeobecnosti platí, že ak je viacero regresorov nedokonalo multikolineárnych, koeficient aspoň jedného z nich bude nepresne odhadnutý. Budú mať teda veľký výberový rozptyl. 
+
+Dokonalá multikolinearita je problém, ktorý často signalizuje prítomnosť logickej chyby. Na rozdiel od nedokonalej multikolinearity, ktorá by sa skôr ako chybou dala nazvať vlastnosťou, či charakteristickým znakom $OLS$, dát a otázky, ktorú sa snažíme zodpovedať. Ak do modelu zahrnieme všetky premenné, ktoré sme tam chceli uviesť, potom nedokonalá multikolinearita naznačuje, že bude náročné presne odhadnúť jeden alebo viacero čiastkových efektov za použitia dát, ktoré máme práve po ruke.  
+
+\section{Testovanie hypotéz viacnásobnej lineárnej regresie}
+
+Koncepčne sa k výpočtu štandardnej chyby viacnásobnej regresie staviame rovnako ako v prípade jednoduchej regresie. Kľúčové myšlienky ako normálnosť odhadcov pri veľkej vzorke a schopnosť konzistentne odhadnúť štandardnú odchýlku výberového rozdelenia zostávajú rovnaké a platia pre akékoľvek množstvo regresorov. Rovnaký prístup uplatníme aj pri testovaní hypotéz viacnásobnej regresie. Rátame s tým, že $OLS$ odhadcovia majú pri veľkej vzorke normálne rozdelenie, ktoré má pod nulovou hypotézou priemernú hodnotu, ktorá predstavuje hypotetizovanú skutočnú hodnotu, a rozptyl tohto rozdelenia môže byť odhadnutý konzistentne. Výberové rozdelenie $\hat\beta_j$ je približne normálne. Pod nulovou hypotézou je priemer tohto rozdelenia $\hat\beta_{j,0}$. Rozptyl tohto rozdelenia môže byť odhadnutý konzistentne. Z tohto dôvodu môžeme jednoducho postupovať pri testovaní hypotéz ako v prípade regresie s jedným regresorom.
+\begin{equation}
+    H_{0}:\beta_j = \beta_{j,0} \ vs. \ H_{1}:\beta_{j} \neq \beta_{j,0}
+\end{equation}
+Metóda pre zostrojenie konfidenčného intervalu v modeli viacnásobnej regresie, je taktiež totožná ako pre model jednoduchej regresie. Mali by sme ale myslieť na to, že tieto metódy pre kvantifikovanie nespoľahlivosti vzorky, zaručujú správne fungovanie len vo veľkých vzorkách. 
+
+\subsection{Testovanie viacerých hypotéz}
+
+Pri testovaní dvoch a viac obmedzení regresných koeficientov, hovoríme o spojenej, alebo spoločnej hypotéze. Spojená nulová a alternatívna hypotéza má tvar:
+\begin{equation}
+\begin{split}
+     H_{0}: & \ \beta_j = \beta_{j,0}, \beta_m = \beta_{m,0}, ..., \ pre \ všetkých \ q \ restrikcií, vs. \ \\ H_{1}: & \ jedna \ alebo \ viac \ q \ reštrikcií \ v \ nulovej \ hypotéze \ neplatia.
+\end{split}
+\end{equation}
+
+
+
+
 
 
 
