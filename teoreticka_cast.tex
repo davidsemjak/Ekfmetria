@@ -241,7 +241,7 @@ Tieto rovnice platia pri akomkoľvek rozdelení $Y$, tým pádom rozdelenie $Y$ 
 \subsection{Výberové rozdelenie $\overline{Y}$, keď $Y$ je normálne distribuované}
 
 Predpokladajme $Y1 + Y2 +, ..., Y_n$, ktoré sú $i.i.d.$, a vybrané z $N(\mu_{Y}, \sigma^2_{Y})$ rozdelenia. Súčet všetkých $n$ náhodný premenných, ktoré sú vybrané z normálneho rozdelenia, bude normálne distribuovaný. A keďže priemer $\overline{Y}$ je $\mu_{Y}$ a rozptyl $\overline{Y}$ je $\frac{\sigma^2_Y}{n}$, za predpokladu, že $Y1 + Y2 +, ..., Y_n$ sú $i.i.d.$ vybrané z $N(\mu_{Y}, \sigma^2_{Y})$ rozdelenia, $\overline{Y}$ je rozdelené ako $N(\mu_{Y}, \frac{\sigma^2}{n})$.  
-
+\newpage
 \section{Model lineárnej regresie}
 
 Ekonómom nejde len o vyrátanie najlepšieho lineárneho odhadu jednej premennej, za predpokladu súboru iných premenných. Ide nám o dosiahnutie výsledkov, ktoré je možné zovšeobecniť. Model, ktorý funguje iba na dátach, s ktorými pracujeme, avšak nebude použiteľný pri aplikovaní na populáciu, nie je väčšinou to, čo hľadáme. Hľadáme odpoveď na otázku:"Čo sa v populácií udeje, ak zmeníme hodnotu vybranej premennej?" Najmä, čo sa zmení v priestore, mimo našej zozbieranej vzorky, na ktorej je model založený. Napríklad, chceme odhadnúť mzdu jednotlivca, s prihliadnutím na jeho vzdelanie, a rozhodnúť, koľko by sa toho zmenilo, ak by mal náš jednotlivec o jeden rok viac výuky. V takomto prípade chceme, aby vzťah, ktorý skúmame, nebol len zhodou okolností. Mal by odrážať podstatný vzájomný vzťah premenných.  Aby sme mohli takýto odhad uskutočniť, musíme predpokladať, že existuje všeobecný vzťah, ktorý je pravdivý pre všetky možné pozorovania z presne vytýčenej populácie. Teda napríklad všetci jedinci, ktorí pracujú na trvalý pracovný pomer v presne určený dátum, alebo povedzme všetky firmy v určitom odvetví. Vo všeobecnosti nás zaujímajú otázky týkajúce sa kauzálnej inferencie a predikcií. Pri kauzálnej inferencii používame dáta na odhadnutie vplyvu, ktorý má zmena nezávislej premennej na závislú premennú. Pri predikciách používame pozorované premenné, na predpovedanie hodnoty inej premennej. Ak našu pozornosť sústredíme len na lineárne vzťahy, sformulujeme štatistický model: 
@@ -359,6 +359,7 @@ Rozptyl vzorky $s^2_{Y}$ je:
     s^2_{Y} = \frac{1}{n - 1}\sum_{i=1}^{n}(Y_i - \overline{Y})^2.
 \end{equation}
 
+\newpage
 \section{Testovanie hypotéz jednoduchej lineárnej regresie}
 
 Tému si vysvetlíme na pokračovaní prípadu o počte žiakov v triede a dosiahnutom počte bodov v teste. Riaditeľ školy si nemyslí, že zmenšovanie počtov žiakov v triedach povedie k lepším výsledkom, a najímanie nových učiteľov považuje za vyhodené peniaze. Ak by sme tento výrok chceli zapísať v jazyku regresnej analýzy, uviedli by sme riaditeľove tvrdenie následovne:"Skutočný kauzálny efekt zmeny počtu žiakov v triede na dosiahnuté skóre je nulový." Teda $\beta_{veľkosť \ triedy} = 0$. 
@@ -463,6 +464,7 @@ Postup ostáva, ako pri testovaní sklonu. Platí to aj pri jednostrannom teste.
 
 Testovanie hypotéz je užitočné v prípade, keď zmýšľame o konkrétnej nulovej hypotéze. Byť schopný zamietnuť, alebo nezamietnuť našu hypotézu na základe štatistickej inferencie, predstavuje silný štatistický nástroj, pri vysporiadaní sa s pochybnosťami, a pri zisťovaním informácií o populácií zo vzorky. Často sa však stáva, že žiadna konkrétna hypotéza o regresnom koeficiente nie je dominantná. V takomto prípade by sme uvítali rozmedzie hodnôt koeficientu, ktoré sú konzistentné s dátami. S týmto nám pomôžu konfidenčné intervaly (intervaly spoľahlivosti). 
 
+\newpage
 \section{Intervaly spoľahlivosti pre regresné koeficienty}
 
 Keďže akýkoľvek štatistický odhad sklonu $\beta_{1}$, sa nevyhnutne spája s neistotou spôsobenou výberom, nemôžeme presne určiť skutočnú hodnotu $\beta_{1}$ za použitia vzorky dát. Môžeme však používať $OLS$ odhadcov, a ich štandardné chyby, na skonštruovanie intervalov spoľahlivosti pre sklon $\beta_{1}$, alebo pre priesečník $\beta_{0}$. 
@@ -493,6 +495,7 @@ Konfidenčný interval pre $\beta_1$ môže byť použitý na zostrojenie 95\% i
 \end{equation}
 Uveďme si príklad. Ak by sme chceli zmeniť pomer študentov k učiteľom (vyjadrenie veľkosti tried) o 2 jednotky, tak keďže $95\%$ interval spoľahlivosti pre $\beta_1$ je $[-3.30, -1.26]$, dôsledok zníženia pomeru o 2 jednotky by mohol mať dopad až $-3.30 \times (-2) = 6.6$ bodu, alebo len $-1.26 \times (-2) = 2.52$. Takže zníženie pomeru študentov k učiteľom o hodnotu 2 by malo odhadovaný efekt navýšenia bodovej úspešnosti študentov v testoch medzi 2.52 a 6.6 bodov, s 95\% úrovňou spoľahlivosti. Ak je pomer študentov k učiteľom $10:1$, tak na jedného učiteľa pripadá $10$ žiakov. Zníženie z 10 na 8 študentov na jedného učiteľa by malo predpovedaný efekt vyrátaný vyššie. 
 
+\newpage
 \section{Heteroskedasticita a Homoskedasticita}
 
 Náhodná zložka ${u}_{i}$  je homoskedastická, ak rozptyl podmieneného rozdelenia ${u}_{i}$ daný\footnote{(${u}_{i}$ | $X_{i}$)} $X_{i}$, je konštantný pre $i = 1, ..., n$, a obzvlášť nezávisí na $X_{i}$. Ak táto podmienka nie je splnená, hovoríme, že náhodná zložka je heteroskedastická. Najlepšie to vysvetlíme ilustráciou náhodných zložiek a porovnaním ich rozptylov vizuálne. Distribúcia náhodnej zložky ${u}_{i}$ je ilustrovaná pre viaceré hodnoty $x$. Keďže sa toto rozdelenie týka konkrétne vyznačených hodnôt $x$, jedná sa o podmienené rozdelenie ${u}_{i}$ daný $X_{i} = x$, ktoré má podľa prvej podmienky najmenších štvorcov priemer rovný nule pre všetky $x$. Na prvom grafe majú všetky tieto podmienené rozdelenia rovnaký rozptyl, inak povedané, rozptyl všetkých týchto rozdelení je rovnaký pre rôzne hodnoty $x$. Podmienená zmena ${u}_{i}$ daný $X_{i} = x$, nezávisí od $x$, teda neznáme zložky sú homoskedastické. 
@@ -507,6 +510,7 @@ Na druhej strane, druhý graf zobrazuje prípad, kedy sa podmienené rozdelenie 
 
 Pretože metóda najmenších štvorcov nemá medzi svojimi predpokladmi žiadne vymedzené obmedzenia týkajúce sa podmieneného rozptylu, predpoklad platí aj v prípade homoskedasticity aj heteroskedasticity. Z toho dôvodu $OLS$ odhadcovia ostanú nestranní, konzistentní a asymptoticky normálni, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Existujú vzorce na výpočet odchýlky, ktoré vopred rátajú, že neznáma zložka je homoskedastická. Z historických dôvodov sú často vzorce tohto typu prednastavené v štatistickom softvéri. Ak je náhodná zložka heteroskedastická, tieto vzorce nie je vhodné použiť. Napríklad, vyrátaná t-štatistika nebude mať štandardné normálne rozdelenie, ani pri veľkých vzorkách. Na druhú stranu, keďže homoskedasticita je mimoriadny prípad heteroskedasticity, odhadcovia $\hat\sigma^2_{\hat\beta_{1}}$ a $\hat\sigma^2_{\hat\beta_{0}}$ rozptylu $\hat\beta_{1}$ a $\hat\beta_{0}$ ponúknu platný štatistický úsudok, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Tým pádom sú testy hypotéz a intervaly spoľahlivosti založené na týchto štandardných chybách platné, či už sú náhodné zložky heteroskedastické, alebo nie. Takéto štandardné chyby sa nazývajú heteroskedasticky-robustné. Ak sú štandardné chyby za použitia vzorcov aj pre homoskedasticitu aj heteroskedastickú robustnosť rovnaké, nič sa nestane, ak použijeme heteroskedasticky-robustné štandardné chyby. Ak sa líšia, mali by sme použiť výsledok z heteroskedasticky-robustného výpočtu. Najjednoduchší spôsob je takéto heteroskedasticky-robustné vzorce pre výpočet štandardnej chyby používať stále. 
 
+\newpage
 \section{Viacnásobná lineárna regresia}
 
 Aj napriek tomu, že školy s menším podielom študentov k učiteľom majú tendenciu mať lepšie výsledky v testoch, skutočnosť je pravdepodobne taká, že okrem počtu žiakov v triedach vplýva na výšku dosiahnutých bodov aj niečo iné. Cieľom viacnásobnej lineárnej regresie, je práve vyhnutie sa odchýlke, ktorá môže byť spôsobená vynechaním vplyvných faktorov, ich  nezakomponovaním do lineárnej regresie. Vynechané premenné, ako napríklad vlastnosti študentov, môžu spôsobiť, že $OLS$ odhadca odhadne skreslené hodnoty koeficientov, teda $OLS$ odhadca bude neobjektívny, skreslený. Hlavnou myšlienkou viacnásobnej lineárnej regresie je, že ak máme dáta o týchto vynechaných premenných, môžeme ich zahrnúť do lineárnej regresie ako ďalší regresor, a takto odhadnúť kauzálny efekt jedného regresora (pomer študentov k učiteľom) , zatiaľ čo ostatné premenné zachováme konštantné (vlastnosti študentov). 
@@ -620,6 +624,7 @@ Pre upravený koeficient determinácie platia tri zaujímavosti:
     \item $\overline{R^2}$ môže byť záporný. Jav nastane, ak všetky regresory spoločne znížia súčet štvorcov zvyškov v tak malom množstve, že nedokážu vykompenzovať efekt $(n - 1) / (n - k - 1)$.    
 \end{enumerate}
 
+\newpage
 \section{Multikolinearita}
 
 Jednou z podmienok pre správne fungovanie $OLS$ je neprítomnosť dokonalej multikolinearity v modeli. Multikolinearita môže byť dokonalá alebo nedokonalá. Regresory sú vystavené dokonalej multikolinearite, respektíve sú dokonalo multikolineárne, ak jeden z regresorov existuje ako dokonalá lineárna funkcia iného regresora. 
@@ -645,6 +650,7 @@ Rozptyl $\hat\beta_{1}$ je nepriamo úmerný k $1-\rho_{X_{1}, X_{2}}^2$, kde $\
 
 Dokonalá multikolinearita je problém, ktorý často signalizuje prítomnosť logickej chyby. Na rozdiel od nedokonalej multikolinearity, ktorá by sa skôr ako chybou dala nazvať vlastnosťou, či charakteristickým znakom $OLS$, dát a otázky, ktorú sa snažíme zodpovedať. Ak do modelu zahrnieme všetky premenné, ktoré sme tam chceli uviesť, potom nedokonalá multikolinearita naznačuje, že bude náročné presne odhadnúť jeden alebo viacero čiastkových efektov za použitia dát, ktoré máme práve po ruke.  
 
+\newpage
 \section{Testovanie hypotéz viacnásobnej lineárnej regresie}
 
 Koncepčne sa k výpočtu štandardnej chyby viacnásobnej regresie staviame rovnako ako v prípade jednoduchej regresie. Kľúčové myšlienky ako normálnosť odhadcov pri veľkej vzorke a schopnosť konzistentne odhadnúť štandardnú odchýlku výberového rozdelenia zostávajú rovnaké a platia pre akékoľvek množstvo regresorov. Rovnaký prístup uplatníme aj pri testovaní hypotéz viacnásobnej regresie. Rátame s tým, že $OLS$ odhadcovia majú pri veľkej vzorke normálne rozdelenie, ktoré má pod nulovou hypotézou priemernú hodnotu, ktorá predstavuje hypotetizovanú skutočnú hodnotu, a rozptyl tohto rozdelenia môže byť odhadnutý konzistentne. Výberové rozdelenie $\hat\beta_j$ je približne normálne. Pod nulovou hypotézou je priemer tohto rozdelenia $\hat\beta_{j,0}$. Rozptyl tohto rozdelenia môže byť odhadnutý konzistentne. Z tohto dôvodu môžeme jednoducho postupovať pri testovaní hypotéz ako v prípade regresie s jedným regresorom.
@@ -664,6 +670,7 @@ Pri testovaní dvoch a viac obmedzení regresných koeficientov, hovoríme o spo
 kde $\beta_j, \beta_m, ...,$ označujú odlišné koeficienty regresie, a $\beta_{j,0}, \beta_{m,0}, ...,$ označujú hodnoty týchto koeficientov pod nulovou hypotézou. Ak aspoň jedna z rovníc tvoriacich nulovú hypotézu nebude pravdivá, znamená to, že celá nulová hypotéza nebude pravdivá. Alternatívnou hypotézou teda je, že aspoň jedna rovnosť z nulovej hypotézy $H_{0}$ neplatí. 
 Mohli by sme sa pokúsiť testovať hypotézy jednotlivo pomocou $t-testu$, avšak aj pri nulovej korelácií $t-štatistík$ je pravdepodobnosť, že zamietneme pravdivú hypotézu takmer 10\% ($0.95 \times 0.95$). Pri korelácií $t-štatistík$ sa tento výpočet ďalej komplikuje. Pri testovaní hypotéz takýmto spôsobom sa jednoducho hladina významnosti nerovná tempu, akým sa pravdivé hypotézy naozaj zamietajú. Našťastie poznáme iný prístup k testovaniu viacerých hypotéz. Taký, ktorý dokáže využiť aj koreláciu regresorov. Tento prístup je založený na $F-štatistike$.
 
+\newpage
 \section{F-štatistika}
 
 F-štatistika slúži na testovanie viacerých, spojených hypotéz o koeficientoch regresie. Moderný štatistický softvér štandardne obsahuje vzorce pre výpočet F-štatistiky. Ako prvý si predstavíme prípad s dvoma obmedzeniami.
@@ -683,14 +690,64 @@ Pre lepšie pochopenie F-štatistiky v uvedenom vzorci, predpokladajme, že t-š
     \source{Zdroj: Source of the image.} 
 \end{figure} 
 
+\subsection{F-štatistika s viac ako dvoma reštrikciami}
+
+Uvažujme spojenú hypotézu, ktorá je lineárna v koeficientoch a má $q$ obmedzení, kde $q \leq k + 1$. Každé z týchto $q$ obmedzení môže zahŕňať jeden, alebo viacero regresných koeficientov. Túto spojenú nulovú hypotézu môžeme zapísať v maticovom zápise ako:
+\begin{equation}
+    R\beta = r,
+\end{equation}
+kde $R$ je $q \times (k + 1)$ nenáhodná matica s plnou hodnosťou, a $r$ je nenáhodný vektor $q \times 1$. $q$ je počet riadkov v $R$, čo taktiež predstavuje počet obmedzení uvalených pod nulovou hypotézou. 
+
+Vzorec pre F-štatistiku s úpravou pre heteroskedasticitu\footnote{Robustná F-štatistika.} pre testovanie $q$ reštrikcií nulovej hypotézy, ktorý môžeme použiť pre otestovanie nulovej hypotézy v rovnici 11.2 je:
+\begin{equation}
+    F = (R\hat{\beta}-r)'[R\hat{\sum}_{\hat{\beta}}R']^{-1}(R\hat{\beta}-r)/q,
+\end{equation}
+kde pri dodržaní prvých štyroch podmienok najmenších štvorcoch platí, že pod nulovou hypotézou:
+\begin{equation}
+    F \xrightarrow[\text{}]{\text{\; d \; }} F_{q, \infty}.
+\end{equation}
+Pod nulovou hypotézou má F-štatistika výberové rozdelenie, ktoré je vo veľkých vzorkách určené $F_{q, \infty}$ rozdelením. Teda kritické hodnoty pre F-štatistiku môžeme získať z tabuliek $F_{q, \infty}$ rozdelenia, kde nájdeme požadovanú hodnotu pre $q$ obmedzení a požadovanú hladinu významnosti.
+Vzorec pre F-štatistiku s úpravou pre heteroskedasticitu je implementovaný v štatistických softvéroch a nebudeme naň v tejto práci ďalej upriamovať pozornosť. 
+
+\subsection{Celková F-štatistika regresie}
+
+Celková F-štatistika regresie testuje spojenú hypotézu, že všetky koeficienty sklonu sú 0. Nulovú a alternatívnu hypotézu zapíšeme ako:
+\begin{equation}
+\begin{split}
+    H_{0}: & \ \beta_{1} = 0, \beta_{2} = 0, ..., \beta_{k} = 0 \ vs. \\
+    H_{1}: & \ \beta_{j} \neq 0, pre \ aspoň \ jedno \ j,\ j=1, ..., k.
+\end{split}
+\end{equation}
+Nulová hypotéza tvrdí, že žiaden z regresorov nevysvetľuje akúkoľvek zmenu v $Y_i$, aj keď priesečník (pod nulovou hypotézou predstavuje priemer $Y_i$) môže byť nenulový. Pri veľkých vzorkách má celková F-štatistika regresie rozdelenie $F_{k,\infty}$, ak je nulová hypotéza pravdivá.
+
+\subsection{F-štatistika s jedným obmedzením}
+
+Keď $q = 1$, F-štatistika testuje iba jedno obmedzenie. Spojená nulová hypotéza sa premení na nulovú hypotézu jedného koeficienta regresie, a F-štatistika bude t-štatistika umocnená na druhú mocninu.  
+
+\subsection{F-štatistika a homoskedasticita}
+
+Ak sú zvyšky regresie homoskedastické, F-štatistiku je možné zapísať v zmysle toho, ako sedia dáta regresii, a to buď poklesom súčtu štvorcov zvyškov, alebo nárastu koeficientu determinácie $R^2$. Výsledná F-štatistika sa uvádza ako F-štatistika pre homoskedasticitu, pretože platí, len ak sú zvyšky regresie homoskedastické. V porovnaní s robustnou F-štatistikou, ktorá platí pri heteroskedastických aj homoskedastických zvyškoch regresie. Aj napriek tomuto obmedzeniu si vzorec pre túto štatistiku predstavíme, kvôli lepšiemu pochopeniu toho, ako F-štatistika vlastne funguje. 
+
+F-štatistiku pre homoskedasticitu vyrátame za použitia jednoduchého vzorca založeného na súčte štvorcov zvyškov z dvoch regresii. Prvá regresia sa nazýva obmedzenou regresiou, v ktorej je nulová hypotéza vynútene pravdivá. Ak je nulová hypotéza typovo ako v rovnici 10.2, teda všetky hodnoty hypotézy sú rovné 0, obmedzená regresia je regresiou, v ktorej sú všetky testované koeficienty nastavené na 0, tým pádom sú príslušné regresory vylúčené z regresie. Druhá regresia sa nazýva neobmedzenou regresiou, v ktorej je alternatívnej hypotéze umožnené byť pravdivou. Ak je súčet štvorcov zvyškov dostatočne menší v neobmedzenej regresií, než v obmedzenej regresií, potom test zamietne nulovú hypotézu. 
+F-štatistika pre homoskedasticitu je daná rovnicou:
+\begin{equation}
+    F= \frac{(SSR_{obmedzená}-SSR_{neobmedzená} / q}{SSR_{neobmedzená}/ (n-k_{neobmedzená}-1)},
+\end{equation}
+kde:
+\begin{itemize}
+    \item $SSR_{obmedzená}$ je súčet štvorcov zvyškov z obmedzenej regresie, \item$SSR_{neobmedzená}$ je súčet štvorcov zvyškov z neobmedzenej regresie, 
+    \item q je počet obmedzení pod nulovou hypotézou,
+    \item $k_{neobmedzená}$ je počet regresorov v neobmedzenom modeli.
+\end{itemize}
+
+Ekvivalentom k tejto rovnici je vzorec založený na koeficiente determinácie $R^2$ týchto dvoch regresií:
+\begin{equation}
+    F= \frac{(R^2_{neobmedzená}-R^2_{obmedzená} / q}{(1 - R^2_{neobmedzená})/ (n-k_{neobmedzená}-1)}.
+\end{equation}
 
 
 
 
-
-
-\include{jadroprace}
-%
 \include{zaver}
 %
 \include{literatura}
