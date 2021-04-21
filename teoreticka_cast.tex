@@ -593,7 +593,7 @@ Vo viacnásobnej regresii je štandardná chyba regresie vyrátaná ako:
     SER = s_{\hat{u}} = \sqrt{s_{\hat{u}}^2},  \ kde \  s_{\hat{u}}^2 =\frac{1}{n-k-1}\sum_{i=1}^{n}\hat{u_{i}}^2 = \frac{SSR}{n-k-1}.
 \end{equation}
 
-Jediným rozdielom medzi definíciou štandardnej chyby regresie vo viacnásobnej a jednoduchej regresií je iný menovateľ. V definícií pre viacnásobnú regresiu je to $n - k - 1$, namiesto $n - 2$. Menovateľ $n - 2$ pri regrersii s jedným regresorom upravuje odhadcu kvôli nadol smerujúcej odchýlke, ktorá vzniká pri odhade dvoch koeficientov, priesečníku a sklonu. Vo vzorci pre viacnásobnú regresiu menovateľ $n - k - 1$ upravuje pre nadol smerujúcu odchýlku, ktorá vzniká pri odhade $k + 1$ koeficientov. Takisto ako pri už skôr uvedenom vzorci pre jednoduchú regresiu, použitie $n - k - 1$ namiesto $n$ sa nazýva úprava stupňov voľnosti. Pri jednom regresore sa $k = 1$, teda vzorec pre odhad štandardnej chyby regresie pre jednoduchú a viacnásobnú regresiu bude zhodný. Pri veľkom $n$ je efekt úpravy stupňov voľnosti zanedbateľný.   
+Jediným rozdielom medzi definíciou štandardnej chyby regresie vo viacnásobnej a jednoduchej regresii je iný menovateľ. V definícií pre viacnásobnú regresiu je to $n - k - 1$, namiesto $n - 2$. Menovateľ $n - 2$ pri regrersii s jedným regresorom upravuje odhadcu kvôli nadol smerujúcej odchýlke, ktorá vzniká pri odhade dvoch koeficientov, priesečníku a sklonu. Vo vzorci pre viacnásobnú regresiu menovateľ $n - k - 1$ upravuje pre nadol smerujúcu odchýlku, ktorá vzniká pri odhade $k + 1$ koeficientov. Takisto ako pri už skôr uvedenom vzorci pre jednoduchú regresiu, použitie $n - k - 1$ namiesto $n$ sa nazýva úprava stupňov voľnosti. Pri jednom regresore sa $k = 1$, teda vzorec pre odhad štandardnej chyby regresie pre jednoduchú a viacnásobnú regresiu bude zhodný. Pri veľkom $n$ je efekt úpravy stupňov voľnosti zanedbateľný.   
 
 \subsubsection{Koeficient determinácie - $R^2$}
 
@@ -658,9 +658,30 @@ Metóda pre zostrojenie konfidenčného intervalu v modeli viacnásobnej regresi
 Pri testovaní dvoch a viac obmedzení regresných koeficientov, hovoríme o spojenej, alebo spoločnej hypotéze. Spojená nulová a alternatívna hypotéza má tvar:
 \begin{equation}
 \begin{split}
-     H_{0}: & \ \beta_j = \beta_{j,0}, \beta_m = \beta_{m,0}, ..., \ pre \ všetkých \ q \ restrikcií, vs. \ \\ H_{1}: & \ jedna \ alebo \ viac \ q \ reštrikcií \ v \ nulovej \ hypotéze \ neplatia.
+     H_{0}: & \ \beta_j = \beta_{j,0}, \beta_m = \beta_{m,0}, ..., \ pre \ všetkých \ q \ restrikcií, vs. \ \\ H_{1}: & \ jedna \ alebo \ viac \ q \ reštrikcií \ v \ nulovej \ hypotéze \ neplatia,
 \end{split}
 \end{equation}
+kde $\beta_j, \beta_m, ...,$ označujú odlišné koeficienty regresie, a $\beta_{j,0}, \beta_{m,0}, ...,$ označujú hodnoty týchto koeficientov pod nulovou hypotézou. Ak aspoň jedna z rovníc tvoriacich nulovú hypotézu nebude pravdivá, znamená to, že celá nulová hypotéza nebude pravdivá. Alternatívnou hypotézou teda je, že aspoň jedna rovnosť z nulovej hypotézy $H_{0}$ neplatí. 
+Mohli by sme sa pokúsiť testovať hypotézy jednotlivo pomocou $t-testu$, avšak aj pri nulovej korelácií $t-štatistík$ je pravdepodobnosť, že zamietneme pravdivú hypotézu takmer 10\% ($0.95 \times 0.95$). Pri korelácií $t-štatistík$ sa tento výpočet ďalej komplikuje. Pri testovaní hypotéz takýmto spôsobom sa jednoducho hladina významnosti nerovná tempu, akým sa pravdivé hypotézy naozaj zamietajú. Našťastie poznáme iný prístup k testovaniu viacerých hypotéz. Taký, ktorý dokáže využiť aj koreláciu regresorov. Tento prístup je založený na $F-štatistike$.
+
+\section{F-štatistika}
+
+F-štatistika slúži na testovanie viacerých, spojených hypotéz o koeficientoch regresie. Moderný štatistický softvér štandardne obsahuje vzorce pre výpočet F-štatistiky. Ako prvý si predstavíme prípad s dvoma obmedzeniami.
+
+\subsection{F-štatistika s dvomi reštrikciami}
+
+V prípade, že nulová spojená hypotéza má dve obmedzenia $\beta_{1} = 0$ a $\beta_{2} = 0$, F-štatistika kombinuje dve t-štatistiky $t_1$ a $t_2$, používajúc vzorec:
+\begin{equation}
+    F = \frac{1}{2}\left(\frac{t_{1}^2+t_{2}^2-2{{\hat\rho_{t_{1},t_{2}}}}t_{1}t_{2}}{1-\hat{\rho}_{t_{1},t_{2}}^2}\right),
+\end{equation}
+kde $\hat\rho_{t_{1},t_{2}}$ je odhadca koreláci medzi týmito dvoma t-štatistikami. Počet obmedzení značíme písmenom $q$. V našom prípade sa $q = 2$. 
+Pre lepšie pochopenie F-štatistiky v uvedenom vzorci, predpokladajme, že t-štatistiky nie sú korelované, teda výraz $\hat\rho_{t_{1},t_{2}}$ môžeme zo vzorca vyhodiť. Rovnica sa zjednoduší na $F = \frac{1}{2}(t^2_{1} + t^2_{2})$. V tejto rovnici F-štatistika predstavuje priemer druhej mocniny t-štatistík. Pod nulovou hypotézou sú $t_1$ a $t_2$ nezávislé normované\footnote{Normálne (Gaussovo) rozdelenie pravdepodobnosti s parametrami $\mu, \sigma$; stručne zapisujeme $X \sim Norm(\mu,\sigma)$ alebo $X \sim N(\mu, \sigma^2)$. Náhodnú premennú $Y$ s normálnym rozdelením s parametrami $\mu =0$ a $\sigma =1$ nazývame normovanou normálnou náhodnou premennou a zapisujeme $Y \sim Norm(0,1)$ alebo $Y \sim N(0,1)$.} normálne náhodné premenné (t-štatistiky nie sú korelované, lebo to z príkladu predpokladáme), takže pod nulovou hypotézou má F-štatistika rozdelenie $F_{2,\infty}$. Alternatívnou hypotézou je, že buď $\beta_{1}$ alebo $\beta_{2}$ je nenulová (alebo obe). V takomto prípade buď $t^2_{1}$ alebo $t^2_{2}$ (alebo obe) nadobudnú dostatočne veľkú hodnotu na umožnenie testu zamietnuť nulovú hypotézu. Vo všeobecnosti sú t-štatistiky korelované a vzorec pre F-štatistiku v rovnici 11.1 je upravený pre túto koreláciu. Táto úprava zapríčiní, že pod nulovou hypotézou má F-štatistika vo veľkých vzorkách rozdelenie $F_{2,\infty}$, či už sú t-štatistiky korelované, alebo nie. 
+\begin{figure}[!ht] 
+    \centering 
+    \includegraphics[scale = 0.8]{diplomka obrazky/14.png} 
+    \caption{Kritické hodnoty F-rozdelenia pri $df = m$ a $df = \infty$} 
+    \source{Zdroj: Source of the image.} 
+\end{figure} 
 
 
 
