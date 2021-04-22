@@ -35,7 +35,19 @@
 \usepackage{parskip}
 \usepackage[skip=-6pt]{caption}
 \usepackage{mathtools}
-\usepackage{standalone}
+\usepackage{ifxetex,ifluatex}
+\usepackage{textcomp}
+\usepackage{unicode-math}
+\usepackage[]{microtype}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{framed}
+\usepackage{longtable,booktabs}
+\usepackage{etoolbox}
+\usepackage{grffile}
+
 \makeglossary % prikaz na vytvorenie suboru .glo
 
 
@@ -61,124 +73,13 @@
 bookmarksopen=true,pdfmenubar=true,pdfview=Fit,linktocpage=true,
 pageanchor=true,bookmarkstype=toc,pdfpagemode=UseOutlines,
 pdfstartpage=1]{hyperref}
-\usepackage{graphicx}
-\usepackage{amsmath}
-
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[]{article}
-\usepackage{lmodern}
-\usepackage{subfiles}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Praktická časť diplomovej práce},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
-\usepackage[margin=1in]{geometry}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\usepackage{longtable,booktabs}
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
 
 \hypersetup{%
 pdfcreator={pdfcsLaTeX},
 pdfkeywords={ekonometria, diplomová práca},
 pdftitle={Návrh softvérovej podpory pre výučbu predmetu Ekonometria},
 pdfauthor={Dávid Semják},
-pdfsubject={Bakalárska práca}
+pdfsubject={Diplomová práca}
 } 
 
 \dippraca{Diplomová práca}
@@ -210,6 +111,7 @@ pdfsubject={Bakalárska práca}
 \kategoria{Záverečná práca}
 
 \begin{document}
+
 \renewcommand{\figurename}{Obrázok}	
 \renewcommand\theHfigure{\theHsection.\arabic{figure}}
 \renewcommand\theHtable{\theHsection.\arabic{table}}
@@ -271,10 +173,6 @@ pdfsubject={Bakalárska práca}
 \section{Úvod}
 
 Ekonómov často zaujíma vzťah medzi rôznymi veličinami, napríklad vzťah medzi výškou mzdy jednotlivca a výšky dosiahnutého vzdelania. Hlavnou úlohou ekonometrie je tieto vzťahy na báze poskytnutých dát kvantifikovať, a to za pomoci rôznych štatistických techník. Okrem kvantifikácie je potrebné vedieť dáta dobre interpretovať, aby sa zistené poznatky dali vhodne využiť. Ekonometria tak zahŕňa prácu s ekonomickou teóriou, zozbieranými dátami a štatistickými technikami. Je to súčinnosť týchto troch faktorov, vďaka ktorým je ekonometria zaujímavá a vyzývavá, avšak taktiež neľahká disciplína. Tradičná ekonometria sa sústreďovala primárne na agregátne ekonomické vzťahy a makroekonomické modely tvorené desiatkami až stovkami rovníc, ktoré boli definované, vypočítané, a používané pre hodnotenie stratégií a prognózovanie. Od 70. rokov 19. storočia, začali ekonometrické metódy narastať na popularite aj v mikroekonomickej sfére. Začali byť implementované v mikroekonomických modeloch, ktoré opisovali jednotlivcov, domácnosti, alebo správanie podnikov. Vývoju značne dopomohla narastajúca dostupnosť zozbieraných dát, a čoraz výkonnejšia výpočtová technika. Vzťahy o ktoré majú ekonómovia záujem sú formálne a matematicky špecifikované, čo vedie k tvorbe ekonometrických alebo štatistických modelov. Na rozdiel od matematických rovníc a rôznych axióm, v týchto modeloch sa zvyknú vyskytovať odchýlky, čisto z podstaty vecí, ako napríklad chyba merania, nepredvídateľné správanie, chyba optimalizácie či neočakávané udalosti. Softvér nedisponuje intuíciou, preto je ľudský faktor, a vedomosti štatistickej a ekonomickej teórie neoddeliteľnou zložkou disciplíny. Ako študent, ktorý absolvoval výučbu predmetu Ekonometria, sa dokážem vžiť do tápania v mori otáznikov, ktorým počas študovania tematiky študenti prechádzajú. Cieľom práce je tieto otázniky nahradiť poznaním. Pretože je ekonometria súborom troch rozsiahlych disciplín, pre priblíženie a uľahčenie absorbovania informácií, je dôraz kladený na dobrú nadväznosť konceptov v teoretickej časti, a použitie menej formálnej interpretácie, ktorou chcem dopomôcť študentom zotrvať pri texte, a s ľahkosťou si vytvárať asociácie. Teoretická časť práce je tvorená vysvetlením teórie, ktorá je uvedená v osnove predmetu. Venovať sa dôkladne každému aspektu by nebolo efektívne, preto som skôr uprednostňoval koncepty fungovania vecí, ako kompletný súbor detailov a funkcií. Je ťažké uviesť hlavnú inšpiráciu práce, pretože som študovaním a opakovaním strávil celý rok, a využil mnoho knižných a audiovizuálnych zdrojov. Veľa kuchárov pri jednom jedle je ale väčšinou na škodu, hlavnou inšpiráciou pri písaní práce bola preto kniha o predstavení ekonometrie od pánov Stock a Watson, ktorá je samozrejme riadne citovaná. Pri spracovaní praktickej časti som prihliadal na obsah cvičení. Vyučujúci disponujú skvelo spracovanými materiálmi pre výučbu cvičení, preto nebolo potrebné opakovane vytvárať menej kvalitný duplikát. V praktickej časti som sa preto zameral na koncepty, ktoré sa v týchto materiáloch nenachádzajú, alebo nachádzajú, ale prišlo mi vhodné ich pre študentov zjednodušiť. Premisou práce je pracovať s publikom, ktoré má veľmi základné znalosti v potrebných oblastiach. Okrem iného je čiastkovým cieľom ukázať študentom, že nadobudnuté schopnosti sú schopní využiť v širokom spektre pracovných možností. Praktickú časť som celu vytvoril pomocou editora $R \ Markdown$, ktorý umožňuje písanie $R$ kódu a $LaTeX$ových výrazov v jednom prostredí, a následne to exportovať do potrebného formátu. V mojom prípade do online prostredia $Overleaf$, kde som to spojil s teoretickou časťou práce. Prácu začínam vysvetľovaním zberu dát, a pokračujem modelom lineárnej regresie. Ďalej vysvetľujem štatistické testy, akými sú testovanie hypotéz a intervaly spoľahlivosti. Potom sa venujem neželaným vlastnostiam dát, ktoré predstavuje heteroskedasticita. Pokračujem predstavením viacnásobnej lineárnej regresie a venujem sa vlastnostiam koeficientov modelu, konkrétne multikolinearite. Následne ukazujem testovanie hypotéz a predstavujem F-štatistiku, ktorá sa pri testoch koeficientov viacnásobnej regresie používa. Teoretickú časť uzatvorím špecifikáciou modelu. V praktickej časti začínam základmi programovania, pre oboznámenie sa s programovacím prostredím R. Venujem sa objektom, vektorom a maticiam. Ďalej budeme pracovať s dátami, preto predstavím načítavanie a prácu s dátami. Praktická časť pokračuje prácou s modelmi lineárnej regresie, sprevádzaná vysvetľovaním fungovania estimátorov modelu. Pokračujem vysvetlením podmienok lineárnej regresie. Následne si ukážeme testovanie koeficientov modelu a výstup regresie. Opisujem, čo dané veci vo výstupe znamenajú, a prečo sú dôležité. Praktickú časť som zakončil opísaním možných vlastnosti rezíduí a vysvetlením, aké problémy nám môžu spôsobiť.
-
-\section{formulacia}
-%
-\include{analyza}
 
 \section{Náhodný výber a výberové rozdelenie}
 
@@ -791,11 +689,12 @@ V prípade, že nulová spojená hypotéza má dve obmedzenia $\beta_{1} = 0$ a 
 \end{equation}
 kde $\hat\rho_{t_{1},t_{2}}$ je odhadca koreláci medzi týmito dvoma t-štatistikami. Počet obmedzení značíme písmenom $q$. V našom prípade sa $q = 2$. 
 Pre lepšie pochopenie F-štatistiky v uvedenom vzorci, predpokladajme, že t-štatistiky nie sú korelované, teda výraz $\hat\rho_{t_{1},t_{2}}$ môžeme zo vzorca vyhodiť. Rovnica sa zjednoduší na $F = \frac{1}{2}(t^2_{1} + t^2_{2})$. V tejto rovnici F-štatistika predstavuje priemer druhej mocniny t-štatistík. Pod nulovou hypotézou sú $t_1$ a $t_2$ nezávislé normované\footnote{Normálne (Gaussovo) rozdelenie pravdepodobnosti s parametrami $\mu, \sigma$; stručne zapisujeme $X \sim Norm(\mu,\sigma)$ alebo $X \sim N(\mu, \sigma^2)$. Náhodnú premennú $Y$ s normálnym rozdelením s parametrami $\mu =0$ a $\sigma =1$ nazývame normovanou normálnou náhodnou premennou a zapisujeme $Y \sim Norm(0,1)$ alebo $Y \sim N(0,1)$.} normálne náhodné premenné (t-štatistiky nie sú korelované, lebo to z príkladu predpokladáme), takže pod nulovou hypotézou má F-štatistika rozdelenie $F_{2,\infty}$. Alternatívnou hypotézou je, že buď $\beta_{1}$ alebo $\beta_{2}$ je nenulová (alebo obe). V takomto prípade buď $t^2_{1}$ alebo $t^2_{2}$ (alebo obe) nadobudnú dostatočne veľkú hodnotu na umožnenie testu zamietnuť nulovú hypotézu. Vo všeobecnosti sú t-štatistiky korelované a vzorec pre F-štatistiku v rovnici 11.1 je upravený pre túto koreláciu. Táto úprava zapríčiní, že pod nulovou hypotézou má F-štatistika vo veľkých vzorkách rozdelenie $F_{2,\infty}$, či už sú t-štatistiky korelované, alebo nie. 
+
 \begin{figure}[!ht] 
     \centering 
     \includegraphics[scale = 0.8]{diplomka obrazky/14.png} 
     \caption{Kritické hodnoty F-rozdelenia pri $df = m$ a $df = \infty$} 
-    \source{Zdroj: Source of the image.} 
+    \source{Zdroj: Source of the image.}
 \end{figure} 
 
 \subsection{F-štatistika s viac ako dvoma reštrikciami}
@@ -877,9 +776,10 @@ Zvyčajne sa postupuje v dvoch krokoch. Prvým je základný súbor regresorov, 
 
 Ďalším problémom je výber funkčnej formy regresie. Ak bude model lineárny, avšak vzťah premenných bude nelineárny, nastane skreslenie výsledných koeficientov regresie, čiže regresia nebude vhodne opisovať vzťah medzi premennými. Predísť chybnej špecifikácií funkčnej formy regresie je možné jednoduchým premietnutím dát na graf, a pomocou pozorovania určiť najvhodnejšiu funkčnú formu regresie. Toto chybné určenie funkčnej formy regresie je druh odchýlky vynechanej premennej, kde opomenutá premenná predstavuje chýbajúci nelineárny aspekt regresnej funkcie. 
 
-\section{Záver}
+\section{Diskusia}
 
-\section{Praktická časť}
+
+\section{Záver}
 
 \input{prakticka}
 
