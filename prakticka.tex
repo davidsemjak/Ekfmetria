@@ -280,7 +280,7 @@ po napísaní funkcie
 
 ~
 
-to však len zapredpokladu, že už máte balík nainštalovaný. Ak narazíte
+to však len za predpokladu, že už máte balík nainštalovaný. Ak narazíte
 na názov funkcie, ktorú chcete použiť, avšak nemáte nainštalovaný balík
 a chcete zistiť jeho názov, buď si funkciu zadajte do Google, alebo
 napíšte do konzoly:
@@ -300,14 +300,16 @@ nainštalovať a potom ho načítať do prostredia.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# stiahneme a našintalujeme pomocou R konzoly a funkcie install.packages()}
-\CommentTok{# ! názov balíka je citlivý na veľkosť písma}
-\CommentTok{# ! názov musí byť v úvodzovkách}
+\CommentTok{# Stiahneme a nainštalujeme pomocou R konzoly a funkcie}
+\CommentTok{# install.packages()}
+\CommentTok{# ! Názov balíka je citlivý na veľkosť písma.}
+\CommentTok{# ! Názov musí byť v úvodzovkách.}
 
 \KeywordTok{install.packages}\NormalTok{(}\StringTok{"fBasics"}\NormalTok{)}
 
-\CommentTok{# po nainštalovaní máme balík stiahnutý v našom PC, a tento príkaz už viac nepoužívame}
-\CommentTok{# ak však chceme funkcie z balíka použiť, musíme po zapnutí R-ka balík načítať príkazom}
+\CommentTok{# Po nainštalovaní máme balík stiahnutý v našom PC, a tento príkaz už}
+\CommentTok{# viac nepoužívame. Ak však chceme funkcie z balíka použiť, musíme po}
+\CommentTok{# zapnutí R-ka balík načítať príkazom.}
 
 \KeywordTok{library}\NormalTok{(fBasics)}
 
@@ -360,7 +362,7 @@ Osobne programujem s EN klávesnicou, nech som použíteľný v akomkoľvek
 
 \NormalTok{a <-}\StringTok{ }\DecValTok{2} \OperatorTok{+}\StringTok{ }\DecValTok{2}
 
-\CommentTok{# Po napísaní názvu objektu do konzoly nám konzola ukáže už len výsledok.}
+\CommentTok{# Po napísaní názvu objektu do konzoly, konzola ukáže už len výsledok.}
 
 \NormalTok{a}
 \end{Highlighting}
@@ -404,7 +406,7 @@ pomocou funkcie c() ako combine.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Objektu "a" priradíme súbor číselných hodnôt a vytvoríme z neho vektor.}
+\CommentTok{# Objektu "a" priradíme súbor čísel a vytvoríme z neho vektor.}
 
 \NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
 
@@ -509,17 +511,15 @@ náhodne vyberie hodnoty zo zadaného vektora.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Ako prvé potrebujeme zadať "x", teda vektor hodnôt, z ktorých chceme vyberať.}
-\CommentTok{# Pre nás to budú hodnoty medzi 160 až 190, ktoré navolíme ako 160:190.}
+\CommentTok{# Ako prvé potrebujeme zadať "x", teda vektor hodnôt, z ktorých chceme} 
+\CommentTok{# vyberať. Pre nás to budú hodnoty od 160 po 190, ktoré navolíme}
+\CommentTok{# ako 160:190.}
 
-\CommentTok{# 160:190 jednoducho vypíše hodnoty zaradom od 160 do 190. A sample() z nich náhodne vyberie}
-\CommentTok{# nami určený počet hodnôt.}
-
+\CommentTok{# 160:190 jednoducho vypíše hodnoty zaradom od 160 do 190, a}
+\CommentTok{# sample() z nich náhodne vyberie nami určený počet hodnôt.}
 
 \CommentTok{# "size" je počet hodnôt, aký ma funkcia vybrať.}
-
 \CommentTok{# "replace", či môže vybrať jednu hodnotu viackrát, alebo ju má vylúčiť.}
-
 \CommentTok{# "prob" použijeme, ak chceme priradiť istým hodnotám inú váhu.}
 
 \NormalTok{vyska <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =} \DecValTok{160}\OperatorTok{:}\DecValTok{190}\NormalTok{, }\DataTypeTok{size =} \DecValTok{10}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
@@ -553,8 +553,8 @@ narastať.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0  8.5  9.0
-## [16]  9.5 10.0 10.5 11.0 11.5 12.0
+##  [1]  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
+## [14]  8.5  9.0 9.5 10.0 10.5 11.0 11.5 12.0
 \end{verbatim}
 
 ~
@@ -587,22 +587,22 @@ lepšie ako} seq(from=2,to=12,by=0.5).
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  4.000000  4.857143  5.714286  6.571429  7.428571  8.285714  9.142857
-## [8] 10.000000
+## [1] 4.000000  4.857143  5.714286  6.571429  7.428571  8.285714
+## [7] 9.142857 10.000000
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Alternatívou je zadať "od", "po", a rozdeliť to po požadovaných kúskoch}
-\CommentTok{# na požadovanú dĺžku.}
+\CommentTok{# Alternatívou je zadať "od", "po", a rozdeliť to po požadovaných}
+\CommentTok{# kúskoch, na požadovanú dĺžku.}
 
 \KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{4}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{length =} \DecValTok{25}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0 10.5 11.0
-## [16] 11.5 12.0 12.5 13.0 13.5 14.0 14.5 15.0 15.5 16.0
+##  [1] 4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0 
+## [14] 10.5 11.0 11.5 12.0 12.5 13.0 13.5 14.0 14.5 15.0 15.5 16.0
 \end{verbatim}
 
 \hypertarget{rep}{%
@@ -657,7 +657,8 @@ ekonómom neprogramátorom to asi ani nepríde divné.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Za použitia indexovania môžeme vybrať akúkoľvek hodnotu. Chceme vybrať prvú.}
+\CommentTok{# Za použitia indexovania môžeme vybrať akúkoľvek hodnotu.}
+\CommentTok{# My chceme vybrať prvú.}
 
 \NormalTok{obycajny_vektor[}\DecValTok{1}\NormalTok{]}
 \end{Highlighting}
@@ -685,8 +686,7 @@ ukážeme matice. Aj keď to nie je nič zložité. Vektor si predstavme ako
 šípku, ktorá určuje smer. Je to teda, v našom prípade, reťazec čísel,
 jedna dlhá šnúra, ktorá nemá žiadne riadky ani stĺpce. R-ko však to, čo
 napíšeme do hranatých zátvoriek vníma ako:
-
-\[[riadok, stĺpec]\]\\
+\[[riadok, stĺpec]\]
 \[[row, column]\]
 
 \begin{quote}
@@ -705,7 +705,8 @@ zátvorky. O indexovaní si ešte povieme pri maticiach.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Indexovaním môžeme aj odobrať hodnotu. Napr., ak chceme všetky okrem poslednej:}
+\CommentTok{# Indexovaním môžeme aj odobrať hodnotu.}
+\CommentTok{# Napríklad, ak chceme všetky okrem poslednej.}
 
 \NormalTok{obycajny_vektor[}\OperatorTok{-}\DecValTok{10}\NormalTok{]}
 \end{Highlighting}
@@ -728,8 +729,8 @@ premenných}\label{vektor-textovuxfdch-premennuxfdch}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Pre vytvorenie vektora obsahujúceho textové reťazce, musí byť obsah ohraničený}
-\CommentTok{# úvodzovkami "".}
+\CommentTok{# Pre vytvorenie vektora obsahujúceho textové reťazce, musí byť obsah}
+\CommentTok{# ohraničený úvodzovkami "".}
 
 \NormalTok{vector_characters <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"c"}\NormalTok{, }\StringTok{"musíme"}\NormalTok{, }\StringTok{"používať"}\NormalTok{, }\StringTok{"stále"}\NormalTok{, }\StringTok{"ak"}\NormalTok{, }\StringTok{"chceme"}\NormalTok{,}
                        \StringTok{"viac"}\NormalTok{, }\StringTok{"hodnôt"}\NormalTok{)}
@@ -739,8 +740,7 @@ premenných}\label{vektor-textovuxfdch-premennuxfdch}}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "c"        "musíme"   "používat" "stále"    "ak"       "chceme"   "viac"    
-## [8] "hodnôt"
+## [1] "c" "musíme" "používat" "stále" "ak" "chceme" "viac" "hodnôt"   
 \end{verbatim}
 
 Vektor tvorený textovým reťazcom nájde svoje uplatnenie napríklad pri
@@ -755,8 +755,9 @@ pomenovaní hodnôt.
 
 \KeywordTok{names}\NormalTok{(cisla) <-}\StringTok{ }\NormalTok{nazvy}
 
-\CommentTok{# Ak sa teraz pozrieme na vektor "cisla", uvidíme, že sme číslam priradili názvy.}
-\CommentTok{# Na vypísanie výsledku môžeme použíť aj funkciu print().}
+\CommentTok{# Ak sa teraz pozrieme na vektor "cisla", uvidíme, že sme číslam}
+\CommentTok{# priradili názvy. Na vypísanie výsledku môžeme použiť aj funkciu}
+\CommentTok{# print().}
 
 \KeywordTok{print}\NormalTok{(cisla)}
 \end{Highlighting}
@@ -792,8 +793,8 @@ premenných}\label{vektor-logickuxfdch-premennuxfdch}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Logické operátory, inak známe ako Booleovské operátory, nám ako výsledok}
-\CommentTok{# poskytnú výstup v podobe TRUE alebo FALSE.}
+\CommentTok{# Logické operátory, inak známe ako Booleovské operátory, nám ako}
+\CommentTok{# výsledok poskytnú výstup v podobe TRUE alebo FALSE.}
 \CommentTok{# ! Pre overenie rovnosti použijeme "==".}
 
 \NormalTok{vektor <-}\StringTok{  }\DecValTok{5}
@@ -851,7 +852,8 @@ vyhovujúcich hodnôt.
 
 \NormalTok{viac_ako_}\DecValTok{170}\NormalTok{ <-}\StringTok{ }\NormalTok{vyska }\OperatorTok{>}\StringTok{ }\DecValTok{170}
 
-\CommentTok{# Výsledky však nebudú číselnými hodnotami, ale hodnotami booleovského typu.}
+\CommentTok{# Výsledky však nebudú číselnými hodnotami,}
+\CommentTok{# ale hodnotami booleovského typu.}
 
 \KeywordTok{print}\NormalTok{(viac_ako_}\DecValTok{170}\NormalTok{)}
 \end{Highlighting}
@@ -863,8 +865,8 @@ vyhovujúcich hodnôt.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# To nám však nebráni zužiťkovať to pomocou funkcie "sum()" a zistiť počet }
-\CommentTok{# vyhovujúcich hodnôt. Zráta to všetky TRUE hodnoty.}
+\CommentTok{# To nám však nebráni zužiťkovať to pomocou funkcie "sum()" a zistiť}
+\CommentTok{# počet vyhovujúcich hodnôt. Zráta to všetky TRUE hodnoty.}
 
 \KeywordTok{sum}\NormalTok{(viac_ako_}\DecValTok{170}\NormalTok{)}
 \end{Highlighting}
@@ -927,12 +929,13 @@ v R. A to pomocou:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Pri funkcií matrix() zadáme vektor, a argumenty v podobe počtu riadkov, stĺpcov,}
-\CommentTok{# a či má byť vektor usporiadaný po riadkoch alebo nie po riadkoch.}
+\CommentTok{# Pri funkcií matrix() zadáme vektor, a argumenty v podobe počtu}
+\CommentTok{# riadkov, stĺpcov, a či má byť vektor usporiadaný po riadkoch,}
+\CommentTok{# alebo nie po riadkoch.}
 
 \NormalTok{vektor <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{)}
 
-\CommentTok{# Vytvoríme si štvorcovú maticu 3x3}
+\CommentTok{# Vytvoríme si štvorcovú maticu 3x3.}
 
 \NormalTok{matica1 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(vektor, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{TRUE}\NormalTok{)}
 
@@ -949,7 +952,8 @@ v R. A to pomocou:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Zmeníme usporiadanie na FALSE, takže bude matica usporiadaná po stĺpcoch.}
+\CommentTok{# Zmeníme usporiadanie na FALSE, takže}
+\CommentTok{# bude matica usporiadaná po stĺpcoch.}
 
 \NormalTok{matica2 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(vektor, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{FALSE}\NormalTok{)}
 
@@ -1204,8 +1208,9 @@ funkcie \(qr()\).
 \NormalTok{matica <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(vektor1, vektor2, vektor3, vektor4)}
 
 
-\CommentTok{# Operátor "$" dokáže extrahovať konkrétnu hodnotu, ktorú chceme extrahovať. Skúste použiť}
-\CommentTok{# príkaz "qr(matica)", ktorý nám vyráta ešte pár ďalších vecí. Nás však zaujíma iba rank.}
+\CommentTok{# Operátor $ dokáže extrahovať konkrétnu hodnotu, ktorú chceme}
+\CommentTok{# extrahovať. Skúste použiť príkaz "qr(matica)", ktorý nám vyráta}
+\CommentTok{# ešte pár ďalších vecí. Nás však zaujíma iba rank.}
 
 \KeywordTok{qr}\NormalTok{(matica)}\OperatorTok{$}\NormalTok{rank }\CommentTok{# vyrátame hodnosť matice}
 \end{Highlighting}
@@ -1217,7 +1222,8 @@ funkcie \(qr()\).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Vidíme, že rank je rovný počtu riadkov/stĺpcov, teda naše vektory sú lineárne nezávislé.}
+\CommentTok{# Vidíme, že rank je rovný počtu riadkov/stĺpcov, teda naše vektory}
+\CommentTok{# sú lineárne nezávislé.}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1228,6 +1234,12 @@ Determinant matice si môžeme predstaviť ako hodnotu, ktorá je priradená
 matici podľa toho, ako vyzerá. Matice môžu mať determinant nulový alebo
 nenulový. Mohli by sme to rátať ručne, necháme to však R-ko vyrátať za
 nás. Nás budú zaujímať aké vlastnosti sa s determinantom spájajú.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Determinant môžeme vyrátať pomocou funkcie det().}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{inverznuxe1-matica}{%
 \subsubsection{Inverzná matica}\label{inverznuxe1-matica}}
