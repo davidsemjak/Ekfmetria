@@ -7,7 +7,6 @@
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 
-}{}
 \makeatletter
 \@ifundefined{KOMAClassName}{% if non-KOMA class
   \IfFileExists{parskip.sty}{%
@@ -230,8 +229,6 @@ My sa budeme zapodievať len tým, s čím sa na cvičeniach stretneme. Našou
 dostatočnej miere, aby sme s ním zvládli to, čo budeme v najbližšej dobe
 potrebovať.
 
-\newpage
-
 \hypertarget{baluxedky}{%
 \subsection{Balíky}\label{baluxedky}}
 
@@ -399,8 +396,6 @@ S daným objektom môžeme pracovať, akoby to bola číselná hodnota.
 ## [1] 100
 \end{verbatim}
 
-\newpage
-
 \hypertarget{vektory}{%
 \subsection{Vektory}\label{vektory}}
 
@@ -543,8 +538,6 @@ náhodne vyberie hodnoty zo zadaného vektora.
 Hlavne pri funkciách, ktoré nie sú veľmi bežné. Ak po Vás niekto bude
 čítať kód, číta sa to lepšie.}
 \end{quote}
-
-\newpage
 
 \hypertarget{seq}{%
 \subsubsection{seq()}\label{seq}}
@@ -792,8 +785,6 @@ napíšeme nanovo, bez zadefinovaného vektora ``nazvy''.
 ## adin  dos tres 
 ##    1    2    3
 \end{verbatim}
-
-\newpage
 
 \hypertarget{vektor-logickuxfdch-premennuxfdch}{%
 \subsubsection{Vektor logických
@@ -1183,12 +1174,12 @@ transponujeme pomocou funkcie \(t()\) ako \(transpose\).
 
 V zadaniach od vás bude požadované vyrátať hodnosť matice, čo sa zvykne
 označovať aj ako rank matice. Hodnosť matice je maximálny počet lineárne
-nezávislých riadkov, alebo stĺpcov, v matici. Dva vektory
-\(\overrightarrow{\text{a}}\), \(\overrightarrow{\text{b}}\) nazývame
+nezávislých riadkov, alebo stĺpcov, v matici. Dva vektory \textbf{a}, \textbf{b} nazývame
 lineárne závislé vektory práve vtedy, ak existuje reálne číslo \(k\)
 také, že platí:
-
-\[\overrightarrow{b} = k\overrightarrow{a}\]
+\begin{align*}
+\textbf{b} = k  \textbf{a}
+\end{align*}
 
 Ak táto rovnosť neplatí, vektory sú lineárne nezávislé. Keď sme
 spomínali maximálny počet buď riadkov alebo stĺpcov, mysleli sme tým, že
@@ -1278,6 +1269,8 @@ nemá inverziu, teda \(A^{-1}\) neexistuje.
     sa hodnost rovná poctu riadkov/stlpcov.
   \end{itemize}
 \end{itemize}
+
+\newpage
 
 \hypertarget{pruxe1ca-s-datasetmi-a-ich-analuxfdza}{%
 \section{Práca s datasetmi a ich
@@ -1390,6 +1383,8 @@ načítať dataset, s ktorým ste oboznámený, a otestovať, čo potrebujete.
 \CommentTok{# Funkcia bude fungovať aj bez úvodzoviek.}
 \end{Highlighting}
 \end{Shaded}
+
+\newpage
 
 \hypertarget{jednoduchuxe1-lineuxe1rna-regresia}{%
 \section{Jednoduchá lineárna
@@ -1771,6 +1766,8 @@ premennej, vydelený rozptylom nezávislej premennej.
 Ako však vieme, či estimátorom \(\hat\beta_0\) a \(\hat\beta_1\) môžeme
 veriť?
 
+\newpage
+
 \hypertarget{trocha-ux161tatistiky}{%
 \section{Trocha štatistiky}\label{trocha-ux161tatistiky}}
 
@@ -1947,6 +1944,8 @@ budeme môcť odhadnúť normálnym rozdelením, závisí už len od veľkosti
 vzorky. Čím vzdialenejšie od normálneho rozdelenia je rozdelenie
 populácie, tým väčšia vzorka bude potrebná, aby toto pravidlo platilo.
 
+\newpage
+
 \hypertarget{podmienky-lineuxe1rnej-regresie}{%
 \section{Podmienky lineárnej
 regresie}\label{podmienky-lineuxe1rnej-regresie}}
@@ -2033,6 +2032,8 @@ interpretovateľné a aplikovateľné na populáciu. K tomu nám dopomáha
 skreslená pri porušení ďalších Gauss-Markov podmienok. Tieto podmienky
 sa týkajú chýb modelu (residuals \(\hat u_i\)). Prv sa však oboznámme s
 tým, ako sú nám štandardné chyby nápomocné.
+
+\newpage
 
 \hypertarget{vuxfdstup-regresie}{%
 \section{Výstup regresie}\label{vuxfdstup-regresie}}
@@ -2315,6 +2316,8 @@ hornej hranice.
 Interpretácia konfidenčného intervalu je nasledovná:``Ak by sme vzali
 nekonečno vzoriek z populácie, v 95\% prípadov, by sa skutočný priemer
 populácie nachádzal v rozmedzí 26.8 až 33.44.''
+
+\newpage
 
 \hypertarget{vlastnosti-reziduuxed}{%
 \section{Vlastnosti rezíduí}\label{vlastnosti-reziduuxed}}
