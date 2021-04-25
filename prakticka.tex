@@ -132,21 +132,6 @@ vysvetľovať odvodzovanie každého estimátora. Cieľom je poskytnúť
 všeobecný náhľad ekonometrie, a pomôcť Vám pochopiť, a príjemnejšie
 zvládnuť predmet Ekonometria.
 
-~
-
-\textbf{Čo nás čaká:}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Základy programovania v R
-\item
-  Ekonometrické techniky
-\item
-  Intuitívny prehľad štatistických konceptov
-\end{enumerate}
-
 \newpage
 
 \hypertarget{zuxe1klady-programovania-v-r}{%
@@ -222,7 +207,6 @@ R-ko dokáže používať aj ďalšie aritmetické operátory:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# zobrazí zvyšok z delenia}
-
 \DecValTok{5} \OperatorTok{%%}\StringTok{ }\DecValTok{2}
 \end{Highlighting}
 \end{Shaded}
@@ -274,14 +258,14 @@ Okrem základných operátorov budeme využívať aj funkcie:
 Tieto funkcie sa nachádzajú v balíkoch, ktoré si môžeme predstaviť ako
 také Addony. R figuruje balíkmi, ktoré sú predinštalované, a zahŕňajú
 najpoužívanejšie a najzákladnejšie funkcie. Vyššie použíté funkcie sa
-nachádzajú v balíku base. To, v akom balíku sa funkcia nachádza zistíte
-po napísaní funkcie
+nachádzajú v balíku base. To, v akom balíku sa funkcia nachádza, zistíte
+po napísaní funkcie:
 
 ~
 
 \begin{center}
 
-\includegraphics{diplomka obrazky/1.png}
+\includegraphics{diplomka obrazky/1.png},
 
 \end{center}
 
@@ -295,7 +279,6 @@ napíšte do konzoly:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# ??meno funkcie}
-
 \NormalTok{??mean}
 \end{Highlighting}
 \end{Shaded}
@@ -366,11 +349,9 @@ Osobne programujem s EN klávesnicou, nech som použíteľný v akomkoľvek
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Priradíme teda objektu "a" výsledok "2 + 2".}
-
 \NormalTok{a <-}\StringTok{ }\DecValTok{2} \OperatorTok{+}\StringTok{ }\DecValTok{2}
 
 \CommentTok{# Po napísaní názvu objektu do konzoly, konzola ukáže už len výsledok.}
-
 \NormalTok{a}
 \end{Highlighting}
 \end{Shaded}
@@ -382,7 +363,6 @@ Osobne programujem s EN klávesnicou, nech som použíteľný v akomkoľvek
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Nové priradenie hodnoty starému objektu prepíše starú hodnotu.}
-
 \NormalTok{a <-}\StringTok{ }\DecValTok{5} \OperatorTok{+}\StringTok{ }\DecValTok{5}
 
 \NormalTok{a}
@@ -414,7 +394,6 @@ pomocou funkcie c() ako combine.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Objektu "a" priradíme súbor čísel a vytvoríme z neho vektor.}
-
 \NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
 
 \NormalTok{a}
@@ -578,7 +557,6 @@ lepšie ako} seq(from=2,to=12,by=0.5).
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Zadáme "od", "do" a koľko časí má vektor mať.}
-
 \KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{4}\NormalTok{, }\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{length =} \DecValTok{4}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
@@ -598,11 +576,12 @@ lepšie ako} seq(from=2,to=12,by=0.5).
 ## [7] 9.142857 10.000000
 \end{verbatim}
 
+\newline
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Alternatívou je zadať "od", "po", a rozdeliť to po požadovaných}
 \CommentTok{# kúskoch, na požadovanú dĺžku.}
-
 \KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{4}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{length =} \DecValTok{25}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -651,7 +630,6 @@ ekonómom neprogramátorom to asi ani nepríde divné.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Vytvorme si obyčajný číselný vektor.}
-
 \NormalTok{obycajny_vektor <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
 
 \NormalTok{obycajny_vektor}
@@ -666,7 +644,6 @@ ekonómom neprogramátorom to asi ani nepríde divné.
 \begin{Highlighting}[]
 \CommentTok{# Za použitia indexovania môžeme vybrať akúkoľvek hodnotu.}
 \CommentTok{# My chceme vybrať prvú.}
-
 \NormalTok{obycajny_vektor[}\DecValTok{1}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
@@ -678,7 +655,6 @@ ekonómom neprogramátorom to asi ani nepríde divné.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Alebo súbor hodnôt. Vyberieme prvú a poslednú hodnotu.}
-
 \NormalTok{obycajny_vektor[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{)]}
 \end{Highlighting}
 \end{Shaded}
@@ -714,7 +690,6 @@ zátvorky. O indexovaní si ešte povieme pri maticiach.
 \begin{Highlighting}[]
 \CommentTok{# Indexovaním môžeme aj odobrať hodnotu.}
 \CommentTok{# Napríklad, ak chceme všetky okrem poslednej.}
-
 \NormalTok{obycajny_vektor[}\OperatorTok{-}\DecValTok{10}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
@@ -738,7 +713,6 @@ premenných}\label{vektor-textovuxfdch-premennuxfdch}}
 \begin{Highlighting}[]
 \CommentTok{# Pre vytvorenie vektora obsahujúceho textové reťazce, musí byť obsah}
 \CommentTok{# ohraničený úvodzovkami "".}
-
 \NormalTok{vector_characters <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"c"}\NormalTok{, }\StringTok{"musíme"}\NormalTok{, }\StringTok{"používať"}\NormalTok{, }\StringTok{"stále"}\NormalTok{, }\StringTok{"ak"}\NormalTok{, }\StringTok{"chceme"}\NormalTok{,}
                        \StringTok{"viac"}\NormalTok{, }\StringTok{"hodnôt"}\NormalTok{)}
 
@@ -758,14 +732,12 @@ pomenovaní hodnôt.
 \NormalTok{nazvy <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"prvy"}\NormalTok{, }\StringTok{"druhy"}\NormalTok{, }\StringTok{"treti"}\NormalTok{)}
 \NormalTok{cisla <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
 
-\CommentTok{# Použijeme na to funkciu names()}
-
+\CommentTok{# Použijeme na to funkciu names().}
 \KeywordTok{names}\NormalTok{(cisla) <-}\StringTok{ }\NormalTok{nazvy}
 
 \CommentTok{# Ak sa teraz pozrieme na vektor "cisla", uvidíme, že sme číslam}
 \CommentTok{# priradili názvy. Na vypísanie výsledku môžeme použiť aj funkciu}
 \CommentTok{# print().}
-
 \KeywordTok{print}\NormalTok{(cisla)}
 \end{Highlighting}
 \end{Shaded}
@@ -803,13 +775,10 @@ premenných}\label{vektor-logickuxfdch-premennuxfdch}}
 \CommentTok{# Logické operátory, inak známe ako Booleovské operátory, nám ako}
 \CommentTok{# výsledok poskytnú výstup v podobe TRUE alebo FALSE.}
 \CommentTok{# ! Pre overenie rovnosti použijeme "==".}
-
 \NormalTok{vektor <-}\StringTok{  }\DecValTok{5}
-
 \NormalTok{vektor }\OperatorTok{==}\StringTok{ }\DecValTok{5}
 \end{Highlighting}
 \end{Shaded}
-
 \begin{verbatim}
 ## [1] TRUE
 \end{verbatim}
@@ -852,16 +821,13 @@ vyhovujúcich hodnôt.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Vektor výšky ľudí, ktorý sme si skôr vytvorili.}
-
 \NormalTok{vyska <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =} \DecValTok{160}\OperatorTok{:}\DecValTok{190}\NormalTok{, }\DataTypeTok{size =} \DecValTok{10}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
 
 \CommentTok{# Použitie logického operátora na zistenie, kto má viac ako 170cm. }
-
 \NormalTok{viac_ako_}\DecValTok{170}\NormalTok{ <-}\StringTok{ }\NormalTok{vyska }\OperatorTok{>}\StringTok{ }\DecValTok{170}
 
 \CommentTok{# Výsledky však nebudú číselnými hodnotami,}
 \CommentTok{# ale hodnotami booleovského typu.}
-
 \KeywordTok{print}\NormalTok{(viac_ako_}\DecValTok{170}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -874,7 +840,6 @@ vyhovujúcich hodnôt.
 \begin{Highlighting}[]
 \CommentTok{# To nám však nebráni zužiťkovať to pomocou funkcie "sum()" a zistiť}
 \CommentTok{# počet vyhovujúcich hodnôt. Zráta to všetky TRUE hodnoty.}
-
 \KeywordTok{sum}\NormalTok{(viac_ako_}\DecValTok{170}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -886,7 +851,6 @@ vyhovujúcich hodnôt.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Čo dokážeme pomocou indexovania pretvoriť na číselné hodnoty.}
-
 \NormalTok{vyska_v_cm <-}\StringTok{ }\NormalTok{vyska[vyska }\OperatorTok{>}\StringTok{ }\DecValTok{170}\NormalTok{]}
 
 \KeywordTok{print}\NormalTok{(vyska_v_cm)}
@@ -939,11 +903,9 @@ v R. A to pomocou:
 \CommentTok{# Pri funkcií matrix() zadáme vektor, a argumenty v podobe počtu}
 \CommentTok{# riadkov, stĺpcov, a či má byť vektor usporiadaný po riadkoch,}
 \CommentTok{# alebo nie po riadkoch.}
-
 \NormalTok{vektor <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{)}
 
 \CommentTok{# Vytvoríme si štvorcovú maticu 3x3.}
-
 \NormalTok{matica1 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(vektor, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{TRUE}\NormalTok{)}
 
 \NormalTok{matica1}
@@ -961,7 +923,6 @@ v R. A to pomocou:
 \begin{Highlighting}[]
 \CommentTok{# Zmeníme usporiadanie na FALSE, takže}
 \CommentTok{# bude matica usporiadaná po stĺpcoch.}
-
 \NormalTok{matica2 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(vektor, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{FALSE}\NormalTok{)}
 
 \NormalTok{matica2}
@@ -984,13 +945,11 @@ stĺpcov.
 \begin{Highlighting}[]
 \CommentTok{# Potrebujeme si vytvoriť vektory, ktoré budeme chcieť zlepiť.}
 \CommentTok{# Vektor c(1:3) bude taký istý ako c(1, 2, 3).}
-
 \NormalTok{vektor1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{)}
 \NormalTok{vektor2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{)}
 \NormalTok{vektor3 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{)}
 
 \CommentTok{# Zviazanie po riadkoch.}
-
 \NormalTok{matica_riadky <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(vektor1, vektor2, vektor3)}
 
 \NormalTok{matica_riadky}
@@ -1033,7 +992,6 @@ presne naopak.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Budeme pracovať s vyššie vytvorenou maticou "matica_riadky".}
-
 \NormalTok{matica_riadky[}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{] }\CommentTok{# jeden prvok, prvý riadok, tretí stĺpec}
 \end{Highlighting}
 \end{Shaded}
@@ -1214,7 +1172,6 @@ funkcie \(qr()\).
 
 \NormalTok{matica <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(vektor1, vektor2, vektor3, vektor4)}
 
-
 \CommentTok{# Operátor $ dokáže extrahovať konkrétnu hodnotu, ktorú chceme}
 \CommentTok{# extrahovať. Skúste použiť príkaz "qr(matica)", ktorý nám vyráta}
 \CommentTok{# ešte pár ďalších vecí. Nás však zaujíma iba rank.}
@@ -1329,9 +1286,7 @@ umiestnenia súboru. A je ľahšie zadať:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{read.csv2}\NormalTok{(}\StringTok{"udaje_o_pocte_kaciatok"}\NormalTok{)}
-
 \CommentTok{# než}
-
 \KeywordTok{read.csv2}\NormalTok{(}\StringTok{"C:/Desktop/MilanRozok/ekonometria/udaje_o_pocte_kaciatok.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1393,14 +1348,10 @@ načítať dataset, s ktorým ste oboznámený, a otestovať, čo potrebujete.
 \CommentTok{# kde "datasets" predstavuje názov balíku, a "mtcars" dataset, ktorý}
 \CommentTok{# chceme sprístupniť.}
 \CommentTok{# Pomocou "::" sprístupníme konkrétny objekt z balíka.}
-
 \NormalTok{data <-}\StringTok{ }\NormalTok{datasets}\OperatorTok{::}\NormalTok{mtcars}
-
 \CommentTok{# Ak by sme datasetu nechceli priradiť vlastný názov,}
 \CommentTok{# ale ponechať originálny:}
-
 \KeywordTok{data}\NormalTok{(}\StringTok{"mtcars"}\NormalTok{)}
-
 \CommentTok{# Funkcia bude fungovať aj bez úvodzoviek.}
 \end{Highlighting}
 \end{Shaded}
@@ -1719,7 +1670,6 @@ funguje.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Pripomeňme si hodnoty nášho modelu.}
-
 \NormalTok{model}
 \end{Highlighting}
 \end{Shaded}
@@ -1737,7 +1687,6 @@ funguje.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Na poradí pri kovariancii nezáleží.}
-
 \NormalTok{kovar <-}\StringTok{ }\KeywordTok{cov}\NormalTok{(data}\OperatorTok{$}\NormalTok{mpg, data}\OperatorTok{$}\NormalTok{hp)}
 
 \NormalTok{rozptyl <-}\StringTok{ }\KeywordTok{var}\NormalTok{(data}\OperatorTok{$}\NormalTok{hp)}
@@ -2031,7 +1980,6 @@ sme si predstavili vyššie.}
 \CommentTok{# Zaznačíme si ho v grafe pomocou abline(),}
 \CommentTok{# použijeme arugment "v" ako vertical.}
 
-
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =} \KeywordTok{dnorm}\NormalTok{(x, }\DataTypeTok{mean =} \DecValTok{2}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{), }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{,}
      \DataTypeTok{main =} \StringTok{"biased rozdelenie"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{""}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{)}
 
@@ -2062,7 +2010,6 @@ Pozrime sa na výstup našej regresie a analyzujme si ho troška.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Na výpis všetkých vlastností modelu použijeme summary().}
-
 \KeywordTok{summary}\NormalTok{(model)}
 \end{Highlighting}
 \end{Shaded}
@@ -2227,10 +2174,8 @@ koeficientov). Pozrime sa ešte raz na koeficienty:
 \begin{Highlighting}[]
 \CommentTok{# Vydeľme koeficient "estimate", číslom "Std. Error" (SE),}
 \CommentTok{# a pozrime sa, či nám výjde t-štatistika.}
-
 \NormalTok{nase_t <-}\StringTok{ }\KeywordTok{summary}\NormalTok{(model)}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{] }\OperatorTok{/}\StringTok{ }
           \KeywordTok{summary}\NormalTok{(model)}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
-
 \NormalTok{nase_t}
 \end{Highlighting}
 \end{Shaded}
