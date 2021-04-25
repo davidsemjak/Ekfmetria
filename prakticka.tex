@@ -1584,7 +1584,6 @@ pádom čo najviac zmenšiť zvyšky. Poďme sa k tým zvyškom dopracovať.
 
 Pozorovanie sa rovná bodu na priamke \(\hat\beta_0 + \hat\beta{x}_i\)
 plus zvyšok \(\hat{u}_i\):
-
 \[ y_i = \hat\beta_0 + \hat\beta{x}_i + \hat{u}_i.\]
 
 \begin{center}
@@ -1592,26 +1591,21 @@ plus zvyšok \(\hat{u}_i\):
 Poprehadzujme si to, nech máme na jednej strane zvyšok \(\hat{u}_i\):
 
 \end{center}
-
 \[ \hat{u}_i = y_i - \hat\beta_0 - \hat\beta{x}_i.\]
 
 Väčšinou narazíme na takýto zápis zvyškov, a to rozdiel medzi
 pozorovanou hodnotou a odhadnutou hodnotou na priamke:
-
 \[\hat{u}_i = y_i - \hat{y_i}.\]
 
 \begin{center}
 
 a keďže
-
 \end{center}
-
 \[ \hat{y}_i =\hat\beta_0 + \hat\beta{x}_i,\]
 
 Tak sme tam, kde sme boli na začiatku, keď sme si dali zvyšok
 \(\hat{u}_i\) na jednu stranu. OLS metóda urobí to, že minimalizuje
 súčet našich umocnených zvyškov \(\hat{u}_i\):
-
 \[min\sum (y_i - \hat\beta_0 - \hat\beta_1{x}_i)^2.\]
 
 Tým, že minimalizujeme zvyšky dostaneme čo najlepšiu priamku, ktorá bude
@@ -1623,7 +1617,6 @@ Nech si pamätáte.
 
 Na hodinách sa stretnete so vzorcom pre výpočet biet v maticovej forme.
 A to:
-
 \[Est(\beta) = \hat\beta = (X^TX)^{-1}X^Ty.\]
 
 \begin{quote}
@@ -1632,7 +1625,8 @@ A to:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Inverznu maticu vyrátame pomocou "solve()" a transpozíciu pomocou "t()".}
+\CommentTok{# Inverznu maticu vyrátame pomocou "solve()" a}
+\CommentTok{# transpozíciu pomocou "t()".}
 \CommentTok{# V R-ku by sme to vyrátali ako:}
 
 \KeywordTok{solve}\NormalTok{(}\KeywordTok{t}\NormalTok{(X) }\OperatorTok{%*%}\StringTok{ }\NormalTok{X) }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(X) }\OperatorTok{%*%}\StringTok{ }\NormalTok{y}\ErrorTok{)}
@@ -1658,10 +1652,10 @@ Ono, R-ko to urobí všetko za Vás, samo vyráta všetky koeficienty, nuž
 nechceli by ste vedieť, čo tá \(\hat\beta\) vlastne robí? Pri
 jednoduchej lineárnej regresií dokážeme OLS beta estimátory zapísať aj
 takto:
-
 \[\hat\beta_0 = \overline{y} - (\hat\beta_1\overline{x})\]
 
 \[\hat\beta_1 = \frac{\sum_{i=1}^{n} (x_i - \overline{x})(y_i - \overline{y})}{\sum_{i=1}^{n} (x_i - \overline{x})^2}\]
+
 
 \begin{quote}
 \emph{Čiara nad písmenom znamená priemer, teda ybar(takto to čítame) je
@@ -1675,9 +1669,13 @@ lebo je kratší, hm.
 Súčet od i = 1 po n znamená, že vykonáme operáciu pre každé \(x\) v
 datasete a výsledky operácií sčítame.
 
+
 \begin{quote}
+\begin{center}
 \emph{Summation znak sa nazýva grécky sigma.}
+\end{center}
 \end{quote}
+
 
 Od každého \(x\) odčítame priemernú hodnotu \(\overline{x}\) a umocníme
 to. Získame tým variabilitu okolo priemeru, inak povedané, ako veľmi sú
@@ -1853,16 +1851,17 @@ rozmedzí 3 smerodajných odchýlok. To sa nám zíde pri testovaní hypotéz.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Zostrojme si pre ilustráciu normálne rozdelenie.}
-\CommentTok{# Môžeme pôžiť dnorm(), pre vyrátanie krásneho normálneho rozdelenia, ktorému}
-\CommentTok{# by sme zadali vlastné hodnoty, my však použijeme rnorm(), pre vygenerovanie}
-\CommentTok{# n hodnôt z normálneho rozdelenia.}
+\CommentTok{# Môžeme pôužiť dnorm(), pre vyrátanie krásneho normálneho rozdelenia,}
+\CommentTok{# ktorému by sme zadali vlastné hodnoty, my však použijeme rnorm(),}
+\CommentTok{# pre vygenerovanie n hodnôt z normálneho rozdelenia.}
 
 \NormalTok{nrozdelenie <-}\StringTok{  }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1000}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{20}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{5}\NormalTok{)}
 
-\CommentTok{# Použijeme hist() namiesto plot(). Funkcia plot() by defaultne použila scatterplot.}
+\CommentTok{# Použijeme hist() namiesto plot(). Funkcia plot() by defaultne použila}
+\CommentTok{# scatterplot.}
 \CommentTok{# Argument "breaks" určí, na koľko častí rozlámeme náš histogram.}
 \CommentTok{# Viacej častí nám umožní krajšie vystihnúť normálne rozdelenie.}
-\CommentTok{# Funkciou par() si zobrazíme dva grafy vedľa seba a ukážeme rozdiel.}
+\CommentTok{# Funkciou par() si zobrazíme dva grafy vedľa seba, a ukážeme rozdiel.}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)) }
 
@@ -1892,7 +1891,6 @@ Očakávaná hodnota náhodnej premennej je jednoducho povedané priemer,
 ktorý by sme vyrátali za dlhú dobu a pri niekoľkonásobnom opakovanom
 výbere vzorky. Pre diskrétnu náhodnú premennú vyrátame túto hodnotu ako
 vážený súčet, kde váha je určená pravdepodobnosťou výskytu. Vzorcom:
-
 \[E(y)= y_1p_1 + y_2p_2 + ... + y_kp_k = \sum_{i=1}^{k}y_ip_i\]
 
 A teraz príklad zo života na pochopenie. Prečo myslíte, sa hovorí
@@ -1979,7 +1977,6 @@ platiť vyššie spomínané koncepty. Keď budeme pracovať s predpokladom, že
 majú normálne rozdelenie, môžeme na nich aplikovať t-testy a konfidenčné
 intervaly a ďalšie krásne štatistické techniky. Tento predpoklad môžeme
 použiť vďaka očakávanej hodnote, keďže:
-
 \[E(\overline{x}) = \mu\] Teda očakávaná hodnota nášho estimátora (v
 tomto prípade je priemer vzorky estimátor priemeru populácie) bude rovná
 priemeru populácie mí. Ono, sú to také štatistické kecy, ktoré majú
@@ -2024,14 +2021,15 @@ sme si predstavili vyššie.}
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Ukážme si, čo to biased vlastné znamená. Použijeme na to dnorm().}
-\CommentTok{# dnorm() nám vyberie konkrétny bod z rozdelenia, preto je potrebné mu zadať}
-\CommentTok{# vektor.}
+\CommentTok{# dnorm() nám vyberie konkrétny bod z rozdelenia, preto je potrebné}
+\CommentTok{# mu zadať vektor.}
 
 \NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{-3}\NormalTok{, }\DataTypeTok{to =} \DecValTok{5}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.2}\NormalTok{)}
 
 \CommentTok{# type = "l" ako "line", čiara.}
 \CommentTok{# Povedzme, že populačný priemer mí, je 1.}
-\CommentTok{# Zaznačíme si ho v grafe pomocou abline(), použijeme arugment "v" ako vertical.}
+\CommentTok{# Zaznačíme si ho v grafe pomocou abline(),}
+\CommentTok{# použijeme arugment "v" ako vertical.}
 
 
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =} \KeywordTok{dnorm}\NormalTok{(x, }\DataTypeTok{mean =} \DecValTok{2}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{), }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{,}
@@ -2092,8 +2090,8 @@ Pozrime sa na výstup našej regresie a analyzujme si ho troška.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Vidíme tam nejaké vlastnosti reziduí, odhadnuté koeficienty, a v tretej}
-\CommentTok{# časti taktiež podstatné veci ako R^2, či F-test.}
+\CommentTok{# Vidíme tam nejaké vlastnosti reziduí, odhadnuté koeficienty, a}
+\CommentTok{# v tretej časti taktiež podstatné veci ako R^2, či F-test.}
 \CommentTok{# Teraz nás však zaujíma časť s koeficientmi.}
 
 \KeywordTok{summary}\NormalTok{(model)}\OperatorTok{$}\NormalTok{coefficients}
@@ -2144,19 +2142,17 @@ Poďme teraz k tým juicy veciam, prečo Vám to vlastne ukazujem.
 
 Na overenie, či sme koeficient neodhadli len náhodou, ale je naozaj
 významný, vyrátame t-štatistiku, ktorej formula vyzerá takto:
-
 \[t = \frac{\hat\beta{}_i}{se(\hat\beta{}_i)}\] V t-štatistike odčítate
 v čitateli vašu požadovanú hypotézu. My testujeme významnosť
 \(\hat\beta{}_i\), teda či sa naša \(\hat\beta{}_i\) rovná nule a tým
 pádom nie je významná. Mohli by sme to zapísať ako:
-
 \[t = \frac{\hat\beta{}_i - \hat\beta{}_i,_0}{se(\hat\beta{}_i)}\]
 Odčítame nulu, čiže sa nič nemení, a prvý zápis je úplne v poriadku.
 
 Hej hej hej, čo je ale to se??? \emph{SE stands for standard error.}
-Takže \(štandardná chyba\). Hmmmm, to neznie ako smerodajná odchýlka. A
+Takže \(štandardná \ chyba\). Hmmmm, to neznie ako smerodajná odchýlka. A
 máte pravdu! Lebo to nie je smerodajná odchýlka! Alebo, no, ono to
-vlastne JE smerodajná odchýlky!
+vlastne JE smerodajná odchýlka!
 
 \hypertarget{sd-vs-se}{%
 \subsection{SD vs SE}\label{sd-vs-se}}
@@ -2165,7 +2161,6 @@ Smerodajná odchýlka (standard deviaton) a štandardná chyba (standard
 error).
 
 Spomínate si na vzorec na rozptyl? Ak nie, tu ho máme:
-
 \[s^{2} = \frac{\sum_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}.\]
 
 Všimnime si, že používame \(s^{2}\), namiesto \(\sigma^{2}\) (sigma
@@ -2176,7 +2171,6 @@ používa na označenie rozptylu populácie. To máme to isté ako \(\mu\)
 
 Smerodajná odchýlka je odmocnina vzorca uvedeného vyššie, základy
 štatistiky, že?
-
 \[s = \sqrt{\frac{\sum_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}}.\]
 
 Výberová smerodajná odchýlka (čiže smerodajná odchýlka vyrátaná zo
@@ -2184,7 +2178,7 @@ vzorky, nenechajte sa zmiesť, je to to isté ako vyššie, len sme pridali
 výberová, nech sme korektní) nám určuje osciláciu hodnôt okolo priemeru,
 ako veľmi sú okolo toho priemeru rozptýlené.
 
-Štanardná chyba opisuje to isté, avšak miesto vzorky, pracuje so vzorkou
+Štandardná chyba opisuje to isté, avšak miesto vzorky, pracuje so vzorkou
 plnou priemerov. Spomeňme si na výberové rozdelenie pri náhodnom výbere.
 Vezmeme vzorku, vyrátame z nej priemer a priemer dáme do šuflíka.
 Vezmeme ďalšiu vzorku, vyrátame jej priemer, a aj tento priemer hodíme
@@ -2202,7 +2196,6 @@ vzorky, okolo skutočného priemeru populácie.}
 
 Na hodine to budete rátať pomocou variačno-kovariačnej matice. My si
 ukážeme všeobecný vzorec:
-
 \[s_{\bar{X}} = \frac{s}{\sqrt{n}}\]
 
 \begin{quote}
@@ -2211,9 +2204,7 @@ vo vzorke.}
 \end{quote}
 
 Alternatívny zápis:
-
 \[SE = \frac{s}{\sqrt{n}}\] Takže vráťme sa k našej \(t-štatistike\):
-
 \[t = \frac{\hat\beta{}_i}{se(\hat\beta{}_i)}\]
 
 Na jej vyrátanie použijeme odhadnutý \(\hat\beta{}_i\) koeficient, a
@@ -2237,7 +2228,8 @@ koeficientov). Pozrime sa ešte raz na koeficienty:
 \CommentTok{# Vydeľme koeficient "estimate", číslom "Std. Error" (SE),}
 \CommentTok{# a pozrime sa, či nám výjde t-štatistika.}
 
-\NormalTok{nase_t <-}\StringTok{ }\KeywordTok{summary}\NormalTok{(model)}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{] }\OperatorTok{/}\StringTok{ }\KeywordTok{summary}\NormalTok{(model)}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
+\NormalTok{nase_t <-}\StringTok{ }\KeywordTok{summary}\NormalTok{(model)}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{] }\OperatorTok{/}\StringTok{ }
+          \KeywordTok{summary}\NormalTok{(model)}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
 
 \NormalTok{nase_t}
 \end{Highlighting}
@@ -2291,8 +2283,8 @@ zamietame, že \(\hat\beta{}_i\) je štatisticky nevýznamná a rovná nule.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# V našom prípade boli p-hodnoty 6.642736e-18, čo je veľmi malé číslo,}
-\CommentTok{# 18 núl pred šestkou. Dávajte pozor, keby tam bolo e+18, tak je to obrovské}
-\CommentTok{# číslo. :D Väčšinou sú malé p-hodnoty označené tromi hviezdičkami.}
+\CommentTok{# 18 núl pred šestkou. Dávajte pozor, keby tam bolo e+18, tak je to }
+\CommentTok{# obrovské číslo. :D Väčšinou sú malé p-hodnoty označené 3 hviezdičkami.}
 
 \KeywordTok{summary}\NormalTok{(model)}\OperatorTok{$}\NormalTok{coefficients}
 \end{Highlighting}
@@ -2312,7 +2304,6 @@ konfidenčný interval. Najprv si ukážeme zápis konfidenčného intervalu
 pre jednu premennú (nevravíme pre jednu preto, lebo pracujeme s
 jednoduchou lineárnou regresiou, ale preto, že sa konfidenčný interval
 vytvára pre každú premennú zvlášť):
-
 \[[\hat\beta{}_i - 1.96 × SE(\hat\beta{}_i)\;\;,\;\;\hat\beta{}_i + 1.96 × SE(\hat\beta{}_i)].\]
 Od odhadnutého koeficientu prv odčítame dve štandardné chyby pre určenie
 spodnej hranice, a potom pričítame dve štandardné chyby pre určenie
@@ -2321,8 +2312,8 @@ hornej hranice.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# V R-ku konfidnčný interval odhadneme pomocou confint().}
-\CommentTok{# Ukážeme si neskôr aj robustnú alternatívu. Zatiaľ pracujeme len s basic}
-\CommentTok{# balíkmi v R.}
+\CommentTok{# Ukážeme si neskôr aj robustnú alternatívu. Zatiaľ pracujeme}
+\CommentTok{# len s basic balíkmi v R.}
 
 \KeywordTok{confint}\NormalTok{(model)}
 \end{Highlighting}
@@ -2355,21 +2346,22 @@ na nezávislé premenné.
 \hypertarget{normalita}{%
 \subsection{Normalita}\label{normalita}}
 
-Chceme, aby boli naše reziduá normálne rozdelené, čo to znamená?
-Nechceme vidieť žiaden vzor správania reziduí. Reziduá majú byť
-nezávisle od nezávislých premenných a s priemerom 0. Naše reziduá si
+Chceme, aby boli naše rezíduá normálne rozdelené, čo to znamená?
+Nechceme vidieť žiaden vzor správania rezíduí. Rezíduá majú byť
+nezávisle od nezávislých premenných a s priemerom 0. Naše rezíduá si
 plotneme spolu s fitted, teda odhadnutými hodnotami na priamke. V prvom
-grafe sme si pridali priamku, keďže reziduá by mali byť porozhadzované
-názávisle po oboch stranách. Druhý graf je takzvaný QQ-plot. Reziduá sú
+grafe sme si pridali priamku, keďže rezíduá by mali byť porozhadzované
+nezávisle po oboch stranách. Druhý graf je takzvaný QQ-plot. Rezíduá sú
 rozdelené normálne, ak kopírujú diagonálnu priamku, ktorú sme si
 nakreslili. Tá priamka je totižto vytvorená z normálneho rozdelenia. Ak
-by sme si otestovali tieto reziduá z nášho modelu, nezamietli by sme
-nulovú hypotézu, reziduá teda sú rozdelené normálne-ish.
+by sme si otestovali tieto rezíduá z nášho modelu, nezamietli by sme
+nulovú hypotézu, rezíduá teda sú rozdelené normálne-ish.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# My sme si tieto grafy vytvorili manuálne, dopracovali by ste sa k ním}
-\CommentTok{# však aj cez funkciu plot(váš_model). Museli by ste sa k nemu však preklikať.}
+\CommentTok{# však aj cez funkciu plot(váš_model).}
+\CommentTok{# Museli by ste sa k nemu však preklikať.}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 
@@ -2482,9 +2474,10 @@ ukážeme ako taká autokorelácia vyzerá.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Samozrejme v prvom stĺpci bude korelácia jedna, lebo korelujeme samého seba.}
-\CommentTok{# Ak sú korelácia nepresahuje za čiary, reziduá nie sú silne korelované a }
-\CommentTok{# autokorelácia, resp. sériová korelácia, nie je prítomná.}
+\CommentTok{# Samozrejme v prvom stĺpci bude korelácia jedna,}
+\CommentTok{# lebo korelujeme samého seba.}
+\CommentTok{# Ak sú korelácia nepresahuje za čiary, reziduá nie sú silne}
+\CommentTok{# korelované, a autokorelácia, resp. sériová korelácia, nie je prítomná.}
 \end{Highlighting}
 \end{Shaded}
 
