@@ -124,9 +124,9 @@ voviesť do omylu. R-ko je najvhodnejší programovací jazyk pre
 štatistikov, Google ho zahrnul do najnovších kurzov Google Analytics.
 Mojou úlohou je pomôcť Vám prekonať problém, ktorý som na začiatku
 svojej cesty ekonometriou vôbec nepovažoval za problém, a to množstvo
-materiálov, ktoré zavalí študenta. Pomôžem Vám postupne zložiť skladačku
+materiálov, ktoré zavalí študenta. Pomôžem Vám postupne poskladať skladačku
 konceptov a teórií, na ktorých ekonometria stojí. Náročnosť
-prezentovania konceptov bude prispôsobená, nehnevajte sa, keď neskôr
+prezentovania konceptov bude prispôsobená. Nehnevajte sa, keď neskôr
 objavíte niečo, čo som spomenúť mohol, ale nespomenul. Nemá zmysel
 vysvetľovať odvodzovanie každého estimátora. Cieľom je poskytnúť
 všeobecný náhľad ekonometrie, a pomôcť Vám pochopiť, a príjemnejšie
@@ -263,12 +263,13 @@ po napísaní funkcie:
 
 ~
 
+\begin{figure}
 \begin{center}
-
 \includegraphics{diplomka obrazky/1.png},
-
+\caption{Snímka obrazovky - funkcia mean.}
+\source{Zdroj: Vlastná tvorba.}
 \end{center}
-
+\end{figure}
 ~
 
 to však len za predpokladu, že už máte balík nainštalovaný. Ak narazíte
@@ -472,12 +473,14 @@ Vám to argumenty funkcie. Skúsime si to na funkcii \(sample()\).
 \hypertarget{sample}{%
 \subsubsection{sample()}\label{sample}}
 
+\begin{figure}
 \begin{center}
-
 \includegraphics[width=0.85\textwidth,height=\textheight]{diplomka obrazky/2.png}
+\caption{Snímka obrazovky - zobrazenie argumentov.}
+\source{Zdroj: Vlastná tvorba.}
 
 \end{center}
-
+\end{figure}
 ~
 
 Pri jednej z vecí, ktorú Vám chcem ukázať, budeme potrebovať vektor
@@ -487,11 +490,15 @@ náhodne vyberie hodnoty zo zadaného vektora.
 
 ~
 
+\begin{figure}
 \begin{center}
 
 \includegraphics[width=0.8\textwidth,height=\textheight]{diplomka obrazky/3.png}
+\caption{Snímka obrazovky - popis funkcie.}
+\source{Zdroj: Vlastná tvorba.}
 
 \end{center}
+\end{figure}
 
 ~
 
@@ -1047,11 +1054,13 @@ cvičeniach narazíme.
   \end{itemize}
 \end{itemize}
 
+\begin{figure}
 \begin{center}
-
 \includegraphics[width=0.5\textwidth,height=\textheight]{diplomka obrazky/4a.png}
-
+\caption{Transformácia dimenzie matice pri násobení.}
+\source{Zdroj: Prevzaté z [9].}
 \end{center}
+\end{figure}
 
 Pri násobení matice skalárom, aka. jedným číslom, použijeme ako operátor
 klasickú hviezdičku. Každý prvok matice bude prenásobený určeným číslom.
@@ -1434,7 +1443,13 @@ týmito premennými.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{test_files/figure-latex/unnamed-chunk-39-1.pdf}
+\begin{figure}
+\begin{center}
+    \includegraphics{test_files/figure-latex/unnamed-chunk-39-1.pdf}
+    \caption{Výstup funkcie plot().}
+    \source{Zdroj: Vlastná tvorba.}
+\end{center}
+\end{figure}
 
 Vidíme istú negatívnu závislosť. Chceli by sme si to však potvrdiť
 číslami. Bolo by fajn napasovať medzi tieto pozorovania takú priamku,
@@ -1491,7 +1506,6 @@ Skúsme si takýto model zostrojiť v R-ku, a priamku dopasovať do grafu.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Znova si plotneme dáta.}
-
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ data}\OperatorTok{$}\NormalTok{hp, }\DataTypeTok{y =}\NormalTok{ data}\OperatorTok{$}\NormalTok{mpg, }\DataTypeTok{ylab =} \StringTok{"Dojazd"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"Výkon",}
 \StringTok{     main = "}\NormalTok{Vzťah dojazdu a výkonu motora}\StringTok{")}
 
@@ -1502,7 +1516,13 @@ Skúsme si takýto model zostrojiť v R-ku, a priamku dopasovať do grafu.
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+\begin{center}
 \includegraphics{test_files/figure-latex/unnamed-chunk-41-1.pdf}
+\caption{Výstup funkcie plot().}
+\source{Zdroj: Vlastná tvorba.}
+\end{center}
+\end{figure}
 
 Z grafu pozorujeme, že aj tu priamka neprechádza všetkými pozorovaniami,
 túto kolmú vzdialenosť medzi priamkou a každým pozorovaním označíme ako
@@ -1522,11 +1542,13 @@ odvodenie týchto estimátorov. Osobne mi to moc nedalo, preto sa skôr
 zameriame na výsledky týchto odvodzovaní, nech nadobudneme trocha
 intuície. Vysvetlíme si graficky, čo touto metódou chceme docieliť.
 
+\begin{figure}
 \begin{center}
-
 \includegraphics[width=0.85\textwidth,height=\textheight]{diplomka obrazky/4.png}
-
+\caption{Vyobrazenie vzdialenosti rezíduí k priamke.}
+\source{Zdroj: Prevzaté z [10].}
 \end{center}
+\end{figure}
 
 Tieto vzdialeností predstavujú naše ``residuals'' \(\hat{u}_i\), naše
 zvyšky z modelu, naše nepresnosti. Každý data point má svoj zvyšok.
@@ -1690,7 +1712,6 @@ funguje.
 \NormalTok{kovar <-}\StringTok{ }\KeywordTok{cov}\NormalTok{(data}\OperatorTok{$}\NormalTok{mpg, data}\OperatorTok{$}\NormalTok{hp)}
 
 \NormalTok{rozptyl <-}\StringTok{ }\KeywordTok{var}\NormalTok{(data}\OperatorTok{$}\NormalTok{hp)}
-
 \NormalTok{beta1 <-}\StringTok{ }\NormalTok{kovar}\OperatorTok{/}\NormalTok{rozptyl}
 
 \KeywordTok{print}\NormalTok{(beta1)}
@@ -1822,13 +1843,21 @@ rozmedzí 3 smerodajných odchýlok. To sa nám zíde pri testovaní hypotéz.
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+\begin{center}
 \includegraphics{test_files/figure-latex/unnamed-chunk-44-1.pdf}
+\caption{Normálne rozdelenia s rôznou veľkosťou/počtom košov.}
+\source{Zdroj: Vlastná tvorba.}
+\end{center}
+\end{figure}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}
 \CommentTok{# Pre navrátenie zobrazenia grafov na jeden, použijeme "par(mfrow=c(1, 1))".}
 \end{Highlighting}
 \end{Shaded}
+
+\newpage
 
 \hypertarget{oux10dakuxe1vanuxe1-hodnota}{%
 \subsection{Očakávaná hodnota}\label{oux10dakuxe1vanuxe1-hodnota}}
@@ -1850,11 +1879,14 @@ väčšia, ako pri ostatných súčtoch. V priemere potom padne najviac ľudom
 sedmička, ľudia si to všímajú a stavujú na sedmičky, alebo také niečo,
 nie som moc na gambling.
 
+\begin{figure}
 \begin{center}
 
 \includegraphics[width=0.8\textwidth,height=\textheight]{diplomka obrazky/5.png}
-
+\caption{Pravdepodobnosť výskytu jednotlivých súčtov hodov.}
+\source{Zdroj: Prevzaté z [11].}
 \end{center}
+\end{figure}
 
 \hypertarget{zuxe1kon-veux13ekuxfdch-ux10duxedsel}{%
 \subsection{Zákon veľkých
@@ -1987,7 +2019,13 @@ sme si predstavili vyššie.}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+\begin{center}
 \includegraphics{test_files/figure-latex/unnamed-chunk-45-1.pdf}
+\caption{Vychýlené rozdelenie.}
+\source{Zdroj: Vlastná tvorba.}
+\end{center}
+\end{figure}
 
 Vrchol rozdelenia nie je centrovaný nad pravým priemerom, rozdelenie je
 teda biased, odchýlené.
@@ -2060,11 +2098,14 @@ Na to, aby sme určili, či sú koeficienty významné, používame t-test. To,
 ktorá je interpretovateľná. Aaale prečo vlastne t-štatistika? Pozrime sa
 na t-rozdelenie.
 
+\begin{figure}
 \begin{center}
 
 \includegraphics{diplomka obrazky/7.png}
-
+\caption{Efektívnosť rozdelenia.}
+\source{Zdroj: Prevzaté z [12].}
 \end{center}
+\end{figure}
 
 Pripomína Vám to niečo? Toto t-rozdelenie je typom normálneho
 rozdelenia, ktoré sa používa pri menších vzorkách. Používa sa, keď
@@ -2203,11 +2244,14 @@ je menšia ako 5\%. Šanca, že sme tento koeficient odhadli len čistou
 náhodou (menej ako 5\% sa berie ako náhoda, ``by chance''), je menej ako
 5\%. A teda považujeme tento koeficient za štatisticky významný.
 
+\begin{figure}
 \begin{center}
 
 \includegraphics{diplomka obrazky/8.png}
-
+\caption{Smerodajné odchýlky a frekvencia rozdelenia.}
+\source{Zdroj: Prevzaté z [13].}
 \end{center}
+\end{figure}
 
 \hypertarget{p-hodnota}{%
 \subsection{p-hodnota}\label{p-hodnota}}
@@ -2318,7 +2362,13 @@ nulovú hypotézu, rezíduá teda sú rozdelené normálne-ish.
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+\begin{center}
 \includegraphics{test_files/figure-latex/unnamed-chunk-50-1.pdf}
+\caption{Typy zobrazenia rezíduí.}
+\source{Zdroj: Vlastná tvorba.}
+\end{center}
+\end{figure}
 
 Všetky podmienky, ktoré spomenieme nebudú ovplyvnovať odchýlku
 koeficientu, avšak budú ovplyvňovať štandardnú chybu, teda aj
@@ -2359,7 +2409,13 @@ rozptyl nie je, lebo keď zarobia 1000eur, nemôžu minút na potraviny 10
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+\begin{center}
 \includegraphics{test_files/figure-latex/unnamed-chunk-51-1.pdf}
+\caption{Prítomnosť heteroskedasticity.}
+\source{Zdroj: Vlastná tvorba.}
+\end{center}
+\end{figure}
 
 Prítomnosť heteroskedasticity \textbf{zmenší} štandardnú chybu,
 dostaneme menšie hodnoty, než by sme mali. To môže viesť k označeniu
@@ -2400,11 +2456,14 @@ to byť spôsobené Odchýlkou vynechanej premennej alebo nesprávnou
 alebo testami. Samozrejme testy sú omnoho spoľahlivejie. My si ale
 ukážeme ako taká autokorelácia vyzerá.
 
+\begin{figure}
 \begin{center}
-
 \includegraphics{diplomka obrazky/9.png}
-
+\caption{Prítomnosť autokorelácie.}
+\source{Zdroj: Prevzaté z [14].}
 \end{center}
+\end{figure}
+
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2415,7 +2474,13 @@ ukážeme ako taká autokorelácia vyzerá.
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+\begin{center}
 \includegraphics{test_files/figure-latex/unnamed-chunk-52-1.pdf}
+\caption{Výstup funkcie acf().}
+\source{Zdroj: Vlastná tvorba.}
+\end{center}
+\end{figure}
 
 \begin{Shaded}
 \begin{Highlighting}[]

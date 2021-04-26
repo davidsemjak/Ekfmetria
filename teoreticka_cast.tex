@@ -186,7 +186,7 @@ Mnoho štatistických a ekonometrických postupov pracuje s priemermi, alebo vá
 
 Náhodných výberov existuje viacero. My začneme s jednoduchým náhodným výberom. Predstavme si študenta, ktorý by sa chcel stať štatistikom, tak sa rozhodne zaznamenávať, ako dlho mu trvá cesta do školy v rôzne dni. Náhodne vyberie dni, v ktoré bude čas merať. Keďže boli dni vybrané náhodne, ak budeme vedieť čas cesty v jeden deň, nepovie nám to nič o tom, ako dlho bude trvať cesta v iný deň. To, že dni meraní boli vybrané náhodne znamená, že namerané časy sú nezávisle rozdelené náhodné premenné. Opísaná situácia je príkladom najjednoduchšej formy výberu, používanej v štatistike. Pri jednoduchom náhodnom výbere sa zvolí $n$ objektov, ktoré sú náhodne vybrané z populácie. Každý člen populácie, má rovnakú šancu byť zvolený. Pozorovania $n$, si vo vzorke označíme ako $Y1, ..., Y_n$ kde $Y_1$ znázorňuje prvé pozorovanie, $Y_2$ druhé pozorovanie, a tak ďalej. V uvedenom príklade, je $Y_1$ prvý, z náhodne vybraných dní, kedy si študent zaznamenal čas, a $Y_i$ predstavuje čas v $í-tom$ náhodne vybranom dni. 
 Keďže členovia populácie, ktorí boli vybraní do vzorky, boli vybraní náhodne, hodnoty pozorovaní $Y1, ..., Y_n$ sú samy náhodné. Ak by boli vybraní iní členovia z populácie, ich hodnoty $Y_i$ sa budú líšiť. Chceme tým povedať, že proces náhodného výberu znamená, že s $Y1, ..., Y_n$ môžeme zaobchádzať ako s náhodnými premennými. Pred výberom vzorky, môžu na seba hodnoty $Y1, ..., Y_n$ prevziať mnoho rozličných hodnôt. Avšak, pri výbere z populácie, sú zaznamenané konkrétne hodnoty. Pretože $Y1, ..., Y_n$ sú náhodne vybrané z rovnakej populácie, marginálne rozdelenie $Y_i$, je rovnaké pre každé $i = 1, ..., n$, teda $Y1, ..., Y_n$ sú považované za identicky distribuované. V súlade s jednoduchým náhodným výberom, poznanie hodnoty premennej $Y_1$, nám neposkytne žiadnu informáciou o $Y_2$, teda združené rozdelenie $Y_2$ daný $Y_1$, je rovnaké ako marginálne rozdelenie $Y_2$. Inými slovami, pri jednoduchom náhodnom výbere, je $Y_1$ distribuované nezávisle od $Y2, ..., Y_n$. 
-Ak sú $Y1, ..., Y_n$ vybrané z rovnakého rozdelenia a sú nezávisle rozdelené, hovoríme, že sú nezávisle a identicky distribuované\footnote{independently and identically distributed}. [1]
+Ak sú $Y1, ..., Y_n$ vybrané z rovnakého rozdelenia a sú nezávisle rozdelené, hovoríme, že sú nezávisle a identicky distribuované\footnote{independently and identically distributed} [1, s. 82].
 
 \subsection{Výberové rozdelenie priemernej hodnoty vzorky}
 
@@ -195,7 +195,7 @@ Priemerná hodnota vzorky, $\overline{Y}$, $n$ pozorovaní $Y1, ..., Y_n$ je:
 \overline{Y} = \frac{1}{n}(Y_1 + Y_2 + ... + Y_n)=\frac{1}{n}\sum_{i=1}^{n}Y_i.
 \end{equation}
 
-Podstatným konceptom je, že proces výberu náhodnej vzorky, urobí z priemernej hodnoty vzorky, $\overline{Y}$, náhodnú premennú. Pretože bola vzorka vybraná náhodne, hodnota každého $Y_i$, je náhodná. Pretože $Y1, ..., Y_n$ sú náhodné, ich priemer je takisto náhodný. Ak by sme vybrali inú vzorku, hodnoty pozorovaní, aj ich priemer, by sa líšili. Hodnota $\overline{Y}$ sa líši od vzorky k vzorke. Nezabúdajme, že stále máme na mysli náhodne vybrané vzorky. Napríklad, predpokladajme, že náš študent náhodne vybral päť dní, počas ktorých meral čas cesty do školy. Následne vyrátal priemer týchto piatich dní, a dostal istú hodnotu. Ak by vybral iných päť dní, počas ktorých by meral čas cesty do školy, a znova vyrátal priemernú hodnotu trvania cesty do školy, tento priemer by sa líšil od prvého vyrátaného priemeru. Keďže je $\overline{Y}$ náhodná, má vlastné rozdelenie pravdepodobnosti. Rozdelenie $\overline{Y}$ nazývame výberové rozdelenie $\overline{Y}$, pretože je to rozdelenie pravdepodobnosti, súvisiace s možnými hodnotami $\overline{Y}$, ktoré mohli byť vypočítané pre odlišné vhodné vzorky $Y1, ..., Y_n$. Rozdelenie výberu priemernej hodnoty, a váženej priemernej hodnoty, hrá v štatistike a ekonometrii dôležitú úlohu. Preto sa oboznámime s výpočtom priemeru a rozptylu výberového rozdelenia, s ohľadom na hlavné podmienky rozdelenia populácie $Y$. 
+Podstatným konceptom je, že proces výberu náhodnej vzorky, urobí z priemernej hodnoty vzorky, $\overline{Y}$, náhodnú premennú. Pretože bola vzorka vybraná náhodne, hodnota každého $Y_i$, je náhodná. Pretože $Y1, ..., Y_n$ sú náhodné, ich priemer je takisto náhodný. Ak by sme vybrali inú vzorku, hodnoty pozorovaní, aj ich priemer, by sa líšili. Hodnota $\overline{Y}$ sa líši od vzorky k vzorke. Nezabúdajme, že stále máme na mysli náhodne vybrané vzorky. Napríklad, predpokladajme, že náš študent náhodne vybral päť dní, počas ktorých meral čas cesty do školy. Následne vyrátal priemer týchto piatich dní, a dostal istú hodnotu. Ak by vybral iných päť dní, počas ktorých by meral čas cesty do školy, a znova vyrátal priemernú hodnotu trvania cesty do školy, tento priemer by sa líšil od prvého vyrátaného priemeru. Keďže je $\overline{Y}$ náhodná, má vlastné rozdelenie pravdepodobnosti. Rozdelenie $\overline{Y}$ nazývame výberové rozdelenie $\overline{Y}$, pretože je to rozdelenie pravdepodobnosti, súvisiace s možnými hodnotami $\overline{Y}$, ktoré mohli byť vypočítané pre odlišné vhodné vzorky $Y1, ..., Y_n$. Rozdelenie výberu priemernej hodnoty, a váženej priemernej hodnoty, hrá v štatistike a ekonometrii dôležitú úlohu. Preto sa oboznámime s výpočtom priemeru a rozptylu výberového rozdelenia, s ohľadom na hlavné podmienky rozdelenia populácie $Y$ [1, s. 82].
 
 \subsection{Priemer a rozptyl $\overline{Y}$ }
 
@@ -211,6 +211,7 @@ E(\overline{Y}) = \frac{1}{n}\sum_{i=1}^{n}E(Y_i) = \mu_Y.
 
 
 Rozptyl $\overline{Y}$ zistíme pomocou vzťahu $var(X + Y) = var(X) + var(Y) = \sigma^2_X + \sigma^2_Y$ (ak X a Y sú nezávislé). Pre $n = 2$ sa rozptyl rovná $var(Y1 + Y2) = 2\sigma^2_Y$, teda $var(\overline{Y}) =  \frac{1}{2} \sigma^2_Y$. Teda: 
+
 \begin{multline}
 
     var(\overline{Y})  = var \frac{1}{n} \sum_{i=1}^{n}Y_i = var (\frac{Y_1 + Y_2 +, ..., Y_n}{n})=\footnote{Pri násobení konštantou, rozptyl násobíme danou konštantou umocnenou na druhú mocninu.} (\frac{1}{n})^2 var(\frac{Y_1 + Y_2 +, ..., Y_n}{n}) =\footnote{Potrebujeme rozptyl súčtu, čo je súčet rozptylov, ak sú pozorovania $Y1 + Y2 +, ..., Y_n$ nezávislé.} \frac{1}{n^2} [var(Y_1) + var(Y_2) +, ..., +  var(Y_n)] = \frac{1}{n^2} [\sigma^2_1 + \sigma^2_2, ..., \sigma^2_n] = \frac{1}{n^2} \ n\cdot\sigma^2 = \frac{\sigma^2}{n}.
@@ -218,7 +219,6 @@ Rozptyl $\overline{Y}$ zistíme pomocou vzťahu $var(X + Y) = var(X) + var(Y) = 
 \end{multline}
 
 Čo môžeme ďalej prepísať ako:
-
 \begin{equation}
 \begin{split}
     var(\overline{Y}) & =(\frac{\sigma^2}{n}) \\
@@ -229,7 +229,6 @@ Rozptyl $\overline{Y}$ zistíme pomocou vzťahu $var(X + Y) = var(X) + var(Y) = 
 
 Smerodajná odchýlka $\overline{Y}$ je druhou odmocninou rozptylu. 
 Ak sú $Y1 + Y2 +, ..., Y_n$ nezávisle a identicky distribuované, priemer, rozptyl, a smerodajnú odchýlkú $\overline{Y}$ vyjadríme vzťahmi:
-
 \begin{equation}
 E(\overline{Y}) = \mu_Y, 
 \end{equation}
@@ -246,11 +245,11 @@ kde:
 \item$\sigma_{\overline{Y}}$ predstavuje smerodajnú odchýlku výberového rozdelenia $\overline{Y}$.
 \end{itemize}
  
-Tieto rovnice platia pri akomkoľvek rozdelení $Y$, tým pádom rozdelenie $Y$ nepotrebuje mať konkrétnu formu rozdelenia, napríklad normálne rozdelenie, aby uvedené rovnice platili.  
+Tieto rovnice platia pri akomkoľvek rozdelení $Y$, tým pádom rozdelenie $Y$ nepotrebuje mať konkrétnu formu rozdelenia, napríklad normálne rozdelenie, aby uvedené rovnice platili [1, s. 83].  
 
 \subsection{Výberové rozdelenie $\overline{Y}$, keď $Y$ je normálne distribuované}
 
-Predpokladajme $Y1 + Y2 +, ..., Y_n$, ktoré sú $i.i.d.$, a vybrané z $N(\mu_{Y}, \sigma^2_{Y})$ rozdelenia. Súčet všetkých $n$ náhodný premenných, ktoré sú vybrané z normálneho rozdelenia, bude normálne distribuovaný. A keďže priemer $\overline{Y}$ je $\mu_{Y}$ a rozptyl $\overline{Y}$ je $\frac{\sigma^2_Y}{n}$, za predpokladu, že $Y1 + Y2 +, ..., Y_n$ sú $i.i.d.$ vybrané z $N(\mu_{Y}, \sigma^2_{Y})$ rozdelenia, $\overline{Y}$ je rozdelené ako $N(\mu_{Y}, \frac{\sigma^2}{n})$.  
+Predpokladajme $Y1 + Y2 +, ..., Y_n$, ktoré sú $i.i.d.$, a vybrané z $N(\mu_{Y}, \sigma^2_{Y})$ rozdelenia. Súčet všetkých $n$ náhodný premenných, ktoré sú vybrané z normálneho rozdelenia, bude normálne distribuovaný. A keďže priemer $\overline{Y}$ je $\mu_{Y}$ a rozptyl $\overline{Y}$ je $\frac{\sigma^2_Y}{n}$, za predpokladu, že $Y1 + Y2 +, ..., Y_n$ sú $i.i.d.$ vybrané z $N(\mu_{Y}, \sigma^2_{Y})$ rozdelenia, $\overline{Y}$ je rozdelené ako $N(\mu_{Y}, \frac{\sigma^2}{n})$ [1, s. 84].  
 \newpage
 \section{Model lineárnej regresie}
 
@@ -265,21 +264,21 @@ Rovnosť v uvedenom modeli by mala sedieť pre akékoľvek pozorovanie, zatiaľ 
 
 Takisto ako priemerná hodnota $Y$ je neznámou populačného rozdelenia $Y$, priesečník a sklon priamky vzťahujúcej sa na $X$ a $Y$ sú neznámou populačného spojitého rozdelenia $X$ a $Y$. Úlohou ekonometrie je odhadnúť priesečník a sklon za použitia vzoriek dát týchto dvoch premenných ($X$ a $Y$). Lineárna regresia je štatistický nástroj, ktorý môže byť použitý pre určenie kauzálnej inferencie, a pre predikciu. Ak uvažujeme, že vzťah medzi $X$ a $Y$ je lineárny, potom ak $X$ je vybrané náhodne, môžeme použiť lineárnu regresiu na odhadnutie kauzálneho efektu zmeny $X$ na $Y$. Aj keď $X$ nebude vybrané náhodne, lineárna regresia nám umožní odhadnúť hodnotu $Y$, pri danom $X$, pomocou modelovania podmieneného priemeru $Y$ za predpokladu $X$, ako lineárnej funkcie $X$. Kým sú pozorovania, ktorými chceme odhadnúť $Y$, zozbierané z rovnakej populácie, ako dáta použité pre lineárnu regresiu, regresná priamka nám poskytne spôsob predikovať $Y$, za predpokladu $X$. 
 
-Výraz $\epsilon_i$ v rovnici predstavuje náhodnú zložku. Ani tento výraz sa nevyhol rôznym označeniam, napríklad $u_i$. V rovnici sa však stále nachádza na konci. Pre lepšie zapamätanie si uveďme $u$ ako unobserved, teda nepozorovateľná premenná, ktorú nedokážeme zo vzorky priamo odmerať. Tento výraz predstavuje rozdiel medzi $Y_i$ a jeho odhadovanou hodnotou, odhadnutou za pomoci populačnej regresnej priamky.  \\
+Výraz $\epsilon_i$ v rovnici predstavuje náhodnú zložku. Ani tento výraz sa nevyhol rôznym označeniam, napríklad $u_i$. V rovnici sa však stále nachádza na konci. Pre lepšie zapamätanie si uveďme $u$ ako unobserved, teda nepozorovateľná premenná, ktorú nedokážeme zo vzorky priamo odmerať. Tento výraz predstavuje rozdiel medzi $Y_i$ a jeho odhadovanou hodnotou, odhadnutou za pomoci populačnej regresnej priamky [2].  \\
 
 
 \begin{figure}
     \centering
     \includegraphics[scale=1.5]{diplomka obrazky/10.png}
-    \caption{Znázornenie reziduí.}
-    \source{Zdroj: Source of the image.}
+    \caption{Znázornenie rezíduí.}
+    \source{Zdroj: Prevzaté z [3].}
 \end{figure}
 
 \subsection{Odhad koeficientov modelu lineárnej regresie}
 
 Pri praktických situáciách, ako napríklad určenie dosiahnutých bodov na testoch pomocou počtu žiakov v triedach, je priesečník $\beta_0$ a sklon $\beta_1$ regresnej populačnej priamky neznámy. Teda, potrebujeme dáta, aby sme tieto neznáme koeficienty mohli odhadnúť. 
 
-Povedzme, že chceme porovnať priemernú výšku zárobku mužov a žien, ktorí sú čerstvými absolventmi vysokej školy. Aj napriek tomu, že priemerný zárobok nami vymedzenej ženskej populácie nie je známy (nie je reálne získať dáta o zárobku každej jednej absolventky), môžeme odhadnúť priemer populácie za použitia náhodne vybranej vzorky mužov a žien, ktorí sú čerstvými absolventmi vysokej školy. Prirodzenou štatistikou pre odhad neznámej hodnoty priemerného zárobku absolventiek v populácií, bude napríklad hodnota priemerného zárobku ženských absolventiek v zozbieranej vzorke. Rovnakú logiku uplatníme pri lineárnom regresnom modeli. Nepoznáme hodnotu $\beta_{veľkosť \ triedy}$ populácie, teda sklon neznámej regresnej priamky populácie vzťahujúcej sa ku $X$ (počet žiakov v triede) a $Y$ (dosiahnuté body). Avšak, rovnako ako je možné získať informácie o priemere populácie za použitia vybranej vzorky dát z danej populácie, je taktiež možné dozvedieť sa viac o sklone populačnej regresnej priamky $\beta_{veľkosť \ triedy}$ za použitia vzorky dát. 
+Povedzme, že chceme porovnať priemernú výšku zárobku mužov a žien, ktorí sú čerstvými absolventmi vysokej školy. Aj napriek tomu, že priemerný zárobok nami vymedzenej ženskej populácie nie je známy (nie je reálne získať dáta o zárobku každej jednej absolventky), môžeme odhadnúť priemer populácie za použitia náhodne vybranej vzorky mužov a žien, ktorí sú čerstvými absolventmi vysokej školy. Prirodzenou štatistikou pre odhad neznámej hodnoty priemerného zárobku absolventiek v populácií, bude napríklad hodnota priemerného zárobku ženských absolventiek v zozbieranej vzorke. Rovnakú logiku uplatníme pri lineárnom regresnom modeli. Nepoznáme hodnotu $\beta_{veľkosť \ triedy}$ populácie, teda sklon neznámej regresnej priamky populácie vzťahujúcej sa ku $X$ (počet žiakov v triede) a $Y$ (dosiahnuté body). Avšak, rovnako ako je možné získať informácie o priemere populácie za použitia vybranej vzorky dát z danej populácie, je taktiež možné dozvedieť sa viac o sklone populačnej regresnej priamky $\beta_{veľkosť \ triedy}$ za použitia vzorky dát [1, s. 145]. 
 
 \subsection{Metóda najmenších štvorcov}
 
@@ -307,7 +306,7 @@ Zvyšok\footnote{Zostatok, rezíduum.} pre $í-té$ pozorovanie predstavuje rozd
     \hat{u}_i = Y_i - \hat{Y_i}.
 \end{equation}
 
-OLS odhadcovia $\hat\beta_0$ a $\hat\beta_1$ sú vypočítaní zo vzorky, a predstavujú ekvivalent koeficientov $\beta_0$ a $\beta_1$ získaných z populácie. Takisto OLS regresná priamka, $\hat\beta_0 + \hat\beta_{1}X_i$, je vzorkovým ekvivalentom populačnej regresnej priamky, $\beta_0 + \beta_{1}X_i$. Zároveň, OLS zostatky, $\hat{u}_i$, sú vzorkovým ekvivalentom populačných náhodných zložiek, $\epsilon_i$. Mohli by sme sa pokúsiť vyrátať OLS odhadcov $\hat\beta_0$ a $\hat\beta_1$ dosadzovaním rôznych hodnôt $b_0$ a $b_1$ opakovane, až kým by sme nenašli tie, ktoré minimalizujú súčet zostatkov v uvedenom modeli. Takáto metóda by však bola veľmi vyčerpávajúca. Predstavíme si vzorce, ktoré sú vyrátané za použitia diferenciálnych a integrálnych počtov. Tieto vzorce sú používané prakticky v každom štatistickom softvéri. Vzorce si nebudeme odvodzovať. Zameriame sa na pochopenie, čo dané vzorce v skutočnosti predstavujú. 
+OLS odhadcovia $\hat\beta_0$ a $\hat\beta_1$ sú vypočítaní zo vzorky, a predstavujú ekvivalent koeficientov $\beta_0$ a $\beta_1$ získaných z populácie. Takisto OLS regresná priamka, $\hat\beta_0 + \hat\beta_{1}X_i$, je vzorkovým ekvivalentom populačnej regresnej priamky, $\beta_0 + \beta_{1}X_i$. Zároveň, OLS zostatky, $\hat{u}_i$, sú vzorkovým ekvivalentom populačných náhodných zložiek, $\epsilon_i$. Mohli by sme sa pokúsiť vyrátať OLS odhadcov $\hat\beta_0$ a $\hat\beta_1$ dosadzovaním rôznych hodnôt $b_0$ a $b_1$ opakovane, až kým by sme nenašli tie, ktoré minimalizujú súčet zostatkov v uvedenom modeli. Takáto metóda by však bola veľmi vyčerpávajúca. Predstavíme si vzorce, ktoré sú vyrátané za použitia diferenciálnych a integrálnych počtov. Tieto vzorce sú používané prakticky v každom štatistickom softvéri. Vzorce si nebudeme odvodzovať. Zameriame sa na pochopenie, čo dané vzorce v skutočnosti predstavujú [1, s. 149]. 
 
 \subsection{Meranie vhodnosti a presnosti predpovede modelu}
 
@@ -318,7 +317,7 @@ Po zostrojení lineárnej regresie sa naskytne otázka:“Ako dobre naša zostro
 \end{enumerate}
 Na zodpovedanie otázok, ako dobre sedí OLS regresná priamka dátam, nám poslúži $R^2$ a štandardná chyba regresie. $R^2$ sa pohybuje v rozsahu medzi 0 a 1, a meria, aká veľká časť zmeny $Y_i$, je vysvetlená zmenou $X_i$. $R^2 = 1$ znamená, že 100\% zmeny $Y_i$ dokážeme vysvetliť pohybom $X_i$. Ak by $Y$ bola cena zmrzliny a $X$ by predstavovalo polevu alebo posýpku, ktorú si na zmrzlinu môžeme pridať, a $R^2$ by malo hodnotu 1, znamenalo by to, že pridanie polevy, ovplyvňuje 100\% zmeny v cene zmrzliny. Teda, jediný faktor ovplyvňujúci cenu zmrzliny, je poleva. Priesečník $\beta_0$ by bol 1€ (základná cena zmrzliny) a $\beta_1$ 0,3€. Pridanie jedného druhu polevy, by navýšilo cenu zmrzliny o 30centov. Každá ďalšia poleva by lineárne zvyšovala cenu o ďalších 30centov. 
 
-Štandardná chyba regresie meria, ako poväčšine vzdialené je $Y_i$ od jej odhadnutej hodnoty, teda bodu na regresnej priamke, ktorý polohou v grafe prislúcha nameranej hodnote.  
+Štandardná chyba regresie meria, ako poväčšine vzdialené je $Y_i$ od jej odhadnutej hodnoty, teda bodu na regresnej priamke, ktorý polohou v grafe prislúcha nameranej hodnote [1, s. 153].  
 
 \subsection{Koeficient determinácie - $R^2$}
 
@@ -340,7 +339,7 @@ Matematicky môžeme $R^2$ zapísať ako podiel vysvetleného súčtu štvorcov\
     \centering
     \includegraphics[scale = 0.5]{diplomka obrazky/11.png}
     \caption{Znázornenie častí $R^2$.}
-    \source{Zdroj: Source of the image.}
+    \source{Zdroj: Prevzaté z [4].}
 \end{figure}
 $R^2$ predstavuje pomer vysvetleného súčtu štvorcov a celkového súčtu štvorcov:
 \begin{equation}
@@ -354,7 +353,7 @@ Z grafu vidíme, že $SST = SSR + SSE$. $R^2$ môžeme vyjadriť aj ako $1$ mín
 \begin{equation}
     R^2 = 1 - \frac{SSR}{SST}
 \end{equation}
-Aj keď $R^2$ vyzerá na prvý pohľad nejednoznačne na pochopenie, a rôzne umocnené súčty sa môžu mýliť, jedná sa jednoducho o korelačný koeficient $r$, umocnený na druhú mocninu. Pri regresii $Y$ na jeden regresor $X$, korelujeme premenné $X$ a $Y$. Ak $\hat\beta_1 = 0$, potom $X_i$ nevysvetľuje žiadnu zmenu $Y_i$, a odhadnutá hodnota $Y_i$ je $\hat{Y}_{i} = \hat\beta_0  = {\overline{Y}}$. V takomto prípade je vysvetlený súčet štvorcov rovný nule, a súčet štvorcov zvyškov sa rovná celkovému súčtu štvorcov, teda $R^2$ je 0. Na rozdiel, ak $X_i$ vysvetľuje všetku zmenu $Y_i$, potom $Y_i = \hat{Y}_{i}$ pre všetky $i$, a všetky zostatky sú rovné nule ($\hat{u}_{i} = 0$), teda $SSE = SST$, teda $R^2$ je v takomto prípade rovné 1. Vo všeobecnosti $R^2$ nenaberá tieto extrémne hodnoty, avšak spadá niekde medzi. $R^2$, ktoré je blízko $1$ naznačuje, že zvolený regresor je dobrý v odhadovaní $Y_i$, naopak $R^2$ blízko 0 naznačuje, že regresor nie je veľmi vhodný v odhadovaní $Y_i$. 
+Aj keď $R^2$ vyzerá na prvý pohľad nejednoznačne na pochopenie, a rôzne umocnené súčty sa môžu mýliť, jedná sa jednoducho o korelačný koeficient $r$, umocnený na druhú mocninu. Pri regresii $Y$ na jeden regresor $X$, korelujeme premenné $X$ a $Y$. Ak $\hat\beta_1 = 0$, potom $X_i$ nevysvetľuje žiadnu zmenu $Y_i$, a odhadnutá hodnota $Y_i$ je $\hat{Y}_{i} = \hat\beta_0  = {\overline{Y}}$. V takomto prípade je vysvetlený súčet štvorcov rovný nule, a súčet štvorcov zvyškov sa rovná celkovému súčtu štvorcov, teda $R^2$ je 0. Na rozdiel, ak $X_i$ vysvetľuje všetku zmenu $Y_i$, potom $Y_i = \hat{Y}_{i}$ pre všetky $i$, a všetky zostatky sú rovné nule ($\hat{u}_{i} = 0$), teda $SSE = SST$, teda $R^2$ je v takomto prípade rovné 1. Vo všeobecnosti $R^2$ nenaberá tieto extrémne hodnoty, avšak spadá niekde medzi. $R^2$, ktoré je blízko $1$ naznačuje, že zvolený regresor je dobrý v odhadovaní $Y_i$, naopak $R^2$ blízko 0 naznačuje, že regresor nie je veľmi vhodný v odhadovaní $Y_i$ [1, s. 153]. 
 
 \subsection{Štandardná chyba regresie}
 
@@ -362,7 +361,7 @@ Aj keď $R^2$ vyzerá na prvý pohľad nejednoznačne na pochopenie, a rôzne um
 \begin{equation}
     SER = s_{\hat{u}} = \sqrt{s_{\hat{u}}^2}, \ kde \ s_{\hat{u}}^2 = \frac{1}{n-2}\sum_{i=1}^{n}\hat{u}_{i}^2 = \frac{SSR}{n-2},
 \end{equation}
-kde vzorec pre $s_{\hat{u}}^2$ pracuje s predpokladom, že výberový priemer $OLS$ zostatkov je $0$. Vzorec pre výpočet $SER$ je podobný vzorcu na výpočet výberovej smerodajnej odchýlky $Y$, s tým rozdielom, že $Y_i - \overline{Y}$ je nahradené $\hat{u}_{i}$, a menovateľ sa zmení z $n - 1$ na $n - 2$. Dôvod prečo použijeme $n - 2$ je rovnaký, ako pri použití $n - 1$. Touto úpravou menovateľa predídeme možnej odchýlke výslednej hodnoty. Odčítame $2$, pretože sme regresiou odhadovali dva koeficienty. Jedná sa o korekciu stupňov voľnosti, keďže sme odhadovali dva koeficienty, $\beta_0$  a $\beta_1$, naše dáta prišli o dva stupne voľnosti.  
+kde vzorec pre $s_{\hat{u}}^2$ pracuje s predpokladom, že výberový priemer $OLS$ zostatkov je $0$. Vzorec pre výpočet $SER$ je podobný vzorcu na výpočet výberovej smerodajnej odchýlky $Y$, s tým rozdielom, že $Y_i - \overline{Y}$ je nahradené $\hat{u}_{i}$, a menovateľ sa zmení z $n - 1$ na $n - 2$. Dôvod prečo použijeme $n - 2$ je rovnaký, ako pri použití $n - 1$. Touto úpravou menovateľa predídeme možnej odchýlke výslednej hodnoty. Odčítame $2$, pretože sme regresiou odhadovali dva koeficienty. Jedná sa o korekciu stupňov voľnosti, keďže sme odhadovali dva koeficienty, $\beta_0$  a $\beta_1$, naše dáta prišli o dva stupne voľnosti [1, s. 154].  
 
 Rozptyl vzorky $s^2_{Y}$ je:
 \begin{equation}
@@ -372,7 +371,7 @@ Rozptyl vzorky $s^2_{Y}$ je:
 \newpage
 \section{Testovanie hypotéz jednoduchej lineárnej regresie}
 
-Tému si vysvetlíme na pokračovaní prípadu o počte žiakov v triede a dosiahnutom počte bodov v teste. Riaditeľ školy si nemyslí, že zmenšovanie počtov žiakov v triedach povedie k lepším výsledkom, a najímanie nových učiteľov považuje za vyhodené peniaze. Ak by sme tento výrok chceli zapísať v jazyku regresnej analýzy, uviedli by sme riaditeľove tvrdenie následovne:"Skutočný kauzálny efekt zmeny počtu žiakov v triede na dosiahnuté skóre je nulový." Teda $\beta_{veľkosť \ triedy} = 0$. 
+Tému si vysvetlíme na pokračovaní prípadu o počte žiakov v triede a dosiahnutom počte bodov v teste. Riaditeľ školy si nemyslí, že zmenšovanie počtov žiakov v triedach povedie k lepším výsledkom, a najímanie nových učiteľov považuje za vyhodené peniaze. Ak by sme tento výrok chceli zapísať v jazyku regresnej analýzy, uviedli by sme riaditeľove tvrdenie následovne:"Skutočný kauzálny efekt zmeny počtu žiakov v triede na dosiahnuté skóre je nulový." Teda $\beta_{veľkosť \ triedy} = 0$ [1, s. 178]. 
 
 Potrebujeme riaditeľovi vyvrátiť, že sklon priamky je nulový, čím mu dokážeme, že veľkosť triedy má vplyv na dosahované skóre žiakov. Na vyvrátenie alebo potvrdenie tejto hypotézy použijeme t – test.  
 
@@ -434,13 +433,13 @@ kde $Pr_{H_0}$ označuje pravdepodobnosť, vyrátanú v súlade s nulovou hypot�
 
 $P-hodnota$ menšia ako $5\%$ nám poskytuje dôkaz proti nulovej hypotéze, v zmysle, že v súlade s nulovou hypotézou je pravdepodobnosť, že dostaneme hodnotu $\hat\beta_{1}$, ktorá je prinajmenšom tak vzdialená od nulovej hypotézy, ako hodnota v skutočnosti pozorovaná, menšia ako $5\%$. Ak je tomu tak, nulová hypotéza je zamietnutá na $5\%$ hladine významnosti.  
 
-Ďalšia možnosť je otestovať hypotézu na $5\%$ hladine významnosti jednoducho, porovnaním absolútnej hodnoty $t-$ ku hodnote $1.96$, čo predstavuje kritickú hodnotu pre obojstranný test, a zamietnutie nulovej hypotézy na $5\%$ hladine významnosti, ak $|t^{odhadnutá}| > 1.96$.
+Ďalšia možnosť je otestovať hypotézu na $5\%$ hladine významnosti jednoducho, porovnaním absolútnej hodnoty $t-$ ku hodnote $1.96$, čo predstavuje kritickú hodnotu pre obojstranný test, a zamietnutie nulovej hypotézy na $5\%$ hladine významnosti, ak $|t^{odhadnutá}| > 1.96$ [1, s. 179].
 
 \begin{figure} 
     \centering 
     \includegraphics[scale = 0.5]{diplomka obrazky/12.png} 
-    \caption{Znázornenie častí $R^2$.} 
-    \source{Zdroj: }
+    \caption{Časti rozdelenia, v ktorých zamietame $H_0$.} 
+    \source{Zdroj: Prevzaté z [5].}
 \end{figure} 
 
 \subsection{Jednostranné hypotézy o sklone $\beta_{1}$}
@@ -461,7 +460,7 @@ $p-hodnota$ pre jednostranný test hypotéz je získaná z kumulatívneho štand
     p-hodnota = Pr(Z<t^{odhadnutá})=\Phi(t^{odhadnutá}).\footnote{Jednostranný, ľavostranný test.}
 \end{equation}
 
-Ak je alternatívnou hypotézou, že $\beta_{1}$ je väčšie ako $\beta_{1, 0}$, nerovnosť v nerovnici sa obráti, takže $p-hodnota$ je pravdepodobnosť pravého chvosta, $Pr(Z>t^{odhadnutá})$. Teda pravdepodobnosť, s akou sa hodnoty v priemere objavia v pravom chvoste rozdelenia.  
+Ak je alternatívnou hypotézou, že $\beta_{1}$ je väčšie ako $\beta_{1, 0}$, nerovnosť v nerovnici sa obráti, takže $p-hodnota$ je pravdepodobnosť pravého chvosta, $Pr(Z>t^{odhadnutá})$. Teda pravdepodobnosť, s akou sa hodnoty v priemere objavia v pravom chvoste rozdelenia [1, s. 183].  
 
 \subsection{Testovanie hypotéz o priesečníku $\beta_{0}$}
 
@@ -483,7 +482,7 @@ Keďže akýkoľvek štatistický odhad sklonu $\beta_{1}$, sa nevyhnutne spája
 
 95\% konfidenčný interval pre $\beta_{1}$ má dve rovnocenné definície. Prvá tvrdí, že konfidenčný interval je súbor hodnôt, ktoré nemôžu byť zamietnuté pri použití obojstranného testu hypotéz s 5\% hladinou významnosti. Druhá tvrdí, že konfidenčný interval je interval, ktorý má 95\% pravdepodobnosť, že bude obsahovať skutočnú hodnotu $\beta_{1}$. Inak povedané, ak by sme zozbierali nekonečné množstvo vzoriek a z každej zostavili konfidenčný interval, 95\% z nich by obsahovalo skutočnú hodnotu $\beta_{1}$. Pretože tento interval obsahuje skutočnú hodnotu v 95\% všetkých vzoriek, vravíme, že máme 95\% úroveň spoľahlivosti.
 
-Dôvod prečo sú tieto dve definície rovnocenné je nasledovný. Test hypotéz s hladinou významnosti 5\% zamietne, podľa definície, skutočnú hodnotu $\beta_{1}$ iba v 5\% prípadoch všetkých možných vzoriek. Teda v 95\% všetkých možných vzoriek skutočná hodnota nebude zamietnutá. Nakoľko 95\% interval spoľahlivosti je súborom všetkých hodnôt $\beta_{1}$, ktoré nie sú zamietnuté na 5\% hladine spoľahlivosti, skutočná hodnota $\beta_{1}$ bude obsiahnutá v intervale spoľahlivosti v 95\% všetkých možných vzoriek.
+Dôvod prečo sú tieto dve definície rovnocenné je nasledovný. Test hypotéz s hladinou významnosti 5\% zamietne, podľa definície, skutočnú hodnotu $\beta_{1}$ iba v 5\% prípadoch všetkých možných vzoriek. Teda v 95\% všetkých možných vzoriek skutočná hodnota nebude zamietnutá. Nakoľko 95\% interval spoľahlivosti je súborom všetkých hodnôt $\beta_{1}$, ktoré nie sú zamietnuté na 5\% hladine spoľahlivosti, skutočná hodnota $\beta_{1}$ bude obsiahnutá v intervale spoľahlivosti v 95\% všetkých možných vzoriek [1, s. 184].
 
 V princípe, 95\% interval spoľahlivosti môže byť vyrátaný testovaním všetkých možných hodnôt B1 (teda testovaním nulovej hypotézy $\beta_{1} = \beta_{1, 0}$ pre všetky hodnoty $\beta_{1, 0}$) na 5\% hladine spoľahlivosti za použitia t-štatistiky. 95\% konfidenčný interval je v takomto prípade súbor všetkých hodnôt $\beta_{1}$, ktoré nie sú zamietnuté. Zostrojenie t-štatistiky pre všetky hodnoty $\beta_{1}$ by však zabralo nekonečne veľa času. 
 Jednoduchší spôsob zostrojenia intervalu spoľahlivosti sa naskytne, keď si uvedomíme, že t-štatistika odmietne vyslovenú hodnotu hypotézu $\beta_{1, 0}$ v prípade, keď je $\beta_{1, 0}$ mimo intervalu $\hat\beta_{1} \pm 1.96SE(\hat\beta_{1})$. To znamená, že 95\% konfidenčný interval pre $\hat\beta_{1}$ je interval: 
@@ -495,7 +494,7 @@ Jednoduchší spôsob zostrojenia intervalu spoľahlivosti sa naskytne, keď si 
 
 95\% konfidenčný interval pre $\beta_0$ zostrojíme rovnako ako pri $\beta_1$. Namiesto $\hat\beta_1$  použijeme $\hat\beta_0$  a namiesto $SE(\hat\beta_{1})$ zas $SE(\hat\beta_{0})$.
 
-$OLS$ regresia výšky dosiahnutého hodnotenia na veľkosť tried poskytla hodnoty odhadcov $\hat\beta_{1} = -2.28$ a $SE(\hat\beta_{1}) = 0.52$. Obojstranný 95\% interval spoľahlivosti pre $\hat\beta_{1}$ je $\{-2.28 \pm 1.96 \times 0.52\}$, alebo $\{-3.30 \leq \beta_{1} \leq -1.26\}$. Hodnota $\beta_{1} = 0$ nie je obsiahnutá v intervale spoľahlivosti, takže nulová hypotéza $\beta_{1} = 0$ môže byť zamietnutá na hladine spoľahlivosti 5\%. 
+$OLS$ regresia výšky dosiahnutého hodnotenia na veľkosť tried poskytla hodnoty odhadcov $\hat\beta_{1} = -2.28$ a $SE(\hat\beta_{1}) = 0.52$. Obojstranný 95\% interval spoľahlivosti pre $\hat\beta_{1}$ je $\{-2.28 \pm 1.96 \times 0.52\}$, alebo $\{-3.30 \leq \beta_{1} \leq -1.26\}$. Hodnota $\beta_{1} = 0$ nie je obsiahnutá v intervale spoľahlivosti, takže nulová hypotéza $\beta_{1} = 0$ môže byť zamietnutá na hladine spoľahlivosti 5\% [1, s. 185]. 
 
 \subsection{Interval spoľahlivosti pre predpovedaný efekt zmeny $X$}
 
@@ -503,7 +502,7 @@ Konfidenčný interval pre $\beta_1$ môže byť použitý na zostrojenie 95\% i
 \begin{equation}
    [\hat\beta_{1} - 1.96SE(\hat\beta_{1})\Delta x \ , \ \hat\beta_{1} + 1.96SE(\hat\beta_{1})\Delta x]. 
 \end{equation}
-Uveďme si príklad. Ak by sme chceli zmeniť pomer študentov k učiteľom (vyjadrenie veľkosti tried) o 2 jednotky, tak keďže $95\%$ interval spoľahlivosti pre $\beta_1$ je $[-3.30, -1.26]$, dôsledok zníženia pomeru o 2 jednotky by mohol mať dopad až $-3.30 \times (-2) = 6.6$ bodu, alebo len $-1.26 \times (-2) = 2.52$. Takže zníženie pomeru študentov k učiteľom o hodnotu 2 by malo odhadovaný efekt navýšenia bodovej úspešnosti študentov v testoch medzi 2.52 a 6.6 bodov, s 95\% úrovňou spoľahlivosti. Ak je pomer študentov k učiteľom $10:1$, tak na jedného učiteľa pripadá $10$ žiakov. Zníženie z 10 na 8 študentov na jedného učiteľa by malo predpovedaný efekt vyrátaný vyššie. 
+Uveďme si príklad. Ak by sme chceli zmeniť pomer študentov k učiteľom (vyjadrenie veľkosti tried) o 2 jednotky, tak keďže $95\%$ interval spoľahlivosti pre $\beta_1$ je $[-3.30, -1.26]$, dôsledok zníženia pomeru o 2 jednotky by mohol mať dopad až $-3.30 \times (-2) = 6.6$ bodu, alebo len $-1.26 \times (-2) = 2.52$. Takže zníženie pomeru študentov k učiteľom o hodnotu 2 by malo odhadovaný efekt navýšenia bodovej úspešnosti študentov v testoch medzi 2.52 a 6.6 bodov, s 95\% úrovňou spoľahlivosti. Ak je pomer študentov k učiteľom $10:1$, tak na jedného učiteľa pripadá $10$ žiakov. Zníženie z 10 na 8 študentov na jedného učiteľa by malo predpovedaný efekt vyrátaný vyššie [1, s. 185]. 
 
 \newpage
 \section{Heteroskedasticita a Homoskedasticita}
@@ -515,10 +514,10 @@ Na druhej strane, druhý graf zobrazuje prípad, kedy sa podmienené rozdelenie 
     \centering 
     \includegraphics[scale = 1.25]{diplomka obrazky/13.png} 
     \caption{a) Homoskedasticita. b) Heteroskedasticita.} 
-    \source{Zdroj: Source of the image.} 
+    \source{Zdroj: Prevzaté z [6].} 
 \end{figure} 
 
-Pretože metóda najmenších štvorcov nemá medzi svojimi predpokladmi žiadne vymedzené obmedzenia týkajúce sa podmieneného rozptylu, predpoklad platí aj v prípade homoskedasticity aj heteroskedasticity. Z toho dôvodu $OLS$ odhadcovia ostanú nestranní, konzistentní a asymptoticky normálni, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Existujú vzorce na výpočet odchýlky, ktoré vopred rátajú, že neznáma zložka je homoskedastická. Z historických dôvodov sú často vzorce tohto typu prednastavené v štatistickom softvéri. Ak je náhodná zložka heteroskedastická, tieto vzorce nie je vhodné použiť. Napríklad, vyrátaná t-štatistika nebude mať štandardné normálne rozdelenie, ani pri veľkých vzorkách. Na druhú stranu, keďže homoskedasticita je mimoriadny prípad heteroskedasticity, odhadcovia $\hat\sigma^2_{\hat\beta_{1}}$ a $\hat\sigma^2_{\hat\beta_{0}}$ rozptylu $\hat\beta_{1}$ a $\hat\beta_{0}$ ponúknu platný štatistický úsudok, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Tým pádom sú testy hypotéz a intervaly spoľahlivosti založené na týchto štandardných chybách platné, či už sú náhodné zložky heteroskedastické, alebo nie. Takéto štandardné chyby sa nazývajú heteroskedasticky-robustné. Ak sú štandardné chyby za použitia vzorcov aj pre homoskedasticitu aj heteroskedastickú robustnosť rovnaké, nič sa nestane, ak použijeme heteroskedasticky-robustné štandardné chyby. Ak sa líšia, mali by sme použiť výsledok z heteroskedasticky-robustného výpočtu. Najjednoduchší spôsob je takéto heteroskedasticky-robustné vzorce pre výpočet štandardnej chyby používať stále. 
+Pretože metóda najmenších štvorcov nemá medzi svojimi predpokladmi žiadne vymedzené obmedzenia týkajúce sa podmieneného rozptylu, predpoklad platí aj v prípade homoskedasticity aj heteroskedasticity. Z toho dôvodu $OLS$ odhadcovia ostanú nestranní, konzistentní a asymptoticky normálni, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Existujú vzorce na výpočet odchýlky, ktoré vopred rátajú, že neznáma zložka je homoskedastická. Z historických dôvodov sú často vzorce tohto typu prednastavené v štatistickom softvéri. Ak je náhodná zložka heteroskedastická, tieto vzorce nie je vhodné použiť. Napríklad, vyrátaná t-štatistika nebude mať štandardné normálne rozdelenie, ani pri veľkých vzorkách. Na druhú stranu, keďže homoskedasticita je mimoriadny prípad heteroskedasticity, odhadcovia $\hat\sigma^2_{\hat\beta_{1}}$ a $\hat\sigma^2_{\hat\beta_{0}}$ rozptylu $\hat\beta_{1}$ a $\hat\beta_{0}$ ponúknu platný štatistický úsudok, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Tým pádom sú testy hypotéz a intervaly spoľahlivosti založené na týchto štandardných chybách platné, či už sú náhodné zložky heteroskedastické, alebo nie. Takéto štandardné chyby sa nazývajú heteroskedasticky-robustné. Ak sú štandardné chyby za použitia vzorcov aj pre homoskedasticitu aj heteroskedastickú robustnosť rovnaké, nič sa nestane, ak použijeme heteroskedasticky-robustné štandardné chyby. Ak sa líšia, mali by sme použiť výsledok z heteroskedasticky-robustného výpočtu. Najjednoduchší spôsob je takéto heteroskedasticky-robustné vzorce pre výpočet štandardnej chyby používať stále [1, s. 189]. 
 
 \newpage
 \section{Viacnásobná lineárna regresia}
@@ -542,7 +541,7 @@ Platnosť podmienok si osvetlíme na nasledujúcich príkladoch:
 \item Ďalšia vynechaná premenná predstavuje počet parkovacích miest pre učiteľov na študenta. Táto premenná spĺňa prvú podmienku, ale druhú nie. Školy s viacerými učiteľmi na žiaka, majú pravdepodobne viac parkovacích miest pre učiteľov, čo zaručuje splnenie prvej podmienky. Avšak, vyučovanie prebieha vo vnútorných priestoroch školy, a nie na parkovisku. Čiže parkovacie miesta nemajú žiaden priamy efekt na vyučovanie, čo odporuje splneniu druhej podmienky. Pretože parkovacie miesta na žiaka nemajú vplyv na výšku skóre, vynechanie tejto premennej z modelu nepovedie k odchýlke vynechanej premennej.
 \end{enumerate}
 
-Prítomnosť odchýlky opomenutej premennej znamená, že predpoklad najmenších štvorcov pre kauzálnu inferenciu $E(u_{i} | X_{i}) = 0$, nie je splnený. Aby sme pochopili prečo, pripomeňme si, že náhodná zložka $u_i$ v modeli jednoduchej lineárnej regresie reprezentuje všetky faktory, iné ako $X_{i}$, ktoré majú vplyv na $Y_{i}$. Ak nejaký z týchto iných faktorov je korelovaný s $X_{i}$, znamená to, že náhodná zložka (ktorá obsahuje tento faktor) je korelovaná s $X_{i}$. Inak povedané, ak má opomenutá premenná vplyv na $Y_{i}$, tento vplyv je zahrnutý v náhodnej zložke, a ak je táto opomenutá premenná korelovaná s $X_{i}$, potom je náhodná zložka korelovaná s $X_{i}$. Pretože $u_{i}$ a $X_{i}$ sú korelované, podmienený priemer (očakávaná hodnota) $u_{i}$ daný $X_{i}$ je nenulový. Táto korelácia porušuje prvú podmienku metódy najmenších štvorcov, čoho dôsledkom je odchýlka $OLS$ odhadcu. Táto odchýlka nezmizne ani pri veľkých vzorkách, čo robí $OLS$ odhadcu nekonzistentným. 
+Prítomnosť odchýlky opomenutej premennej znamená, že predpoklad najmenších štvorcov pre kauzálnu inferenciu $E(u_{i} | X_{i}) = 0$, nie je splnený. Aby sme pochopili prečo, pripomeňme si, že náhodná zložka $u_i$ v modeli jednoduchej lineárnej regresie reprezentuje všetky faktory, iné ako $X_{i}$, ktoré majú vplyv na $Y_{i}$. Ak nejaký z týchto iných faktorov je korelovaný s $X_{i}$, znamená to, že náhodná zložka (ktorá obsahuje tento faktor) je korelovaná s $X_{i}$. Inak povedané, ak má opomenutá premenná vplyv na $Y_{i}$, tento vplyv je zahrnutý v náhodnej zložke, a ak je táto opomenutá premenná korelovaná s $X_{i}$, potom je náhodná zložka korelovaná s $X_{i}$. Pretože $u_{i}$ a $X_{i}$ sú korelované, podmienený priemer (očakávaná hodnota) $u_{i}$ daný $X_{i}$ je nenulový. Táto korelácia porušuje prvú podmienku metódy najmenších štvorcov, čoho dôsledkom je odchýlka $OLS$ odhadcu. Táto odchýlka nezmizne ani pri veľkých vzorkách, čo robí $OLS$ odhadcu nekonzistentným [1, s. 211]. 
 
 \subsubsection{Vzorec pre odchýlku vynechanej premennej}
 
@@ -557,7 +556,7 @@ Ak veľkosť vzorky rastie, $\hat\beta_{1}$ je bližšie k $\beta_{1} + \rho_{Xu
 \item Veľkosť odchýlky závisí od absolútnej výšky korelácie regresora, a náhodnej zložky. 
 \item Smer odchýlky závisí na $pozitivite / negativite$ korelácie medzi $X$ a $u$.
 \end{enumerate}
-Náhodné kontrolované experimenty\footnote{RCT - Randomized contorlled trials.} napomáhajú odstraňovaniu veľkého množstva týchto odchýlok.
+Náhodné kontrolované experimenty\footnote{RCT - Randomized contorlled trials.} napomáhajú odstraňovaniu veľkého množstva týchto odchýlok [1, s. 214].
 
 \subsection{Model viacnásobnej lineárnej regresie}
 
@@ -596,7 +595,7 @@ kde:
 \item Názvoslovie $OLS$ pre viacnásobný model lineárnej regresie je rovnaké ako pre model jednoduchej lineárnej regresie. 
 \end{itemize}
 
-Definícia homoskedasticity a heteroskedasticity v modeli viacnásobnej regresie je obšírnejšia v porovnaní s definíciou pre model jednoduchej regresie. Náhodná zložka $\epsilon_{i}$ v modeli viacnásobnej regresie je homoskedastická, ak rozptyl podmieneného rozdelenia $\epsilon_{i}$ daný $X_{1i}, ..., X_{ki}, var(u_{i}|X_{1i}, ..., X_{ki})$, je konštantný pre $i = 1, ..., n$, čím nie je závislý na hodnotách $X_{1i}, ..., X_{ki}$. Ak táto podmienka nie je splnená, náhodná zložka je heteroskedastická.
+Definícia homoskedasticity a heteroskedasticity v modeli viacnásobnej regresie je obšírnejšia v porovnaní s definíciou pre model jednoduchej regresie. Náhodná zložka $\epsilon_{i}$ v modeli viacnásobnej regresie je homoskedastická, ak rozptyl podmieneného rozdelenia $\epsilon_{i}$ daný $X_{1i}, ..., X_{ki}, var(u_{i}|X_{1i}, ..., X_{ki})$, je konštantný pre $i = 1, ..., n$, čím nie je závislý na hodnotách $X_{1i}, ..., X_{ki}$. Ak táto podmienka nie je splnená, náhodná zložka je heteroskedastická [1, s. 217].
 
 \subsection{Meranie vhodnosti modelu vo viacnásobnej regresii}
 
@@ -607,11 +606,11 @@ Vo viacnásobnej regresii je štandardná chyba regresie vyrátaná ako:
     SER = s_{\hat{u}} = \sqrt{s_{\hat{u}}^2},  \ kde \  s_{\hat{u}}^2 =\frac{1}{n-k-1}\sum_{i=1}^{n}\hat{u_{i}}^2 = \frac{SSR}{n-k-1}.
 \end{equation}
 
-Jediným rozdielom medzi definíciou štandardnej chyby regresie vo viacnásobnej a jednoduchej regresii je iný menovateľ. V definícií pre viacnásobnú regresiu je to $n - k - 1$, namiesto $n - 2$. Menovateľ $n - 2$ pri regrersii s jedným regresorom upravuje odhadcu kvôli nadol smerujúcej odchýlke, ktorá vzniká pri odhade dvoch koeficientov, priesečníku a sklonu. Vo vzorci pre viacnásobnú regresiu menovateľ $n - k - 1$ upravuje pre nadol smerujúcu odchýlku, ktorá vzniká pri odhade $k + 1$ koeficientov. Takisto ako pri už skôr uvedenom vzorci pre jednoduchú regresiu, použitie $n - k - 1$ namiesto $n$ sa nazýva úprava stupňov voľnosti. Pri jednom regresore sa $k = 1$, teda vzorec pre odhad štandardnej chyby regresie pre jednoduchú a viacnásobnú regresiu bude zhodný. Pri veľkom $n$ je efekt úpravy stupňov voľnosti zanedbateľný.   
+Jediným rozdielom medzi definíciou štandardnej chyby regresie vo viacnásobnej a jednoduchej regresii je iný menovateľ. V definícií pre viacnásobnú regresiu je to $n - k - 1$, namiesto $n - 2$. Menovateľ $n - 2$ pri regrersii s jedným regresorom upravuje odhadcu kvôli nadol smerujúcej odchýlke, ktorá vzniká pri odhade dvoch koeficientov, priesečníku a sklonu. Vo vzorci pre viacnásobnú regresiu menovateľ $n - k - 1$ upravuje pre nadol smerujúcu odchýlku, ktorá vzniká pri odhade $k + 1$ koeficientov. Takisto ako pri už skôr uvedenom vzorci pre jednoduchú regresiu, použitie $n - k - 1$ namiesto $n$ sa nazýva úprava stupňov voľnosti. Pri jednom regresore sa $k = 1$, teda vzorec pre odhad štandardnej chyby regresie pre jednoduchú a viacnásobnú regresiu bude zhodný. Pri veľkom $n$ je efekt úpravy stupňov voľnosti zanedbateľný [1, s. 222].   
 
 \subsubsection{Koeficient determinácie - $R^2$}
 
-Pri viacnásobnej regresii vzrastie $R^2$ pri každom pridaní nového regresora, s výnimkou regresora, ktorého odhadnutý koeficient je presne 0. Pri použití $OLS$ metódy na odhad modelu s dvoma regresormi, $OLS$ nájde hodnotu koeficientov, ktorá je najmenšou pri súčte štvorcov zvyškov regresie\footnote{SSR.}. Ak $OLS$ vyhodnotí hodnotu koeficientu odhadcu ako 0, potom ostane súčet štvorcov zvyškov v modeli nezmenený bez ohľadu na to, či pridaná premenná v modeli bude, alebo nebude zahrnutá. Ak však $OLS$ vyhodnotí hodnotu koeficientu odhadcu inú ako presne 0, znamená to, že táto hodnota koeficientu znížila súčet štvorcov zvyškov v regresii v pomere k modelu, ktorý túto premennú nezahŕňa. V praxi je veľmi nezvyčajné pre odhadovaný koeficient, aby mal hodnotu 0, takže vo všeobecnosti každá pridaná premenná znižuje súčet štvorcov zvyškov regresie. To však znamená, že $R^2$ vo všeobecnosti vzrastie (a nikdy neklesne) pri každom pridaní nového regresora. 
+Pri viacnásobnej regresii vzrastie $R^2$ pri každom pridaní nového regresora, s výnimkou regresora, ktorého odhadnutý koeficient je presne 0. Pri použití $OLS$ metódy na odhad modelu s dvoma regresormi, $OLS$ nájde hodnotu koeficientov, ktorá je najmenšou pri súčte štvorcov zvyškov regresie\footnote{SSR.}. Ak $OLS$ vyhodnotí hodnotu koeficientu odhadcu ako 0, potom ostane súčet štvorcov zvyškov v modeli nezmenený bez ohľadu na to, či pridaná premenná v modeli bude, alebo nebude zahrnutá. Ak však $OLS$ vyhodnotí hodnotu koeficientu odhadcu inú ako presne 0, znamená to, že táto hodnota koeficientu znížila súčet štvorcov zvyškov v regresii v pomere k modelu, ktorý túto premennú nezahŕňa. V praxi je veľmi nezvyčajné pre odhadovaný koeficient, aby mal hodnotu 0, takže vo všeobecnosti každá pridaná premenná znižuje súčet štvorcov zvyškov regresie. To však znamená, že $R^2$ vo všeobecnosti vzrastie (a nikdy neklesne) pri každom pridaní nového regresora [1, s. 223]. 
 
 \subsubsection{Upravený koeficient determinácie - $R^2$}
 
@@ -631,7 +630,7 @@ Pre upravený koeficient determinácie platia tri zaujímavosti:
 \begin{enumerate}
     \item $(n - 1) / (n - k - 1)$ je stále väčšie ako 1, takže $\overline{R^2}$ je stále menšie ako $R^2$.
     \item Pridanie regresora má dva opačné efekty na $\overline{R^2}$. Na jednej strane sa zníži $SSR$, čo zvýši $\overline{R^2}$, na druhej strane však narastie $(n - 1) / (n - k - 1)$, čo $\overline{R^2}$ zníži. Či v konečnom dôsledku $\overline{R^2}$ narastie, alebo poklesne, závisí od toho, ktorý z týchto dvoch javov bude silnejší.
-    \item $\overline{R^2}$ môže byť záporný. Jav nastane, ak všetky regresory spoločne znížia súčet štvorcov zvyškov v tak malom množstve, že nedokážu vykompenzovať efekt $(n - 1) / (n - k - 1)$.    
+    \item $\overline{R^2}$ môže byť záporný. Jav nastane, ak všetky regresory spoločne znížia súčet štvorcov zvyškov v tak malom množstve, že nedokážu vykompenzovať efekt $(n - 1) / (n - k - 1)$ [1, s. 223].    
 \end{enumerate}
 
 \newpage
@@ -643,7 +642,7 @@ Je dôležité rozumieť, prečo dokonalá multikolinearita predstavuje problém
 
 Ak sa nad multikolineritou zamyslíme čisto intuitívne, dokonalá multikolinearita predstavuje problém, lebo od regresie požadujeme odpoveď na nelogické otázky. Vo viacnásobnej regresii predstavuje koeficient regresora efekt zmeny tohto regresora, pričom ostatné regresory držíme nemenné. Napríklad $0.34 \times STR$ predstavuje pozitívnu zmenu regresanta, efekt, o koeficient $0.34$, pri zmene $STR$ o jednu jednotku. Pri našej hypotetickej regresií výšky dosiahnutého skóre na $STR$ a $STR$, koeficient prvého $STR$ predstavuje efekt na výšku dosiahnutého skóre pri zmene prvého $STR$, pričom držíme druhé $STR$ nemenné. Toto nedáva zmysel, keďže sa jedná o rovnaké súbory dát, a rovnaké regresory, teda $OLS$ nemôže odhadnúť tento nezmyselný čiastkový efekt na výšku skóre. 
 
-Riešením dokonalej multikolinearity v našej hypotetickej regresií by bolo jednoduché opravenie pravopisnej chyby, a nahradenie nesprávneho regresora tým správnym, zaumieneným. Pri výskyte dokonalej multikolinearity sa často jedná o logickú chybu pri výbere regresora, alebo nepovšimnutie si istých súvislostí, ktoré boli skryté v dátach. Všeobecným riešením dokonalej multikolinearity je modifikácia regresorov, a korektná špecifikácia modelu. 
+Riešením dokonalej multikolinearity v našej hypotetickej regresií by bolo jednoduché opravenie pravopisnej chyby, a nahradenie nesprávneho regresora tým správnym, zaumieneným. Pri výskyte dokonalej multikolinearity sa často jedná o logickú chybu pri výbere regresora, alebo nepovšimnutie si istých súvislostí, ktoré boli skryté v dátach. Všeobecným riešením dokonalej multikolinearity je modifikácia regresorov, a korektná špecifikácia modelu [1, s. 228]. 
 
 \subsection{Nedokonalá multikolinearita}
 
@@ -658,7 +657,7 @@ Efekt nedokonalej multikolinearity na rozptyl $OLS$ odhadcov si môžeme ukáza�
 
 Rozptyl $\hat\beta_{1}$ je nepriamo úmerný k $1-\rho_{X_{1}, X_{2}}^2$, kde $\rho_{X_{1}, X_{2}}^2$ predstavuje koreláciu medzi $X_1$ a $X_2$. Čím väčšia je korelácia medzi týmito dvoma regresormi, tým bližšie je výraz k nule, čo v konečnom dôsledku zväčšuje rozptyl $\hat\beta_{1}$. Vo všeobecnosti platí, že ak je viacero regresorov nedokonalo multikolineárnych, koeficient aspoň jedného z nich bude nepresne odhadnutý. Budú mať teda veľký výberový rozptyl. 
 
-Dokonalá multikolinearita je problém, ktorý často signalizuje prítomnosť logickej chyby. Na rozdiel od nedokonalej multikolinearity, ktorá by sa skôr ako chybou dala nazvať vlastnosťou, či charakteristickým znakom $OLS$, dát a otázky, ktorú sa snažíme zodpovedať. Ak do modelu zahrnieme všetky premenné, ktoré sme tam chceli uviesť, potom nedokonalá multikolinearita naznačuje, že bude náročné presne odhadnúť jeden alebo viacero čiastkových efektov za použitia dát, ktoré máme práve po ruke.  
+Dokonalá multikolinearita je problém, ktorý často signalizuje prítomnosť logickej chyby. Na rozdiel od nedokonalej multikolinearity, ktorá by sa skôr ako chybou dala nazvať vlastnosťou, či charakteristickým znakom $OLS$, dát a otázky, ktorú sa snažíme zodpovedať. Ak do modelu zahrnieme všetky premenné, ktoré sme tam chceli uviesť, potom nedokonalá multikolinearita naznačuje, že bude náročné presne odhadnúť jeden alebo viacero čiastkových efektov za použitia dát, ktoré máme práve po ruke [1, s. 230].  
 
 \newpage
 \section{Testovanie hypotéz viacnásobnej lineárnej regresie}
@@ -667,7 +666,7 @@ Koncepčne sa k výpočtu štandardnej chyby viacnásobnej regresie staviame rov
 \begin{equation}
     H_{0}:\beta_j = \beta_{j,0} \ vs. \ H_{1}:\beta_{j} \neq \beta_{j,0}
 \end{equation}
-Metóda pre zostrojenie konfidenčného intervalu v modeli viacnásobnej regresie, je taktiež totožná ako pre model jednoduchej regresie. Mali by sme ale myslieť na to, že tieto metódy pre kvantifikovanie nespoľahlivosti vzorky, zaručujú správne fungovanie len vo veľkých vzorkách. 
+Metóda pre zostrojenie konfidenčného intervalu v modeli viacnásobnej regresie, je taktiež totožná ako pre model jednoduchej regresie. Mali by sme ale myslieť na to, že tieto metódy pre kvantifikovanie nespoľahlivosti vzorky, zaručujú správne fungovanie len vo veľkých vzorkách [1, s. 248]. 
 
 \subsection{Testovanie viacerých hypotéz}
 
@@ -678,7 +677,7 @@ Pri testovaní dvoch a viac obmedzení regresných koeficientov, hovoríme o spo
 \end{split}
 \end{equation}
 kde $\beta_j, \beta_m, ...,$ označujú odlišné koeficienty regresie, a $\beta_{j,0}, \beta_{m,0}, ...,$ označujú hodnoty týchto koeficientov pod nulovou hypotézou. Ak aspoň jedna z rovníc tvoriacich nulovú hypotézu nebude pravdivá, znamená to, že celá nulová hypotéza nebude pravdivá. Alternatívnou hypotézou teda je, že aspoň jedna rovnosť z nulovej hypotézy $H_{0}$ neplatí. 
-Mohli by sme sa pokúsiť testovať hypotézy jednotlivo pomocou $t-testu$, avšak aj pri nulovej korelácií $t-štatistík$ je pravdepodobnosť, že zamietneme pravdivú hypotézu takmer 10\% ($0.95 \times 0.95$). Pri korelácií $t-štatistík$ sa tento výpočet ďalej komplikuje. Pri testovaní hypotéz takýmto spôsobom sa jednoducho hladina významnosti nerovná tempu, akým sa pravdivé hypotézy naozaj zamietajú. Našťastie poznáme iný prístup k testovaniu viacerých hypotéz. Taký, ktorý dokáže využiť aj koreláciu regresorov. Tento prístup je založený na $F-štatistike$.
+Mohli by sme sa pokúsiť testovať hypotézy jednotlivo pomocou $t-testu$, avšak aj pri nulovej korelácií $t-štatistík$ je pravdepodobnosť, že zamietneme pravdivú hypotézu takmer 10\% ($0.95 \times 0.95$). Pri korelácií $t-štatistík$ sa tento výpočet ďalej komplikuje. Pri testovaní hypotéz takýmto spôsobom sa jednoducho hladina významnosti nerovná tempu, akým sa pravdivé hypotézy naozaj zamietajú. Našťastie poznáme iný prístup k testovaniu viacerých hypotéz. Taký, ktorý dokáže využiť aj koreláciu regresorov. Tento prístup je založený na $F-štatistike$ [1, s. 252].
 
 \newpage
 \section{F-štatistika}
@@ -692,13 +691,13 @@ V prípade, že nulová spojená hypotéza má dve obmedzenia $\beta_{1} = 0$ a 
     F = \frac{1}{2}\left(\frac{t_{1}^2+t_{2}^2-2{{\hat\rho_{t_{1},t_{2}}}}t_{1}t_{2}}{1-\hat{\rho}_{t_{1},t_{2}}^2}\right),
 \end{equation}
 kde $\hat\rho_{t_{1},t_{2}}$ je odhadca koreláci medzi týmito dvoma t-štatistikami. Počet obmedzení značíme písmenom $q$. V našom prípade sa $q = 2$. 
-Pre lepšie pochopenie F-štatistiky v uvedenom vzorci, predpokladajme, že t-štatistiky nie sú korelované, teda výraz $\hat\rho_{t_{1},t_{2}}$ môžeme zo vzorca vyhodiť. Rovnica sa zjednoduší na $F = \frac{1}{2}(t^2_{1} + t^2_{2})$. V tejto rovnici F-štatistika predstavuje priemer druhej mocniny t-štatistík. Pod nulovou hypotézou sú $t_1$ a $t_2$ nezávislé normované\footnote{Normálne (Gaussovo) rozdelenie pravdepodobnosti s parametrami $\mu, \sigma$; stručne zapisujeme $X \sim Norm(\mu,\sigma)$ alebo $X \sim N(\mu, \sigma^2)$. Náhodnú premennú $Y$ s normálnym rozdelením s parametrami $\mu =0$ a $\sigma =1$ nazývame normovanou normálnou náhodnou premennou a zapisujeme $Y \sim Norm(0,1)$ alebo $Y \sim N(0,1)$.} normálne náhodné premenné (t-štatistiky nie sú korelované, lebo to z príkladu predpokladáme), takže pod nulovou hypotézou má F-štatistika rozdelenie $F_{2,\infty}$. Alternatívnou hypotézou je, že buď $\beta_{1}$ alebo $\beta_{2}$ je nenulová (alebo obe). V takomto prípade buď $t^2_{1}$ alebo $t^2_{2}$ (alebo obe) nadobudnú dostatočne veľkú hodnotu na umožnenie testu zamietnuť nulovú hypotézu. Vo všeobecnosti sú t-štatistiky korelované a vzorec pre F-štatistiku v rovnici 11.1 je upravený pre túto koreláciu. Táto úprava zapríčiní, že pod nulovou hypotézou má F-štatistika vo veľkých vzorkách rozdelenie $F_{2,\infty}$, či už sú t-štatistiky korelované, alebo nie. 
+Pre lepšie pochopenie F-štatistiky v uvedenom vzorci, predpokladajme, že t-štatistiky nie sú korelované, teda výraz $\hat\rho_{t_{1},t_{2}}$ môžeme zo vzorca vyhodiť. Rovnica sa zjednoduší na $F = \frac{1}{2}(t^2_{1} + t^2_{2})$. V tejto rovnici F-štatistika predstavuje priemer druhej mocniny t-štatistík. Pod nulovou hypotézou sú $t_1$ a $t_2$ nezávislé normované\footnote{Normálne (Gaussovo) rozdelenie pravdepodobnosti s parametrami $\mu, \sigma$; stručne zapisujeme $X \sim Norm(\mu,\sigma)$ alebo $X \sim N(\mu, \sigma^2)$. Náhodnú premennú $Y$ s normálnym rozdelením s parametrami $\mu =0$ a $\sigma =1$ nazývame normovanou normálnou náhodnou premennou a zapisujeme $Y \sim Norm(0,1)$ alebo $Y \sim N(0,1)$.} normálne náhodné premenné (t-štatistiky nie sú korelované, lebo to z príkladu predpokladáme), takže pod nulovou hypotézou má F-štatistika rozdelenie $F_{2,\infty}$. Alternatívnou hypotézou je, že buď $\beta_{1}$ alebo $\beta_{2}$ je nenulová (alebo obe). V takomto prípade buď $t^2_{1}$ alebo $t^2_{2}$ (alebo obe) nadobudnú dostatočne veľkú hodnotu na umožnenie testu zamietnuť nulovú hypotézu. Vo všeobecnosti sú t-štatistiky korelované a vzorec pre F-štatistiku v rovnici 11.1 je upravený pre túto koreláciu. Táto úprava zapríčiní, že pod nulovou hypotézou má F-štatistika vo veľkých vzorkách rozdelenie $F_{2,\infty}$, či už sú t-štatistiky korelované, alebo nie [1, s. 253]. 
 
 \begin{figure}[!ht] 
     \centering 
     \includegraphics[scale = 0.8]{diplomka obrazky/14.png} 
-    \caption{Kritické hodnoty F-rozdelenia pri $df = m$ a $df = \infty$} 
-    \source{Zdroj: Source of the image.}
+    \caption{Kritické hodnoty F-rozdelenia pre $df = m$ a $df = \infty$.} 
+    \source{Zdroj: Prevzaté z [7].}
 \end{figure} 
 
 \subsection{F-štatistika s viac ako dvoma reštrikciami}
@@ -718,7 +717,7 @@ kde pri dodržaní prvých štyroch podmienok najmenších štvorcoch platí, ž
     F \xrightarrow[\text{}]{\text{\; d \; }} F_{q, \infty}.
 \end{equation}
 Pod nulovou hypotézou má F-štatistika výberové rozdelenie, ktoré je vo veľkých vzorkách určené $F_{q, \infty}$ rozdelením. Teda kritické hodnoty pre F-štatistiku môžeme získať z tabuliek $F_{q, \infty}$ rozdelenia, kde nájdeme požadovanú hodnotu pre $q$ obmedzení a požadovanú hladinu významnosti.
-Vzorec pre F-štatistiku s úpravou pre heteroskedasticitu je implementovaný v štatistických softvéroch a nebudeme naň v tejto práci ďalej upriamovať pozornosť. 
+Vzorec pre F-štatistiku s úpravou pre heteroskedasticitu je implementovaný v štatistických softvéroch a nebudeme naň v tejto práci ďalej upriamovať pozornosť [1, s. 254]. 
 
 \subsection{Celková F-štatistika regresie}
 
@@ -729,7 +728,7 @@ Celková F-štatistika regresie testuje spojenú hypotézu, že všetky koeficie
     H_{1}: & \ \beta_{j} \neq 0, pre \ aspoň \ jedno \ j,\ j=1, ..., k.
 \end{split}
 \end{equation}
-Nulová hypotéza tvrdí, že žiaden z regresorov nevysvetľuje akúkoľvek zmenu v $Y_i$, aj keď priesečník (pod nulovou hypotézou predstavuje priemer $Y_i$) môže byť nenulový. Pri veľkých vzorkách má celková F-štatistika regresie rozdelenie $F_{k,\infty}$, ak je nulová hypotéza pravdivá.
+Nulová hypotéza tvrdí, že žiaden z regresorov nevysvetľuje akúkoľvek zmenu v $Y_i$, aj keď priesečník (pod nulovou hypotézou predstavuje priemer $Y_i$) môže byť nenulový. Pri veľkých vzorkách má celková F-štatistika regresie rozdelenie $F_{k,\infty}$, ak je nulová hypotéza pravdivá [1, s. 255].
 
 \subsection{F-štatistika s jedným obmedzením}
 
@@ -754,12 +753,12 @@ Ekvivalentom k tejto rovnici je vzorec založený na koeficiente determinácie $
 \begin{equation}
     F= \frac{(R^2_{neobmedzená}-R^2_{obmedzená} / q}{(1 - R^2_{neobmedzená})/ (n-k_{neobmedzená}-1)}.
 \end{equation}
-Ak sú zvyšky homoskedastické, potom rozdiel medzi F-štatistikou pre homoskedasticitu, vyrátanú poslednými dvoma uvedenými vzorcami, a robustnou F-štatistikou mizne, ako veľkosť vzorky $n$ narastá. Takže, ak sú zvyšky homoskedastické, výberové rozdelenie F-štatistiky pre homoskedasticitu v súlade s nulovou hypotézou, je vo veľkých vzorkách $F_{q,\infty}$. 
+Ak sú zvyšky homoskedastické, potom rozdiel medzi F-štatistikou pre homoskedasticitu, vyrátanú poslednými dvoma uvedenými vzorcami, a robustnou F-štatistikou mizne, ako veľkosť vzorky $n$ narastá. Takže, ak sú zvyšky homoskedastické, výberové rozdelenie F-štatistiky pre homoskedasticitu v súlade s nulovou hypotézou, je vo veľkých vzorkách $F_{q,\infty}$ [1, s. 256]. 
 \begin{figure}[!ht] 
     \centering 
     \includegraphics[scale = 0.5]{diplomka obrazky/15.png} 
     \caption{Neobmedzený, obmedzený a iba-priesečník model.} 
-    \source{Zdroj: Source of the image.} 
+    \source{Zdroj: Prevzaté z [8].} 
 \end{figure} 
 
 \newpage
@@ -774,11 +773,11 @@ Ak chceme určite vhodné kontrolné premenné, vo všeobecnosti nám ako odpove
 kde $X_{t}$ označuje premennú alebo premenné, ktoré nás zaujímajú, a $W_{t}$ označuje jednu alebo viacero kontrolných premenných.
 Tento vzorec znamená, že ak kontrolujeme pre $W$, $X$ nie je závislé od zvyškov regresie, teda je nezávislé od zvyškov. Inak, podmienené očakávanie zvyškov regresie nezávisí na $X$, ak kontrolujeme pre $W$. Podmienený $W$, $X$ je akoby náhodne určené, takže $X$ sa stane nekorelovaným s $u$, avšak $W$ s $u$ korelované byť môže. Keďže v ekonometrii pracujeme s premennými, pri ktorých si nie sme istí, či sú náhodne rozdelené, a nezávislé od náhodnej zložky, používame kontrolné premenné. Ak tento vzťah nebude dodržaný, naďalej sa budú vyskytovať determinanty $Y$, ktoré nie sú zahrnuté v modeli, a sú korelované s $X$ aj napriek tomu, že držíme $W$ konštantné. Výsledkom čoho je odchýlka vynechanej premennej. Za dodržania podmienenej nezávislosti priemeru, nám $OLS$ môže poskytnúť konzistentného odhadcu bez odchýlky pre $X$, avšak nie pre koeficient $W$. 
 
-Zvyčajne sa postupuje v dvoch krokoch. Prvým je základný súbor regresorov, ktorý sme určili na základe znalostí tematiky, ekonomickej teórie a vedomostiach o spôsobe zberu dát. Regresia, ktorá používa tento základný súbor regresorov sa zvykne označovať ako základná špecifikácia. Táto základná špecifikácia by mala obsahovať premenné, ktoré nás zaujímajú a zároveň kontrolné premenné, ktoré sme určili na základe skúseností a ekonomickej teórie. Znalosti a teória však málokedy stačia na úplné zostavenie modelu, keďže k premenným, ktoré by sme ideálne chceli v modeli, nedokážeme zohnať dostatok dát. Tým pádom je ďalším krokom vytvorenie zoznamu kandidátov pre alternatívnu špecifikáciu, alternatívny súbor regresorov. Ak sú odhady koeficientov, premennej záujmu, numericky podobné naprieč alternatívnou špecifikáciou, znamená to, že odhady zo základnej špecifikácie sú spoľahlivé. Naopak, ak sa hodnoty koeficientov výrazne zmenia naprieč alternatívnou špecifikáciou, často to znamená, že základná špecifikácia mala odchýlku vynechanej premennej, čo môže znamenať, že rovnakým problémom bude trpieť aj alternatívna špecifikácia. 
+Zvyčajne sa postupuje v dvoch krokoch. Prvým je základný súbor regresorov, ktorý sme určili na základe znalostí tematiky, ekonomickej teórie a vedomostiach o spôsobe zberu dát. Regresia, ktorá používa tento základný súbor regresorov sa zvykne označovať ako základná špecifikácia. Táto základná špecifikácia by mala obsahovať premenné, ktoré nás zaujímajú a zároveň kontrolné premenné, ktoré sme určili na základe skúseností a ekonomickej teórie. Znalosti a teória však málokedy stačia na úplné zostavenie modelu, keďže k premenným, ktoré by sme ideálne chceli v modeli, nedokážeme zohnať dostatok dát. Tým pádom je ďalším krokom vytvorenie zoznamu kandidátov pre alternatívnu špecifikáciu, alternatívny súbor regresorov. Ak sú odhady koeficientov, premennej záujmu, numericky podobné naprieč alternatívnou špecifikáciou, znamená to, že odhady zo základnej špecifikácie sú spoľahlivé. Naopak, ak sa hodnoty koeficientov výrazne zmenia naprieč alternatívnou špecifikáciou, často to znamená, že základná špecifikácia mala odchýlku vynechanej premennej, čo môže znamenať, že rovnakým problémom bude trpieť aj alternatívna špecifikácia [1, s. 261]. 
 
 \subsection{Chybná funkčná forma regresie}
 
-Ďalším problémom je výber funkčnej formy regresie. Ak bude model lineárny, avšak vzťah premenných bude nelineárny, nastane skreslenie výsledných koeficientov regresie, čiže regresia nebude vhodne opisovať vzťah medzi premennými. Predísť chybnej špecifikácií funkčnej formy regresie je možné jednoduchým premietnutím dát na graf, a pomocou pozorovania určiť najvhodnejšiu funkčnú formu regresie. Toto chybné určenie funkčnej formy regresie je druh odchýlky vynechanej premennej, kde opomenutá premenná predstavuje chýbajúci nelineárny aspekt regresnej funkcie. 
+Ďalším problémom je výber funkčnej formy regresie. Ak bude model lineárny, avšak vzťah premenných bude nelineárny, nastane skreslenie výsledných koeficientov regresie, čiže regresia nebude vhodne opisovať vzťah medzi premennými. Predísť chybnej špecifikácií funkčnej formy regresie je možné jednoduchým premietnutím dát na graf, a pomocou pozorovania určiť najvhodnejšiu funkčnú formu regresie. Toto chybné určenie funkčnej formy regresie je druh odchýlky vynechanej premennej, kde opomenutá premenná predstavuje chýbajúci nelineárny aspekt regresnej funkcie [1, s. 336]. 
 
 \input{prakticka}
 
@@ -795,8 +794,12 @@ Priebeh štúdia ekonometrie je naprieč inštitúciami či študijnými materi�
 Cieľom práce bolo splnenie troch cieľov. Prvým bolo spracovanie prehľadu o ekonometrických technikách vyučovaných na predmete Ekonometria, čomu bola venovaná teoretická časť práce. Práca obsiahla väčšinu podstatných teoretických základov, ktoré sú uvedené v osnove predmetu Ekonometria. Druhým cieľom bolo analyzovať dostupné využiteľné balíky implementované v programe R. Tomuto cieľu sa práca venuje nepriamo. V práci nie sú venované konkrétne kapitoly opisu a analýze dostupných balíkov, namiesto toho bola v praktickej časti ukázaná a opísaná práca s balíkmi, s ktorými sa pri výučbe predmetu pracuje. Dôraz je kladený na súvislú integráciu všetkých troch cieľov do súvislého diela. Tretím cieľom bolo navrhnúť konkrétne softvérové riešenia pre výučbu predmetu Ekonometria, čo bolo splnené primárne v praktickej časti. Praktická časť bola vypracovaná v programovacom prostredí R, za pomoci editora R Markdown. To umožňuje študentom interaktívnu prácu s textom, v podobe jednoduchého kopírovania kódu, a v prípade štúdia bez prítomnosti výpočtovej techniky, môže študent vidieť výstupy práce so softvérom. Jadro práce slúži ako sprievodca pri výučbe Ekonometrie, aj keď presne nekopíruje náplň jednotlivých vyučovaní. Slúži ako príručka, ktorá študenta po prečítaní obohatí, prípadne do nej nazrie, ak bude mať na hodine nejasnosti. Jadro práce bolo začaté vysvetlením základných funkcií programovacieho jazyka R. Opisuje prácu s aritmetickými operátormi, inštalovanie a načítanie balíkov, fungovanie funkcií a vytváranie objektov a vektorov. Pri vektoroch sa pozornosť venovala aj ich vytváraniu, keďže je to možné viacerými spôsobmi. Okrem vytvárania predstavuje aj rôzne typy vektorov. Nasledujú matice, kde je zobrazené ich vytváranie, práca s nimi, a opísanie ich vlastností. Nasleduje práca so súbormi dát, ktorá predstavuje načítanie dát do programovacieho prostredia, prípadné ukladanie súborov dát do objektov. Opísaný je aj rozdiel vo funkciách, používaných na načítanie dát zo súborov. Pokračujeme prácou s jednoduchou lineárnou regresiou, a to súbežným opisovaním postupov a práce s funkciami v R. Veci, na ktoré je kladený dôraz, sú prezentované grafmi, ktoré uľahčujú prezentáciu myšlienky. Kapitola lineárnej regresie sa venovala opisu fungovanie estimátorov a odhadu modelu. Fungovanie estimátorov bolo ukázané na vzťahu spoločného rozptylu a rozptylu. Ďalšia kapitola sa venovala štatistike a konceptom, ktoré boli kľúčové pre naplnenie potenciálu práce a vedomostí, poskytovaných na hodinách vyučujúcimi. Kapitola obsahuje normálne rozdelenie, očakávanú hodnotu, zákon veľkých čísel, náhodný výber a limitnú vedu. Po vysvetlení štatistickej teórie nasledujú podmienky lineárnej regresie. Potom sa pozornosť venovala výstupu regresie, a to jednotlivým zložkám, konkrétne t-testu a t-štatistike, štandardnej odchýlke a štandardnej chybe, kritickým hodnotám, p-hodnote a intervalom spoľahlivosti. Praktická časť je zavŕšená opisom vlastností rezíduí, ktorými sú normalita, homoskedasticita, autokorelácia a multikolinearita. Ak by mala mať práca pokračovanie, určite by bolo vhodné zamerať sa na aplikovanú stránku ekonometrie. Práve tam sa nachádza pravá sila ekonometrie, ktorá je však začiatočníkom neprístupná. Je potrebné prv uchopiť základné koncepty. Vydať sa môžeme aj smerom k rôznym typom dát, napríklad k veľmi obľúbeným časovým radom. Každý koncept v ekonometrii je desaťkrát hlbší, ako si na začiatku myslíme. Na výber je preto mnoho smerov, a zišla by sa príručka, ktorá študentovi znázorní základy aplikovanej ekonometrie a možné smerovania.
 
 
-\include{literatura}
-%
+\newpage
+\addcontentsline{toc}{section}{Zoznam použitej literatúry}
+\section*{Zoznam použitej literatúry}
+
+
+
 \include{prilohy}
 %
 \include{prilohaa}
