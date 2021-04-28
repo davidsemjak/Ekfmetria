@@ -1445,11 +1445,13 @@ týmito premennými.
 
 \begin{figure}
 \begin{center}
-    \includegraphics{test_files/figure-latex/unnamed-chunk-39-1.pdf}
+    \includegraphics[width=0.8\textwidth,height=\textheight]{test_files/figure-latex/unnamed-chunk-39-1.pdf}
     \caption{Výstup funkcie plot().}
     \source{Zdroj: Vlastná tvorba.}
 \end{center}
 \end{figure}
+
+\newpage
 
 Vidíme istú negatívnu závislosť. Chceli by sme si to však potvrdiť
 číslami. Bolo by fajn napasovať medzi tieto pozorovania takú priamku,
@@ -1518,7 +1520,7 @@ Skúsme si takýto model zostrojiť v R-ku, a priamku dopasovať do grafu.
 
 \begin{figure}
 \begin{center}
-\includegraphics{test_files/figure-latex/unnamed-chunk-41-1.pdf}
+\includegraphics[width=0.8\textwidth,height=\textheight]{test_files/figure-latex/unnamed-chunk-41-1.pdf}
 \caption{Výstup funkcie plot().}
 \source{Zdroj: Vlastná tvorba.}
 \end{center}
@@ -1544,7 +1546,7 @@ intuície. Vysvetlíme si graficky, čo touto metódou chceme docieliť.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.85\textwidth,height=\textheight]{diplomka obrazky/4.png}
+\includegraphics[width=0.8\textwidth,height=\textheight]{diplomka obrazky/4.png}
 \caption{Vyobrazenie vzdialenosti rezíduí k priamke.}
 \source{Zdroj: Prevzaté z [10].}
 \end{center}
@@ -1821,7 +1823,7 @@ rozmedzí 3 smerodajných odchýlok. To sa nám zíde pri testovaní hypotéz.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Zostrojme si pre ilustráciu normálne rozdelenie.}
-\CommentTok{# Môžeme pôužiť dnorm(), pre vyrátanie krásneho normálneho rozdelenia,}
+\CommentTok{# Môžeme použiť dnorm(), pre vyrátanie krásneho normálneho rozdelenia,}
 \CommentTok{# ktorému by sme zadali vlastné hodnoty, my však použijeme rnorm(),}
 \CommentTok{# pre vygenerovanie n hodnôt z normálneho rozdelenia.}
 
@@ -1845,7 +1847,7 @@ rozmedzí 3 smerodajných odchýlok. To sa nám zíde pri testovaní hypotéz.
 
 \begin{figure}
 \begin{center}
-\includegraphics{test_files/figure-latex/unnamed-chunk-44-1.pdf}
+\includegraphics[width=0.8\textwidth,height=\textheight]{test_files/figure-latex/unnamed-chunk-44-1.pdf}
 \caption{Normálne rozdelenia s rôznou veľkosťou/počtom košov.}
 \source{Zdroj: Vlastná tvorba.}
 \end{center}
@@ -1858,6 +1860,31 @@ rozmedzí 3 smerodajných odchýlok. To sa nám zíde pri testovaní hypotéz.
 \end{Shaded}
 
 \newpage
+
+\subsubsection{Počet košov v histograme.}
+
+Koľko breakov však použiť? Viac košov (breakov, tried...) nám poskytne detailnejší pohľad na dáta, pri vysokom počte košov nás to však stojí efektívnosť sumarizácie dát. Na druhej strane, nízky počet košov poskytne histogram natoľko tesný, že nám nemusí poskytnúť žiadnu užitočnú informáciu. Aby boli koše porovnateľné, je žiadúce, aby boli koše rovnako veľké. Dôležitou informáciou pri zostavovaní histogramu predstavuje šírka košov (šírka intervalu, šírka triedy). V ideálnych prípadoch použijeme počet košov rovnaký, ako počet tried. Teda, ak máme 5 veľkostí jabĺk, každá veľkosť bude mať vlastný kôš. Nie vždy však pracujeme s takýmito ružovými dátami. Šírku koša by sme mohli vyrátať ako:
+\begin{equation}
+    h = \frac{rozsah \ dát}{počet \ tried} \ (Wand, 1997),
+\end{equation}
+kde $h$ je šírka koša a počet tried je počet požadovaných tried. Vzorec môžeme upraviť, aby sme počet tried určili podľa šírky.
+
+Koľko teda tried? Stretávame sa s množstvom odporúčaní. Množstvo príručiek odporúča ako všeobecné pravidlo ideálne 10 intervalov, avšak v prípade potreby viac, nie ale viac ako 30. Ostatní odporúčajú rozmedzie medzi 10 až 20, ďalší 10 až 14, ostatní 5 až 15. Možno už viete, kam tým smerujem. Napriek odporúčaniam štatistici-štatisti prišli so vzorcami na určenie vhodného množstva tried, ktoré budeme označovať písmenom $k$.
+
+"Zlatým štandardom" je Sturgeho pravidlo, ktorého vzorec je:
+\begin{equation}
+    k = 1 + [3.3 \times log_{10}(n)],
+\end{equation}
+kde $n$ je počet pozorovaní.
+
+Ak by ste si pozreli citovaný dokument, videli by ste vyše dvoch desiatok vzorcov pre výpočet počtu košov. Tento vzorec prischol, lebo pri menších vzorkách (do 200) poskytoval podobné výsledky naprieč vzorcami. Pri veľkých vzorkách však nefunguje tak dobre. Taktiež mu veľmi nesvedčia zošikmené dáta, ktoré nemajú normálne rozdelenie. Vtedy je vhodné siahnuť po alternatívach. Jednou z takýchto alternatív je pravidlo Freedmana a Dianocisa:
+\begin{equation}
+    k = \left\lfloor \frac{rozsah \ dát}{2 \times (IQR) \times n^{-1/3}} \right \rfloor,
+\end{equation}
+
+kde $IRQ$ predstavuje interquartile range, čiže medzikvartilový rozsah $(Q_{3} - Q_{1})$, a neúplné hranaté zátvorky predstavujú podlahu, čo znamená, že zaokrúhľujeme na najbližšie celé číslo nadol. Ak by chýbala spodná časť, mali by sme strop, a teda zaokrúhľovali na najbližšie celé číslo nahor.
+Niekto iný by však mohol tvrdiť, že používanejší je niektorý z iných vzorcov.
+Keďže neexistuje jeden vzorec, na ktorom sa všetci zhodli, nie je nesprávne, a neobvyklé, používať svojvoľný počet košov. Berte to teda skôr ako ukážku, že niečo také existuje, a v prípade potreby budete vedieť, že môžete siahnuť po tabuľkách či vzorcoch, a vyskúšať podľa nich rôzne veľkosti košov [11]. 
 
 \hypertarget{oux10dakuxe1vanuxe1-hodnota}{%
 \subsection{Očakávaná hodnota}\label{oux10dakuxe1vanuxe1-hodnota}}
@@ -1884,7 +1911,7 @@ nie som moc na gambling.
 
 \includegraphics[width=0.8\textwidth,height=\textheight]{diplomka obrazky/5.png}
 \caption{Pravdepodobnosť výskytu jednotlivých súčtov hodov.}
-\source{Zdroj: Prevzaté z [11].}
+\source{Zdroj: Prevzaté z [12].}
 \end{center}
 \end{figure}
 
@@ -2019,9 +2046,9 @@ sme si predstavili vyššie.}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[!ht]
 \begin{center}
-\includegraphics{test_files/figure-latex/unnamed-chunk-45-1.pdf}
+\includegraphics[width=0.9\textwidth,height=\textheight]{test_files/figure-latex/unnamed-chunk-45-1.pdf}
 \caption{Vychýlené rozdelenie.}
 \source{Zdroj: Vlastná tvorba.}
 \end{center}
@@ -2103,7 +2130,7 @@ na t-rozdelenie.
 
 \includegraphics{diplomka obrazky/7.png}
 \caption{Efektívnosť rozdelenia.}
-\source{Zdroj: Prevzaté z [12].}
+\source{Zdroj: Prevzaté z [14].}
 \end{center}
 \end{figure}
 
@@ -2247,11 +2274,13 @@ náhodou (menej ako 5\% sa berie ako náhoda, ``by chance''), je menej ako
 \begin{figure}
 \begin{center}
 
-\includegraphics{diplomka obrazky/8.png}
+\includegraphics[width=0.8\textwidth,height=\textheight]{diplomka obrazky/8.png}
 \caption{Smerodajné odchýlky a frekvencia rozdelenia.}
 \source{Zdroj: Prevzaté z [13].}
 \end{center}
 \end{figure}
+
+\newpage
 
 \hypertarget{p-hodnota}{%
 \subsection{p-hodnota}\label{p-hodnota}}
@@ -2370,6 +2399,8 @@ nulovú hypotézu, rezíduá teda sú rozdelené normálne-ish.
 \end{center}
 \end{figure}
 
+\newpage
+
 Všetky podmienky, ktoré spomenieme nebudú ovplyvnovať odchýlku
 koeficientu, avšak budú ovplyvňovať štandardnú chybu, teda aj
 t-štatistiku a p-hodnotu. To nám znemožní správne odhadnúť štatistickú
@@ -2411,7 +2442,7 @@ rozptyl nie je, lebo keď zarobia 1000eur, nemôžu minút na potraviny 10
 
 \begin{figure}
 \begin{center}
-\includegraphics{test_files/figure-latex/unnamed-chunk-51-1.pdf}
+\includegraphics[width=1\textwidth,height=\textheight]{test_files/figure-latex/unnamed-chunk-51-1.pdf}
 \caption{Prítomnosť heteroskedasticity.}
 \source{Zdroj: Vlastná tvorba.}
 \end{center}
@@ -2420,6 +2451,8 @@ rozptyl nie je, lebo keď zarobia 1000eur, nemôžu minút na potraviny 10
 Prítomnosť heteroskedasticity \textbf{zmenší} štandardnú chybu,
 dostaneme menšie hodnoty, než by sme mali. To môže viesť k označeniu
 koeficientu za štatisticky signifikantný, aj keď to nebude pravda.
+
+\newpage
 
 Heteroskedasticitu môžeme detekovať pomocou:
 
@@ -2460,7 +2493,7 @@ ukážeme ako taká autokorelácia vyzerá.
 \begin{center}
 \includegraphics{diplomka obrazky/9.png}
 \caption{Prítomnosť autokorelácie.}
-\source{Zdroj: Prevzaté z [14].}
+\source{Zdroj: Prevzaté z [15].}
 \end{center}
 \end{figure}
 
@@ -2476,7 +2509,7 @@ ukážeme ako taká autokorelácia vyzerá.
 
 \begin{figure}
 \begin{center}
-\includegraphics{test_files/figure-latex/unnamed-chunk-52-1.pdf}
+\includegraphics[width=0.8\textwidth,height=\textheight]{test_files/figure-latex/unnamed-chunk-52-1.pdf}
 \caption{Výstup funkcie acf().}
 \source{Zdroj: Vlastná tvorba.}
 \end{center}
@@ -2504,7 +2537,6 @@ pomocou:
 \end{itemize}
 
 A vyriešiť pomocou:
-
 \begin{itemize}
 \tightlist
 \item

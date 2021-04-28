@@ -47,6 +47,7 @@
 \usepackage{longtable,booktabs}
 \usepackage{etoolbox}
 \usepackage{grffile}
+\usepackage{enumitem}
 
 \makeglossary % prikaz na vytvorenie suboru .glo
 
@@ -274,6 +275,8 @@ Výraz $\epsilon_i$ v rovnici predstavuje náhodnú zložku. Ani tento výraz sa
     \source{Zdroj: Prevzaté z [3].}
 \end{figure}
 
+\newpage
+
 \subsection{Odhad koeficientov modelu lineárnej regresie}
 
 Pri praktických situáciách, ako napríklad určenie dosiahnutých bodov na testoch pomocou počtu žiakov v triedach, je priesečník $\beta_0$ a sklon $\beta_1$ regresnej populačnej priamky neznámy. Teda, potrebujeme dáta, aby sme tieto neznáme koeficienty mohli odhadnúť. 
@@ -435,7 +438,7 @@ $P-hodnota$ menšia ako $5\%$ nám poskytuje dôkaz proti nulovej hypotéze, v z
 
 Ďalšia možnosť je otestovať hypotézu na $5\%$ hladine významnosti jednoducho, porovnaním absolútnej hodnoty $t-$ ku hodnote $1.96$, čo predstavuje kritickú hodnotu pre obojstranný test, a zamietnutie nulovej hypotézy na $5\%$ hladine významnosti, ak $|t^{odhadnutá}| > 1.96$ [1, s. 179].
 
-\begin{figure} 
+\begin{figure}[!ht] 
     \centering 
     \includegraphics[scale = 0.5]{diplomka obrazky/12.png} 
     \caption{Časti rozdelenia, v ktorých zamietame $H_0$.} 
@@ -510,14 +513,15 @@ Uveďme si príklad. Ak by sme chceli zmeniť pomer študentov k učiteľom (vyj
 Náhodná zložka ${u}_{i}$  je homoskedastická, ak rozptyl podmieneného rozdelenia ${u}_{i}$ daný\footnote{(${u}_{i}$ | $X_{i}$)} $X_{i}$, je konštantný pre $i = 1, ..., n$, a obzvlášť nezávisí na $X_{i}$. Ak táto podmienka nie je splnená, hovoríme, že náhodná zložka je heteroskedastická. Najlepšie to vysvetlíme ilustráciou náhodných zložiek a porovnaním ich rozptylov vizuálne. Distribúcia náhodnej zložky ${u}_{i}$ je ilustrovaná pre viaceré hodnoty $x$. Keďže sa toto rozdelenie týka konkrétne vyznačených hodnôt $x$, jedná sa o podmienené rozdelenie ${u}_{i}$ daný $X_{i} = x$, ktoré má podľa prvej podmienky najmenších štvorcov priemer rovný nule pre všetky $x$. Na prvom grafe majú všetky tieto podmienené rozdelenia rovnaký rozptyl, inak povedané, rozptyl všetkých týchto rozdelení je rovnaký pre rôzne hodnoty $x$. Podmienená zmena ${u}_{i}$ daný $X_{i} = x$, nezávisí od $x$, teda neznáme zložky sú homoskedastické. 
 
 Na druhej strane, druhý graf zobrazuje prípad, kedy sa podmienené rozdelenie ${u}_{i}$ rozpína s narastajúcim $x$. Pri malých hodnotách $x$ je rozdelenie úzke, avšak pri väčších hodnotách $x$ je rozdelenie širšie. V druhom grafe rozptyl ${u}_{i}$ daný $X_{i} = x$ narastá s $x$, teda neznáma zložka je heteroskedastická. 
-\begin{figure}[!ht] 
+
+Pretože metóda najmenších štvorcov nemá medzi svojimi predpokladmi žiadne vymedzené obmedzenia týkajúce sa podmieneného rozptylu, predpoklad platí aj v prípade homoskedasticity aj heteroskedasticity. Z toho dôvodu $OLS$ odhadcovia ostanú nestranní, konzistentní a asymptoticky normálni, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Existujú vzorce na výpočet odchýlky, ktoré vopred rátajú, že neznáma zložka je homoskedastická. Z historických dôvodov sú často vzorce tohto typu prednastavené v štatistickom softvéri. Ak je náhodná zložka heteroskedastická, tieto vzorce nie je vhodné použiť. Napríklad, vyrátaná t-štatistika nebude mať štandardné normálne rozdelenie, ani pri veľkých vzorkách. Na druhú stranu, keďže homoskedasticita je mimoriadny prípad heteroskedasticity, odhadcovia $\hat\sigma^2_{\hat\beta_{1}}$ a $\hat\sigma^2_{\hat\beta_{0}}$ rozptylu $\hat\beta_{1}$ a $\hat\beta_{0}$ ponúknu platný štatistický úsudok, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Tým pádom sú testy hypotéz a intervaly spoľahlivosti založené na týchto štandardných chybách platné, či už sú náhodné zložky heteroskedastické, alebo nie. Takéto štandardné chyby sa nazývajú heteroskedasticky-robustné. Ak sú štandardné chyby za použitia vzorcov aj pre homoskedasticitu aj heteroskedastickú robustnosť rovnaké, nič sa nestane, ak použijeme heteroskedasticky-robustné štandardné chyby. Ak sa líšia, mali by sme použiť výsledok z heteroskedasticky-robustného výpočtu. Najjednoduchší spôsob je takéto heteroskedasticky-robustné vzorce pre výpočet štandardnej chyby používať stále [1, s. 189]. 
+
+\begin{figure}[!ht]
     \centering 
     \includegraphics[scale = 1.25]{diplomka obrazky/13.png} 
     \caption{a) Homoskedasticita. b) Heteroskedasticita.} 
     \source{Zdroj: Prevzaté z [6].} 
 \end{figure} 
-
-Pretože metóda najmenších štvorcov nemá medzi svojimi predpokladmi žiadne vymedzené obmedzenia týkajúce sa podmieneného rozptylu, predpoklad platí aj v prípade homoskedasticity aj heteroskedasticity. Z toho dôvodu $OLS$ odhadcovia ostanú nestranní, konzistentní a asymptoticky normálni, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Existujú vzorce na výpočet odchýlky, ktoré vopred rátajú, že neznáma zložka je homoskedastická. Z historických dôvodov sú často vzorce tohto typu prednastavené v štatistickom softvéri. Ak je náhodná zložka heteroskedastická, tieto vzorce nie je vhodné použiť. Napríklad, vyrátaná t-štatistika nebude mať štandardné normálne rozdelenie, ani pri veľkých vzorkách. Na druhú stranu, keďže homoskedasticita je mimoriadny prípad heteroskedasticity, odhadcovia $\hat\sigma^2_{\hat\beta_{1}}$ a $\hat\sigma^2_{\hat\beta_{0}}$ rozptylu $\hat\beta_{1}$ a $\hat\beta_{0}$ ponúknu platný štatistický úsudok, či už je neznáma zložka heteroskedastická, alebo homoskedastická. Tým pádom sú testy hypotéz a intervaly spoľahlivosti založené na týchto štandardných chybách platné, či už sú náhodné zložky heteroskedastické, alebo nie. Takéto štandardné chyby sa nazývajú heteroskedasticky-robustné. Ak sú štandardné chyby za použitia vzorcov aj pre homoskedasticitu aj heteroskedastickú robustnosť rovnaké, nič sa nestane, ak použijeme heteroskedasticky-robustné štandardné chyby. Ak sa líšia, mali by sme použiť výsledok z heteroskedasticky-robustného výpočtu. Najjednoduchší spôsob je takéto heteroskedasticky-robustné vzorce pre výpočet štandardnej chyby používať stále [1, s. 189]. 
 
 \newpage
 \section{Viacnásobná lineárna regresia}
@@ -700,6 +704,8 @@ Pre lepšie pochopenie F-štatistiky v uvedenom vzorci, predpokladajme, že t-š
     \source{Zdroj: Prevzaté z [7].}
 \end{figure} 
 
+\newpage
+
 \subsection{F-štatistika s viac ako dvoma reštrikciami}
 
 Uvažujme spojenú hypotézu, ktorá je lineárna v koeficientoch a má $q$ obmedzení, kde $q \leq k + 1$. Každé z týchto $q$ obmedzení môže zahŕňať jeden, alebo viacero regresných koeficientov. Túto spojenú nulovú hypotézu môžeme zapísať v maticovom zápise ako:
@@ -754,14 +760,16 @@ Ekvivalentom k tejto rovnici je vzorec založený na koeficiente determinácie $
     F= \frac{(R^2_{neobmedzená}-R^2_{obmedzená} / q}{(1 - R^2_{neobmedzená})/ (n-k_{neobmedzená}-1)}.
 \end{equation}
 Ak sú zvyšky homoskedastické, potom rozdiel medzi F-štatistikou pre homoskedasticitu, vyrátanú poslednými dvoma uvedenými vzorcami, a robustnou F-štatistikou mizne, ako veľkosť vzorky $n$ narastá. Takže, ak sú zvyšky homoskedastické, výberové rozdelenie F-štatistiky pre homoskedasticitu v súlade s nulovou hypotézou, je vo veľkých vzorkách $F_{q,\infty}$ [1, s. 256]. 
+
 \begin{figure}[!ht] 
     \centering 
-    \includegraphics[scale = 0.5]{diplomka obrazky/15.png} 
+    \includegraphics[scale = 0.45]{diplomka obrazky/15.png} 
     \caption{Neobmedzený, obmedzený a iba-priesečník model.} 
     \source{Zdroj: Prevzaté z [8].} 
 \end{figure} 
 
 \newpage
+
 \section{Špecifikácia modelu viacnásobnej regresie}
 
 Pri odhadovaní kauzálneho efektu potrebujeme určiť, ktoré premenné bude vhodné zahrnúť do modelu. To predstavuje problém výberu špecifikácie regresie. Dôležité je sa taktiež spoľahnúť na vlastnú expertízu a podľa toho voliť premenné, aby sme sa dokázali vyhnúť odchýlke opomenutej premennej. Nie je vhodné sa spoliehať čisto na štatistické ukazovatele, ako napríklad determinačný koeficient.
@@ -798,6 +806,12 @@ Cieľom práce bolo splnenie troch cieľov. Prvým bolo spracovanie prehľadu o 
 \addcontentsline{toc}{section}{Zoznam použitej literatúry}
 \section*{Zoznam použitej literatúry}
 
+\begin{enumerate}[label={[\arabic*]}]
+  \item  STOCK, H. J., WATSON, M.. Introduction to Econometrics. 4. vyd. Pearson. 2018.
+  \item Second item
+  \item \ldots
+  \item Last item
+\end{enumerate}
 
 
 \include{prilohy}
